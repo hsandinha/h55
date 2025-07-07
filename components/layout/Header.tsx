@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Header = () => {
@@ -9,11 +10,15 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm py-3 transition-all">
       <nav className="container mx-auto flex justify-between items-center px-4 md:px-8">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-2xl font-extrabold tracking-tight text-h55-blue font-serif"
-        >
-          H55 <span className="text-h55-gold">Negocios Imobiliários</span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/h55.png"
+            alt="H55 Negócios Imobiliários"
+            width={100}
+            height={100}
+            priority
+            className="rounded md:w-[80px] md:h-[50px]" // maior no desktop
+          />
         </Link>
 
         {/* Menu Desktop */}
