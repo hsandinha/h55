@@ -17,7 +17,7 @@ const Header = () => {
             width={100}
             height={100}
             priority
-            className="rounded md:w-[80px] md:h-[50px]" // maior no desktop
+            className="rounded md:w-[50px] md:h-[40px]" // maior no desktop
           />
         </Link>
 
