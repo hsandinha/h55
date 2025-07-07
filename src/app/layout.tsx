@@ -29,7 +29,7 @@ export default function RootLayout({
     >
       <body>
         <Header />
-        <main className="min-h-screen">
+        <main className="min-h-screen pt-16">
           {" "}
           {/* Adicionei min-h-screen para empurrar o footer para baixo */}
           {children}

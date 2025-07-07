@@ -42,11 +42,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="mb-6"
-        >
-          <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium border border-white/20">
-            🏠 Buyer&apos;s Agent Especializado
-          </span>
-        </motion.div>
+        ></motion.div>
 
         {/* Título em duas linhas */}
         <motion.h1

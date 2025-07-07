@@ -14,10 +14,10 @@ const Header = () => {
           <Image
             src="/images/h55.png"
             alt="H55 Negócios Imobiliários"
-            width={100}
-            height={100}
+            width={60}
+            height={40}
             priority
-            className="rounded md:w-[50px] md:h-[40px]" // maior no desktop
+            className="rounded md:w-[50px] md:h-[50px]" // maior no desktop
           />
         </Link>
 
