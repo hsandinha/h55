@@ -1,4 +1,3 @@
-// components/sections/NichesSection.tsx
 "use client";
 import React from "react";
 import Link from "next/link";
@@ -63,28 +62,30 @@ export const NichesSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
           {niches.map((niche, index) => (
             <motion.div
               key={niche.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group"
+              className="group h-full"
             >
               <Link
                 href={`/servicos/${niche.id}`}
-                className="block relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                className="block relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-full"
               >
                 {/* Gradiente de fundo */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${niche.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                 ></div>
 
-                <div className="relative p-8 text-center">
-                  {/* Ícone */}
-                  <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                    {niche.icon}
+                <div className="relative p-8 text-center flex flex-col h-full">
+                  {/* Ícone padronizado */}
+                  <div className="flex justify-center mb-6">
+                    <span className="inline-flex items-center justify-center w-16 h-16 text-6xl leading-none">
+                      {niche.icon}
+                    </span>
                   </div>
 
                   {/* Título */}
@@ -93,12 +94,12 @@ export const NichesSection = () => {
                   </h3>
 
                   {/* Descrição */}
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-600 leading-relaxed mb-6 flex-1">
                     {niche.description}
                   </p>
 
                   {/* Call to action */}
-                  <div className="inline-flex items-center text-h55-blue font-semibold group-hover:text-h55-gold transition-colors">
+                  <div className="inline-flex items-center text-h55-blue font-semibold group-hover:text-h55-gold transition-colors mt-auto">
                     Saiba mais
                     <svg
                       className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
