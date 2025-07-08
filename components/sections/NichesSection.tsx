@@ -14,7 +14,7 @@ const niches = [
   },
   {
     id: "imovel-investimento",
-    title: "Imóvel para Investimento",
+    title: "Investimentos",
     description:
       "Análise de rentabilidade, localização estratégica e potencial de valorização para investidores.",
     icon: "📊",
@@ -40,14 +40,16 @@ const niches = [
 
 export const NichesSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      {/* Fundo absoluto, atrás de tudo */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 z-0"></div>
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-slate-800 mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
             Especialistas em Todos os Tipos de Compra Imobiliária
           </motion.h2>
@@ -55,7 +57,7 @@ export const NichesSection = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-white max-w-3xl mx-auto"
           >
             Como Buyer&apos;s Agent, representamos exclusivamente seus
             interesses em qualquer categoria de imóvel

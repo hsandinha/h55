@@ -24,15 +24,12 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background com gradiente moderno */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
-
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Padrão geométrico sutil */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-72 h-72 bg-amber-100 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
       </div>
 
       {/* Conteúdo principal */}
@@ -51,10 +48,10 @@ export const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mb-2"
         >
-          <span className="block text-4xl md:text-6xl font-bold text-white leading-tight">
+          <span className="block text-4xl md:text-6xl font-bold text-gray-700 leading-tight">
             Sua Compra Imobiliária
           </span>
-          <span className="block text-xl md:text-2xl font-semibold text-amber-400 mt-2 tracking-wide">
+          <span className="block text-xl md:text-2xl font-semibold text-amber-500 mt-2 tracking-wide">
             Nossa Exclusividade
           </span>
         </motion.h1>
@@ -64,7 +61,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
           Compartilhe seu objetivo ou sonho conosco. Vamos apresentar a solução
           ideal e conduzir todo o processo com transparência e segurança,
@@ -84,12 +81,12 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300"
+              className="bg-gray-100 rounded-xl p-6 border border-gray-200 hover:bg-gray-200 transition-all duration-300"
             >
-              <h3 className="text-lg font-semibold text-white mb-2">
+              <h3 className="text-lg font-semibold text-gray-700 mb-2">
                 {benefit.title}
               </h3>
-              <p className="text-white/70 text-sm">{benefit.description}</p>
+              <p className="text-gray-500 text-sm">{benefit.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -103,7 +100,7 @@ export const HeroSection = () => {
         >
           <Link
             href="/servicos"
-            className="group relative px-8 py-4 bg-white text-slate-900 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="group relative px-8 py-4 bg-amber-500 text-white rounded-xl font-semibold hover:bg-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             <span className="relative z-10">Como Funciona</span>
             <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
@@ -111,7 +108,7 @@ export const HeroSection = () => {
 
           <Link
             href="/contato"
-            className="px-8 py-4 border-2 border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+            className="px-8 py-4 border-2 border-amber-500 text-amber-500 rounded-xl font-semibold hover:bg-amber-50 hover:border-amber-600 transition-all duration-300"
           >
             Fale com um Buyer&apos;s Agent
           </Link>
@@ -125,26 +122,18 @@ export const HeroSection = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
         >
           <div className="text-center">
-            <div className="text-2xl font-bold text-white mb-1">100%</div>
-            <div className="text-white/70 text-sm">Do seu lado</div>
+            <div className="text-2xl font-bold text-amber-500 mb-1">100%</div>
+            <div className="text-gray-700 text-sm">Do seu lado</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-white mb-1">0</div>
-            <div className="text-white/70 text-sm">Conflito de interesses</div>
+            <div className="text-2xl font-bold text-amber-500 mb-1">0</div>
+            <div className="text-gray-700 text-sm">Conflito de interesses</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-white mb-1">24/7</div>
-            <div className="text-white/70 text-sm">Suporte especializado</div>
+            <div className="text-2xl font-bold text-amber-500 mb-1">24/7</div>
+            <div className="text-gray-700 text-sm">Suporte especializado</div>
           </div>
         </motion.div>
-
-        {/* Indicador de scroll */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        ></motion.div>
       </div>
     </section>
   );
