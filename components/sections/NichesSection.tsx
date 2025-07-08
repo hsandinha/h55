@@ -51,7 +51,7 @@ export const NichesSection = () => {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
-            Especialistas em Todos os Tipos de Compra Imobiliária
+            Não é sobre vender imoveis, é sobre assessorar você!
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -59,8 +59,7 @@ export const NichesSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-xl text-white max-w-3xl mx-auto"
           >
-            Como Buyer&apos;s Agent, representamos exclusivamente seus
-            interesses em qualquer categoria de imóvel
+            Representamos, exclusivamente, o seus interesses.
           </motion.p>
         </div>
 

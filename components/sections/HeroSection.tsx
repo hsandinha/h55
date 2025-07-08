@@ -49,10 +49,10 @@ export const HeroSection = () => {
           className="mb-2"
         >
           <span className="block text-4xl md:text-6xl font-bold text-gray-700 leading-tight">
-            Sua Compra Imobiliária
+            EXCLUSIVIDADE
           </span>
           <span className="block text-xl md:text-2xl font-semibold text-amber-500 mt-2 tracking-wide">
-            Nossa Exclusividade
+            Estamos apenas do seu lado
           </span>
         </motion.h1>
 
@@ -63,9 +63,8 @@ export const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg md:text-xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
-          Compartilhe seu objetivo ou sonho conosco. Vamos apresentar a solução
-          ideal e conduzir todo o processo com transparência e segurança,
-          garantindo o melhor negócio para você.
+          Compartilhe seu propósito conosco. Vamos conduzir todo o processo com
+          transparência e segurança, garantindo o melhor negócio para você.
         </motion.p>
 
         {/* Grid de benefícios */}
