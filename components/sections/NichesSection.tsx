@@ -104,7 +104,7 @@ export const NichesSection = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {niches.map((niche, index) => (
+          {niches.map((niche) => (
             <Tilt
               key={niche.id}
               tiltReverse

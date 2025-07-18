@@ -18,8 +18,10 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./", // Base explícita no root do projeto
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"], // Mantido, aponta pro root (ex: @/components/ -> root/components/)
+      "@/components/*": ["./components/*"] // Extra pra components, pra evitar confusões
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
