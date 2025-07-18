@@ -5,8 +5,8 @@ import { NichesSection } from "@/components/sections/NichesSection"; // E este t
 export default function Home() {
   return (
     <>
-      <NichesSection />
       <HeroSection />
+      <NichesSection />
 
       {/* Outras seções da Home Page virão aqui */}
     </>

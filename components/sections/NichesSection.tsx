@@ -2,144 +2,158 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Tilt from "react-parallax-tilt"; // Pra o efeito 3D nos cards
+import Particles from "react-tsparticles"; // Adicionado pra partículas
+import { loadSlim } from "tsparticles-slim"; // Loader slim pra performance
+import { Engine } from "tsparticles-engine"; // Tipo pra init
 
 const niches = [
+  // Mantidos com imagens e stats
   {
     id: "primeira-casa",
     title: "Primeira Casa",
-    description:
-      "Orientação completa para quem está comprando o primeiro imóvel, desde financiamento até documentação.",
-    icon: "🏠",
-    color: "from-blue-500 to-blue-600",
+    description: "Orientação completa para o seu primeiro lar.",
+    image: "/images/primeira-casa.jpg",
+    stat: "+300 famílias realizadas",
+    color: "amber",
   },
   {
     id: "imovel-investimento",
     title: "Investimentos",
-    description:
-      "Análise de rentabilidade, localização estratégica e potencial de valorização para investidores.",
-    icon: "📊",
-    color: "from-green-500 to-green-600",
+    description: "Maximize retornos com análises expert.",
+    image: "/images/investimentos.jpg",
+    stat: "ROI médio de 18%",
+    color: "green",
   },
   {
     id: "imovel-comercial",
     title: "Imóvel Comercial",
-    description:
-      "Escritórios, lojas e galpões com foco em localização, fluxo e retorno sobre investimento.",
-    icon: "🏢",
-    color: "from-purple-500 to-purple-600",
+    description: "Espaços otimizados para negócios.",
+    image: "/images/comercial.jpg",
+    stat: "+100 espaços negociados",
+    color: "purple",
   },
   {
     id: "imovel-luxo",
-    title: "Imóveis de Alto Padrão",
-    description:
-      "Casas e apartamentos de luxo com análise criteriosa de exclusividade e diferenciação.",
-    icon: "💎",
-    color: "from-amber-500 to-amber-600",
+    title: "Imóveis de Luxo",
+    description: "Exclusividade e sofisticação.",
+    image: "/images/luxo.jpg",
+    stat: "Imoveis e lotes de Alto Padrão",
+    color: "blue",
   },
 ];
 
 export const NichesSection = () => {
+  // Função pra inicializar o engine de partículas
+  const particlesInit = async (engine: Engine) => {
+    await loadSlim(engine);
+  };
+
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      {/* Fundo absoluto, atrás de tudo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 z-0"></div>
+    <section className="py-20 relative overflow-hidden">
+      {/* Partículas adicionadas: Fundo animado sutil */}
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={{
+          background: { color: { value: "transparent" } }, // Transparente pra não cobrir o gradiente
+          fpsLimit: 120,
+          interactivity: {
+            events: { onHover: { enable: true, mode: "repulse" } }, // Interativo: partículas se afastam do mouse
+            modes: { repulse: { distance: 100, duration: 0.4 } },
+          },
+          particles: {
+            color: { value: ["#ffffff", "#fbbf24"] }, // Branco e amber pra combinar com o tema
+            links: {
+              color: "#ffffff",
+              distance: 150,
+              enable: true,
+              opacity: 0.3,
+              width: 1,
+            }, // Linhas conectando partículas pra efeito rede
+            move: {
+              direction: "none",
+              enable: true,
+              outModes: { default: "bounce" },
+              random: false,
+              speed: 1, // Lento pra sutileza
+              straight: false,
+            },
+            number: { density: { enable: true, area: 800 }, value: 50 }, // Densidade baixa pra não poluir
+            opacity: { value: 0.3 },
+            shape: { type: "circle" },
+            size: { value: { min: 1, max: 3 } },
+          },
+          detectRetina: true,
+        }}
+        className="absolute inset-0 z-0" // Z-index baixo, atrás de tudo
+      />
+
+      {/* Fundo gradiente (mantido, partículas ficam por cima dele) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-blue-900 z-0"></div>
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-          >
-            Não é sobre vender imoveis, é sobre assessorar você!
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-white max-w-3xl mx-auto"
-          >
-            Representamos, exclusivamente, o seus interesses.
-          </motion.p>
-        </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-5xl font-bold text-white text-center mb-16"
+        >
+          Assessoria Personalizada para{" "}
+          <span className="text-amber-400">Seu Sucesso Imobiliário</span>
+        </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {niches.map((niche, index) => (
-            <motion.div
+            <Tilt
               key={niche.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group h-full"
+              tiltReverse
+              perspective={500}
+              className="group relative rounded-2xl overflow-hidden shadow-2xl"
             >
-              <Link
-                href={`/servicos/${niche.id}`}
-                className="block relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-full"
-              >
-                {/* Gradiente de fundo */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${niche.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                ></div>
-
-                <div className="relative p-8 text-center flex flex-col h-full">
-                  {/* Ícone padronizado */}
-                  <div className="flex justify-center mb-6">
-                    <span className="inline-flex items-center justify-center w-16 h-16 text-6xl leading-none">
-                      {niche.icon}
-                    </span>
-                  </div>
-
-                  {/* Título */}
-                  <h3 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-h55-blue transition-colors">
-                    {niche.title}
-                  </h3>
-
-                  {/* Descrição */}
-                  <p className="text-gray-600 leading-relaxed mb-6 flex-1">
-                    {niche.description}
-                  </p>
-
-                  {/* Call to action */}
-                  <div className="inline-flex items-center text-h55-blue font-semibold group-hover:text-h55-gold transition-colors mt-auto">
-                    Saiba mais
-                    <svg
-                      className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
+              {" "}
+              {/* Tilt 3D pra inovação */}
+              <Image
+                src={niche.image}
+                alt={niche.title}
+                fill
+                className="object-cover brightness-75 group-hover:brightness-100 transition-all"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />{" "}
+              {/* Overlay pros cards se destacarem */}
+              <div className="relative p-6 text-white flex flex-col h-full justify-end">
+                <h3 className="text-2xl font-bold mb-2">{niche.title}</h3>
+                <p className="mb-4">{niche.description}</p>
+                <p className="text-amber-400 font-semibold">{niche.stat}</p>
+                <Link
+                  href={`/servicos/${niche.id}`}
+                  className="mt-4 inline-block text-white font-bold hover:text-amber-400 transition-colors"
+                >
+                  Explore Agora →
+                </Link>
+              </div>
+            </Tilt>
           ))}
         </div>
 
-        {/* Call to Action adicional */}
+        {/* CTA adicional */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-16"
         >
-          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">
               Não encontrou seu tipo de imóvel?
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-300 mb-6">
               Atendemos qualquer necessidade imobiliária. Fale conosco e
               descubra como podemos te ajudar.
             </p>
             <Link
               href="/contato"
-              className="inline-block px-8 py-3 bg-h55-blue text-gray-700 rounded-full font-semibold hover:bg-h55-gold transition-colors shadow-lg hover:shadow-xl"
+              className="inline-block px-8 py-3 bg-amber-500 text-white rounded-full font-semibold hover:bg-amber-600 transition-colors shadow-lg hover:shadow-amber-500/50"
             >
               Fale com um Especialista
             </Link>
