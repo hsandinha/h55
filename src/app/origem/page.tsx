@@ -83,11 +83,11 @@ const OriginPage = () => {
           transition={{ duration: 0.8 }}
           className="text-center text-2xl md:text-3xl font-serif text-gray-800 my-16 italic"
         >
-          "Afinal, não vendemos imóveis.{" "}
+          &quot;Afinal, não vendemos imóveis.{" "}
           <span className="text-h55-gold not-italic font-semibold">
             Representamos pessoas.
           </span>
-          "
+          &quot;
         </motion.blockquote>
 
         {/* CTA Final */}

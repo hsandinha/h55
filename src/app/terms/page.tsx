@@ -119,13 +119,13 @@ const TermsOfUsePage = () => {
               4. Isenção de Responsabilidade
             </h2>
             <p>
-              As informações contidas neste site são fornecidas "no estado em
-              que se encontram" e têm caráter meramente informativo. Embora nos
-              esforcemos para manter as informações precisas e atualizadas, não
-              oferecemos garantias de qualquer tipo sobre sua exatidão,
-              integridade ou adequação a um propósito específico. Não nos
-              responsabilizamos por quaisquer perdas ou danos decorrentes do uso
-              ou da confiança nas informações aqui apresentadas.
+              As informações contidas neste site são fornecidas &quot;no estado
+              em que se encontram&quot; e têm caráter meramente informativo.
+              Embora nos esforcemos para manter as informações precisas e
+              atualizadas, não oferecemos garantias de qualquer tipo sobre sua
+              exatidão, integridade ou adequação a um propósito específico. Não
+              nos responsabilizamos por quaisquer perdas ou danos decorrentes do
+              uso ou da confiança nas informações aqui apresentadas.
             </p>
           </motion.div>
 
