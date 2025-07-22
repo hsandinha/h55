@@ -152,7 +152,7 @@ export const NichesSection = () => {
               descubra como podemos te ajudar.
             </p>
             <Link
-              href="/contato"
+              href="/contact"
               className="inline-block px-8 py-3 bg-amber-500 text-white rounded-full font-semibold hover:bg-amber-600 transition-colors shadow-lg hover:shadow-amber-500/50"
             >
               Fale com um Especialista

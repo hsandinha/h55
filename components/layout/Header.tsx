@@ -41,18 +41,10 @@ const Header = () => {
           </li>
           <li>
             <Link
-              href="/insights"
+              href="/origem"
               className="text-gray-700 hover:text-h55-gold transition-colors font-medium"
             >
-              Insights
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="text-gray-700 hover:text-h55-gold transition-colors font-medium"
-            >
-              Contato
+              Nossa Origem
             </Link>
           </li>
           <li>

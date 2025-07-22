@@ -116,7 +116,7 @@ export const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
         >
           <Link
-            href="/servicos"
+            href="/services"
             className="group relative px-8 py-4 bg-amber-500 text-white rounded-xl font-semibold hover:bg-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             <span className="relative z-10">Como Funciona</span>
@@ -124,10 +124,10 @@ export const HeroSection = () => {
           </Link>
 
           <Link
-            href="/contato"
+            href="/contact"
             className="px-8 py-4 border-2 border-amber-500 text-amber-500 rounded-xl font-semibold hover:bg-amber-50 hover:border-amber-600 transition-all duration-300"
           >
-            Fale com um Buyer&apos;s Agent
+            Fale com um Especialista
           </Link>
         </motion.div>
 

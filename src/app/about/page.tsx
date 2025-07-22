@@ -54,7 +54,7 @@ const AboutPage = () => {
           Somos uma consultoria imobiliária especializada em representar
           exclusivamente o comprador. Atuamos como{" "}
           <span className="font-semibold text-h55-gold">
-            Buyer&apos;s Agent
+            Concierge Imobiliário
           </span>
           , trazendo para o Brasil um conceito inovador, transparente e focado
           em você.
@@ -90,10 +90,10 @@ const AboutPage = () => {
             </h2>
             <p className="text-gray-700">
               No modelo tradicional, o mesmo corretor pode atender vendedor e
-              comprador, gerando dúvidas e insegurança. Como Buyer&apos;s Agent,
-              nosso compromisso é exclusivamente com você. Analisamos, buscamos,
-              negociamos e acompanhamos cada etapa, sempre defendendo seus
-              interesses.
+              comprador, gerando dúvidas e insegurança. Como Concierge
+              Imobiliário, nosso compromisso é exclusivamente com você.
+              Analisamos, buscamos, negociamos e acompanhamos cada etapa, sempre
+              defendendo seus interesses.
             </p>
           </motion.div>
         </div>

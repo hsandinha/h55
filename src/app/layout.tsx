@@ -26,6 +26,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       className={`${inter.variable} ${playfairDisplay.variable}`}
+      data-kantu="1"
     >
       <body>
         <Header />
