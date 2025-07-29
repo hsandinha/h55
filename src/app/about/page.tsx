@@ -371,7 +371,7 @@ const AboutPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contato"
-              className="inline-block px-8 py-3 bg-h55-blue text-gray-700 rounded-full font-semibold hover:bg-h55-gold hover:text-h55-blue transition-colors shadow-lg hover:shadow-h55-gold/50"
+              className="inline-block px-8 py-3 bg-h55-gold text-h55-blue rounded-full font-semibold hover:bg-h55-blue hover:text-white transition-colors shadow-lg hover:shadow-h55-blue/50"
             >
               Fale com um Especialista
             </Link>
