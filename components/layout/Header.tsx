@@ -102,16 +102,6 @@ const Header = () => {
                   Serviços
                 </Link>
               </li>
-
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-700 hover:text-h55-gold transition-colors font-medium"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Contato
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/contact"
