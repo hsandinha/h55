@@ -145,11 +145,11 @@ const AboutPage = () => {
           transition={{ duration: 0.8 }}
           className="text-center text-2xl md:text-3xl font-serif text-gray-800 mb-16 italic"
         >
-          "Afinal, não vendemos imóveis.{" "}
+          &ldquo;Afinal, não vendemos imóveis.{" "}
           <span className="text-h55-gold not-italic font-semibold">
             Representamos pessoas.
           </span>
-          "
+          &rdquo;
         </motion.blockquote>
 
         <motion.div
@@ -308,8 +308,9 @@ const AboutPage = () => {
             className="text-center mt-8"
           >
             <p className="text-gray-600 italic text-lg">
-              "No mercado imobiliário, a estratégia financeira certa faz toda a
-              diferença entre um bom negócio e um negócio excepcional."
+              &ldquo;No mercado imobiliário, a estratégia financeira certa faz
+              toda a diferença entre um bom negócio e um negócio
+              excepcional.&rdquo;
             </p>
           </motion.div>
         </motion.div>
