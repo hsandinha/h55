@@ -27,8 +27,8 @@ const niches = [
     color: "green",
   },
   {
-    id: "compra-descomplicada",
-    title: "Compra Descomplicada",
+    id: "compra-Segura",
+    title: "Compra Segura",
     description: "Processo simplificado e seguro",
     image: "/images/hero-background.webp", // Usando imagem padrão
     stat: "Processo seguro",
