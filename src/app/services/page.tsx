@@ -91,11 +91,11 @@ const ServicesPage = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto text-center"
         >
-          Atuamos como{" "}
+          Atuamos como
           <span className="font-semibold text-h55-gold">
-            Buyer&apos;s Agent
+            Concierge Imobiliário
           </span>
-          , representando exclusivamente o comprador em todas as etapas do
+          , representando exclusivamente o nosso cliente em todas as etapas do
           processo imobiliário. Conheça como podemos ajudar você a conquistar o
           imóvel ideal com segurança, transparência e tranquilidade:
         </motion.p>

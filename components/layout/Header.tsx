@@ -41,14 +41,6 @@ const Header = () => {
           </li>
           <li>
             <Link
-              href="/origem"
-              className="text-gray-700 hover:text-h55-gold transition-colors font-medium"
-            >
-              Nossa Origem
-            </Link>
-          </li>
-          <li>
-            <Link
               href="/contact"
               className="ml-4 px-5 py-2 rounded-full bg-h55-gold text-gray-700 font-semibold shadow hover:bg-h55-blue hover:text-h55-gold transition-colors"
             >
@@ -110,15 +102,7 @@ const Header = () => {
                   Serviços
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/insights"
-                  className="text-gray-700 hover:text-h55-gold transition-colors font-medium"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Insights
-                </Link>
-              </li>
+
               <li>
                 <Link
                   href="/contact"

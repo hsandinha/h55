@@ -7,22 +7,38 @@ import CountUp from "react-countup"; // npm i react-countup pra contadores anima
 
 export const HeroSection = () => {
   const benefits = [
-    // Mantive os mesmos, mas se quiser, a gente expande com mais detalhes ou ícones
+    // Conteúdo dos niches trazido do NichesSection
     {
-      title: "Compre com Confiança",
-      description: "Representação exclusiva do comprador",
+      id: "primeira-casa",
+      title: "Primeira Casa",
+      description: "Orientação completa para o seu primeiro lar.",
+      image: "/images/primeira-casa.jpg",
+      stat: "+300 famílias realizadas",
+      color: "amber",
     },
     {
-      title: "O Poder de Comprar Certo",
-      description: "Expertise e negociação estratégica",
+      id: "imovel-investimento",
+      title: "Investimentos",
+      description: "Maximize retornos com análises expert.",
+      image: "/images/investimentos.jpg",
+      stat: "ROI médio de 18%",
+      color: "green",
     },
     {
-      title: "Compra Descomplicada",
-      description: "Processo simplificado e seguro",
+      id: "imovel-comercial",
+      title: "Imóvel Comercial",
+      description: "Espaços otimizados para negócios.",
+      image: "/images/comercial.jpg",
+      stat: "+100 espaços negociados",
+      color: "purple",
     },
     {
-      title: "Seu Agente Exclusivo",
-      description: "100% focado nos seus interesses",
+      id: "imovel-luxo",
+      title: "Imóveis de Luxo",
+      description: "Exclusividade e sofisticação.",
+      image: "/images/luxo.jpg",
+      stat: "Imoveis e lotes de Alto Padrão",
+      color: "blue",
     },
   ];
 

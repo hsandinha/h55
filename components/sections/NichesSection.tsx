@@ -9,37 +9,37 @@ import { loadSlim } from "tsparticles-slim"; // Loader slim pra performance
 import { Engine } from "tsparticles-engine"; // Tipo pra init
 
 const niches = [
-  // Mantidos com imagens e stats
+  // Conteúdo dos benefits trazido do HeroSection
   {
-    id: "primeira-casa",
-    title: "Primeira Casa",
-    description: "Orientação completa para o seu primeiro lar.",
-    image: "/images/primeira-casa.jpg",
-    stat: "+300 famílias realizadas",
+    id: "compre-com-confianca",
+    title: "Compre com Confiança",
+    description: "Representação exclusiva do nosso cliente",
+    image: "/images/hero-background.webp", // Usando imagem padrão
+    stat: "100% focado em você",
     color: "amber",
   },
   {
-    id: "imovel-investimento",
-    title: "Investimentos",
-    description: "Maximize retornos com análises expert.",
-    image: "/images/investimentos.jpg",
-    stat: "ROI médio de 18%",
+    id: "poder-de-comprar-certo",
+    title: "O Poder de Comprar Certo",
+    description: "Expertise e negociação estratégica",
+    image: "/images/hero-background.webp", // Usando imagem padrão
+    stat: "Negociação especializada",
     color: "green",
   },
   {
-    id: "imovel-comercial",
-    title: "Imóvel Comercial",
-    description: "Espaços otimizados para negócios.",
-    image: "/images/comercial.jpg",
-    stat: "+100 espaços negociados",
+    id: "compra-descomplicada",
+    title: "Compra Descomplicada",
+    description: "Processo simplificado e seguro",
+    image: "/images/hero-background.webp", // Usando imagem padrão
+    stat: "Processo seguro",
     color: "purple",
   },
   {
-    id: "imovel-luxo",
-    title: "Imóveis de Luxo",
-    description: "Exclusividade e sofisticação.",
-    image: "/images/luxo.jpg",
-    stat: "Imoveis e lotes de Alto Padrão",
+    id: "agente-exclusivo",
+    title: "Seu Agente Exclusivo",
+    description: "100% focado nos seus interesses",
+    image: "/images/hero-background.webp", // Usando imagem padrão
+    stat: "Atendimento personalizado",
     color: "blue",
   },
 ];
