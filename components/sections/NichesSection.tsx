@@ -1,162 +1,158 @@
 "use client";
+
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Tilt from "react-parallax-tilt"; // Pra o efeito 3D nos cards
-import Particles from "react-tsparticles"; // Adicionado pra partículas
-import { loadSlim } from "tsparticles-slim"; // Loader slim pra performance
-import { Engine } from "tsparticles-engine"; // Tipo pra init
+import Tilt from "react-parallax-tilt";
+import { LuArrowRight, LuKey, LuLock, LuShieldCheck, LuTarget } from "react-icons/lu";
 
-const niches = [
-  // Conteúdo dos benefits trazido do HeroSection
+const pilares = [
   {
-    id: "compre-com-confianca",
-    title: "Compre com Confiança",
-    description: "Representação exclusiva do nosso cliente",
-    image: "/images/hero-background.webp", // Usando imagem padrão
-    stat: "100% focado em você",
-    color: "amber",
+    icon: LuShieldCheck,
+    num: "01",
+    title: "Confiança desde a primeira leitura",
+    desc: "Representação exclusiva do seu interesse, com clareza sobre risco, preço e condição de compra.",
   },
   {
-    id: "poder-de-comprar-certo",
-    title: "O Poder de Comprar Certo",
-    description: "Expertise e negociação estratégica",
-    image: "/images/hero-background.webp", // Usando imagem padrão
-    stat: "Negociação especializada",
-    color: "green",
+    icon: LuTarget,
+    num: "02",
+    title: "Negociação com tese",
+    desc: "Cada proposta nasce de comparativos, timing de mercado e objetivo patrimonial definido.",
   },
   {
-    id: "compra-Segura",
-    title: "Compra Segura",
-    description: "Processo simplificado e seguro",
-    image: "/images/hero-background.webp", // Usando imagem padrão
-    stat: "Processo seguro",
-    color: "purple",
+    icon: LuLock,
+    num: "03",
+    title: "Processo protegido",
+    desc: "Documentação, fluxo de compra e etapas críticas acompanhadas com transparência.",
   },
   {
-    id: "agente-exclusivo",
-    title: "Seu Agente Exclusivo",
-    description: "100% focado nos seus interesses",
-    image: "/images/hero-background.webp", // Usando imagem padrão
-    stat: "Atendimento personalizado",
-    color: "blue",
+    icon: LuKey,
+    num: "04",
+    title: "Agente exclusivo",
+    desc: "Uma atuação sob medida para quem compra, investe ou reposiciona patrimônio.",
   },
 ];
 
 export const NichesSection = () => {
-  // Função pra inicializar o engine de partículas
-  const particlesInit = async (engine: Engine) => {
-    await loadSlim(engine);
-  };
-
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Partículas adicionadas: Fundo animado sutil */}
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={{
-          background: { color: { value: "transparent" } }, // Transparente pra não cobrir o gradiente
-          fpsLimit: 120,
-          interactivity: {
-            events: { onHover: { enable: true, mode: "repulse" } }, // Interativo: partículas se afastam do mouse
-            modes: { repulse: { distance: 100, duration: 0.4 } },
-          },
-          particles: {
-            color: { value: ["#ffffff", "#fbbf24"] }, // Branco e amber pra combinar com o tema
-            links: {
-              color: "#ffffff",
-              distance: 150,
-              enable: true,
-              opacity: 0.3,
-              width: 1,
-            }, // Linhas conectando partículas pra efeito rede
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: { default: "bounce" },
-              random: false,
-              speed: 1, // Lento pra sutileza
-              straight: false,
-            },
-            number: { density: { enable: true, area: 800 }, value: 50 }, // Densidade baixa pra não poluir
-            opacity: { value: 0.3 },
-            shape: { type: "circle" },
-            size: { value: { min: 1, max: 3 } },
-          },
-          detectRetina: true,
+    <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-32">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-70"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(10,37,64,0.35) 0%, rgba(6,18,31,1) 72%)",
         }}
-        className="absolute inset-0 z-0" // Z-index baixo, atrás de tudo
       />
 
-      {/* Fundo gradiente (mantido, partículas ficam por cima dele) */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-slate-900 to-blue-900 z-0"></div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
+      <div className="relative z-10 mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-5xl font-bold text-white text-center mb-16"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]"
         >
-          Assessoria Personalizada para{" "}
-          <span className="text-amber-400">Seu Sucesso Imobiliário</span>
-        </motion.h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {niches.map((niche) => (
-            <Tilt
-              key={niche.id}
-              tiltReverse
-              perspective={500}
-              className="group relative rounded-2xl overflow-hidden shadow-2xl"
+          <div>
+            <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
+              Por que a H55
+            </p>
+            <h2
+              className="mt-5 text-4xl font-semibold leading-[1.04] md:text-6xl"
+              style={{ fontFamily: "var(--font-playfair-display)" }}
             >
-              {" "}
-              {/* Tilt 3D pra inovação */}
-              <Image
-                src={niche.image}
-                alt={niche.title}
-                fill
-                className="object-cover brightness-75 group-hover:brightness-100 transition-all"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />{" "}
-              {/* Overlay pros cards se destacarem */}
-              <div className="relative p-6 text-white flex flex-col h-full justify-end">
-                <h3 className="text-2xl font-bold mb-2">{niche.title}</h3>
-                <p className="mb-4">{niche.description}</p>
-                <p className="text-amber-400 font-semibold">{niche.stat}</p>
-                <Link
-                  href={`/servicos/${niche.id}`}
-                  className="mt-4 inline-block text-white font-bold hover:text-amber-400 transition-colors"
+              Assessoria discreta, precisa e orientada a resultado.
+            </h2>
+          </div>
+          <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
+            O cliente não precisa disputar informação, tempo ou atenção. A H55
+            atua como mesa de curadoria, filtro e negociação para uma decisão
+            imobiliária mais limpa.
+          </p>
+        </motion.div>
+
+        <div className="mt-14 grid grid-cols-1 gap-px bg-[#b8860b]/22 sm:grid-cols-2 lg:grid-cols-4">
+          {pilares.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <Tilt
+                key={p.num}
+                tiltMaxAngleX={4}
+                tiltMaxAngleY={5}
+                glareEnable={false}
+                transitionSpeed={1400}
+                className="h-full bg-[#06121f] [transform-style:preserve-3d]"
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 26 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: i * 0.08 }}
+                  className="group relative flex min-h-[320px] flex-col justify-between bg-[#08203a]/70 p-7 transition duration-500 hover:bg-[#0a2540]"
                 >
-                  Explore Agora →
-                </Link>
-              </div>
-            </Tilt>
-          ))}
+                  <div className="flex items-center justify-between">
+                    <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#60748d]">
+                      {p.num}
+                    </span>
+                    <span className="flex h-10 w-10 items-center justify-center border border-[#b8860b]/45 text-[#d9ad45] [transform:translateZ(22px)]">
+                      <Icon size={18} />
+                    </span>
+                  </div>
+                  <div className="[transform:translateZ(18px)]">
+                    <h3
+                      className="text-2xl font-semibold leading-tight text-[#f4efe6]"
+                      style={{ fontFamily: "var(--font-playfair-display)" }}
+                    >
+                      {p.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-7 text-[#9fb0c4]">{p.desc}</p>
+                    <span className="mt-7 block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
+                  </div>
+                </motion.div>
+              </Tilt>
+            );
+          })}
         </div>
 
-        {/* CTA adicional */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mt-16 grid gap-8 border border-[#b8860b]/30 bg-[#030c17]/55 p-8 md:grid-cols-[1.05fr_0.95fr] md:p-10"
         >
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Não encontrou seu tipo de imóvel?
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Atendemos qualquer necessidade imobiliária. Fale conosco e
-              descubra como podemos te ajudar.
+          <div>
+            <p className="text-[0.64rem] uppercase tracking-[0.26em] text-[#caa64a]">
+              Próximo passo
             </p>
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-3 bg-amber-500 text-white rounded-full font-semibold hover:bg-amber-600 transition-colors shadow-lg hover:shadow-amber-500/50"
+            <h3
+              className="mt-4 text-3xl font-semibold leading-tight text-[#f4efe6] md:text-4xl"
+              style={{ fontFamily: "var(--font-playfair-display)" }}
             >
-              Fale com um Especialista
-            </Link>
+              Não encontrou o imóvel ideal?
+            </h3>
+          </div>
+          <div>
+            <p className="text-sm leading-7 text-[#b9c6d4] md:text-base">
+              Atendemos qualquer necessidade imobiliária. Fale com um
+              especialista e receba uma leitura objetiva das melhores
+              oportunidades para o seu perfil.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center border border-[#d8ad45] bg-[#d8ad45] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#191207] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0c85a]"
+              >
+                Falar com especialista
+              </Link>
+              <Link
+                href="/imoveis"
+                className="inline-flex items-center justify-center gap-3 border border-[#d8ad45]/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f7efe2] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10"
+              >
+                Ver portfólio
+                <LuArrowRight size={16} />
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>

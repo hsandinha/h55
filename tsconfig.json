@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,19 +15,30 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "baseUrl": "./", // Base explícita no root do projeto
     "paths": {
-      "@/*": ["./*"], // Mantido, aponta pro root (ex: @/components/ -> root/components/)
-      "@/components/*": ["./components/*"] // Extra pra components, pra evitar confusões
+      "@/*": [
+        "./*"
+      ], // Mantido, aponta pro root (ex: @/components/ -> root/components/)
+      "@/components/*": [
+        "./components/*"
+      ] // Extra pra components, pra evitar confusões
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

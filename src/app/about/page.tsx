@@ -117,7 +117,7 @@ const AboutPage = () => {
                   excelência um único investidor, detentor de uma robusta
                   carteira de imóveis e apetite para novas oportunidades em
                   equity e revenda de ativos prontos. Essa relação exclusiva nos
-                  ensinou que o mercado imobiliário carece de algo essencial —
+                  ensinou que o mercado imobiliário carece de algo essencial:
                   uma representação estratégica e personalizada, voltada apenas
                   aos interesses de quem compra e investe.
                 </p>

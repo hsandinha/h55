@@ -12,6 +12,34 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Paleta oficial H55 (gera utilities no Tailwind v4: bg-h55-navy, text-h55-gold, etc.) */
+@theme {
+  --color-h55-navy: #0a2540;
+  --color-h55-ink: #06121f;
+  --color-h55-gold: #b8860b;
+  --color-h55-amber: #fbbf24;
+  --color-h55-blue: #004aad;
+  --color-h55-cream: #f2ece0;
+}
+
+::selection {
+  background: #b8860b;
+  color: #06121f;
+}
+
+/* Utilitários editoriais reutilizáveis (vitrine de imóveis) */
+.font-display {
+  font-family: var(--font-playfair-display), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+.eyebrow {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
@@ -10,22 +11,32 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-white border-t border-gray-200 py-10 mt-auto">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex flex-col items-center md:items-start">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 tracking-tight">
+    <footer className="mt-auto border-t border-[#b8860b]/25 bg-[#030c17] py-12 text-[#f4efe6]">
+      <div className="container mx-auto flex flex-col gap-8 px-6 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col items-start">
+          <Image
+            src="/images/h55.png"
+            alt="H55 Negócios Imobiliários"
+            width={58}
+            height={42}
+            className="mb-5 h-auto w-14"
+          />
+          <h3
+            className="mb-2 text-2xl font-semibold tracking-tight"
+            style={{ fontFamily: "var(--font-playfair-display)" }}
+          >
             H55 Negócios Imobiliários
           </h3>
-          <p className="text-gray-500 text-sm">
-            &copy; {year ? year : ""} H55. Todos os direitos reservados.
+          <p className="text-sm text-[#9fb0c4]">
+            &copy; {year ? year : ""} H55. Curadoria imobiliária para investidores.
           </p>
         </div>
         <nav>
-          <ul className="flex space-x-6">
+          <ul className="flex flex-col gap-3 text-sm sm:flex-row sm:gap-6">
             <li>
               <Link
                 href="/privacy"
-                className="text-gray-500 hover:text-h55-blue transition-colors"
+                className="text-[#9fb0c4] transition-colors hover:text-[#d9ad45]"
               >
                 Política de Privacidade
               </Link>
@@ -33,7 +44,7 @@ const Footer = () => {
             <li>
               <Link
                 href="/terms"
-                className="text-gray-500 hover:text-h55-blue transition-colors"
+                className="text-[#9fb0c4] transition-colors hover:text-[#d9ad45]"
               >
                 Termos de Uso
               </Link>

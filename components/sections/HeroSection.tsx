@@ -1,187 +1,212 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import Image from "next/image"; // Adicionado pra otimizar a imagem de fundo e a logo
-import CountUp from "react-countup"; // npm i react-countup pra contadores animados nas stats
 
-export const HeroSection = () => {
-  const benefits = [
-    // Conteúdo dos niches trazido do NichesSection
-    {
-      id: "primeira-casa",
-      title: "Primeira Casa",
-      description: "Orientação completa para o seu primeiro lar.",
-      image: "/images/primeira-casa.jpg",
-      stat: "+300 famílias realizadas",
-      color: "amber",
-    },
-    {
-      id: "imovel-investimento",
-      title: "Investimentos",
-      description: "Maximize retornos com análises expert.",
-      image: "/images/investimentos.jpg",
-      stat: "ROI médio de 18%",
-      color: "green",
-    },
-    {
-      id: "imovel-comercial",
-      title: "Imóvel Comercial",
-      description: "Espaços otimizados para negócios.",
-      image: "/images/comercial.jpg",
-      stat: "+100 espaços negociados",
-      color: "purple",
-    },
-    {
-      id: "imovel-luxo",
-      title: "Imóveis de Luxo",
-      description: "Exclusividade e sofisticação.",
-      image: "/images/luxo.jpg",
-      stat: "Imoveis e lotes de Alto Padrão",
-      color: "blue",
-    },
-  ];
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { getHeroSlides, type HeroSlide } from "@/lib/hero";
+
+const HeroParticles = dynamic(
+  () => import("@/components/hero/HeroParticles").then((m) => m.HeroParticles),
+  { ssr: false },
+);
+
+// Foto padrão usada quando nenhum slide foi cadastrado no painel.
+const HERO_POSTER = "/images/hero-background.webp";
+
+function SlideLayer({ slide, active }: { slide: HeroSlide; active: boolean }) {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (active) v.play().catch(() => {});
+    else v.pause();
+  }, [active]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pb-20 md:pb-24">
-      {" "}
-      {/* pb- pra espaço antes do Niches */}
-      {/* Imagem de fundo impactante */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero-background.webp" // Substitua por uma imagem real (ex: casa dos sonhos)
-          alt="Casa moderna em localização premium"
-          fill
-          className="object-cover"
-          priority // Pra carregar rápido
+    <div
+      aria-hidden="true"
+      className={`absolute inset-0 transition-opacity duration-[1400ms] ease-in-out ${
+        active ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      {slide.tipo === "video" ? (
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={slide.poster}
+          src={slide.url}
+          className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black opacity-50" />{" "}
-        {/* Overlay pra contraste */}
-      </div>
-      {/* Padrão geométrico sutil (mantido, mas opcional com imagem) */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-72 h-72 bg-amber-100 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
-      </div>
-      {/* Conteúdo principal (com pt- pra margem do topo) */}
-      <div className="relative z-10 text-center px-0 max-w-7xl mx-auto pt-0 md:pt-0">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, type: "spring", delay: 0.1 }} // Animação impactante pra logo e título
-          className="mb-4"
-        >
-          {/* Logomarca adicionada: Impactante, centralizada acima do título */}
-          <Image
-            src="/images/h55.png" // Substitua pelo caminho real da sua logomarca (ex: .png ou .svg)
-            alt="Logomarca da Imobiliária"
-            width={192} // Largura base (ajuste pra seu tamanho ideal, ex: 192px = 12rem)
-            height={192} // Altura (mantenha proporcional)
-            className="mx-auto mb-0 w-24 md:w-32" // Responsivo: 8rem mobile, 12rem desktop
-            priority // Carrega rápido
-          />
-          <span className="block text-4xl md:text-6xl font-bold text-white leading-tight">
-            EXCLUSIVIDADE QUE MUDA TUDO
-          </span>
-          <span className="block text-xl md:text-2xl font-semibold text-amber-300 mt-2 tracking-wide">
-            A MELHOR ASSESSORIA PARA SEU SUCESSO NO MERCADO IMOBILIÁRIO
-          </span>
-        </motion.div>
+      ) : (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={slide.url} alt="" className="h-full w-full object-cover" />
+      )}
+    </div>
+  );
+}
 
-        {/* Subtítulo */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed"
-        >
-          Direcionamos compradores e investidores para as melhores oportunidades
-          imobiliárias, com foco exclusivo nos seus interesses, negociações
-          estratégicas e resultados que transformam sonhos em realidade.
-        </motion.p>
+export const HeroSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
 
-        {/* Grid de benefícios */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-6xl mx-auto"
-        >
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              className="bg-white/80 rounded-xl p-6 border border-gray-200 hover:bg-white hover:scale-105 transition-all duration-300"
+  const [slides, setSlides] = useState<HeroSlide[]>([{ tipo: "foto", url: HERO_POSTER }]);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const data = await getHeroSlides();
+      if (!cancelled && data.length > 0) setSlides(data);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (slides.length <= 1) return;
+    const id = window.setInterval(() => setActive((i) => (i + 1) % slides.length), 9000);
+    return () => window.clearInterval(id);
+  }, [slides.length]);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0a2540]"
+    >
+      {/* Fundo: vídeos/fotos cadastrados (carrossel) */}
+      <div className="absolute inset-0">
+        {slides.map((s, i) => (
+          <SlideLayer key={s.id || i} slide={s} active={i === active} />
+        ))}
+      </div>
+
+      {/* Overlay navy para leitura */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(3,12,23,0.88) 0%, rgba(6,18,31,0.72) 36%, rgba(6,18,31,0.26) 70%, rgba(6,18,31,0.46) 100%), linear-gradient(180deg, rgba(10,37,64,0.18) 0%, rgba(6,18,31,0.88) 100%)",
+        }}
+      />
+
+      {/* Rede animada (efeito que se move) */}
+      <div className="absolute inset-0 hidden opacity-20 md:block">
+        <HeroParticles />
+      </div>
+
+      {/* Conteúdo */}
+      <motion.div
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1320px] items-center px-6 py-24 md:px-10 lg:px-14"
+      >
+        <div className="w-full max-w-[680px] text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="mb-10 flex items-center gap-5"
+          >
+            <Image
+              src="/images/h55.png"
+              alt="H55 Negócios Imobiliários"
+              width={96}
+              height={64}
+              priority
+              className="h-auto w-14"
+            />
+            <span className="h-px w-16 bg-[#caa64a]/70 sm:w-20" />
+            <span className="hidden text-[0.64rem] uppercase tracking-[0.34em] text-[#d7b766] sm:inline">
+              H55 Negócios Imobiliários
+            </span>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.12 }}
+            className="mb-5 text-[0.68rem] uppercase tracking-[0.16em] text-[#caa64a] sm:tracking-[0.28em] md:text-xs"
+          >
+            Curadoria imobiliária para investidores
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.22 }}
+            className="text-4xl font-semibold leading-[0.95] text-[#f7efe2] sm:text-6xl md:text-7xl lg:text-8xl"
+            style={{ fontFamily: "var(--font-playfair-display)" }}
+          >
+            Exclusividade
+            <br />
+            que <span className="text-[#d9ad45]">muda tudo</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.34 }}
+            className="mt-8 max-w-xl border-l border-[#caa64a]/55 pl-5 text-base leading-8 text-[#f1eee7]/88 md:text-lg"
+          >
+            Direcionamos compradores e investidores às melhores oportunidades,
+            com foco exclusivo nos seus interesses, negociação estratégica e
+            resultados que transformam capital em patrimônio.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.46 }}
+            className="mt-10 flex flex-col gap-3 sm:flex-row"
+          >
+            <Link
+              href="/imoveis"
+              className="inline-flex items-center justify-center border border-[#d8ad45] bg-[#d8ad45] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#191207] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0c85a]"
             >
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                {benefit.title}
-              </h3>
-              <p className="text-gray-600 text-sm">{benefit.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+              Ver portfólio
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center border border-[#d8ad45]/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f7efe2] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10"
+            >
+              Falar com especialista
+            </Link>
+          </motion.div>
+        </div>
+      </motion.div>
 
-        {/* Botões de ação */}
+      {/* Indicador de scroll */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 1 }}
+        style={{ opacity: contentOpacity }}
+        className="absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
+      >
+        <span className="text-[11px] uppercase tracking-[0.25em] text-[#cfd8e3]">
+          Role para descobrir
+        </span>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          className="flex h-9 w-5 items-start justify-center rounded-full border border-white/40 pt-1.5"
         >
-          <Link
-            href="/services"
-            className="group relative px-8 py-4 bg-amber-500 text-white rounded-xl font-semibold hover:bg-amber-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          >
-            <span className="relative z-10">Como Funciona</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-          </Link>
-
-          <Link
-            href="/contact"
-            className="px-8 py-4 border-2 border-amber-500 text-amber-500 rounded-xl font-semibold hover:bg-amber-50 hover:border-amber-600 transition-all duration-300"
-          >
-            Fale com um Especialista
-          </Link>
+          <div className="h-1.5 w-1 rounded-full bg-[#e8b23a]" />
         </motion.div>
-
-        {/* Estatísticas */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
-        >
-          <div className="text-center">
-            <CountUp
-              end={100}
-              duration={2}
-              className="text-2xl font-bold text-amber-300 mb-1"
-              suffix="%"
-            />
-            <div className="text-gray-200 text-sm">Do seu lado</div>
-          </div>
-          <div className="text-center">
-            <CountUp
-              end={0}
-              duration={2}
-              className="text-2xl font-bold text-amber-300 mb-1"
-            />
-            <div className="text-gray-200 text-sm">Conflito de interesses</div>
-          </div>
-          <div className="text-center">
-            <CountUp
-              end={24}
-              duration={2}
-              className="text-2xl font-bold text-amber-300 mb-1"
-              suffix="/7"
-            />
-            <div className="text-gray-200 text-sm">Suporte especializado</div>
-          </div>
-        </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

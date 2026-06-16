@@ -5,6 +5,7 @@ import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { Engine } from "tsparticles-engine";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"; // Ícones para detalhes de contato
+import { createLead } from "@/lib/leads";
 
 const ContactPage = () => {
   // Hook de estado para gerenciar os dados do formulário
@@ -32,12 +33,20 @@ const ContactPage = () => {
   };
 
   // Função para lidar com o envio do formulário
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Aqui você adicionaria a lógica para enviar os dados para sua API ou serviço de e-mail
-    console.log("Dados do formulário enviados:", formData);
+    const result = await createLead({
+      nome: formData.name,
+      email: formData.email,
+      telefone: formData.phone,
+      mensagem: formData.message,
+      origem: "Site - Contato",
+    });
+    if (!result.ok) {
+      alert(result.error || "Não foi possível enviar sua mensagem agora.");
+      return;
+    }
     alert("Mensagem enviada com sucesso! Entraremos em contato em breve.");
-    // Limpar o formulário após o envio
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
