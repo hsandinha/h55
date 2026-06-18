@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getImovelById } from "@/lib/properties";
 import { ImovelDetailClient } from "@/components/property/ImovelDetailClient";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://h55negociosimob.com.br";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://h55negociosimob.com";
 
 export async function generateMetadata({
   params,
