@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { LuArrowUpRight } from "react-icons/lu";
-import { Loader } from "@googlemaps/js-api-loader";
+import { setOptions, importLibrary } from "@googlemaps/js-api-loader";
 import type { Imovel } from "@/types/imovel";
 
 const formatPriceCompact = (value: number) => {
@@ -31,18 +31,18 @@ export function PropertyMap({ imoveis }: { imoveis: Imovel[] }) {
   useEffect(() => {
     if (!mapRef.current || points.length === 0) return;
 
-    const loader = new Loader({
-      apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!,
-      version: "weekly",
+    setOptions({
+      key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!,
+      v: "weekly",
     });
 
     let map: google.maps.Map;
     let markers: google.maps.marker.AdvancedMarkerElement[] = [];
 
     (async () => {
-      const { Map } = await loader.importLibrary("maps") as google.maps.MapsLibrary;
-      const { LatLngBounds } = await loader.importLibrary("core") as google.maps.CoreLibrary;
-      const { AdvancedMarkerElement } = await loader.importLibrary("marker") as google.maps.MarkerLibrary;
+      const { Map } = await importLibrary("maps");
+      const { LatLngBounds } = await importLibrary("core");
+      const { AdvancedMarkerElement } = await importLibrary("marker");
 
       map = new Map(mapRef.current!, {
         mapId: "h55-map",
