@@ -337,6 +337,7 @@ export function ImovelForm({
   const owner: Partial<Proprietario> = initial?.proprietario ?? {};
 
   const [step, setStep] = useState(0);
+  const [geocoding, setGeocoding] = useState(false);
   const [form, setForm] = useState<FormState>({
     titulo: initial?.titulo ?? "",
     codigo: initial?.codigo ?? "",
@@ -700,6 +701,39 @@ export function ImovelForm({
                 value={form.lng ?? ""}
                 onChange={(e) => set("lng", num(e.target.value))}
               />
+            </Field>
+            <Field label=" ">
+              <button
+                type="button"
+                disabled={geocoding}
+                onClick={async () => {
+                  const { rua, numero, bairro, cidade, estado } = form.endereco;
+                  const q = [rua, numero, bairro, cidade, estado].filter(Boolean).join(", ");
+                  if (!q) return;
+                  setGeocoding(true);
+                  try {
+                    const res = await fetch(
+                      `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(q)}`,
+                      { headers: { "Accept-Language": "pt-BR" } }
+                    );
+                    const data = await res.json();
+                    if (data[0]) {
+                      set("lat", parseFloat(data[0].lat));
+                      set("lng", parseFloat(data[0].lon));
+                    } else {
+                      alert("Endereço não encontrado. Tente ser mais específico.");
+                    }
+                  } catch {
+                    alert("Erro ao buscar coordenadas.");
+                  } finally {
+                    setGeocoding(false);
+                  }
+                }}
+                className="flex h-10 w-full items-center justify-center gap-2 border border-[#b8860b]/40 bg-[#b8860b]/8 text-[0.72rem] font-semibold uppercase tracking-widest text-[#9a7b1e] transition hover:bg-[#b8860b]/15 disabled:opacity-50"
+              >
+                <LuMapPin size={13} />
+                {geocoding ? "Buscando..." : "Buscar coordenadas"}
+              </button>
             </Field>
           </div>
         </Section>
