@@ -118,6 +118,7 @@ export interface Imovel {
   titulo: string;
   descricao?: string;
   preco: number;
+  descontoPercent?: number;
   finalidade: "Comprar" | "Alugar";
   tipo: TipoImovel;
   emDestaque?: boolean;

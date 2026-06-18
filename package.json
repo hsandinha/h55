@@ -11,6 +11,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
     "framer-motion": "^11.0.0",
+    "jspdf": "^2.5.2",
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
@@ -19,7 +20,8 @@
     "react-parallax": "^3.5.2",
     "react-parallax-tilt": "^1.7.300",
     "react-tsparticles": "^2.12.2",
-    "tsparticles-slim": "^2.12.0"
+    "tsparticles-slim": "^2.12.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

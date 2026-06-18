@@ -16,6 +16,7 @@ const PUBLIC_SELECT = [
   "titulo",
   "descricao",
   "preco",
+  "descontoPercent",
   "finalidade",
   "tipo",
   "emDestaque",

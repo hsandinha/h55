@@ -139,6 +139,7 @@ type FormState = {
   status: "Ativo" | "Vendido" | "Inativo";
   finalidadeUso: "Residencial" | "Comercial";
   preco?: number;
+  descontoPercent?: number;
   descricao: string;
   emDestaque: boolean;
   exclusividade: boolean;
@@ -344,6 +345,7 @@ export function ImovelForm({
     status: initial?.status ?? "Ativo",
     finalidadeUso: initial?.finalidadeUso ?? "Residencial",
     preco: initial?.preco,
+    descontoPercent: initial?.descontoPercent,
     descricao: initial?.descricao ?? "",
     emDestaque: initial?.emDestaque ?? false,
     exclusividade: initial?.exclusividade ?? false,
@@ -526,6 +528,7 @@ export function ImovelForm({
       status: form.status,
       finalidadeUso: form.finalidadeUso,
       preco: form.preco ?? 0,
+      descontoPercent: form.descontoPercent,
       descricao: form.descricao || undefined,
       emDestaque: form.emDestaque,
       exclusividade: form.exclusividade,
@@ -775,6 +778,19 @@ export function ImovelForm({
               className={inputCls}
               value={formatCurrency(form.preco)}
               onChange={(e) => handleCurrencyChange(e.target.value, "preco")}
+            />
+          </Field>
+          <Field label="Desconto (%)">
+            <input
+              type="number"
+              inputMode="decimal"
+              min={0}
+              max={100}
+              step={0.1}
+              className={inputCls}
+              value={form.descontoPercent ?? ""}
+              onChange={(e) => set("descontoPercent", num(e.target.value))}
+              placeholder="Ex: 5"
             />
           </Field>
           <Field label="Condomínio">

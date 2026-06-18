@@ -191,9 +191,20 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
           <div className="mb-4 flex items-end justify-between gap-3">
             <div>
               <p className="text-[0.6rem] uppercase tracking-[0.28em] text-[#8a97a8]">Valor</p>
-              <p className="font-display mt-1 text-2xl font-bold leading-none text-[#0a2540]">
-                {formatPrice(imovel.preco)}
-              </p>
+              {typeof imovel.descontoPercent === "number" && imovel.descontoPercent > 0 ? (
+                <>
+                  <p className="mt-1 text-xs leading-none text-[#8a97a8] line-through">
+                    {formatPrice(imovel.preco)}
+                  </p>
+                  <p className="font-display text-2xl font-bold leading-none text-[#0a2540]">
+                    {formatPrice(Math.round(imovel.preco * (1 - imovel.descontoPercent / 100)))}
+                  </p>
+                </>
+              ) : (
+                <p className="font-display mt-1 text-2xl font-bold leading-none text-[#0a2540]">
+                  {formatPrice(imovel.preco)}
+                </p>
+              )}
             </div>
             {typeof imovel.valorizacao12m === "number" && (
               <p className="text-right text-[0.62rem] leading-tight text-[#52617a]">

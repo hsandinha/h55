@@ -333,11 +333,7 @@ export function ImovelDetailClient({ id }: { id: string }) {
               </div>
             )}
 
-            <div className="mt-12">
-              <p className="eyebrow text-[#9a7b1e]">Simulador de financiamento</p>
-              <span className="mt-3 mb-5 block h-px w-12 bg-[#b8860b]/50" />
-              <MortgageSimulator preco={imovel.preco} entradaSugerida={imovel.entradaMinima} />
-            </div>
+            {/* Simulador de financiamento temporariamente oculto */}
 
             {mapUrl && (
               <div className="mt-12">
@@ -364,7 +360,17 @@ export function ImovelDetailClient({ id }: { id: string }) {
             <div className="border border-[#b8860b]/20 bg-white">
               <div className="border-b border-[#b8860b]/15 bg-[#0a2540] p-6 text-[#f2ece0]">
                 <p className="text-[0.6rem] uppercase tracking-[0.28em] text-[#caa64a]">Valor</p>
-                <p className="font-display mt-1 text-3xl font-bold">{brl(imovel.preco)}</p>
+                {typeof imovel.descontoPercent === "number" && imovel.descontoPercent > 0 ? (
+                  <>
+                    <p className="mt-1 text-sm text-[#9fb0c4] line-through">{brl(imovel.preco)}</p>
+                    <p className="font-display text-3xl font-bold">
+                      {brl(Math.round(imovel.preco * (1 - imovel.descontoPercent / 100)))}
+                    </p>
+                    <p className="mt-1 text-xs text-[#caa64a]">{imovel.descontoPercent}% de desconto</p>
+                  </>
+                ) : (
+                  <p className="font-display mt-1 text-3xl font-bold">{brl(imovel.preco)}</p>
+                )}
                 {typeof imovel.entradaMinima === "number" && (
                   <p className="mt-1 text-xs text-[#9fb0c4]">
                     Entrada a partir de {brl(imovel.entradaMinima)}
