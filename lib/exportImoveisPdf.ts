@@ -14,7 +14,7 @@ const SLATE: RGB = [150, 168, 190];
 const MUTED: RGB = [110, 131, 156];
 
 const brl = (n?: number) =>
-  typeof n === "number"
+  n
     ? new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
@@ -63,6 +63,28 @@ function loadImageData(url?: string): Promise<ImgData | null> {
   });
 }
 
+function loadPngDataURL(src: string): Promise<string | null> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      try {
+        const c = document.createElement("canvas");
+        c.width = img.naturalWidth;
+        c.height = img.naturalHeight;
+        const ctx = c.getContext("2d");
+        if (!ctx) return resolve(null);
+        ctx.drawImage(img, 0, 0);
+        resolve(c.toDataURL("image/png"));
+      } catch {
+        resolve(null);
+      }
+    };
+    img.onerror = () => resolve(null);
+    img.src = src;
+  });
+}
+
 export async function exportImoveisPdf(imoveis: Imovel[]) {
   const doc = new jsPDF({ orientation: "landscape", unit: "pt", format: "a4" });
   const PW = doc.internal.pageSize.getWidth();
@@ -74,34 +96,39 @@ export async function exportImoveisPdf(imoveis: Imovel[]) {
 
   const dateStr = new Date().toLocaleDateString("pt-BR");
   const total = imoveis.reduce((s, im) => s + (im.preco || 0), 0);
+  const logoDataURL = await loadPngDataURL("/images/h55.png");
 
   // ---------- CAPA ----------
   fill(NAVY);
   doc.rect(0, 0, PW, PH, "F");
-  stroke(GOLD);
-  doc.setLineWidth(1.4);
-  doc.line(60, 92, 132, 92);
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(10);
-  color(GOLDL);
-  doc.text("CURADORIA IMOBILIARIA PARA INVESTIDORES", 60, 112);
-  doc.setFont("times", "bold");
-  doc.setFontSize(34);
-  color(CREAM);
-  doc.text("H55", 60, 160);
+
+  const logoSize = 170;
+  const logoX = (PW - logoSize) / 2;
+  const logoY = 68;
+  if (logoDataURL) {
+    doc.addImage(logoDataURL, "PNG", logoX, logoY, logoSize, logoSize);
+  }
+
   doc.setFont("times", "normal");
-  doc.setFontSize(54);
+  doc.setFontSize(46);
   color(CREAM);
-  doc.text("Portfólio de", 60, 300);
+  doc.text("Portfólio de", PW / 2, logoY + logoSize + 52, { align: "center" });
+  doc.setFontSize(54);
   color(GOLDL);
-  doc.text("Oportunidades", 60, 360);
+  doc.text("Oportunidades", PW / 2, logoY + logoSize + 52 + 60, { align: "center" });
+
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(13);
+  doc.setFontSize(12);
   color(SLATE);
-  doc.text(`${imoveis.length} ${imoveis.length === 1 ? "imóvel selecionado" : "imóveis selecionados"}  ·  ${dateStr}`, 60, 410);
+  doc.text(
+    `${imoveis.length} ${imoveis.length === 1 ? "imóvel selecionado" : "imóveis selecionados"}  ·  ${dateStr}`,
+    PW / 2,
+    PH - 68,
+    { align: "center" },
+  );
   doc.setFontSize(9);
   color(MUTED);
-  doc.text("H55 Negócios Imobiliários  ·  h55negociosimob.com.br", 60, PH - 50);
+  doc.text("H55 Negócios Imobiliários  ·  h55negociosimob.com.br", PW / 2, PH - 48, { align: "center" });
 
   // ---------- IMÓVEIS ----------
   const splitX = 472;

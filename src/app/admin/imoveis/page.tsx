@@ -10,13 +10,13 @@ import { exportImoveisPdf } from "@/lib/exportImoveisPdf";
 import type { Imovel } from "@/types/imovel";
 
 const brl = (n?: number) =>
-  typeof n === "number"
+  n
     ? new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
         maximumFractionDigits: 0,
       }).format(n)
-    : "·";
+    : "Sob consulta";
 
 export default function AdminImoveisPage() {
   return (
