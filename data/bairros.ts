@@ -49,19 +49,6 @@ export const bairros: Bairro[] = [
     img: U("photo-1545324418-cc1a3fa10c00"),
   },
   {
-    slug: "boa-viagem",
-    nome: "Boa Viagem",
-    cidade: "Recife",
-    estado: "PE",
-    tagline: "A orla mais famosa do Recife.",
-    descricao: [
-      "Boa Viagem é o cartão postal do Recife: uma praia urbana emoldurada por arranha céus à beira mar, com calçadão movimentado, serviços completos e vista permanente para o Atlântico.",
-      "As unidades frente mar têm forte apelo de moradia e de locação por temporada, com valorização acima da média e demanda turística o ano inteiro.",
-    ],
-    destaques: ["Frente mar", "Praia urbana", "Turismo e temporada", "Vista permanente"],
-    img: U("photo-1507525428034-b723cf961d3e"),
-  },
-  {
     slug: "barra-da-tijuca",
     nome: "Barra da Tijuca",
     cidade: "Rio de Janeiro",
