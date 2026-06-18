@@ -29,14 +29,14 @@ import { GalleryLightbox } from "@/components/property/GalleryLightbox";
 import { Tour360 } from "@/components/property/Tour360";
 import { MortgageSimulator } from "@/components/property/MortgageSimulator";
 
-const brl = (n?: number) =>
-  typeof n === "number"
+const brl = (n?: number | null) =>
+  n
     ? new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
         maximumFractionDigits: 0,
       }).format(n)
-    : "·";
+    : "Sob consulta";
 
 const featureLabels: Record<string, string> = {
   mobiliado: "Mobiliado",
@@ -385,7 +385,7 @@ export function ImovelDetailClient({ id }: { id: string }) {
             <div className="border border-[#b8860b]/20 bg-white">
               <div className="border-b border-[#b8860b]/15 bg-[#0a2540] p-6 text-[#f2ece0]">
                 <p className="text-[0.6rem] uppercase tracking-[0.28em] text-[#caa64a]">Valor</p>
-                {typeof imovel.descontoPercent === "number" && imovel.descontoPercent > 0 ? (
+                {imovel.preco && typeof imovel.descontoPercent === "number" && imovel.descontoPercent > 0 ? (
                   <>
                     <p className="mt-1 text-sm text-[#9fb0c4] line-through">{brl(imovel.preco)}</p>
                     <p className="font-display text-3xl font-bold">

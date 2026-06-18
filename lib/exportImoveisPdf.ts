@@ -190,11 +190,39 @@ export async function exportImoveisPdf(imoveis: Imovel[]) {
     doc.setFontSize(8.5);
     color(MUTED);
     doc.text("PREÇO DE VENDA", cx, y);
-    doc.setFont("times", "bold");
-    doc.setFontSize(27);
-    color(GOLDL);
-    doc.text(brl(im.preco), cx, y + 29);
-    y += 60;
+
+    if (im.preco && typeof im.descontoPercent === "number" && im.descontoPercent > 0) {
+      // Preço original tachado
+      doc.setFont("times", "normal");
+      doc.setFontSize(13);
+      color(SLATE);
+      const originalText = brl(im.preco);
+      doc.text(originalText, cx, y + 18);
+      const strikeW = doc.getTextWidth(originalText);
+      stroke(SLATE);
+      doc.setLineWidth(0.8);
+      doc.line(cx, y + 14, cx + strikeW, y + 14);
+
+      // Preço com desconto
+      const precoFinal = Math.round(im.preco * (1 - im.descontoPercent / 100));
+      doc.setFont("times", "bold");
+      doc.setFontSize(27);
+      color(GOLDL);
+      doc.text(brl(precoFinal), cx, y + 46);
+
+      // Badge desconto
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8.5);
+      color(GOLDL);
+      doc.text(`${im.descontoPercent}% de desconto`, cx, y + 62);
+      y += 80;
+    } else {
+      doc.setFont("times", "bold");
+      doc.setFontSize(27);
+      color(GOLDL);
+      doc.text(brl(im.preco), cx, y + 29);
+      y += 60;
+    }
 
     // Valores adicionais
     const rows: [string, string][] = [];

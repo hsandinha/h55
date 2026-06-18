@@ -7,14 +7,14 @@ import { useCompare } from "@/context/CompareContext";
 import { getImovelById } from "@/lib/properties";
 import type { Imovel } from "@/types/imovel";
 
-const brl = (n?: number) =>
-  typeof n === "number"
+const brl = (n?: number | null) =>
+  n
     ? new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
         maximumFractionDigits: 0,
       }).format(n)
-    : "·";
+    : "Sob consulta";
 
 const pct = (n?: number) => (typeof n === "number" ? `${n.toLocaleString("pt-BR")}%` : "·");
 const m2 = (n?: number) => (typeof n === "number" && n > 0 ? `${n} m²` : "·");

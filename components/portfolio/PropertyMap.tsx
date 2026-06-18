@@ -7,6 +7,7 @@ import { setOptions, importLibrary } from "@googlemaps/js-api-loader";
 import type { Imovel } from "@/types/imovel";
 
 const formatPriceCompact = (value: number) => {
+  if (!value) return "Consultar";
   if (value >= 1_000_000)
     return `R$ ${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
   if (value >= 1000) return `R$ ${Math.round(value / 1000)}k`;
@@ -14,11 +15,13 @@ const formatPriceCompact = (value: number) => {
 };
 
 const formatPrice = (value: number) =>
-  new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-    minimumFractionDigits: 0,
-  }).format(value);
+  value
+    ? new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+        minimumFractionDigits: 0,
+      }).format(value)
+    : "Sob consulta";
 
 export function PropertyMap({ imoveis }: { imoveis: Imovel[] }) {
   const mapRef = useRef<HTMLDivElement>(null);
