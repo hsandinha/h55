@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getImoveis } from "@/lib/properties";
 import { bairros } from "@/data/bairros";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://h55negociosimob.com.br";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://h55negociosimob.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = ["", "/imoveis", "/bairros", "/comparar", "/contact", "/about", "/services"].map(

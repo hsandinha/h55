@@ -8,7 +8,7 @@ import { PropertyCard } from "@/components/portfolio/PropertyCard";
 const norm = (s?: string) =>
   (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://h55negociosimob.com.br";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://h55negociosimob.com";
 
 export function generateStaticParams() {
   return bairros.map((b) => ({ slug: b.slug }));

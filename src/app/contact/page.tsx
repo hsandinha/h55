@@ -198,7 +198,7 @@ const ContactPage = () => {
                 >
                   <FiMail className="text-h55-blue text-2xl group-hover:text-h55-gold transition-colors" />
                   <span className="text-lg">
-                    contato@h55negociosimob.com.br
+                    contato@h55negociosimob.com
                   </span>
                 </a>
                 <a
