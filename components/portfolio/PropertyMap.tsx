@@ -1,18 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { LuArrowUpRight, LuMapPin } from "react-icons/lu";
+import { LuArrowUpRight } from "react-icons/lu";
+import { Loader } from "@googlemaps/js-api-loader";
 import type { Imovel } from "@/types/imovel";
-
-interface MapPoint {
-  imovel: Imovel;
-  lng: number;
-  lat: number;
-}
-
-// Fallback: Brasil (sudeste) caso nenhum imóvel tenha coordenadas
-const FALLBACK = { west: -53, south: -28, east: -41, north: -18 };
 
 const formatPriceCompact = (value: number) => {
   if (value >= 1_000_000)
@@ -28,122 +20,148 @@ const formatPrice = (value: number) =>
     minimumFractionDigits: 0,
   }).format(value);
 
-const clamp = (v: number, min: number, max: number) =>
-  Math.min(Math.max(v, min), max);
-
 export function PropertyMap({ imoveis }: { imoveis: Imovel[] }) {
-  const [activeId, setActiveId] = useState<string | null>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+  const [activeImovel, setActiveImovel] = useState<Imovel | null>(null);
 
-  const points = useMemo<MapPoint[]>(
-    () =>
-      imoveis
-        .filter((i) => typeof i.lat === "number" && typeof i.lng === "number")
-        .map((imovel) => ({
-          imovel,
-          lat: imovel.lat as number,
-          lng: imovel.lng as number,
-        })),
-    [imoveis],
+  const points = imoveis.filter(
+    (i) => typeof i.lat === "number" && typeof i.lng === "number"
   );
 
-  // bbox dinâmica a partir dos pontos (com folga), ou centro padrão
-  const bounds = useMemo(() => {
-    if (points.length === 0) return FALLBACK;
-    const lats = points.map((p) => p.lat);
-    const lngs = points.map((p) => p.lng);
-    const padLat = Math.max((Math.max(...lats) - Math.min(...lats)) * 0.25, 0.4);
-    const padLng = Math.max((Math.max(...lngs) - Math.min(...lngs)) * 0.25, 0.4);
-    return {
-      west: Math.min(...lngs) - padLng,
-      east: Math.max(...lngs) + padLng,
-      south: Math.min(...lats) - padLat,
-      north: Math.max(...lats) + padLat,
+  useEffect(() => {
+    if (!mapRef.current || points.length === 0) return;
+
+    const loader = new Loader({
+      apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!,
+      version: "weekly",
+    });
+
+    let map: google.maps.Map;
+    let markers: google.maps.marker.AdvancedMarkerElement[] = [];
+
+    loader.load().then(async () => {
+      const { Map, LatLngBounds } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+      const { AdvancedMarkerElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
+
+      map = new Map(mapRef.current!, {
+        mapId: "h55-map",
+        disableDefaultUI: false,
+        zoomControl: true,
+        streetViewControl: false,
+        mapTypeControl: false,
+        fullscreenControl: false,
+        styles: [
+          { featureType: "poi", stylers: [{ visibility: "off" }] },
+          { featureType: "transit", stylers: [{ visibility: "off" }] },
+        ],
+      });
+
+      const bounds = new LatLngBounds();
+
+      markers = points.map((imovel) => {
+        const lat = imovel.lat as number;
+        const lng = imovel.lng as number;
+
+        const pin = document.createElement("div");
+        pin.className = "gm-pin";
+        pin.innerHTML = `
+          <div style="
+            background:#0a2540;
+            border:2px solid rgba(184,134,11,0.6);
+            color:#f2ece0;
+            padding:6px 12px;
+            border-radius:999px;
+            font-size:11px;
+            font-weight:700;
+            white-space:nowrap;
+            box-shadow:0 4px 16px rgba(10,37,64,0.35);
+            cursor:pointer;
+            transition:all .2s;
+            letter-spacing:.03em;
+          ">${formatPriceCompact(imovel.preco)}</div>
+        `;
+
+        const marker = new AdvancedMarkerElement({
+          map,
+          position: { lat, lng },
+          content: pin,
+          title: imovel.titulo,
+        });
+
+        marker.addListener("click", () => {
+          setActiveImovel(imovel);
+          // destaca o marcador ativo
+          markers.forEach((m) => {
+            const el = (m.content as HTMLElement).querySelector("div");
+            if (el) {
+              el.style.background = "#0a2540";
+              el.style.borderColor = "rgba(184,134,11,0.6)";
+            }
+          });
+          const el = (marker.content as HTMLElement).querySelector("div");
+          if (el) {
+            el.style.background = "#b8860b";
+            el.style.borderColor = "#b8860b";
+            el.style.color = "#1a1206";
+          }
+        });
+
+        bounds.extend({ lat, lng });
+        return marker;
+      });
+
+      if (points.length === 1) {
+        map.setCenter({ lat: points[0].lat as number, lng: points[0].lng as number });
+        map.setZoom(15);
+      } else {
+        map.fitBounds(bounds, 80);
+      }
+    });
+
+    return () => {
+      markers.forEach((m) => (m.map = null));
     };
-  }, [points]);
-
-  const mapUrl = useMemo(
-    () =>
-      `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(
-        [bounds.west, bounds.south, bounds.east, bounds.north].join(","),
-      )}&layer=mapnik`,
-    [bounds],
-  );
-
-  const project = (p: MapPoint) => ({
-    left: `${clamp(
-      ((p.lng - bounds.west) / (bounds.east - bounds.west)) * 100,
-      4,
-      96,
-    )}%`,
-    top: `${clamp(
-      ((bounds.north - p.lat) / (bounds.north - bounds.south)) * 100,
-      4,
-      96,
-    )}%`,
-  });
-
-  const activePoint = points.find((p) => p.imovel.id === activeId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="relative h-[calc(100vh-220px)] min-h-[560px] w-full overflow-hidden border border-[#b8860b]/20 bg-[#f7f4ee]">
-      <iframe
-        src={mapUrl}
-        title="Mapa dos imóveis"
-        className="absolute inset-0 h-full w-full grayscale-[0.12]"
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      />
+      <div ref={mapRef} className="absolute inset-0 h-full w-full" />
 
-      <div className="absolute inset-0 z-10">
-        {points.map((point) => {
-          const isActive = activeId === point.imovel.id;
-          return (
-            <button
-              key={point.imovel.id}
-              type="button"
-              onMouseEnter={() => setActiveId(point.imovel.id)}
-              onClick={() => setActiveId(point.imovel.id)}
-              style={project(point)}
-              className={`absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-lg backdrop-blur-md transition-all duration-300 ${
-                isActive
-                  ? "z-20 border-[#b8860b] bg-[#b8860b] text-[#1a1206]"
-                  : "border-[#fbbf24]/60 bg-[#0a2540]/85 text-[#f2ece0] hover:border-[#fbbf24] hover:bg-[#0a2540]"
-              }`}
-              aria-label={point.imovel.titulo}
-            >
-              <LuMapPin size={12} />
-              <span>{formatPriceCompact(point.imovel.preco)}</span>
-            </button>
-          );
-        })}
-      </div>
-
-      {activePoint && (
+      {activeImovel && (
         <div className="absolute bottom-5 left-5 z-20 w-72 overflow-hidden border border-[#b8860b]/30 bg-white shadow-[0_24px_48px_-20px_rgba(10,37,64,0.4)]">
-          {activePoint.imovel.fotos?.[0] && (
+          {activeImovel.fotos?.[0] && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={activePoint.imovel.fotos[0]}
-              alt={activePoint.imovel.titulo}
+              src={activeImovel.fotos[0]}
+              alt={activeImovel.titulo}
               className="h-36 w-full object-cover"
             />
           )}
           <div className="p-4">
-            <p className="eyebrow text-[#9a7b1e]">{activePoint.imovel.endereco?.bairro}</p>
+            <p className="eyebrow text-[#9a7b1e]">{activeImovel.endereco?.bairro}</p>
             <p className="font-display mt-1 line-clamp-2 text-lg font-bold leading-tight text-[#0a2540]">
-              {activePoint.imovel.titulo}
+              {activeImovel.titulo}
             </p>
             <p className="font-display mt-2 text-xl font-bold text-[#0a2540]">
-              {formatPrice(activePoint.imovel.preco)}
+              {formatPrice(activeImovel.preco)}
             </p>
             <Link
-              href={`/imoveis/${activePoint.imovel.id}`}
+              href={`/imoveis/${activeImovel.id}`}
               className="mt-3 inline-flex items-center gap-1 text-[0.65rem] uppercase tracking-[0.28em] text-[#0a2540] hover:text-[#9a7b1e]"
             >
               Ver oportunidade
               <LuArrowUpRight size={12} />
             </Link>
           </div>
+          <button
+            type="button"
+            onClick={() => setActiveImovel(null)}
+            className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center bg-[#0a2540]/70 text-white hover:bg-[#0a2540]"
+            aria-label="Fechar"
+          >
+            ×
+          </button>
         </div>
       )}
 

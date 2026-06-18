@@ -37,7 +37,7 @@ export function GalleryLightbox({
   const next = () => setIndex((p) => (p + 1) % photos.length);
 
   return (
-    <div className="fixed inset-0 z-[60] flex flex-col bg-[#06121f]/96">
+    <div className="fixed inset-0 z-[200] flex flex-col bg-[#06121f]">
       <div className="flex items-center justify-between px-6 py-4 text-[#f2ece0]">
         <span className="text-[0.62rem] uppercase tracking-[0.28em] text-[#9fb0c4]">
           {index + 1} / {photos.length}

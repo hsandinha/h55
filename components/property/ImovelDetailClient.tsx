@@ -102,11 +102,20 @@ export function ImovelDetailClient({ id }: { id: string }) {
 
   const mapUrl = useMemo(() => {
     if (!imovel?.lat || !imovel?.lng) return null;
-    const d = 0.008;
-    const bbox = [imovel.lng - d, imovel.lat - d, imovel.lng + d, imovel.lat + d].join(",");
-    return `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(
-      bbox,
-    )}&layer=mapnik&marker=${imovel.lat},${imovel.lng}`;
+    const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY;
+    return `https://www.google.com/maps/embed/v1/place?key=${key}&q=${imovel.lat},${imovel.lng}&zoom=15`;
+  }, [imovel]);
+
+  const videoEmbedUrl = useMemo(() => {
+    const url = imovel?.videoUrl;
+    if (!url) return null;
+    // YouTube
+    const yt = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+    if (yt) return `https://www.youtube.com/embed/${yt[1]}?rel=0&modestbranding=1`;
+    // Vimeo
+    const vm = url.match(/vimeo\.com\/(\d+)/);
+    if (vm) return `https://player.vimeo.com/video/${vm[1]}?title=0&byline=0&portrait=0`;
+    return null;
   }, [imovel]);
 
   if (loading) {
@@ -320,6 +329,22 @@ export function ImovelDetailClient({ id }: { id: string }) {
                     </ul>
                   </div>
                 )}
+              </div>
+            )}
+
+            {videoEmbedUrl && (
+              <div className="mt-12">
+                <p className="eyebrow text-[#9a7b1e]">Vídeo</p>
+                <span className="mt-3 mb-5 block h-px w-12 bg-[#b8860b]/50" />
+                <div className="relative w-full overflow-hidden border border-[#b8860b]/20" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src={videoEmbedUrl}
+                    title="Vídeo do imóvel"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full"
+                  />
+                </div>
               </div>
             )}
 

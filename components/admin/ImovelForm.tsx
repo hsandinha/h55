@@ -712,14 +712,15 @@ export function ImovelForm({
                   if (!q) return;
                   setGeocoding(true);
                   try {
+                    const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY;
                     const res = await fetch(
-                      `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(q)}`,
-                      { headers: { "Accept-Language": "pt-BR" } }
+                      `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(q)}&key=${key}`
                     );
                     const data = await res.json();
-                    if (data[0]) {
-                      set("lat", parseFloat(data[0].lat));
-                      set("lng", parseFloat(data[0].lon));
+                    if (data.results?.[0]) {
+                      const loc = data.results[0].geometry.location;
+                      set("lat", loc.lat);
+                      set("lng", loc.lng);
                     } else {
                       alert("Endereço não encontrado. Tente ser mais específico.");
                     }
