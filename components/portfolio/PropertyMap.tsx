@@ -40,7 +40,8 @@ export function PropertyMap({ imoveis }: { imoveis: Imovel[] }) {
     let markers: google.maps.marker.AdvancedMarkerElement[] = [];
 
     (async () => {
-      const { Map, LatLngBounds } = await loader.importLibrary("maps") as google.maps.MapsLibrary;
+      const { Map } = await loader.importLibrary("maps") as google.maps.MapsLibrary;
+      const { LatLngBounds } = await loader.importLibrary("core") as google.maps.CoreLibrary;
       const { AdvancedMarkerElement } = await loader.importLibrary("marker") as google.maps.MarkerLibrary;
 
       map = new Map(mapRef.current!, {
