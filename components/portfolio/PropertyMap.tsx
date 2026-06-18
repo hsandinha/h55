@@ -39,9 +39,9 @@ export function PropertyMap({ imoveis }: { imoveis: Imovel[] }) {
     let map: google.maps.Map;
     let markers: google.maps.marker.AdvancedMarkerElement[] = [];
 
-    loader.load().then(async () => {
-      const { Map, LatLngBounds } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
-      const { AdvancedMarkerElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
+    (async () => {
+      const { Map, LatLngBounds } = await loader.importLibrary("maps") as google.maps.MapsLibrary;
+      const { AdvancedMarkerElement } = await loader.importLibrary("marker") as google.maps.MarkerLibrary;
 
       map = new Map(mapRef.current!, {
         mapId: "h55-map",
@@ -116,7 +116,7 @@ export function PropertyMap({ imoveis }: { imoveis: Imovel[] }) {
       } else {
         map.fitBounds(bounds, 80);
       }
-    });
+    })();
 
     return () => {
       markers.forEach((m) => (m.map = null));
