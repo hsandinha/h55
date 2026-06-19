@@ -128,7 +128,7 @@ export async function exportImoveisPdf(imoveis: Imovel[]) {
   );
   doc.setFontSize(9);
   color(MUTED);
-  doc.text("H55 Negócios Imobiliários  ·  h55negociosimob.com", PW / 2, PH - 48, { align: "center" });
+  doc.text("H55 Negócios Imobiliários  ·  h55negociosimob.com  ·  CRECI-PJ 9045", PW / 2, PH - 48, { align: "center" });
 
   // ---------- IMÓVEIS ----------
   const splitX = 472;
@@ -273,7 +273,7 @@ export async function exportImoveisPdf(imoveis: Imovel[]) {
     doc.setFontSize(8);
     color(MUTED);
     doc.text(`${String(i + 1).padStart(2, "0")} / ${String(imoveis.length).padStart(2, "0")}`, cx, PH - 38);
-    doc.text("h55negociosimob.com", cright, PH - 38, { align: "right" });
+    doc.text("h55negociosimob.com  ·  CRECI-PJ 9045", cright, PH - 38, { align: "right" });
   }
 
   // ---------- FECHAMENTO ----------
@@ -313,7 +313,7 @@ export async function exportImoveisPdf(imoveis: Imovel[]) {
   doc.text("(31) 99169-7999", 60, 428);
   doc.setFontSize(9);
   color(MUTED);
-  doc.text("H55 Negócios Imobiliários  ·  h55negociosimob.com", 60, PH - 50);
+  doc.text("H55 Negócios Imobiliários  ·  h55negociosimob.com  ·  CRECI-PJ 9045", 60, PH - 50);
 
   const fileDate = new Date().toISOString().slice(0, 10);
   doc.save(`portfolio-h55-${fileDate}.pdf`);

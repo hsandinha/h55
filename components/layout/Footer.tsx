@@ -30,6 +30,7 @@ const Footer = () => {
           <p className="text-sm text-[#9fb0c4]">
             &copy; {year ? year : ""} H55. Curadoria imobiliária para investidores.
           </p>
+          <p className="mt-1 text-xs text-[#607080] tracking-wide">CRECI-PJ 9045</p>
         </div>
         <nav>
           <ul className="flex flex-col gap-3 text-sm sm:flex-row sm:gap-6">

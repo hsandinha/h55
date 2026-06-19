@@ -10,7 +10,7 @@ const Header = () => {
     <header className="fixed left-0 top-0 z-50 w-full border-b border-[#0a2540]/10 bg-[#f7f3ea]/88 py-3 backdrop-blur-md transition-all">
       <nav className="container mx-auto flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center gap-3">
           <Image
             src="/images/h55.png"
             alt="H55 Negócios Imobiliários"
@@ -19,6 +19,9 @@ const Header = () => {
             priority
             className="md:h-[50px] md:w-[50px]"
           />
+          <span className="hidden text-[0.58rem] font-medium uppercase tracking-[0.18em] text-[#60748d] sm:block">
+            CRECI-PJ 9045
+          </span>
         </Link>
 
         {/* Menu Desktop */}
