@@ -19,7 +19,7 @@ const Header = () => {
             priority
             className="md:h-[50px] md:w-[50px]"
           />
-          <span className="hidden text-[0.58rem] font-medium uppercase tracking-[0.18em] text-[#60748d] sm:block">
+          <span className="text-[0.58rem] font-medium uppercase tracking-[0.18em] text-[#60748d]">
             CRECI-PJ 9045
           </span>
         </Link>
