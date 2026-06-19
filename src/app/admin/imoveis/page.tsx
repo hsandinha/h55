@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { LuPlus, LuPencil, LuTrash2, LuDownload, LuFileText } from "react-icons/lu";
+import { LuPlus, LuPencil, LuTrash2, LuDownload, LuFileText, LuPower } from "react-icons/lu";
 import { AdminGuard } from "@/components/admin/AdminGuard";
-import { getAllImoveis, deleteImovel } from "@/lib/properties";
+import { getAllImoveis, deleteImovel, updateImovel } from "@/lib/properties";
 import { exportImoveisXlsx } from "@/lib/exportImoveis";
 import { exportImoveisPdf } from "@/lib/exportImoveisPdf";
 import type { Imovel } from "@/types/imovel";
@@ -30,6 +30,7 @@ function Inner() {
   const [itens, setItens] = useState<Imovel[]>([]);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<string | null>(null);
+  const [toggling, setToggling] = useState<string | null>(null);
   const [pdfBusy, setPdfBusy] = useState(false);
 
   const load = async () => {
@@ -42,6 +43,14 @@ function Inner() {
     load();
   }, []);
 
+  const onToggleStatus = async (im: Imovel) => {
+    const next = im.status === "Inativo" ? "Ativo" : "Inativo";
+    setToggling(im.id);
+    await updateImovel(im.id, { status: next });
+    setToggling(null);
+    load();
+  };
+
   const onDelete = async (id: string) => {
     if (!window.confirm("Excluir este imóvel? Essa ação não pode ser desfeita.")) return;
     setBusy(id);
@@ -53,7 +62,7 @@ function Inner() {
   const onPdf = async () => {
     setPdfBusy(true);
     try {
-      await exportImoveisPdf(itens);
+      await exportImoveisPdf(itens.filter((im) => im.status !== "Inativo"));
     } finally {
       setPdfBusy(false);
     }
@@ -72,7 +81,7 @@ function Inner() {
         <div className="flex flex-wrap items-center gap-3">
           <button
             type="button"
-            onClick={() => exportImoveisXlsx(itens)}
+            onClick={() => exportImoveisXlsx(itens.filter((im) => im.status !== "Inativo"))}
             disabled={loading || itens.length === 0}
             className="inline-flex items-center justify-center gap-2 border border-[#b8860b] px-5 py-3 text-[0.62rem] uppercase tracking-[0.24em] text-[#9a6b04] transition hover:bg-[#b8860b]/10 disabled:cursor-not-allowed disabled:opacity-40"
           >
@@ -115,7 +124,7 @@ function Inner() {
             </thead>
             <tbody>
               {itens.map((im) => (
-                <tr key={im.id} className="border-b border-[#eadfca] last:border-0 hover:bg-[#fbf8f2]">
+                <tr key={im.id} className={`border-b border-[#eadfca] last:border-0 hover:bg-[#fbf8f2] ${im.status === "Inativo" ? "opacity-50" : ""}`}>
                   <td className="min-w-[320px] px-4 py-3">
                     <div className="flex items-center gap-3">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -147,6 +156,19 @@ function Inner() {
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center justify-end gap-2">
+                      <button
+                        onClick={() => onToggleStatus(im)}
+                        disabled={toggling === im.id}
+                        title={im.status === "Inativo" ? "Ativar imóvel" : "Desativar imóvel"}
+                        className={`flex h-9 w-9 items-center justify-center border transition disabled:opacity-40 ${
+                          im.status === "Inativo"
+                            ? "border-[#1d7a4d]/50 text-[#1d7a4d] hover:border-[#1d7a4d] hover:bg-[#1d7a4d]/10"
+                            : "border-[#d7c7a6] text-[#8a6d1e] hover:border-[#b8860b] hover:bg-[#b8860b]/10"
+                        }`}
+                        aria-label={im.status === "Inativo" ? "Ativar" : "Desativar"}
+                      >
+                        <LuPower size={14} />
+                      </button>
                       <Link
                         href={`/admin/imoveis/${im.id}/editar`}
                         className="flex h-9 w-9 items-center justify-center border border-[#d7c7a6] text-[#071b31] transition hover:border-[#b8860b] hover:text-[#9a7b1e]"
