@@ -60,7 +60,7 @@ create table if not exists public.imoveis (
   "aceitaFinanciamento"    boolean default false,
   "aceitaProposta"         boolean default true,
 
-  -- Proprietário (privado — não exposto na vitrine)
+  -- Proprietário (privado, não exposto na vitrine)
   proprietario             jsonb,
 
   "updatedAt"              timestamptz not null default now()

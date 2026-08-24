@@ -17,6 +17,7 @@ Legenda: ❌ pendente · ⚠️ parcial · ✅ feito
 | **Serviços**: cards de Due Diligence e Vistoria Técnica de Recebimento, "Como Atuamos" em 6 etapas numeradas, chamada para a coordenação | `src/app/services/page.tsx` |
 | **Sobre Nós**: Missão no texto aprovado, Visão criada, 5 valores aprovados, Nossa Origem restaurada, "Como Atuamos" removido | `src/app/about/page.tsx` |
 | **Home**: frase de entrada com a logo | `components/sections/HeroSection.tsx` |
+| **Serviços virou hub das duas frentes** (compra e coordenação com o mesmo peso), no visual novo, com bloco "o que não fazemos" sobre conflito de interesse e link recíproco com a coordenação | `src/app/services/page.tsx`, `src/app/coordenacao/page.tsx` |
 | Correção de bug: 3 botões apontavam para `/contato`, rota inexistente | `about`, `services`, `terms` |
 
 `npm run build` validado — 26 rotas compilam, `/coordenacao` inclusa.

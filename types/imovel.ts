@@ -1,5 +1,5 @@
 // types/imovel.ts
-// Modelo de dados de imóvel — compatível com o projeto "strutural" (Firestore),
+// Modelo de dados de imóvel, compatível com o projeto "strutural" (Firestore),
 // adotado no h55 para que a vitrine consuma os mesmos dados do back-office.
 
 export interface Proprietario {

@@ -25,11 +25,11 @@ const Header = () => {
         </Link>
 
         {/* Menu Desktop */}
-        <ul className="hidden items-center space-x-8 md:flex">
+        <ul className="hidden items-center space-x-4 md:flex lg:space-x-6 xl:space-x-8">
           <li>
             <Link
               href="/about"
-              className="text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
             >
               Sobre Nós
             </Link>
@@ -37,7 +37,7 @@ const Header = () => {
           <li>
             <Link
               href="/imoveis"
-              className="text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
             >
               Imóveis
             </Link>
@@ -45,7 +45,7 @@ const Header = () => {
           <li>
             <Link
               href="/bairros"
-              className="text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
             >
               Bairros
             </Link>
@@ -53,7 +53,7 @@ const Header = () => {
           <li>
             <Link
               href="/services"
-              className="text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
             >
               Serviços
             </Link>
@@ -61,7 +61,7 @@ const Header = () => {
           <li>
             <Link
               href="/coordenacao"
-              className="text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
             >
               Coordenação
             </Link>
@@ -69,7 +69,7 @@ const Header = () => {
           <li>
             <Link
               href="/admin"
-              className="text-sm font-medium text-[#60748d] transition-colors hover:text-h55-gold"
+              className="whitespace-nowrap text-sm font-medium text-[#60748d] transition-colors hover:text-h55-gold"
             >
               Entrar
             </Link>
@@ -77,7 +77,7 @@ const Header = () => {
           <li>
             <Link
               href="/contact"
-              className="ml-4 border border-[#b8860b] bg-[#b8860b] px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#191207] transition-colors hover:bg-[#0a2540] hover:text-[#f4efe6]"
+              className="ml-2 whitespace-nowrap border border-[#b8860b] bg-[#b8860b] px-4 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-[#191207] transition-colors hover:bg-[#0a2540] hover:text-[#f4efe6] xl:ml-4 xl:px-5 xl:text-sm xl:tracking-[0.12em]"
             >
               Fale com um Especialista
             </Link>

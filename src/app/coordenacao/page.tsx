@@ -72,7 +72,7 @@ const pilares = [
     icon: LuShieldCheck,
     num: "02",
     title: "Governança e blindagem jurídica",
-    desc: "Certidões, minutas de contrato, alinhamento bancário e de cartório — o maior gargalo de qualquer venda — sob responsabilidade de uma equipe dedicada.",
+    desc: "Certidões, minutas de contrato, alinhamento bancário e de cartório, o maior gargalo de qualquer venda, ficam sob a responsabilidade de uma equipe dedicada.",
   },
   {
     icon: LuTarget,
@@ -143,7 +143,7 @@ const CoordenacaoPage = () => {
               A H55 funciona como a inteligência central do proprietário e da
               incorporadora: assumimos a estratégia comercial, a gestão
               documental e a curadoria das imobiliárias parceiras. Você conversa
-              com um só parceiro — e o mercado inteiro trabalha pela venda.
+              com um só parceiro e o mercado inteiro trabalha pela venda.
             </p>
           </motion.div>
 
@@ -346,7 +346,7 @@ const CoordenacaoPage = () => {
             </h2>
           </motion.div>
 
-          {/* Matriz — desktop */}
+          {/* Matriz: desktop */}
           <div className="mt-12 hidden gap-px bg-[#0a2540]/15 md:grid md:grid-cols-[170px_1fr_1fr]">
             <div className="bg-[#f7f3ea]" />
             <div className="bg-[#0a2540] px-6 py-5">
@@ -381,7 +381,7 @@ const CoordenacaoPage = () => {
             ))}
           </div>
 
-          {/* Empilhado — mobile */}
+          {/* Empilhado: mobile */}
           <div className="mt-10 grid grid-cols-1 gap-px bg-[#0a2540]/15 md:hidden">
             {[
               { titulo: "Ativo pontual", chave: "pontual" as const },
@@ -436,7 +436,7 @@ const CoordenacaoPage = () => {
             </div>
             <div>
               <p className="text-sm leading-7 text-[#b9c6d4] md:text-base">
-                Coordenar uma venda tem custo — uma taxa de gestão ou uma fatia
+                Coordenar uma venda tem custo: uma taxa de gestão ou uma fatia
                 da comissão. Por isso ela só se justifica quando devolve ganho
                 real de velocidade ou de preço final. É esse o nosso
                 compromisso: relatório aberto do funil, tabela e comissionamento
@@ -451,10 +451,53 @@ const CoordenacaoPage = () => {
                   Falar com a coordenação
                 </Link>
                 <Link
-                  href="/services"
+                  href="/services#venda"
                   className="inline-flex items-center justify-center gap-3 border border-[#d8ad45]/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f7efe2] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10"
                 >
-                  Ver serviços
+                  Ver as duas frentes
+                  <LuArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ---------- Do outro lado da mesa ---------- */}
+      <section className="bg-[#ebe3d5] py-24 md:py-28">
+        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="grid gap-10 border-t border-[#0a2540]/20 pt-12 md:grid-cols-[0.9fr_1.1fr]"
+          >
+            <div>
+              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
+                Do outro lado da mesa
+              </p>
+              <h2
+                className="mt-5 text-3xl font-semibold leading-[1.06] text-[#0a2540] md:text-5xl"
+                style={PLAYFAIR}
+              >
+                E se você está comprando?
+              </h2>
+            </div>
+            <div className="self-end">
+              <p className="max-w-xl text-base leading-8 text-[#52617a] md:text-lg">
+                A outra frente da H55 representa exclusivamente quem compra ou
+                investe: busca, due diligence, negociação e vistoria de
+                recebimento. São operações separadas de propósito, porque os
+                interesses são opostos: quando coordenamos a venda de um imóvel,
+                não representamos quem está comprando esse imóvel.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/services#compra"
+                  className="inline-flex items-center justify-center gap-3 border border-[#0a2540] bg-[#0a2540] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4efe6] transition duration-300 hover:-translate-y-0.5 hover:bg-[#123457]"
+                >
+                  Ver a representação do comprador
                   <LuArrowRight size={16} />
                 </Link>
               </div>

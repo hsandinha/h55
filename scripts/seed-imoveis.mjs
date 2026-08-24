@@ -1,5 +1,5 @@
 /**
- * Script de seed — adiciona os 12 imóveis ao Supabase.
+ * Script de seed: adiciona os 12 imóveis ao Supabase.
  * Uso:
  *   node scripts/seed-imoveis.mjs
  *
@@ -31,7 +31,7 @@ function loadEnv() {
       if (!(key in process.env)) process.env[key] = val;
     }
   } catch {
-    console.warn("⚠️  Não foi possível ler .env.local — verifique o arquivo.");
+    console.warn("⚠️  Não foi possível ler .env.local. Verifique o arquivo.");
   }
 }
 loadEnv();
@@ -84,7 +84,7 @@ const imoveis = [
   // ── 2. Ed. You Home — Apto. 305 ──────────────────────────────────────────
   {
     dataCadastro: now,
-    titulo: "Ed. You Home — Apto. 305",
+    titulo: "Ed. You Home, Apto. 305",
     tipo: "apartamento",
     finalidade: "Comprar",
     finalidadeUso: "Residencial",
@@ -111,7 +111,7 @@ const imoveis = [
   // ── 3. Ed. You Home — Apto. 306 ──────────────────────────────────────────
   {
     dataCadastro: now,
-    titulo: "Ed. You Home — Apto. 306",
+    titulo: "Ed. You Home, Apto. 306",
     tipo: "apartamento",
     finalidade: "Comprar",
     finalidadeUso: "Residencial",
@@ -138,7 +138,7 @@ const imoveis = [
   // ── 4. Ed. You Home — Apto. 401 ──────────────────────────────────────────
   {
     dataCadastro: now,
-    titulo: "Ed. You Home — Apto. 401",
+    titulo: "Ed. You Home, Apto. 401",
     tipo: "apartamento",
     finalidade: "Comprar",
     finalidadeUso: "Residencial",
@@ -165,7 +165,7 @@ const imoveis = [
   // ── 5. Ed. You Home — Apto. 402 ──────────────────────────────────────────
   {
     dataCadastro: now,
-    titulo: "Ed. You Home — Apto. 402",
+    titulo: "Ed. You Home, Apto. 402",
     tipo: "apartamento",
     finalidade: "Comprar",
     finalidadeUso: "Residencial",
@@ -192,7 +192,7 @@ const imoveis = [
   // ── 6. Ed. You Home — Apto. 405 ──────────────────────────────────────────
   {
     dataCadastro: now,
-    titulo: "Ed. You Home — Apto. 405",
+    titulo: "Ed. You Home, Apto. 405",
     tipo: "apartamento",
     finalidade: "Comprar",
     finalidadeUso: "Residencial",
@@ -219,7 +219,7 @@ const imoveis = [
   // ── 7. Ed. You Home — Apto. 406 ──────────────────────────────────────────
   {
     dataCadastro: now,
-    titulo: "Ed. You Home — Apto. 406",
+    titulo: "Ed. You Home, Apto. 406",
     tipo: "apartamento",
     finalidade: "Comprar",
     finalidadeUso: "Residencial",
@@ -246,7 +246,7 @@ const imoveis = [
   // ── 8. Cobertura Oceana Golf — RJ ────────────────────────────────────────
   {
     dataCadastro: now,
-    titulo: "Cobertura Oceana Golf — RJ",
+    titulo: "Cobertura Oceana Golf, RJ",
     tipo: "cobertura",
     finalidade: "Comprar",
     finalidadeUso: "Residencial",
@@ -300,7 +300,7 @@ const imoveis = [
   // ── 10. Ed. Casamirador Uno — Apto. 903 ──────────────────────────────────
   {
     dataCadastro: now,
-    titulo: "Ed. Casamirador Uno — Apto. 903",
+    titulo: "Ed. Casamirador Uno, Apto. 903",
     tipo: "apartamento",
     finalidade: "Comprar",
     finalidadeUso: "Residencial",
@@ -327,7 +327,7 @@ const imoveis = [
   // ── 11. Ed. Casamirador Uno — Apto. 904 ──────────────────────────────────
   {
     dataCadastro: now,
-    titulo: "Ed. Casamirador Uno — Apto. 904",
+    titulo: "Ed. Casamirador Uno, Apto. 904",
     tipo: "apartamento",
     finalidade: "Comprar",
     finalidadeUso: "Residencial",

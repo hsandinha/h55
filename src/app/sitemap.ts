@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     }));
   } catch {
-    /* ignora — sitemap sai só com as rotas estáticas */
+    /* ignora: sitemap sai só com as rotas estáticas */
   }
 
   const bairroRoutes: MetadataRoute.Sitemap = bairros.map((b) => ({

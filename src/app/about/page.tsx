@@ -140,9 +140,9 @@ const AboutPage = () => {
                 <p>
                   A partir dessa jornada inicial, percebemos que o mercado
                   carecia de uma atuação realmente personalizada, voltada
-                  exclusivamente para os interesses do comprador e do investidor
-                  — com foco em resultado financeiro, economia de tempo e tomada
-                  de decisão estratégica. Assim, adotamos uma abordagem de
+                  exclusivamente para os interesses do comprador e do
+                  investidor, com foco em resultado financeiro, economia de
+                  tempo e tomada de decisão estratégica. Assim, adotamos uma abordagem de
                   concierge imobiliário, conduzindo nossos clientes em todo o
                   ciclo de aquisição e desinvestimento de forma inteligente,
                   segura e eficiente.
@@ -152,7 +152,7 @@ const AboutPage = () => {
                   comprar bem, investir melhor e encontrar oportunidades sólidas
                   no mercado imobiliário. Atuamos lado a lado com nossos
                   clientes, oferecendo uma curadoria criteriosa, acesso a ativos
-                  off-market e inteligência de mercado — sempre com discrição,
+                  off-market e inteligência de mercado, sempre com discrição,
                   agilidade e alinhamento total de interesses.
                 </p>
               </div>

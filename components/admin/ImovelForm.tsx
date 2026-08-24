@@ -1185,7 +1185,7 @@ export function ImovelForm({
           <span className="text-xl font-medium text-[#334155]">
             {uploading ? "Enviando fotos..." : "Clique para adicionar fotos"}
           </span>
-          <span className="text-sm text-[#98a3b3]">JPG, PNG, WEBP — múltiplas ao mesmo tempo</span>
+          <span className="text-sm text-[#98a3b3]">JPG, PNG, WEBP (múltiplas ao mesmo tempo)</span>
           <input
             type="file"
             accept="image/*"
