@@ -273,7 +273,7 @@ const CoordenacaoPage = () => {
                 O que muda na prática
               </p>
               <h2
-                className="mt-5 text-4xl font-semibold leading-[1.04] md:text-6xl"
+                className="mt-5 text-4xl font-semibold leading-[1.04] md:text-5xl"
                 style={PLAYFAIR}
               >
                 Três frentes que separam venda coordenada de imóvel jogado no
@@ -296,7 +296,7 @@ const CoordenacaoPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: i * 0.08 }}
-                  className="group flex min-h-[340px] flex-col justify-between bg-[#08203a]/70 p-7 transition duration-500 hover:bg-[#0a2540]"
+                  className="group flex min-h-[340px] flex-col bg-[#08203a]/70 p-7 transition duration-500 hover:bg-[#0a2540]"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#60748d]">
@@ -306,17 +306,17 @@ const CoordenacaoPage = () => {
                       <Icon size={18} />
                     </span>
                   </div>
-                  <div>
-                    <h3
-                      className="text-2xl font-semibold leading-tight text-[#f4efe6]"
-                      style={PLAYFAIR}
-                    >
-                      {p.title}
-                    </h3>
-                    <p className="mt-4 text-sm leading-7 text-[#9fb0c4]">
-                      {p.desc}
-                    </p>
-                    <span className="mt-7 block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
+                  <h3
+                    className="mt-10 text-2xl font-semibold leading-tight text-[#f4efe6]"
+                    style={PLAYFAIR}
+                  >
+                    {p.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[#9fb0c4]">
+                    {p.desc}
+                  </p>
+                  <div className="mt-auto pt-7">
+                    <span className="block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
                   </div>
                 </motion.div>
               );

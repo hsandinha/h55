@@ -12,6 +12,7 @@ Legenda: ❌ pendente · ⚠️ parcial · ✅ feito
 | Entrega | Arquivos |
 |---|---|
 | Nova página **Coordenação de Vendas** — duas soluções com o texto aprovado, três pilares, comparativo ativo pontual × lançamento e bloco sobre a remuneração | `src/app/coordenacao/page.tsx` (novo) |
+| Redesign da página no idioma visual das seções novas do site (navy `#06121f`, creme `#ebe3d5`, hairlines, Playfair grande, cantos retos) em vez do estilo antigo do Sobre Nós | `src/app/coordenacao/page.tsx` |
 | Link no menu (desktop + mobile) e no sitemap | `components/layout/Header.tsx`, `src/app/sitemap.ts` |
 | **Serviços**: cards de Due Diligence e Vistoria Técnica de Recebimento, "Como Atuamos" em 6 etapas numeradas, chamada para a coordenação | `src/app/services/page.tsx` |
 | **Sobre Nós**: Missão no texto aprovado, Visão criada, 5 valores aprovados, Nossa Origem restaurada, "Como Atuamos" removido | `src/app/about/page.tsx` |
