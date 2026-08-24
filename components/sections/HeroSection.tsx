@@ -140,7 +140,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.12 }}
             className="mb-5 text-[0.68rem] uppercase tracking-[0.16em] text-[#caa64a] sm:tracking-[0.28em] md:text-xs"
           >
-            Curadoria imobiliária para investidores
+            A melhor assessoria para seu sucesso no mercado imobiliário
           </motion.p>
 
           <motion.h1

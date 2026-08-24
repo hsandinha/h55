@@ -5,7 +5,7 @@ import { bairros } from "@/data/bairros";
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://h55negociosimob.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticRoutes = ["", "/imoveis", "/bairros", "/comparar", "/contact", "/about", "/services"].map(
+  const staticRoutes = ["", "/imoveis", "/bairros", "/comparar", "/contact", "/about", "/services", "/coordenacao"].map(
     (p) => ({
       url: `${SITE}${p}`,
       lastModified: new Date(),

@@ -61,7 +61,7 @@ const AboutPage = () => {
           em você.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,11 +72,10 @@ const AboutPage = () => {
               Nossa Missão
             </h2>
             <p className="text-gray-700">
-              Garantir que cada cliente realize o melhor negócio imobiliário
-              possível, com total segurança, tranquilidade e sem conflitos de
-              interesse. Colocamos você no centro de tudo, ouvindo seus
-              objetivos e sonhos para apresentar as melhores oportunidades do
-              mercado.
+              Conectar pessoas às melhores oportunidades imobiliárias do
+              mercado, oferecendo uma assessoria especializada e isenta,
+              garantindo que cada decisão de compra ou investimento seja feita
+              com segurança e confiança.
             </p>
           </motion.div>
 
@@ -84,6 +83,23 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
+            className="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
+          >
+            <h2 className="text-2xl font-semibold text-h55-blue mb-3">
+              Nossa Visão
+            </h2>
+            <p className="text-gray-700">
+              Ser a referência no mercado imobiliário brasileiro como a
+              principal assessoria independente para compradores e investidores,
+              reconhecida pela expertise, confiabilidade e pela geração de valor
+              em cada transação.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all"
           >
             <h2 className="text-2xl font-semibold text-h55-blue mb-3">
@@ -122,16 +138,22 @@ const AboutPage = () => {
                   aos interesses de quem compra e investe.
                 </p>
                 <p>
-                  A partir dessa jornada, percebemos que o mercado carecia de
-                  uma atuação realmente personalizada, com foco em resultado
-                  financeiro, economia de tempo e decisão estratégica. Assim,
-                  adotamos uma abordagem de concierge imobiliário, conduzindo
-                  nossos clientes em todo o ciclo de aquisição e desinvestimento
-                  de forma inteligente, segura e eficiente.
+                  A partir dessa jornada inicial, percebemos que o mercado
+                  carecia de uma atuação realmente personalizada, voltada
+                  exclusivamente para os interesses do comprador e do investidor
+                  — com foco em resultado financeiro, economia de tempo e tomada
+                  de decisão estratégica. Assim, adotamos uma abordagem de
+                  concierge imobiliário, conduzindo nossos clientes em todo o
+                  ciclo de aquisição e desinvestimento de forma inteligente,
+                  segura e eficiente.
                 </p>
-                <p className="font-semibold text-h55-gold text-center pt-4">
+                <p>
                   Nosso compromisso é representar, com excelência, quem deseja
-                  comprar bem e investir melhor.
+                  comprar bem, investir melhor e encontrar oportunidades sólidas
+                  no mercado imobiliário. Atuamos lado a lado com nossos
+                  clientes, oferecendo uma curadoria criteriosa, acesso a ativos
+                  off-market e inteligência de mercado — sempre com discrição,
+                  agilidade e alinhamento total de interesses.
                 </p>
               </div>
             </div>
@@ -151,70 +173,6 @@ const AboutPage = () => {
           </span>
           &rdquo;
         </motion.blockquote>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-12"
-        >
-          <h2 className="text-2xl font-semibold text-h55-blue mb-6 text-center">
-            Como Atuamos
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Análise de Perfil Completa",
-                description:
-                  "Entendimento profundo do seu perfil, objetivos e necessidades para traçar estratégias personalizadas de investimento.",
-              },
-              {
-                title: "Busca Ativa Especializada",
-                description:
-                  "Busca criteriosa de imóveis, inclusive opções off-market e oportunidades exclusivas do mercado.",
-              },
-              {
-                title: "Due Diligence Completa",
-                description:
-                  "Análise técnica, documental e de valorização para garantir segurança e potencial de retorno.",
-              },
-              {
-                title: "Estratégias de Equity",
-                description:
-                  "Identificamos oportunidades de participação societária em empreendimentos de alto potencial para diversificar seu portfólio.",
-              },
-              {
-                title: "Estruturação de Dívida",
-                description:
-                  "Otimizamos sua capacidade de investimento através de estratégias inteligentes de financiamento e alavancagem.",
-              },
-              {
-                title: "Permutas Estratégicas",
-                description:
-                  "Conduzimos trocas inteligentes que agregam valor ao seu patrimônio e otimizam sua carteira imobiliária.",
-              },
-              {
-                title: "Negociação Estratégica",
-                description:
-                  "Negociamos as melhores condições, preços e termos, sempre defendendo exclusivamente seus interesses.",
-              },
-              {
-                title: "Acompanhamento Integral",
-                description:
-                  "Suporte completo em todas as etapas, desde a análise inicial até o pós-investimento e gestão patrimonial.",
-              },
-            ].map((item, index) => (
-              <Tilt key={index} tiltReverse perspective={500} className="group">
-                <div className="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-all group-hover:scale-105 h-full">
-                  <h3 className="font-semibold text-h55-blue mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-700 text-sm">{item.description}</p>
-                </div>
-              </Tilt>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Nova Seção: Soluções Financeiras Avançadas */}
         <motion.div
@@ -327,20 +285,24 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                title: "Transparência",
-                desc: "Comunicação clara e honesta em todas as etapas.",
+                title: "Foco no Cliente",
+                desc: "Nossas ações são sempre direcionadas para entender e satisfazer as necessidades de quem busca o imóvel, colocando seus interesses acima de tudo.",
               },
               {
-                title: "Segurança",
-                desc: "Análise criteriosa para evitar riscos e surpresas.",
+                title: "Imparcialidade e Transparência",
+                desc: "Atuamos sem conflitos de interesse, garantindo que o cliente receba as informações mais claras e objetivas para tomar a melhor decisão.",
               },
               {
-                title: "Exclusividade",
-                desc: "Foco total nos interesses do nosso cliente.",
+                title: "Expertise de Mercado",
+                desc: "Conhecimento aprofundado e atualizado sobre o mercado imobiliário, transformado em vantagem para nossos clientes.",
               },
               {
-                title: "Excelência",
-                desc: "Atendimento personalizado e soluções sob medida.",
+                title: "Segurança e Confiança",
+                desc: "Nosso compromisso é proporcionar um processo de compra ou investimento seguro, construindo um relacionamento duradouro.",
+              },
+              {
+                title: "Inovação",
+                desc: "Buscamos constantemente novas formas de aprimorar nossa assessoria, com as melhores ferramentas e abordagens do mercado.",
               },
             ].map((value, index) => (
               <Tilt key={index} tiltReverse perspective={500} className="group">
@@ -370,7 +332,7 @@ const AboutPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contato"
+              href="/contact"
               className="inline-block px-8 py-3 bg-h55-gold text-h55-blue rounded-full font-semibold hover:bg-h55-blue hover:text-white transition-colors shadow-lg hover:shadow-h55-blue/50"
             >
               Fale com um Especialista

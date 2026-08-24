@@ -176,7 +176,7 @@ const TermsOfUsePage = () => {
             <p>
               Se você tiver alguma dúvida sobre estes Termos de Uso, por favor,{" "}
               <Link
-                href="/contato"
+                href="/contact"
                 className="text-h55-gold font-semibold hover:underline"
               >
                 entre em contato conosco
