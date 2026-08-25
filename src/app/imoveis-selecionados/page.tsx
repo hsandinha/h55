@@ -9,31 +9,47 @@ const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
 const servicos = [
   {
-    title: "Due diligence completa",
+    title: "Consultoria personalizada",
+    publico: "Para quem procura",
     description:
-      "Matrícula, certidões, situação do vendedor e do condomínio conferidas antes de o imóvel entrar na carteira. É o que impede a proposta de morrer no cartório semanas depois.",
+      "Entendemos seu perfil, objetivos e necessidades para traçar a melhor estratégia de compra. Cada cliente é único e recebe atendimento exclusivo.",
   },
   {
-    title: "Preço com leitura de mercado",
+    title: "Busca ativa de imóveis",
+    publico: "Para quem procura",
     description:
-      "Comparativos, liquidez da região e tempo de exposição definem o valor de anúncio. Preço errado não vende e ainda queima o imóvel no mercado.",
+      "Procuramos imóveis alinhados ao seu interesse, incluindo opções fora dos portais tradicionais (off-market), para ampliar as suas oportunidades.",
+  },
+  {
+    title: "Due diligence completa",
+    publico: null,
+    description:
+      "Análise técnica, documental e de valorização: certidões, matrícula, situação do vendedor e potencial de retorno. O imóvel entra na carteira auditado e a proposta não morre no cartório.",
   },
   {
     title: "Negociação estratégica",
+    publico: null,
     description:
-      "Conduzimos preço, condições e prazos representando o seu interesse, com as propostas chegando filtradas e pré-qualificadas até você.",
+      "Negociamos preço, condições e prazos representando o interesse de quem nos contratou, com as propostas chegando filtradas e pré-qualificadas.",
   },
   {
-    title: "Vistoria técnica",
+    title: "Vistoria técnica de recebimento",
+    publico: null,
     description:
-      "Conferência de acabamentos, instalações e memorial descritivo, na preparação do imóvel e de novo na entrega das chaves.",
+      "Fazemos a vistoria técnica de recebimento do imóvel, conferindo acabamentos, instalações e o memorial descritivo antes da assinatura do termo de entrega.",
+  },
+  {
+    title: "Acompanhamento completo",
+    publico: null,
+    description:
+      "Estamos ao lado do cliente em todas as etapas, do início ao pós-compra, até a entrega das chaves e além, para que ninguém fique sem resposta no meio do caminho.",
   },
 ];
 
 const conducao = [
   {
     title: "Leitura do imóvel",
-    desc: "Entendemos o ativo, o seu prazo e o seu objetivo com a venda antes de falar em preço.",
+    desc: "Entendemos o ativo, o seu prazo e o seu objetivo, e definimos o preço de anúncio com comparativos e leitura de liquidez da região.",
   },
   {
     title: "Auditoria documental",
@@ -216,17 +232,18 @@ const ImoveisSelecionadosPage = () => {
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
                 style={PLAYFAIR}
               >
-                Selecionado quer dizer auditado.
+                Tudo isto está dentro da coordenação.
               </h2>
             </div>
             <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              Um imóvel só entra na nossa carteira depois de passar por análise
-              documental, leitura de preço e preparação de material. É o que
-              separa uma venda conduzida de um anúncio no portal.
+              Não são serviços avulsos nem extras cobrados à parte. É o que a
+              H55 faz por cada imóvel que aceita coordenar, de um lado e do
+              outro da mesa. O que vale para quem vende está sem etiqueta; o que
+              é específico de quem procura está marcado.
             </p>
           </motion.div>
 
-          <div className="mt-12 grid grid-cols-1 gap-px bg-[#0a2540]/15 sm:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-px bg-[#0a2540]/15 sm:grid-cols-2 lg:grid-cols-3">
             {servicos.map((s, i) => (
               <motion.div
                 key={s.title}
@@ -236,9 +253,16 @@ const ImoveisSelecionadosPage = () => {
                 transition={{ duration: 0.6, delay: i * 0.06 }}
                 className="group flex min-h-[240px] flex-col bg-[#f7f3ea] p-8 transition-colors duration-500 hover:bg-[#efe8dc]"
               >
-                <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#8a7a5e]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#8a7a5e]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  {s.publico ? (
+                    <span className="border border-[#9a7b1e]/45 px-3 py-1 text-[0.55rem] uppercase tracking-[0.2em] text-[#9a7b1e]">
+                      {s.publico}
+                    </span>
+                  ) : null}
+                </div>
                 <h3
                   className="mt-8 text-2xl font-semibold leading-tight text-[#0a2540]"
                   style={PLAYFAIR}
@@ -302,7 +326,7 @@ const ImoveisSelecionadosPage = () => {
           >
             <div>
               <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-                Para quem procura
+                Os dois lados da mesa
               </p>
               <h2
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] md:text-5xl"
@@ -313,53 +337,17 @@ const ImoveisSelecionadosPage = () => {
             </div>
             <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
               Quem chega até um imóvel da nossa carteira não recebe promessa,
-              recebe documento. E quem procura algo que ainda não temos também
-              tem para onde ir.
+              recebe documento. Isso só funciona porque existe uma regra clara
+              sobre quem a H55 representa em cada negócio.
             </p>
           </motion.div>
-
-          <div className="mt-14 grid grid-cols-1 gap-px bg-[#b8860b]/22 md:grid-cols-2">
-            {[
-              [
-                "Busca ativa de imóveis",
-                "Procuramos imóveis alinhados ao seu interesse, incluindo opções fora dos portais tradicionais, para ampliar as suas oportunidades.",
-              ],
-              [
-                "Consultoria personalizada",
-                "Entendemos o seu perfil, objetivos e necessidades para traçar a melhor estratégia de compra. Cada cliente recebe atendimento exclusivo.",
-              ],
-            ].map(([titulo, texto], i) => (
-              <motion.div
-                key={titulo}
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="group flex min-h-[260px] flex-col bg-[#08203a]/70 p-8 transition duration-500 hover:bg-[#0a2540]"
-              >
-                <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#60748d]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3
-                  className="mt-10 text-2xl font-semibold leading-tight text-[#f4efe6]"
-                  style={PLAYFAIR}
-                >
-                  {titulo}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-[#9fb0c4]">{texto}</p>
-                <div className="mt-auto pt-7">
-                  <span className="block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="mt-12 border border-[#b8860b]/30 bg-[#030c17]/55 p-8 md:p-10"
+            className="mt-14 border border-[#b8860b]/30 bg-[#030c17]/55 p-8 md:p-10"
           >
             <p className="text-[0.64rem] uppercase tracking-[0.26em] text-[#caa64a]">
               A regra da casa
