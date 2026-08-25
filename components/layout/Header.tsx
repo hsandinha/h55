@@ -60,14 +60,6 @@ const Header = () => {
           </li>
           <li>
             <Link
-              href="/coordenacao"
-              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-            >
-              Coordenação
-            </Link>
-          </li>
-          <li>
-            <Link
               href="/admin"
               className="whitespace-nowrap text-sm font-medium text-[#60748d] transition-colors hover:text-h55-gold"
             >
@@ -153,15 +145,6 @@ const Header = () => {
                   onClick={() => setMenuOpen(false)}
                 >
                   Serviços
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/coordenacao"
-                  className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Coordenação
                 </Link>
               </li>
               <li>
