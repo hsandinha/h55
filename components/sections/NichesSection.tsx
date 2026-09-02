@@ -8,28 +8,28 @@ import { LuArrowRight, LuKey, LuLock, LuShieldCheck, LuTarget } from "react-icon
 
 const pilares = [
   {
-    icon: LuShieldCheck,
-    num: "01",
-    title: "Confiança desde a primeira leitura",
-    desc: "Representação exclusiva do seu interesse, com clareza sobre risco, preço e condição de compra.",
-  },
-  {
     icon: LuTarget,
-    num: "02",
-    title: "Negociação com tese",
-    desc: "Cada proposta nasce de comparativos, timing de mercado e objetivo patrimonial definido.",
+    num: "01",
+    title: "Operamos a venda por dentro",
+    desc: "Coordenamos lançamentos e imóveis selecionados todos os dias. A leitura de preço, velocidade e liquidez vem da mesa de vendas, não de relatório de terceiros.",
   },
   {
-    icon: LuLock,
-    num: "03",
-    title: "Processo protegido",
-    desc: "Documentação, fluxo de compra e etapas críticas acompanhadas com transparência.",
+    icon: LuShieldCheck,
+    num: "02",
+    title: "Processo antes de promessa",
+    desc: "Documento conferido, contrato centralizado, relatório aberto. O que prometemos é método, e método se cobra.",
   },
   {
     icon: LuKey,
+    num: "03",
+    title: "Plataforma própria",
+    desc: "Leads distribuídos, follow-up registrado e funil visível para quem contrata. Ninguém depende da memória de um corretor.",
+  },
+  {
+    icon: LuLock,
     num: "04",
-    title: "Agente exclusivo",
-    desc: "Uma atuação sob medida para quem compra, investe ou reposiciona patrimônio.",
+    title: "Discrição",
+    desc: "Proprietário, incorporadora e investidor tratam com um só interlocutor. O que é reservado fica reservado.",
   },
 ];
 
@@ -61,13 +61,13 @@ export const NichesSection = () => {
               className="mt-5 text-4xl font-semibold leading-[1.04] md:text-6xl"
               style={{ fontFamily: "var(--font-playfair-display)" }}
             >
-              Assessoria discreta, precisa e orientada a resultado.
+              Coordenação discreta, precisa e com um responsável.
             </h2>
           </div>
           <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-            O cliente não precisa disputar informação, tempo ou atenção. A H55
-            atua como mesa de curadoria, filtro e negociação para uma decisão
-            imobiliária mais limpa.
+            Quem contrata a H55 não precisa administrar imobiliárias, cobrar
+            corretor nem conferir minuta. A coordenação existe para devolver
+            tempo, controle e preço.
           </p>
         </motion.div>
 
@@ -129,14 +129,14 @@ export const NichesSection = () => {
               className="mt-4 text-3xl font-semibold leading-tight text-[#f4efe6] md:text-4xl"
               style={{ fontFamily: "var(--font-playfair-display)" }}
             >
-              Não encontrou o imóvel ideal?
+              Qual é o seu caso?
             </h3>
           </div>
           <div>
             <p className="text-sm leading-7 text-[#b9c6d4] md:text-base">
-              Atendemos qualquer necessidade imobiliária. Fale com um
-              especialista e receba uma leitura objetiva das melhores
-              oportunidades para o seu perfil.
+              Um lançamento para coordenar, um imóvel para vender ou capital
+              para alocar. Diga qual é o seu caso e a conversa começa no ponto
+              certo, com quem vai responder por ela.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -146,10 +146,10 @@ export const NichesSection = () => {
                 Falar com especialista
               </Link>
               <Link
-                href="/imoveis"
+                href="/services"
                 className="inline-flex items-center justify-center gap-3 border border-[#d8ad45]/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f7efe2] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10"
               >
-                Ver portfólio
+                Ver as três frentes
                 <LuArrowRight size={16} />
               </Link>
             </div>

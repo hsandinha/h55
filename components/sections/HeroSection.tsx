@@ -140,19 +140,19 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.12 }}
             className="mb-5 text-[0.68rem] uppercase tracking-[0.16em] text-[#caa64a] sm:tracking-[0.28em] md:text-xs"
           >
-            A melhor assessoria para seu sucesso no mercado imobiliário
+            Coordenação de vendas, imóveis selecionados e private equity
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.22 }}
-            className="text-4xl font-semibold leading-[0.95] text-[#f7efe2] sm:text-6xl md:text-7xl lg:text-8xl"
+            className="text-4xl font-semibold leading-[0.98] text-[#f7efe2] sm:text-5xl md:text-6xl lg:text-7xl"
             style={{ fontFamily: "var(--font-playfair-display)" }}
           >
-            Exclusividade
+            Um responsável
             <br />
-            que <span className="text-[#d9ad45]">muda tudo</span>
+            pelo <span className="text-[#d9ad45]">processo inteiro</span>
           </motion.h1>
 
           <motion.p
@@ -161,9 +161,10 @@ export const HeroSection = () => {
             transition={{ duration: 1, delay: 0.34 }}
             className="mt-8 max-w-xl border-l border-[#caa64a]/55 pl-5 text-base leading-8 text-[#f1eee7]/88 md:text-lg"
           >
-            Direcionamos compradores e investidores às melhores oportunidades,
-            com foco exclusivo nos seus interesses, negociação estratégica e
-            resultados que transformam capital em patrimônio.
+            A H55 coordena lançamentos para incorporadoras, faz o papel do dono
+            na venda de imóveis selecionados e abre oportunidades de private
+            equity para investidores. Em todas, um único interlocutor que presta
+            contas do início ao fim.
           </motion.p>
 
           <motion.div
@@ -173,10 +174,10 @@ export const HeroSection = () => {
             className="mt-10 flex flex-col gap-3 sm:flex-row"
           >
             <Link
-              href="/imoveis"
+              href="/services"
               className="inline-flex items-center justify-center border border-[#d8ad45] bg-[#d8ad45] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#191207] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0c85a]"
             >
-              Ver portfólio
+              Conhecer as três frentes
             </Link>
             <Link
               href="/contact"

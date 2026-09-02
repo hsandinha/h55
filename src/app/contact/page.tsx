@@ -1,11 +1,20 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { Engine } from "tsparticles-engine";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi"; // Ícones para detalhes de contato
 import { createLead } from "@/lib/leads";
+
+const FRENTES = [
+  { id: "lancamentos", label: "Tenho um lançamento para coordenar", origem: "Lançamentos" },
+  { id: "imoveis-selecionados", label: "Quero vender o meu imóvel", origem: "Imóveis selecionados" },
+  { id: "equity", label: "Quero investir em private equity", origem: "Private equity" },
+  { id: "outro", label: "Outro assunto", origem: "Outro" },
+] as const;
+
+type FrenteId = (typeof FRENTES)[number]["id"];
 
 const ContactPage = () => {
   // Hook de estado para gerenciar os dados do formulário
@@ -15,6 +24,13 @@ const ContactPage = () => {
     phone: "",
     message: "",
   });
+  const [frente, setFrente] = useState<FrenteId>("outro");
+
+  // Pré-seleciona a frente quando o link chega com ?frente=...
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("frente");
+    if (q && FRENTES.some((f) => f.id === q)) setFrente(q as FrenteId);
+  }, []);
 
   // Inicializador de partículas (mantendo a mesma configuração)
   const particlesInit = async (engine: Engine) => {
@@ -40,7 +56,7 @@ const ContactPage = () => {
       email: formData.email,
       telefone: formData.phone,
       mensagem: formData.message,
-      origem: "Site - Contato",
+      origem: `Site - Contato · ${FRENTES.find((f) => f.id === frente)?.origem ?? "Outro"}`,
     });
     if (!result.ok) {
       alert(result.error || "Não foi possível enviar sua mensagem agora.");
@@ -79,7 +95,7 @@ const ContactPage = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-5xl font-bold text-h55-blue mb-6 font-serif text-center"
         >
-          Fale Conosco
+          Qual é o seu caso?
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
@@ -87,9 +103,9 @@ const ContactPage = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-lg text-gray-700 mb-12 text-center max-w-3xl mx-auto"
         >
-          Tem alguma dúvida ou quer iniciar uma conversa? Preencha o formulário
-          abaixo ou entre em contato por um de nossos canais. Nossa equipe está
-          pronta para atendê-lo.
+          Um lançamento para coordenar, um imóvel para vender ou capital para
+          alocar. Diga qual é o seu caso e a conversa começa no ponto certo,
+          com quem vai responder por ela.
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -104,6 +120,28 @@ const ContactPage = () => {
               Envie uma Mensagem
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
+              <fieldset>
+                <legend className="block text-gray-700 font-medium mb-2">
+                  Sobre o que quer falar?
+                </legend>
+                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {FRENTES.map((f) => (
+                    <button
+                      key={f.id}
+                      type="button"
+                      onClick={() => setFrente(f.id)}
+                      aria-pressed={frente === f.id}
+                      className={`border px-4 py-3 text-left text-sm transition ${
+                        frente === f.id
+                          ? "border-h55-blue bg-h55-blue text-white"
+                          : "border-gray-300 bg-gray-50 text-gray-700 hover:border-h55-blue"
+                      }`}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
               <div>
                 <label
                   htmlFor="name"

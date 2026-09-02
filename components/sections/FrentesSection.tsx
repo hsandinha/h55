@@ -11,22 +11,22 @@ const frentes = [
   {
     num: "01",
     label: "Incorporadoras",
-    title: "Coordenação de empreendimentos",
-    desc: "Convenção de vendas, tabela unificada, funil acompanhado e contratos até o repasse.",
-    href: "/empreendimentos",
+    title: "Coordenação de lançamentos imobiliários",
+    desc: "Conduzimos o lançamento do início ao fim: estratégia, tabela, imobiliárias, leads, marketing e contratos.",
+    href: "/lancamentos",
   },
   {
     num: "02",
     label: "Proprietários",
     title: "Coordenação de imóveis selecionados",
-    desc: "Um só interlocutor, o imóvel auditado antes de anunciar e as imobiliárias na mesma regra.",
+    desc: "Fazemos o papel do dono. O proprietário trata apenas com a H55, da seleção das imobiliárias à transferência.",
     href: "/imoveis-selecionados",
   },
   {
     num: "03",
     label: "Investidores",
     title: "Private equity imobiliário",
-    desc: "Entrada em incorporações, da leitura da tese à saída, com quem opera a venda por dentro.",
+    desc: "Investir em imóvel vai além da unidade na planta. Acesso a oportunidades que não chegam ao mercado aberto.",
     href: "/equity",
   },
 ];
@@ -54,8 +54,9 @@ export const FrentesSection = () => {
             </h2>
           </div>
           <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-            Cada frente tem cliente, processo e time próprios. Escolha a sua e a
-            conversa começa no ponto certo.
+            Incorporadora, proprietário ou investidor: cada frente tem cliente,
+            processo e time próprios. Escolha a sua e a conversa começa no ponto
+            certo.
           </p>
         </motion.div>
 

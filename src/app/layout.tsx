@@ -15,18 +15,18 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://h55negociosimob.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "H55 Negócios Imobiliários · Curadoria de imóveis para investidores",
+    default: "H55 Negócios Imobiliários · Coordenação de vendas e private equity",
     template: "%s",
   },
   description:
-    "Curadoria de imóveis para investidores: oportunidades selecionadas com análise de rentabilidade e valorização.",
+    "Coordenação de lançamentos imobiliários, coordenação de imóveis selecionados e private equity imobiliário. Um responsável pelo processo inteiro.",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     siteName: "H55 Negócios Imobiliários",
-    title: "H55 Negócios Imobiliários · Curadoria para investidores",
+    title: "H55 Negócios Imobiliários · Coordenação de vendas e private equity",
     description:
-      "Oportunidades selecionadas com análise de rentabilidade e valorização.",
+      "Coordenação de lançamentos, imóveis selecionados e private equity imobiliário. Um responsável pelo processo inteiro.",
   },
   twitter: { card: "summary_large_image" },
 };

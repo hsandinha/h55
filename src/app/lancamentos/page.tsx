@@ -1,0 +1,328 @@
+// src/app/lancamentos/page.tsx
+"use client";
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { LuArrowRight } from "react-icons/lu";
+import { Descritivo } from "../../../components/frentes/Descritivo";
+
+const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
+
+const entregas = [
+  "Estratégia comercial do lançamento",
+  "Assessoria para elaboração da tabela de vendas",
+  "Seleção e curadoria das imobiliárias parceiras",
+  "Treinamento das equipes de venda",
+  "Gestão dos documentos do empreendimento",
+  "Plataforma própria para distribuição e follow-up de leads",
+  "Alinhamento contínuo com as ações de marketing",
+  "Centralização dos contratos e assinaturas, com distribuição às partes interessadas",
+];
+
+const ganhos = [
+  {
+    title: "Uma tabela, uma regra",
+    desc: "O empreendimento deixa de aparecer em dez versões diferentes. Preço, condição e comissionamento são os mesmos para todas as imobiliárias, e quem fura regra sai do jogo.",
+  },
+  {
+    title: "Lead com dono e com prazo",
+    desc: "Cada lead entra na nossa plataforma, é distribuído a uma imobiliária e tem follow-up cobrado. A incorporadora enxerga o funil inteiro, não só o que virou contrato.",
+  },
+  {
+    title: "Contrato sem retrabalho",
+    desc: "Documentos conferidos, contrato centralizado, assinatura organizada e cada parte recebendo a sua via. O maior gargalo entre a proposta e o caixa da obra sai do caminho.",
+  },
+];
+
+const metodo = [
+  {
+    fase: "Antes de abrir",
+    etapas: [
+      ["Estratégia comercial", "Leitura do produto, do público e da concorrência. Posicionamento e canais de distribuição definidos com a incorporadora."],
+      ["Tabela de vendas", "Assessoria na elaboração da tabela, das condições de pagamento e da regra de comissionamento."],
+      ["Curadoria das imobiliárias", "Seleção das parceiras que fazem sentido para aquele produto, convenção de vendas e treinamento das equipes."],
+    ],
+  },
+  {
+    fase: "Com as vendas abertas",
+    etapas: [
+      ["Distribuição de leads", "Plataforma própria da H55 distribui os leads entre as imobiliárias e registra cada contato."],
+      ["Follow-up e funil", "Acompanhamento do atendimento, cobrança de retorno e leitura semanal do funil por unidade."],
+      ["Marketing alinhado", "Campanha e estoque no mesmo ritmo: o que o marketing promete é o que a mesa de vendas consegue entregar."],
+    ],
+  },
+  {
+    fase: "Do sim ao contrato",
+    etapas: [
+      ["Gestão documental", "Documentos do comprador e do empreendimento reunidos e conferidos antes de virar minuta."],
+      ["Contratos e assinaturas", "Contrato centralizado na H55, conferido, assinado e distribuído a incorporadora, imobiliária e comprador."],
+      ["Prestação de contas", "Relatório aberto de vendas, comissionamento e pendências, com um único responsável por responder."],
+    ],
+  },
+];
+
+const LancamentosPage = () => {
+  return (
+    <>
+      {/* Abertura */}
+      <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(10,37,64,0.55) 0%, rgba(6,18,31,1) 78%)",
+          }}
+        />
+        <div className="relative z-10 mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="grid gap-10 md:grid-cols-[1.05fr_0.95fr]"
+          >
+            <div>
+              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
+                01 · Coordenação de lançamentos imobiliários
+              </p>
+              <h1
+                className="mt-6 text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
+                style={PLAYFAIR}
+              >
+                Conduzimos o lançamento{" "}
+                <span className="text-[#d9ad45]">do início ao fim.</span>
+              </h1>
+            </div>
+            <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
+              Da estratégia comercial à assinatura do contrato, a H55 assume a
+              operação de vendas do seu empreendimento. As imobiliárias
+              parceiras operam na mesma regra e um único responsável presta
+              contas à incorporadora.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="mt-16 grid grid-cols-1 gap-px border-t border-[#b8860b]/25 bg-[#b8860b]/22 sm:grid-cols-3"
+          >
+            {[
+              ["Tabela e estratégia", "uma regra só para todo o mercado"],
+              ["Plataforma de leads", "distribuição e follow-up com as imobiliárias"],
+              ["Contratos e assinaturas", "centralizados e distribuídos às partes"],
+            ].map(([titulo, texto]) => (
+              <div key={titulo} className="bg-[#06121f] px-1 py-7 sm:px-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#d9ad45]">
+                  {titulo}
+                </p>
+                <p className="mt-2 text-sm leading-7 text-[#9fb0c4]">{texto}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Descritivo */}
+      <Descritivo
+        numero="01"
+        titulo="Coordenação de lançamentos imobiliários"
+        texto={
+          <>
+            Estratégia comercial, tabela de vendas, curadoria e treinamento das
+            imobiliárias, gestão dos documentos, plataforma própria para
+            distribuição e follow-up de leads, alinhamento contínuo com o
+            marketing e centralização dos contratos e assinaturas.{" "}
+            <span className="text-[#9a7b1e]">
+              Tudo isto é a coordenação. Nada disto é extra.
+            </span>
+          </>
+        }
+        entregas={entregas}
+      />
+
+      {/* O que a incorporadora ganha */}
+      <section className="bg-[#ebe3d5] py-24 md:py-32">
+        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="grid gap-10 border-b border-[#0a2540]/15 pb-12 md:grid-cols-[0.9fr_1.1fr]"
+          >
+            <div>
+              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
+                Para incorporadoras e loteadoras
+              </p>
+              <h2
+                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
+                style={PLAYFAIR}
+              >
+                Não é colocar mais gente vendendo. É controlar o que vende.
+              </h2>
+            </div>
+            <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
+              Estoque solto no mercado vira tabela furada, imobiliária
+              desalinhada e contrato travando o caixa da obra. A coordenação
+              existe para que a informação, o lead e o contrato tenham um dono
+              só.
+            </p>
+          </motion.div>
+
+          <div className="mt-12 grid grid-cols-1 gap-px bg-[#0a2540]/15 md:grid-cols-3">
+            {ganhos.map((g, i) => (
+              <motion.div
+                key={g.title}
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="group flex min-h-[260px] flex-col bg-[#ebe3d5] p-8 transition-colors duration-500 hover:bg-[#e3d9c7]"
+              >
+                <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#8a7a5e]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3
+                  className="mt-8 text-2xl font-semibold leading-tight text-[#0a2540]"
+                  style={PLAYFAIR}
+                >
+                  {g.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-[#52617a]">{g.desc}</p>
+                <div className="mt-auto pt-7">
+                  <span className="block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="mt-10 max-w-2xl text-xl leading-9 text-[#0a2540]" style={PLAYFAIR}>
+            Acelere a liquidez do seu lançamento com quem responde pelo processo
+            inteiro.
+          </p>
+        </div>
+      </section>
+
+      {/* Método */}
+      <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-32">
+        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]"
+          >
+            <div>
+              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
+                Como operamos
+              </p>
+              <h2
+                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] md:text-5xl"
+                style={PLAYFAIR}
+              >
+                Nove etapas, três fases, um responsável.
+              </h2>
+            </div>
+            <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
+              O mesmo método em todo lançamento que coordenamos. A incorporadora
+              sabe em que fase está, o que já foi entregue e o que vem a
+              seguir.
+            </p>
+          </motion.div>
+
+          <div className="mt-14 space-y-px">
+            {metodo.map((bloco, bi) => (
+              <motion.div
+                key={bloco.fase}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.7, delay: bi * 0.08 }}
+                className="grid gap-6 border-t border-[#b8860b]/25 py-10 lg:grid-cols-[0.28fr_1fr]"
+              >
+                <div className="flex items-start gap-4">
+                  <span
+                    className="text-5xl font-semibold leading-none text-[#d9ad45] md:text-6xl"
+                    style={PLAYFAIR}
+                  >
+                    {String(bi + 1).padStart(2, "0")}
+                  </span>
+                  <span className="mt-2 text-[0.68rem] uppercase tracking-[0.28em] text-[#9fb0c4]">
+                    {bloco.fase}
+                  </span>
+                </div>
+                <div className="grid gap-px bg-[#b8860b]/22 sm:grid-cols-3">
+                  {bloco.etapas.map(([titulo, texto], ei) => (
+                    <div key={titulo} className="bg-[#06121f] p-6">
+                      <span className="text-[0.62rem] uppercase tracking-[0.3em] text-[#60748d]">
+                        Etapa {bi * 3 + ei + 1}
+                      </span>
+                      <h3 className="mt-3 text-base font-semibold uppercase tracking-[0.08em] text-[#f4efe6]">
+                        {titulo}
+                      </h3>
+                      <p className="mt-3 text-sm leading-7 text-[#9fb0c4]">{texto}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Transparência e CTA */}
+      <section className="bg-[#ebe3d5] py-24 md:py-28">
+        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="grid gap-10 border-t border-[#0a2540]/20 pt-12 md:grid-cols-[0.9fr_1.1fr]"
+          >
+            <div>
+              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
+                Transparência
+              </p>
+              <h2
+                className="mt-5 text-balance text-3xl font-semibold leading-[1.06] text-[#0a2540] md:text-5xl"
+                style={PLAYFAIR}
+              >
+                E quanto custa essa camada a mais?
+              </h2>
+            </div>
+            <div className="self-end">
+              <p className="max-w-xl text-base leading-8 text-[#52617a] md:text-lg">
+                Coordenar um lançamento tem custo: uma taxa de gestão ou uma
+                fatia da comissão. Ela só se justifica quando devolve velocidade
+                de vendas ou preço final. O compromisso é este: relatório aberto
+                de leads e vendas, tabela e comissionamento claros para todas as
+                imobiliárias parceiras e um único responsável por prestar
+                contas.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/contact?frente=lancamentos"
+                  className="inline-flex items-center justify-center border border-[#0a2540] bg-[#0a2540] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4efe6] transition duration-300 hover:-translate-y-0.5 hover:bg-[#123457]"
+                >
+                  Apresentar o lançamento
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center gap-3 border border-[#0a2540]/40 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#0a2540] transition duration-300 hover:-translate-y-0.5 hover:bg-[#0a2540]/5"
+                >
+                  Ver as três frentes
+                  <LuArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default LancamentosPage;

@@ -11,42 +11,42 @@ const frentes = [
   {
     num: "01",
     label: "Incorporadoras",
-    title: "Coordenação de empreendimentos",
-    lead: "Maximizando a rentabilidade do seu empreendimento com inteligência imobiliária.",
-    body: "A H55 lidera a estratégia e a coordenação de vendas do seu empreendimento. Conectamos incorporadoras e investidores através de uma gestão comercial estruturada, eficiente e orientada a resultados.",
+    title: "Coordenação de lançamentos imobiliários",
+    lead: "Conduzimos o lançamento do início ao fim.",
+    body: "Estratégia comercial, tabela de vendas, curadoria e treinamento das imobiliárias parceiras, gestão documental, plataforma própria para distribuição e follow-up de leads, alinhamento com o marketing e centralização de contratos e assinaturas, com distribuição a todas as partes interessadas.",
     itens: [
       [
-        "Estratégia comercial integrada",
-        "alinhamento de preço, posicionamento e canais de distribuição.",
+        "Estratégia e tabela",
+        "assessoria na tabela de vendas, posicionamento e regra de comissionamento antes de abrir as vendas.",
       ],
       [
-        "Gestão de parcerias e corretores",
-        "treinamento, engajamento e acompanhamento ativo do funil de vendas.",
+        "Imobiliárias selecionadas e treinadas",
+        "curadoria das parceiras e plataforma própria para distribuir e acompanhar os leads.",
       ],
       [
-        "Governança do contrato",
-        "conferência, assinatura digital e repasse, sem atraso no caixa da obra.",
+        "Contratos centralizados",
+        "documentos, contratos e assinaturas em um só lugar, distribuídos às partes.",
       ],
     ],
     fecho:
       "Acelere a liquidez do seu lançamento com quem responde pelo processo inteiro.",
-    href: "/empreendimentos",
-    cta: "Ver coordenação de empreendimentos",
+    href: "/lancamentos",
+    cta: "Ver coordenação de lançamentos",
   },
   {
     num: "02",
     label: "Proprietários",
     title: "Coordenação de imóveis selecionados",
-    lead: "A H55 cuida de tudo. Você conversa apenas com um parceiro.",
-    body: "Distribuir a chave do imóvel para dezenas de imobiliárias gera desencontro de informações, desvalorização do patrimônio e dor de cabeça. Assumimos a captação, a documentação e a coordenação centralizada da venda.",
+    lead: "Fazemos o papel do dono.",
+    body: "O proprietário trata apenas com a H55, e nós coordenamos a venda inteira: seleção das imobiliárias, liberação de visitas, contratos e transferência do imóvel. Profissionalizar a venda é não perder tempo nem dinheiro.",
     itens: [
       [
-        "Um único ponto de contato",
+        "Um único interlocutor",
         "a H55 representa você perante todo o mercado imobiliário.",
       ],
       [
-        "Estratégia multicanal sem desordem",
-        "coordenamos as melhores imobiliárias e corretores parceiros sem que você precise gerenciar ninguém.",
+        "Imobiliárias selecionadas",
+        "coordenamos quem vende, com qual material e com qual regra, sem que você gerencie ninguém.",
       ],
       [
         "Imóvel auditado antes de anunciar",
@@ -62,20 +62,17 @@ const frentes = [
     num: "03",
     label: "Investidores",
     title: "Private equity imobiliário",
-    lead: "Participar do resultado da incorporação, não do metro quadrado.",
-    body: "Estruturamos a entrada do investidor em incorporações, da leitura da tese até a saída. Foi assim que a H55 nasceu: atendendo um investidor com carteira e apetite para equity e revenda de ativos prontos.",
+    lead: "Investir em imóvel vai muito além da unidade na planta.",
+    body: "Damos acesso a oportunidades que não chegam ao mercado aberto, porque operamos a venda por dentro. Foi assim que a H55 nasceu: atendendo um investidor com carteira e apetite para equity e revenda de ativos prontos.",
     itens: [
+      ["Acesso", "oportunidades que saem da mesa de vendas antes de virar anúncio."],
       [
-        "Leitura da tese",
-        "viabilidade, ciclo do empreendimento e cenário de saída.",
-      ],
-      [
-        "Estruturação da entrada",
-        "participação societária, permuta ou estruturação de dívida.",
+        "Leitura",
+        "velocidade de venda, preço e liquidez lidos por quem coordena a venda.",
       ],
       ["Acompanhamento", "do aporte até o desinvestimento."],
     ],
-    fecho: "Converse com a coordenação sobre as teses em análise.",
+    fecho: "Agende uma reunião com nossos especialistas.",
     href: "/equity",
     cta: "Ver private equity",
   },
@@ -105,8 +102,9 @@ const ServicesPage = () => {
             </div>
             <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
               A H55 atua em três frentes. Cada uma tem cliente, processo e
-              equipe de trabalho próprios. Escolha a sua e a conversa começa no
-              ponto certo.
+              equipe próprios, e em todas a regra é a mesma: um responsável que
+              presta contas pelo processo inteiro. Escolha a sua e a conversa
+              começa no ponto certo.
             </p>
           </motion.div>
 
