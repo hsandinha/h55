@@ -5,7 +5,7 @@ import { bairros } from "@/data/bairros";
 export const metadata: Metadata = {
   title: "Bairros · H55 Negócios Imobiliários",
   description:
-    "Conheça os bairros onde o h55 tem imóveis no portfólio: Savassi, Lourdes, Boa Viagem e Barra da Tijuca.",
+    "Conheça os bairros onde a H55 apresenta imóveis selecionados e consulte as opções disponíveis em cada região.",
 };
 
 export default function BairrosPage() {
@@ -22,8 +22,8 @@ export default function BairrosPage() {
             Bairros do portfólio
           </h1>
           <p className="mt-4 max-w-xl text-sm text-[#9fb0c4] md:text-base">
-            Curadoria nos endereços mais desejados do país. Conheça cada região e as
-            oportunidades que selecionamos nelas.
+            Conheça as regiões onde a H55 apresenta imóveis selecionados e veja
+            as opções disponíveis em cada endereço.
           </p>
         </div>
       </section>

@@ -199,14 +199,14 @@ export default function ImoveisPage() {
           }}
         />
         <div className="relative mx-auto max-w-7xl px-6">
-          <p className="eyebrow text-[#caa64a]">Curadoria para investidores</p>
+          <p className="eyebrow text-[#caa64a]">Imóveis selecionados</p>
           <span className="mt-4 block h-px w-16 bg-[#b8860b]" />
           <h1 className="font-display mt-5 text-4xl font-bold text-[#f4efe6] md:text-5xl lg:text-6xl">
-            Portfólio de oportunidades
+            Carteira de imóveis
           </h1>
           <p className="mt-4 max-w-xl text-sm text-[#9fb0c4] md:text-base">
-            Imóveis selecionados com análise de rentabilidade e valorização.
-            Refine pela barra lateral ou explore no mapa.
+            Conheça os imóveis apresentados pela H55. Use os filtros para
+            encontrar as opções mais adequadas ou explore a carteira pelo mapa.
           </p>
         </div>
       </section>
@@ -272,7 +272,7 @@ export default function ImoveisPage() {
               className="h-9 border border-[#b8860b]/25 bg-white px-3 text-xs text-[#0a2540] focus:border-[#b8860b] focus:outline-none"
             >
               <option value="relevancia">Mais relevantes</option>
-              <option value="rentabilidade_desc">Maior rentabilidade</option>
+              <option value="rentabilidade_desc">Maior rentabilidade estimada</option>
               <option value="data_desc">Mais recentes</option>
               <option value="preco_asc">Menor preço</option>
               <option value="preco_desc">Maior preço</option>

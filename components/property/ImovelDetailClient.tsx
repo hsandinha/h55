@@ -184,7 +184,7 @@ export function ImovelDetailClient({ id }: { id: string }) {
             {typeof imovel.rentabilidadeAnual === "number" && (
               <div className="absolute right-5 top-5 z-20 flex items-center gap-1.5 border border-[#fbbf24]/50 bg-[#06121f]/80 px-3 py-1.5 text-xs font-semibold text-[#fbbf24] backdrop-blur-sm">
                 <LuTrendingUp size={13} />
-                {imovel.rentabilidadeAnual.toLocaleString("pt-BR")}% ao ano
+                {imovel.rentabilidadeAnual.toLocaleString("pt-BR")}% ao ano estimado
               </div>
             )}
 
@@ -405,7 +405,7 @@ export function ImovelDetailClient({ id }: { id: string }) {
 
               <div className="grid grid-cols-2 gap-px bg-[#b8860b]/15">
                 <Indicator
-                  label="Rentabilidade"
+                  label="Rentabilidade estimada"
                   value={
                     typeof imovel.rentabilidadeAnual === "number"
                       ? `${imovel.rentabilidadeAnual.toLocaleString("pt-BR")}%/ano`
@@ -414,12 +414,17 @@ export function ImovelDetailClient({ id }: { id: string }) {
                   highlight
                 />
                 <Indicator
-                  label="Valorização 12m"
+                  label="Variação informada 12m"
                   value={typeof imovel.valorizacao12m === "number" ? `+${imovel.valorizacao12m}%` : "·"}
                 />
                 <Indicator label="Condomínio" value={brl(imovel.valorCondominio)} />
                 <Indicator label="IPTU/ano" value={brl(imovel.valorIptu)} />
               </div>
+
+              <p className="border-b border-[#b8860b]/15 px-6 py-3 text-[0.68rem] leading-5 text-[#6b7a90]">
+                Indicadores são referências informativas, podem variar e não
+                constituem promessa de rentabilidade ou valorização futura.
+              </p>
 
               <div className="space-y-3 p-6">
                 <button

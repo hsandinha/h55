@@ -55,7 +55,7 @@ const Header = () => {
               href="/services"
               className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
             >
-              Serviços
+              Áreas de atuação
             </Link>
           </li>
           <li>
@@ -144,7 +144,7 @@ const Header = () => {
                   className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Serviços
+                  Áreas de atuação
                 </Link>
               </li>
               <li>

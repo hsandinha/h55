@@ -9,24 +9,24 @@ import { Descritivo } from "../../../components/frentes/Descritivo";
 const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
 const entregas = [
-  "Acesso a oportunidades que não chegam ao mercado aberto",
-  "Leitura da oportunidade: incorporador, produto, ciclo e cenário de saída",
-  "Estruturação da entrada conforme o capital e o horizonte do investidor",
-  "Acompanhamento da operação até o desinvestimento",
+  "Acesso a oportunidades selecionadas no mercado imobiliário",
+  "Apresentação do contexto e da estrutura de cada oportunidade",
+  "Conversa alinhada ao perfil e ao horizonte do investidor",
+  "Relacionamento conduzido pelos especialistas da H55",
 ];
 
 const oQueFazemos = [
   {
     title: "Acesso",
-    desc: "Coordenamos vendas de lançamentos e de imóveis selecionados todos os dias. É dessa mesa que saem as oportunidades que apresentamos, antes de virarem anúncio.",
+    desc: "A H55 acompanha o mercado imobiliário e seleciona oportunidades para apresentar em conversas individuais com investidores.",
   },
   {
     title: "Leitura",
-    desc: "Quem opera a venda por dentro sabe quanto e em quanto tempo um produto vende. É essa leitura de velocidade, preço e liquidez que sustenta a análise de cada oportunidade.",
+    desc: "Cada oportunidade é apresentada com seu contexto, sua estrutura e seu horizonte, para apoiar uma avaliação consciente.",
   },
   {
     title: "Acompanhamento",
-    desc: "Do aporte à saída, com o andamento da obra, das vendas e do momento de desinvestir acompanhados pela mesma equipe que apresentou a oportunidade.",
+    desc: "Os especialistas da H55 conduzem o relacionamento e mantêm o investidor informado sobre a evolução da oportunidade apresentada.",
   },
 ];
 
@@ -63,10 +63,9 @@ const EquityPage = () => {
               </h1>
             </div>
             <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              Temos acesso a oportunidades que não chegam ao mercado aberto,
-              porque operamos a venda por dentro. Foi assim que a H55 nasceu:
-              atendendo um investidor com carteira e apetite para equity e
-              revenda de ativos prontos.
+              A H55 amplia a forma de investir no mercado imobiliário ao
+              apresentar oportunidades selecionadas de private equity em
+              conversas conduzidas por nossos especialistas.
             </p>
           </motion.div>
         </div>
@@ -106,14 +105,13 @@ const EquityPage = () => {
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
                 style={PLAYFAIR}
               >
-                Participar do resultado da incorporação, não do metro quadrado.
+                Uma forma diferente de acessar o mercado imobiliário.
               </h2>
             </div>
             <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              Cada operação é analisada caso a caso, com o material aberto e o
-              risco explicado antes de qualquer conversa sobre valor. A conversa
-              começa pelo seu horizonte e o seu apetite, não pelo produto que
-              temos para oferecer.
+              Cada conversa começa pela compreensão do perfil, dos objetivos e
+              do horizonte do investidor. A partir disso, apresentamos as
+              oportunidades disponíveis e suas características.
             </p>
           </motion.div>
 
@@ -169,9 +167,9 @@ const EquityPage = () => {
             </div>
             <div>
               <p className="text-sm leading-7 text-[#b9c6d4] md:text-base">
-                Uma conversa reservada, sem apresentação de produto. Entendemos
-                o seu capital, o seu prazo e o que você já tem em carteira, e
-                só então falamos das oportunidades em análise.
+                Em uma conversa reservada, entendemos seus objetivos e seu
+                horizonte de investimento para apresentar a atuação da H55 e as
+                oportunidades que possam fazer sentido para o seu perfil.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link

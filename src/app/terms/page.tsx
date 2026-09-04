@@ -56,23 +56,8 @@ const TermsOfUsePage = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-sm text-gray-500 mb-12 text-center"
         >
-          Última atualização: 22 de julho de 2025
+          Última atualização: 4 de setembro de 2026
         </motion.p>
-
-        {/* Bloco de Aviso Legal */}
-        <motion.div
-          {...sectionAnimation}
-          className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-r-lg mb-12"
-          role="alert"
-        >
-          <p className="font-bold">Aviso Importante</p>
-          <p>
-            Este documento é um modelo de Termos de Uso e não constitui
-            aconselhamento jurídico. É fundamental que você o revise com um
-            advogado para garantir sua adequação completa às atividades da sua
-            empresa e à legislação.
-          </p>
-        </motion.div>
 
         <div className="space-y-10 text-gray-700">
           <motion.div {...sectionAnimation}>
@@ -92,11 +77,12 @@ const TermsOfUsePage = () => {
               2. Objeto do Site
             </h2>
             <p>
-              Este site tem como finalidade apresentar nossos serviços de
-              consultoria imobiliária, especificamente como Concierge
-              Imobiliário, e disponibilizar informações institucionais. As
-              informações aqui contidas não constituem uma oferta de venda ou
-              solicitação de compra de qualquer imóvel.
+              Este site apresenta a H55 Negócios Imobiliários, suas frentes de
+              coordenação de lançamentos, coordenação de imóveis selecionados e
+              private equity imobiliário, além de sua carteira de imóveis e
+              informações institucionais. O conteúdo possui caráter informativo
+              e não substitui a análise dos documentos e das condições de cada
+              negócio.
             </p>
           </motion.div>
 
@@ -122,10 +108,15 @@ const TermsOfUsePage = () => {
               As informações contidas neste site são fornecidas &quot;no estado
               em que se encontram&quot; e têm caráter meramente informativo.
               Embora nos esforcemos para manter as informações precisas e
-              atualizadas, não oferecemos garantias de qualquer tipo sobre sua
-              exatidão, integridade ou adequação a um propósito específico. Não
+              atualizadas, condições comerciais, disponibilidade e demais dados
+              podem mudar sem aviso prévio. Não
               nos responsabilizamos por quaisquer perdas ou danos decorrentes do
               uso ou da confiança nas informações aqui apresentadas.
+            </p>
+            <p className="mt-3">
+              Informações sobre private equity têm caráter exclusivamente
+              institucional e não constituem oferta pública, recomendação de
+              investimento ou promessa de rentabilidade.
             </p>
           </motion.div>
 

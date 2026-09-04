@@ -9,20 +9,20 @@ const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
 const REGRAS = [
   {
-    title: "Um interlocutor",
-    desc: "Incorporadora, proprietário ou investidor conversam com uma pessoa só. Quem responde pelo processo é quem presta contas.",
+    title: "Estratégia definida",
+    desc: "Cada operação começa com objetivos, responsabilidades e próximos passos claramente estabelecidos.",
   },
   {
-    title: "Uma regra para todas as imobiliárias",
-    desc: "Mesmo preço, mesmo material, mesma comissão. Quem vende com a H55 vende na mesma tabela que todo mundo.",
+    title: "Coordenação centralizada",
+    desc: "A H55 organiza os participantes, as informações e os documentos em um único fluxo de trabalho.",
   },
   {
-    title: "Auditado antes de anunciar",
-    desc: "Matrícula, certidões e documentos conferidos antes do primeiro anúncio, para o contrato não morrer no cartório.",
+    title: "Acompanhamento contínuo",
+    desc: "A operação é acompanhada em todas as etapas, com alinhamento entre as partes e atenção às pendências.",
   },
   {
-    title: "Nunca pelas duas pontas",
-    desc: "Quando a H55 coordena a venda de um imóvel, ela não representa quem está comprando aquele imóvel.",
+    title: "Um ponto de contato",
+    desc: "Quem contrata a H55 tem um responsável pela condução do processo e pela comunicação do início ao fim.",
   },
 ];
 
@@ -44,7 +44,7 @@ function ComoTrabalhamos() {
             className="mt-6 text-4xl font-semibold leading-[1.02] text-[#0a2540] md:text-6xl"
             style={PLAYFAIR}
           >
-            Não vendemos imóveis. Coordenamos a venda.
+            Estratégia, gestão e acompanhamento em cada etapa.
           </h2>
         </motion.div>
 
@@ -56,10 +56,9 @@ function ComoTrabalhamos() {
           className="flex flex-col justify-end"
         >
           <p className="max-w-2xl text-lg leading-9 text-[#26364a] md:text-xl">
-            Não colocamos corretor próprio na ponta. Definimos a estratégia,
-            selecionamos e treinamos quem vende, distribuímos os leads,
-            conferimos cada documento e centralizamos o contrato. O mercado
-            trabalha pela venda; a H55 responde por ela.
+            A H55 atua como centro de coordenação da operação. Estruturamos a
+            estratégia, organizamos os participantes, acompanhamos documentos e
+            contratos e mantemos cada parte alinhada ao longo do processo.
           </p>
           <div className="mt-10 grid gap-4 border-y border-[#0a2540]/15 py-6 text-sm uppercase tracking-[0.18em] text-[#52617a] sm:grid-cols-3">
             <span>Coordenação</span>
@@ -91,12 +90,12 @@ function Regras() {
               className="mt-4 text-3xl font-semibold leading-tight md:text-5xl"
               style={PLAYFAIR}
             >
-              Quatro compromissos que valem nas três frentes.
+              Um método que orienta as três frentes.
             </h2>
           </div>
           <p className="max-w-md text-sm leading-7 text-[#9fb0c4]">
-            Não são slogans. São as condições para a H55 aceitar coordenar uma
-            venda, e o que você pode cobrar de nós depois.
+            A complexidade muda de uma frente para outra. A disciplina de
+            coordenação permanece a mesma.
           </p>
         </motion.div>
 
@@ -152,12 +151,11 @@ function Carteira() {
             className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
             style={PLAYFAIR}
           >
-            Os imóveis que a H55 coordena.
+            Imóveis selecionados pela H55.
           </h2>
           <p className="mt-7 max-w-md text-base leading-8 text-[#52617a]">
-            Cada imóvel da carteira passou pela mesma régua: documentação
-            auditada, material próprio e preço definido com leitura de
-            liquidez. O que está aqui está pronto para proposta.
+            Conheça a carteira de imóveis conduzida pela H55, com informações
+            organizadas para apoiar visitas, propostas e a evolução da venda.
           </p>
           <Link
             href="/imoveis"
@@ -176,9 +174,9 @@ function Carteira() {
           className="grid grid-cols-1 gap-px self-end bg-[#0a2540]/15 sm:grid-cols-3"
         >
           {[
-            ["Documentação", "matrícula e certidões conferidas"],
-            ["Material", "fotos, drone, tour virtual e página própria"],
-            ["Preço", "comparativos e leitura de liquidez"],
+            ["Informações", "dados do imóvel reunidos em um só lugar"],
+            ["Apresentação", "material preparado para apoiar a comercialização"],
+            ["Atendimento", "visitas e propostas conduzidas pela coordenação"],
           ].map(([t, d]) => (
             <div key={t} className="bg-[#ebe3d5] p-6">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#0a2540]">{t}</p>

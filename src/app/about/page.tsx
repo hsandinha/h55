@@ -9,42 +9,42 @@ const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
 const historia = [
   {
-    marco: "A origem",
+    marco: "Estratégia",
     texto:
-      "A H55 nasceu para atender com excelência um único investidor, dono de uma carteira robusta de imóveis e com apetite para equity e revenda de ativos prontos. Essa relação exclusiva ensinou o que o mercado não entrega: alguém que responde pelo processo inteiro.",
+      "Cada trabalho começa pela compreensão do ativo, do objetivo e das partes envolvidas. A partir disso, definimos a direção comercial e o escopo da coordenação.",
   },
   {
-    marco: "A virada",
+    marco: "Coordenação",
     texto:
-      "Coordenando a venda dos imóveis dessa carteira, ficou claro que o problema do proprietário e o da incorporadora são o mesmo: dez imobiliárias, dez preços, dez versões do imóvel e ninguém responsável. A H55 passou a fazer o papel do dono.",
+      "Centralizamos informações, parceiros, visitas, documentos, contratos e acompanhamentos para que o processo avance de forma organizada.",
   },
   {
-    marco: "Hoje",
+    marco: "Especialização",
     texto:
-      "Três frentes, um método. Coordenamos lançamentos para incorporadoras, coordenamos a venda de imóveis selecionados para proprietários e abrimos oportunidades de private equity para investidores. Em todas, um único interlocutor.",
+      "Atuamos em três frentes: lançamentos imobiliários, imóveis selecionados e private equity. Cada uma possui público e abordagem próprios.",
   },
 ];
 
 const valores = [
   {
-    title: "Um responsável",
-    desc: "Quem coordena presta contas. Relatório aberto, regra clara e uma pessoa para cobrar.",
+    title: "Responsabilidade",
+    desc: "Um ponto de contato para conduzir o processo, organizar as demandas e manter as partes alinhadas.",
   },
   {
-    title: "Imparcialidade",
-    desc: "Nunca pelas duas pontas do mesmo negócio. Quando coordenamos a venda, não representamos quem compra aquele imóvel.",
+    title: "Clareza",
+    desc: "Escopo, responsabilidades e próximos passos definidos desde o início de cada trabalho.",
   },
   {
-    title: "Método antes de promessa",
-    desc: "Documento conferido, contrato centralizado, lead registrado. O que se promete é processo, e processo se cobra.",
+    title: "Método",
+    desc: "Estratégia, acompanhamento e gestão aplicados de maneira consistente em cada frente de atuação.",
   },
   {
-    title: "Leitura de mercado",
-    desc: "Preço, velocidade e liquidez lidos por quem coordena a venda todos os dias, não por quem só a comenta.",
+    title: "Especialização",
+    desc: "Uma abordagem específica para as necessidades de incorporadoras, proprietários e investidores.",
   },
   {
     title: "Discrição",
-    desc: "O que é reservado fica reservado. Proprietário, incorporadora e investidor tratam com uma só pessoa.",
+    desc: "Informações e oportunidades tratadas com cuidado ao longo de todo o relacionamento.",
   },
 ];
 
@@ -82,16 +82,14 @@ const AboutPage = () => {
                 className="mt-6 text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
                 style={PLAYFAIR}
               >
-                Não vendemos imóveis.{" "}
-                <span className="text-[#d9ad45]">Respondemos pela venda.</span>
+                Estratégia e coordenação para{` `}
+                <span className="text-[#d9ad45]">negócios imobiliários.</span>
               </h1>
             </div>
             <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              A H55 é uma coordenação de vendas imobiliárias. Não colocamos
-              corretor próprio na ponta: definimos a estratégia, selecionamos
-              quem vende, distribuímos os leads, conferimos cada documento e
-              centralizamos o contrato. O mercado trabalha pela venda; nós
-              respondemos por ela.
+              A H55 coordena lançamentos para incorporadoras, assume a condução
+              da venda de imóveis selecionados para proprietários e apresenta
+              oportunidades de private equity para investidores.
             </p>
           </motion.div>
         </div>
@@ -108,13 +106,13 @@ const AboutPage = () => {
             className="max-w-2xl"
           >
             <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-              Nossa origem
+              Como atuamos
             </p>
             <h2
               className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
               style={PLAYFAIR}
             >
-              Começou com um investidor. Virou um método.
+              Uma atuação estruturada em três movimentos.
             </h2>
           </motion.div>
 
@@ -153,8 +151,8 @@ const AboutPage = () => {
               className="max-w-3xl text-balance text-2xl leading-[1.35] text-[#0a2540] md:text-[2.1rem] md:leading-[1.3]"
               style={PLAYFAIR}
             >
-              Afinal, não vendemos imóveis.{" "}
-              <span className="text-[#9a7b1e]">Representamos pessoas.</span>
+              Diferentes objetivos exigem abordagens específicas.{" "}
+              <span className="text-[#9a7b1e]">A coordenação conecta todas as etapas.</span>
             </p>
           </motion.blockquote>
         </div>
@@ -236,8 +234,8 @@ const AboutPage = () => {
               </h2>
             </div>
             <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              Valores só valem se forem verificáveis. Estes são os cinco que
-              qualquer cliente da H55 consegue conferir no primeiro mês.
+              Estes princípios orientam a maneira como estruturamos a estratégia,
+              conduzimos a operação e nos relacionamos com cada cliente.
             </p>
           </motion.div>
 

@@ -103,9 +103,9 @@ const ContactPage = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-lg text-gray-700 mb-12 text-center max-w-3xl mx-auto"
         >
-          Um lançamento para coordenar, um imóvel para vender ou capital para
-          alocar. Diga qual é o seu caso e a conversa começa no ponto certo,
-          com quem vai responder por ela.
+          Um lançamento para coordenar, um imóvel para vender ou interesse em
+          private equity imobiliário. Conte-nos o seu objetivo e direcionaremos
+          sua mensagem para a frente adequada.
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -117,7 +117,7 @@ const ContactPage = () => {
             className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-lg"
           >
             <h2 className="text-2xl font-semibold text-h55-blue mb-6">
-              Envie uma Mensagem
+              Envie uma mensagem
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <fieldset>
@@ -213,7 +213,7 @@ const ContactPage = () => {
                 type="submit"
                 className="w-full px-8 py-3 bg-h55-blue text-gray-700 rounded-full font-semibold hover:bg-h55-gold hover:text-h55-blue transition-colors shadow-lg hover:shadow-h55-gold/50 transform hover:scale-105"
               >
-                Enviar Mensagem
+                Enviar mensagem
               </button>
             </form>
           </motion.div>
@@ -227,11 +227,11 @@ const ContactPage = () => {
           >
             <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-lg">
               <h2 className="text-2xl font-semibold text-h55-blue mb-6">
-                Informações de Contato
+                Informações de contato
               </h2>
               <div className="space-y-4 text-gray-700">
                 <a
-                  href="mailto:contato@suaempresa.com.br"
+                  href="mailto:contato@h55negociosimob.com"
                   className="flex items-center space-x-4 group"
                 >
                   <FiMail className="text-h55-blue text-2xl group-hover:text-h55-gold transition-colors" />

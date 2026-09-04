@@ -140,7 +140,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.12 }}
             className="mb-5 text-[0.68rem] uppercase tracking-[0.16em] text-[#caa64a] sm:tracking-[0.28em] md:text-xs"
           >
-            Coordenação de vendas, imóveis selecionados e private equity
+            Três frentes de atuação imobiliária
           </motion.p>
 
           <motion.h1
@@ -150,9 +150,9 @@ export const HeroSection = () => {
             className="text-4xl font-semibold leading-[0.98] text-[#f7efe2] sm:text-5xl md:text-6xl lg:text-7xl"
             style={{ fontFamily: "var(--font-playfair-display)" }}
           >
-            Um responsável
+            Coordenação imobiliária
             <br />
-            pelo <span className="text-[#d9ad45]">processo inteiro</span>
+            <span className="text-[#d9ad45]">do início ao fim</span>
           </motion.h1>
 
           <motion.p
@@ -161,10 +161,9 @@ export const HeroSection = () => {
             transition={{ duration: 1, delay: 0.34 }}
             className="mt-8 max-w-xl border-l border-[#caa64a]/55 pl-5 text-base leading-8 text-[#f1eee7]/88 md:text-lg"
           >
-            A H55 coordena lançamentos para incorporadoras, faz o papel do dono
-            na venda de imóveis selecionados e abre oportunidades de private
-            equity para investidores. Em todas, um único interlocutor que presta
-            contas do início ao fim.
+            Coordenamos lançamentos para incorporadoras, assumimos a venda de
+            imóveis selecionados para proprietários e conectamos investidores a
+            oportunidades de private equity imobiliário.
           </motion.p>
 
           <motion.div
@@ -177,7 +176,7 @@ export const HeroSection = () => {
               href="/services"
               className="inline-flex items-center justify-center border border-[#d8ad45] bg-[#d8ad45] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#191207] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0c85a]"
             >
-              Conhecer as três frentes
+              Conhecer nossas frentes
             </Link>
             <Link
               href="/contact"

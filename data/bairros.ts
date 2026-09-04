@@ -1,5 +1,5 @@
 // data/bairros.ts
-// Conteúdo editorial dos bairros onde o h55 tem imóveis no portfólio.
+// Conteúdo editorial dos bairros onde a H55 tem imóveis no portfólio.
 const U = (id: string) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=80`;
 
@@ -30,7 +30,7 @@ export const bairros: Bairro[] = [
     tagline: "O coração boêmio e gastronômico de Belo Horizonte.",
     descricao: [
       "A Savassi é o endereço mais vibrante de Belo Horizonte, onde os melhores restaurantes, bares e o comércio sofisticado da capital se encontram. Viver ali é estar no centro de tudo, a poucos passos da boa mesa e da vida cultural da cidade.",
-      "Para o investidor, a região combina localização central, altíssima procura por locação e valorização sustentada por ser um dos bairros mais desejados de BH.",
+      "A localização central, a ampla oferta de serviços e a mobilidade fazem da região uma das áreas mais procuradas de Belo Horizonte.",
     ],
     destaques: ["Gastronomia e vida noturna", "Comércio sofisticado", "Localização central", "Alta demanda de locação"],
     img: U("photo-1486325212027-8081e485255e"),
@@ -43,7 +43,7 @@ export const bairros: Bairro[] = [
     tagline: "O endereço mais nobre de Belo Horizonte.",
     descricao: [
       "Lourdes é sinônimo de sofisticação em Belo Horizonte. O bairro reúne edifícios de alto padrão, lojas de grife e serviços premium, ao lado da efervescência da Savassi, em um ambiente residencial elegante e arborizado.",
-      "É um mercado de ticket alto e oferta limitada, o que sustenta a valorização e mantém a vacância baixa. Um clássico para quem busca patrimônio sólido.",
+      "A combinação entre perfil residencial, serviços e localização mantém Lourdes entre os endereços mais reconhecidos da capital.",
     ],
     destaques: ["Alto padrão", "Comércio de luxo", "Vizinho da Savassi", "Baixa vacância"],
     img: U("photo-1545324418-cc1a3fa10c00"),
@@ -56,7 +56,7 @@ export const bairros: Bairro[] = [
     tagline: "O bairro planejado do Rio de Janeiro.",
     descricao: [
       "A Barra da Tijuca é a expressão do estilo de vida carioca contemporâneo: praias extensas, condomínios amplos e arborizados, shoppings, gastronomia e o legado de infraestrutura olímpica.",
-      "Com lançamentos constantes e espaços generosos, atrai famílias e investidores em busca de qualidade de vida e potencial de valorização no longo prazo.",
+      "Com condomínios planejados, infraestrutura completa e espaços generosos, a região atende diferentes estilos de vida.",
     ],
     destaques: ["Praia extensa", "Condomínios planejados", "Shoppings e lazer", "Espaços amplos"],
     img: U("photo-1483729558449-99ef09a8c325"),

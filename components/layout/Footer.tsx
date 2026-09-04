@@ -28,7 +28,7 @@ const Footer = () => {
             H55 Negócios Imobiliários
           </h3>
           <p className="text-sm text-[#9fb0c4]">
-            &copy; {year ? year : ""} H55. Coordenação de vendas e private equity imobiliário.
+            &copy; {year ? year : ""} H55. Coordenação imobiliária do início ao fim.
           </p>
           <p className="mt-1 text-xs text-[#607080] tracking-wide">CRECI-PJ 9045</p>
         </div>

@@ -177,7 +177,7 @@ export default async function BairroPage({ params }: { params: Promise<{ slug: s
           ) : (
             <div className="border border-[#b8860b]/20 bg-white py-16 text-center">
               <p className="text-sm text-[#52617a]">
-                Estamos selecionando novas oportunidades em {b.nome}.
+                No momento, não há imóveis publicados em {b.nome}.
               </p>
               <Link
                 href="/imoveis"

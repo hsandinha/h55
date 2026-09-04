@@ -123,7 +123,7 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
         {typeof imovel.rentabilidadeAnual === "number" && (
           <div className="absolute bottom-4 left-4 z-20 flex items-center gap-1 border border-[#fbbf24]/50 bg-[#06121f]/85 px-2.5 py-1 text-[0.62rem] font-semibold text-[#fbbf24] backdrop-blur-sm">
             <LuTrendingUp size={12} />
-            {imovel.rentabilidadeAnual.toLocaleString("pt-BR")}%/ano
+            {imovel.rentabilidadeAnual.toLocaleString("pt-BR")}%/ano estimado
           </div>
         )}
 
@@ -210,7 +210,7 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
               <p className="text-right text-[0.62rem] leading-tight text-[#52617a]">
                 <span className="font-semibold text-[#1d7a4d]">+{imovel.valorizacao12m}%</span>
                 <br />
-                12 meses
+                variação informada em 12 meses
               </p>
             )}
           </div>

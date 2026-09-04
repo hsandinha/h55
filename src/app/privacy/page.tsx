@@ -56,24 +56,8 @@ const PrivacyPolicyPage = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-sm text-gray-500 mb-12 text-center"
         >
-          Última atualização: 22 de julho de 2025
+          Última atualização: 4 de setembro de 2026
         </motion.p>
-
-        {/* Bloco de Aviso Legal */}
-        <motion.div
-          {...sectionAnimation}
-          className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-r-lg mb-12"
-          role="alert"
-        >
-          <p className="font-bold">Aviso Importante</p>
-          <p>
-            Este é um modelo de Política de Privacidade e não constitui
-            aconselhamento jurídico. Recomendamos que você revise este texto com
-            um advogado para garantir que ele atenda a todas as necessidades
-            específicas do seu negócio e esteja em total conformidade com a
-            legislação vigente.
-          </p>
-        </motion.div>
 
         <div className="space-y-10 text-gray-700">
           <motion.div {...sectionAnimation}>

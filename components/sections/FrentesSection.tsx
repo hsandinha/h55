@@ -12,21 +12,21 @@ const frentes = [
     num: "01",
     label: "Incorporadoras",
     title: "Coordenação de lançamentos imobiliários",
-    desc: "Conduzimos o lançamento do início ao fim: estratégia, tabela, imobiliárias, leads, marketing e contratos.",
+    desc: "Estratégia comercial, tabela de vendas, imobiliárias parceiras, leads, marketing, documentos e contratos coordenados pela H55.",
     href: "/lancamentos",
   },
   {
     num: "02",
     label: "Proprietários",
     title: "Coordenação de imóveis selecionados",
-    desc: "Fazemos o papel do dono. O proprietário trata apenas com a H55, da seleção das imobiliárias à transferência.",
+    desc: "Fazemos o papel do dono e coordenamos toda a venda, da seleção das imobiliárias à transferência do imóvel.",
     href: "/imoveis-selecionados",
   },
   {
     num: "03",
     label: "Investidores",
     title: "Private equity imobiliário",
-    desc: "Investir em imóvel vai além da unidade na planta. Acesso a oportunidades que não chegam ao mercado aberto.",
+    desc: "Ampliamos a forma de investir no mercado imobiliário com acesso a oportunidades selecionadas.",
     href: "/equity",
   },
 ];
@@ -50,13 +50,13 @@ export const FrentesSection = () => {
               className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
               style={PLAYFAIR}
             >
-              O que você precisa fazer?
+              Uma frente para cada objetivo.
             </h2>
           </div>
           <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-            Incorporadora, proprietário ou investidor: cada frente tem cliente,
-            processo e time próprios. Escolha a sua e a conversa começa no ponto
-            certo.
+            Incorporadoras, proprietários e investidores têm necessidades
+            diferentes. Por isso, cada frente possui uma atuação clara e uma
+            conversa conduzida por especialistas.
           </p>
         </motion.div>
 

@@ -23,8 +23,8 @@ const txt = (v?: string | number | null) =>
 
 const rows: { label: string; render: (im: Imovel) => React.ReactNode; highlight?: boolean }[] = [
   { label: "Preço", render: (im) => brl(im.preco) },
-  { label: "Rentabilidade", render: (im) => pct(im.rentabilidadeAnual), highlight: true },
-  { label: "Valorização 12m", render: (im) => (typeof im.valorizacao12m === "number" ? `+${im.valorizacao12m}%` : "·") },
+  { label: "Rentabilidade estimada", render: (im) => pct(im.rentabilidadeAnual), highlight: true },
+  { label: "Variação informada 12m", render: (im) => (typeof im.valorizacao12m === "number" ? `+${im.valorizacao12m}%` : "·") },
   { label: "Entrada mínima", render: (im) => brl(im.entradaMinima) },
   { label: "Cidade", render: (im) => txt(im.endereco?.cidade) },
   { label: "Bairro", render: (im) => txt(im.endereco?.bairro) },

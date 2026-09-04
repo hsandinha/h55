@@ -21,16 +21,16 @@ const entregas = [
 
 const ganhos = [
   {
-    title: "Uma tabela, uma regra",
-    desc: "O empreendimento deixa de aparecer em dez versões diferentes. Preço, condição e comissionamento são os mesmos para todas as imobiliárias, e quem fura regra sai do jogo.",
+    title: "Estratégia comercial integrada",
+    desc: "Posicionamento, tabela de vendas, condições comerciais e canais de distribuição são alinhados antes e durante o lançamento.",
   },
   {
-    title: "Lead com dono e com prazo",
-    desc: "Cada lead entra na nossa plataforma, é distribuído a uma imobiliária e tem follow-up cobrado. A incorporadora enxerga o funil inteiro, não só o que virou contrato.",
+    title: "Leads acompanhados",
+    desc: "A plataforma própria distribui os leads entre as imobiliárias parceiras e apoia o acompanhamento de cada oportunidade.",
   },
   {
-    title: "Contrato sem retrabalho",
-    desc: "Documentos conferidos, contrato centralizado, assinatura organizada e cada parte recebendo a sua via. O maior gargalo entre a proposta e o caixa da obra sai do caminho.",
+    title: "Documentos centralizados",
+    desc: "A gestão documental, os contratos e as assinaturas são organizados em um fluxo único, com distribuição às partes interessadas.",
   },
 ];
 
@@ -47,8 +47,8 @@ const metodo = [
     fase: "Com as vendas abertas",
     etapas: [
       ["Distribuição de leads", "Plataforma própria da H55 distribui os leads entre as imobiliárias e registra cada contato."],
-      ["Follow-up e funil", "Acompanhamento do atendimento, cobrança de retorno e leitura semanal do funil por unidade."],
-      ["Marketing alinhado", "Campanha e estoque no mesmo ritmo: o que o marketing promete é o que a mesa de vendas consegue entregar."],
+      ["Follow-up e funil", "Acompanhamento do atendimento e da evolução dos leads ao longo da jornada comercial."],
+      ["Marketing alinhado", "Alinhamento contínuo entre as ações de marketing, a disponibilidade e a estratégia de vendas."],
     ],
   },
   {
@@ -94,10 +94,9 @@ const LancamentosPage = () => {
               </h1>
             </div>
             <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              Da estratégia comercial à assinatura do contrato, a H55 assume a
-              operação de vendas do seu empreendimento. As imobiliárias
-              parceiras operam na mesma regra e um único responsável presta
-              contas à incorporadora.
+              Da estratégia comercial à assinatura dos contratos, a H55
+              coordena a operação de vendas do empreendimento e mantém
+              incorporadora, marketing e imobiliárias parceiras alinhados.
             </p>
           </motion.div>
 
@@ -134,7 +133,7 @@ const LancamentosPage = () => {
             distribuição e follow-up de leads, alinhamento contínuo com o
             marketing e centralização dos contratos e assinaturas.{" "}
             <span className="text-[#9a7b1e]">
-              Tudo isto é a coordenação. Nada disto é extra.
+              Uma gestão integrada para todas as etapas comerciais.
             </span>
           </>
         }
@@ -159,14 +158,13 @@ const LancamentosPage = () => {
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
                 style={PLAYFAIR}
               >
-                Não é colocar mais gente vendendo. É controlar o que vende.
+                Uma operação comercial alinhada do início ao fim.
               </h2>
             </div>
             <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              Estoque solto no mercado vira tabela furada, imobiliária
-              desalinhada e contrato travando o caixa da obra. A coordenação
-              existe para que a informação, o lead e o contrato tenham um dono
-              só.
+              A coordenação conecta estratégia, imobiliárias, leads, marketing
+              e documentos. Com todos trabalhando a partir das mesmas
+              informações, o lançamento ganha continuidade e clareza.
             </p>
           </motion.div>
 
@@ -290,17 +288,15 @@ const LancamentosPage = () => {
                 className="mt-5 text-balance text-3xl font-semibold leading-[1.06] text-[#0a2540] md:text-5xl"
                 style={PLAYFAIR}
               >
-                E quanto custa essa camada a mais?
+                Uma proposta adequada ao seu empreendimento.
               </h2>
             </div>
             <div className="self-end">
               <p className="max-w-xl text-base leading-8 text-[#52617a] md:text-lg">
-                Coordenar um lançamento tem custo: uma taxa de gestão ou uma
-                fatia da comissão. Ela só se justifica quando devolve velocidade
-                de vendas ou preço final. O compromisso é este: relatório aberto
-                de leads e vendas, tabela e comissionamento claros para todas as
-                imobiliárias parceiras e um único responsável por prestar
-                contas.
+                Cada lançamento possui características, estágio comercial e
+                necessidades próprias. Em uma reunião inicial, entendemos o
+                empreendimento e definimos o escopo de coordenação mais adequado
+                para a operação.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link

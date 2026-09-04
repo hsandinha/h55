@@ -10,26 +10,26 @@ const pilares = [
   {
     icon: LuTarget,
     num: "01",
-    title: "Operamos a venda por dentro",
-    desc: "Coordenamos lançamentos e imóveis selecionados todos os dias. A leitura de preço, velocidade e liquidez vem da mesa de vendas, não de relatório de terceiros.",
+    title: "Visão do processo inteiro",
+    desc: "Acompanhamos a operação da estratégia à conclusão, conectando decisões comerciais, participantes e documentos.",
   },
   {
     icon: LuShieldCheck,
     num: "02",
-    title: "Processo antes de promessa",
-    desc: "Documento conferido, contrato centralizado, relatório aberto. O que prometemos é método, e método se cobra.",
+    title: "Método e clareza",
+    desc: "Responsabilidades, etapas e informações organizadas para que cada parte saiba o que acontece e o que vem a seguir.",
   },
   {
     icon: LuKey,
     num: "03",
-    title: "Plataforma própria",
-    desc: "Leads distribuídos, follow-up registrado e funil visível para quem contrata. Ninguém depende da memória de um corretor.",
+    title: "Gestão centralizada",
+    desc: "A H55 concentra a comunicação e o acompanhamento, reduzindo ruídos entre proprietários, parceiros e investidores.",
   },
   {
     icon: LuLock,
     num: "04",
-    title: "Discrição",
-    desc: "Proprietário, incorporadora e investidor tratam com um só interlocutor. O que é reservado fica reservado.",
+    title: "Atuação especializada",
+    desc: "Cada frente possui uma abordagem própria, adequada ao objetivo de incorporadoras, proprietários e investidores.",
   },
 ];
 
@@ -61,13 +61,12 @@ export const NichesSection = () => {
               className="mt-5 text-4xl font-semibold leading-[1.04] md:text-6xl"
               style={{ fontFamily: "var(--font-playfair-display)" }}
             >
-              Coordenação discreta, precisa e com um responsável.
+              Coordenação para transformar complexidade em direção.
             </h2>
           </div>
           <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-            Quem contrata a H55 não precisa administrar imobiliárias, cobrar
-            corretor nem conferir minuta. A coordenação existe para devolver
-            tempo, controle e preço.
+            A H55 reúne estratégia, operação e acompanhamento para que cada
+            negócio avance com mais organização, clareza e continuidade.
           </p>
         </motion.div>
 
@@ -134,9 +133,9 @@ export const NichesSection = () => {
           </div>
           <div>
             <p className="text-sm leading-7 text-[#b9c6d4] md:text-base">
-              Um lançamento para coordenar, um imóvel para vender ou capital
-              para alocar. Diga qual é o seu caso e a conversa começa no ponto
-              certo, com quem vai responder por ela.
+              Um lançamento para coordenar, um imóvel para vender ou interesse
+              em novas oportunidades de investimento. Conte-nos o seu objetivo
+              e direcionaremos a conversa para a frente adequada.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -149,7 +148,7 @@ export const NichesSection = () => {
                 href="/services"
                 className="inline-flex items-center justify-center gap-3 border border-[#d8ad45]/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f7efe2] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10"
               >
-                Ver as três frentes
+                Conhecer nossas frentes
                 <LuArrowRight size={16} />
               </Link>
             </div>
