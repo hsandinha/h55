@@ -44,30 +44,16 @@ const EquityPage = () => {
           }}
         />
         <div className="relative z-10 mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="grid gap-10 md:grid-cols-[1.05fr_0.95fr]"
+            className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
+            style={PLAYFAIR}
           >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-                03 · Private equity imobiliário
-              </p>
-              <h1
-                className="mt-6 text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
-                style={PLAYFAIR}
-              >
-                Investir em imóvel vai muito além{" "}
-                <span className="text-[#d9ad45]">da unidade na planta.</span>
-              </h1>
-            </div>
-            <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              A H55 amplia a forma de investir no mercado imobiliário ao
-              apresentar oportunidades selecionadas de private equity em
-              conversas conduzidas por nossos especialistas.
-            </p>
-          </motion.div>
+            Investir em imóvel vai muito além{" "}
+            <span className="text-[#d9ad45]">da unidade na planta.</span>
+          </motion.h1>
         </div>
       </section>
 
