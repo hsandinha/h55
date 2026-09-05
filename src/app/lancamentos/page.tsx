@@ -75,50 +75,16 @@ const LancamentosPage = () => {
           }}
         />
         <div className="relative z-10 mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="grid gap-10 md:grid-cols-[1.05fr_0.95fr]"
+            className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
+            style={PLAYFAIR}
           >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-                01 · Coordenação de lançamentos imobiliários
-              </p>
-              <h1
-                className="mt-6 text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
-                style={PLAYFAIR}
-              >
-                Conduzimos o lançamento{" "}
-                <span className="text-[#d9ad45]">do início ao fim.</span>
-              </h1>
-            </div>
-            <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              Da estratégia comercial à assinatura dos contratos, a H55
-              coordena a operação de vendas do empreendimento e mantém
-              incorporadora, marketing e imobiliárias parceiras alinhados.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="mt-16 grid grid-cols-1 gap-px border-t border-[#b8860b]/25 bg-[#b8860b]/22 sm:grid-cols-3"
-          >
-            {[
-              ["Tabela e estratégia", "uma regra só para todo o mercado"],
-              ["Plataforma de leads", "distribuição e follow-up com as imobiliárias"],
-              ["Contratos e assinaturas", "centralizados e distribuídos às partes"],
-            ].map(([titulo, texto]) => (
-              <div key={titulo} className="bg-[#06121f] px-1 py-7 sm:px-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#d9ad45]">
-                  {titulo}
-                </p>
-                <p className="mt-2 text-sm leading-7 text-[#9fb0c4]">{texto}</p>
-              </div>
-            ))}
-          </motion.div>
+            Conduzimos o lançamento{" "}
+            <span className="text-[#d9ad45]">do início ao fim.</span>
+          </motion.h1>
         </div>
       </section>
 

@@ -12,21 +12,18 @@ const frentes = [
     num: "01",
     label: "Incorporadoras",
     title: "Coordenação de lançamentos imobiliários",
-    desc: "Estratégia comercial, tabela de vendas, imobiliárias parceiras, leads, marketing, documentos e contratos coordenados pela H55.",
     href: "/lancamentos",
   },
   {
     num: "02",
     label: "Proprietários",
     title: "Coordenação de imóveis selecionados",
-    desc: "Fazemos o papel do dono e coordenamos toda a venda, da seleção das imobiliárias à transferência do imóvel.",
     href: "/imoveis-selecionados",
   },
   {
     num: "03",
     label: "Investidores",
     title: "Private equity imobiliário",
-    desc: "Ampliamos a forma de investir no mercado imobiliário com acesso a oportunidades selecionadas.",
     href: "/equity",
   },
 ];
@@ -69,9 +66,6 @@ export const FrentesSection = () => {
                 >
                   {f.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[#52617a]">
-                  {f.desc}
-                </p>
                 <span className="mt-auto flex items-center gap-3 pt-8 text-[0.62rem] uppercase tracking-[0.24em] text-[#9a7b1e]">
                   Conhecer
                   <LuArrowRight

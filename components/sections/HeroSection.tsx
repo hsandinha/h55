@@ -146,17 +146,6 @@ export const HeroSection = () => {
             <span className="text-[#d9ad45]">do início ao fim</span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.34 }}
-            className="mt-8 max-w-xl border-l border-[#caa64a]/55 pl-5 text-base leading-8 text-[#f1eee7]/88 md:text-lg"
-          >
-            Coordenamos lançamentos para incorporadoras, assumimos a venda de
-            imóveis selecionados para proprietários e conectamos investidores a
-            oportunidades de private equity imobiliário.
-          </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
