@@ -134,15 +134,6 @@ export const HeroSection = () => {
             </span>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.12 }}
-            className="mb-5 text-[0.68rem] uppercase tracking-[0.16em] text-[#caa64a] sm:tracking-[0.28em] md:text-xs"
-          >
-            Três frentes de atuação imobiliária
-          </motion.p>
-
           <motion.h1
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
@@ -176,7 +167,7 @@ export const HeroSection = () => {
               href="/services"
               className="inline-flex items-center justify-center border border-[#d8ad45] bg-[#d8ad45] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#191207] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0c85a]"
             >
-              Conhecer nossas frentes
+              Conhecer nossos serviços
             </Link>
             <Link
               href="/contact"

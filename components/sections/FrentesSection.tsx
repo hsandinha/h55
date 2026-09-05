@@ -35,32 +35,13 @@ export const FrentesSection = () => {
   return (
     <section className="bg-[#ebe3d5] py-24 md:py-28">
       <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="grid gap-10 border-b border-[#0a2540]/15 pb-12 md:grid-cols-[0.9fr_1.1fr]"
+        <h2
+          className="mb-12 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
+          style={PLAYFAIR}
         >
-          <div>
-            <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-              Três frentes
-            </p>
-            <h2
-              className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
-              style={PLAYFAIR}
-            >
-              Uma frente para cada objetivo.
-            </h2>
-          </div>
-          <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-            Incorporadoras, proprietários e investidores têm necessidades
-            diferentes. Por isso, cada frente possui uma atuação clara e uma
-            conversa conduzida por especialistas.
-          </p>
-        </motion.div>
-
-        <div className="mt-12 grid grid-cols-1 gap-px bg-[#0a2540]/15 md:grid-cols-3">
+          Três pilares de atuação imobiliária
+        </h2>
+        <div className="grid grid-cols-1 gap-px bg-[#0a2540]/15 md:grid-cols-3">
           {frentes.map((f, i) => (
             <motion.div
               key={f.num}
