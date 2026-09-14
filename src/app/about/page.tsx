@@ -87,17 +87,15 @@ const AboutPage = () => {
                 <span className="text-[#d9ad45]">negócios imobiliários.</span>
               </h1>
             </div>
-            <div className="flex items-center justify-center md:justify-end">
-              <div className="flex aspect-square w-full max-w-[280px] items-center justify-center border border-[#b8860b]/35 bg-[#f4efe6] lg:max-w-[320px]">
-                <Image
-                  src="/images/h55-marca.png"
-                  alt="H55 Negócios Imobiliários"
-                  width={1032}
-                  height={917}
-                  priority
-                  className="h-auto w-[66%]"
-                />
-              </div>
+            <div className="flex items-center justify-start md:justify-end">
+              <Image
+                src="/images/h55-marca-clara.png"
+                alt="H55 Negócios Imobiliários"
+                width={1032}
+                height={917}
+                priority
+                className="h-auto w-full max-w-[210px] lg:max-w-[270px]"
+              />
             </div>
           </motion.div>
         </div>
