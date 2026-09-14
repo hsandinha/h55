@@ -107,19 +107,17 @@ const FrontStayPage = () => {
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center justify-center md:justify-end"
+            className="flex items-center justify-start lg:justify-end"
           >
-            <div className="flex aspect-square w-full max-w-[280px] items-center justify-center border border-[#b8860b]/35 bg-[#f4efe6] p-9 lg:max-w-[330px] lg:p-12">
-              <Image
-                src="/images/frontstay.svg"
-                alt="Front Stay"
-                width={1063}
-                height={496}
-                unoptimized
-                priority
-                className="h-auto w-full"
-              />
-            </div>
+            <Image
+              src="/images/frontstay.svg"
+              alt="Front Stay"
+              width={1063}
+              height={496}
+              unoptimized
+              priority
+              className="h-auto w-full max-w-[260px] invert lg:max-w-[330px]"
+            />
           </motion.div>
         </div>
       </section>
