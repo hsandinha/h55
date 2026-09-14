@@ -339,8 +339,8 @@ const AboutPage = () => {
               </h2>
             </div>
             <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              Cada área tem cliente, processo e equipe próprios. O que não
-              muda é a regra: um responsável pelo processo inteiro.
+              Cada área tem o seu cliente, o seu escopo e a sua equipe. Em
+              todas, a condução da operação é da H55.
             </p>
           </motion.div>
 
