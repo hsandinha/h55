@@ -61,12 +61,12 @@ export const NichesSection = () => {
               className="mt-5 text-4xl font-semibold leading-[1.04] md:text-6xl"
               style={{ fontFamily: "var(--font-playfair-display)" }}
             >
-              Coordenação para dar direção a operações complexas.
+              Patrimônio imobiliário pede coordenação, estratégia e rigor.
             </h2>
           </div>
           <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-            A H55 reúne estratégia, operação e acompanhamento para que cada
-            negócio avance com mais organização, clareza e continuidade.
+            Anunciar é a parte fácil. O resto é preço, documentação, parceiros
+            e contrato, e é disso que a H55 cuida.
           </p>
         </motion.div>
 

@@ -113,7 +113,7 @@ export const HeroSection = () => {
         style={{ y: contentY, opacity: contentOpacity }}
         className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1320px] items-center px-6 py-24 md:px-10 lg:px-14"
       >
-        <div className="w-full max-w-[680px] text-left">
+        <div className="w-full max-w-[860px] text-left">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -138,12 +138,12 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.22 }}
-            className="text-4xl font-semibold leading-[0.98] text-[#f7efe2] sm:text-5xl md:text-6xl lg:text-7xl"
+            className="text-balance text-3xl font-semibold leading-[1.06] text-[#f7efe2] sm:text-4xl md:text-5xl lg:text-[3.4rem]"
             style={{ fontFamily: "var(--font-playfair-display)" }}
           >
-            Um só responsável
+            Mais que um anúncio, patrimônio imobiliário
             <br />
-            <span className="text-[#d9ad45]">pela operação inteira.</span>
+            <span className="text-[#d9ad45]">exige coordenação e estratégia.</span>
           </motion.h1>
 
           <motion.div
