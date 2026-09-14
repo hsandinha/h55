@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "H55 Negócios Imobiliários",
     title: "H55 Negócios Imobiliários · Coordenação imobiliária",
     description:
-      "Três frentes de atuação: lançamentos imobiliários, imóveis selecionados e private equity imobiliário.",
+      "Três áreas de atuação: lançamentos imobiliários, imóveis selecionados e private equity imobiliário.",
   },
   twitter: { card: "summary_large_image" },
 };

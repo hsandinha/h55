@@ -44,14 +44,6 @@ const Header = () => {
           </li>
           <li>
             <Link
-              href="/bairros"
-              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-            >
-              Bairros
-            </Link>
-          </li>
-          <li>
-            <Link
               href="/services"
               className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
             >
@@ -63,7 +55,7 @@ const Header = () => {
               href="/admin"
               className="whitespace-nowrap text-sm font-medium text-[#60748d] transition-colors hover:text-h55-gold"
             >
-              Entrar
+              Acesso restrito
             </Link>
           </li>
           <li>
@@ -71,7 +63,7 @@ const Header = () => {
               href="/contact"
               className="ml-2 whitespace-nowrap border border-[#b8860b] bg-[#b8860b] px-4 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-[#191207] transition-colors hover:bg-[#0a2540] hover:text-[#f4efe6] xl:ml-4 xl:px-5 xl:text-sm xl:tracking-[0.12em]"
             >
-              Fale com um Especialista
+              Falar com a coordenação
             </Link>
           </li>
         </ul>
@@ -131,15 +123,6 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  href="/bairros"
-                  className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Bairros
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/services"
                   className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
                   onClick={() => setMenuOpen(false)}
@@ -153,7 +136,7 @@ const Header = () => {
                   className="font-medium text-[#60748d] transition-colors hover:text-h55-gold"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Entrar
+                  Acesso restrito
                 </Link>
               </li>
               <li>
@@ -162,7 +145,7 @@ const Header = () => {
                   className="mt-2 border border-[#b8860b] bg-[#b8860b] px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#191207] transition-colors hover:bg-[#0a2540] hover:text-[#f4efe6]"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Fale com um Especialista
+                  Falar com a coordenação
                 </Link>
               </li>
             </ul>

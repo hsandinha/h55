@@ -67,7 +67,7 @@ export default function CompararPage() {
             href="/imoveis"
             className="inline-flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.28em] text-[#9fb0c4] hover:text-[#fbbf24]"
           >
-            <LuArrowLeft size={13} /> Voltar ao portfólio
+            <LuArrowLeft size={13} /> Voltar à carteira
           </Link>
           <div className="mt-4 flex items-end justify-between gap-4">
             <h1 className="font-display text-4xl font-bold text-[#f4efe6] md:text-5xl">
@@ -92,7 +92,7 @@ export default function CompararPage() {
           <div className="border border-[#b8860b]/20 bg-white py-20 text-center">
             <p className="eyebrow text-[#9a7b1e]">Nada para comparar</p>
             <p className="font-display mt-3 text-2xl font-bold text-[#0a2540]">
-              Selecione imóveis no portfólio.
+              Selecione imóveis na carteira.
             </p>
             <p className="mt-3 text-sm text-[#52617a]">
               Use o botão de comparar (↔) nos cards para adicionar até 4 imóveis.
@@ -101,7 +101,7 @@ export default function CompararPage() {
               href="/imoveis"
               className="mt-5 inline-flex items-center gap-2 bg-[#0a2540] px-6 py-3 text-[0.65rem] uppercase tracking-[0.28em] text-[#f2ece0] transition hover:bg-[#b8860b] hover:text-[#1a1206]"
             >
-              Ir para o portfólio
+              Ir para a carteira
             </Link>
           </div>
         ) : (

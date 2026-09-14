@@ -137,7 +137,7 @@ export function ImovelDetailClient({ id }: { id: string }) {
           href="/imoveis"
           className="mt-2 inline-flex items-center gap-2 border border-[#0a2540] bg-[#0a2540] px-6 py-3 text-[0.7rem] uppercase tracking-[0.28em] text-[#f2ece0] transition hover:bg-[#b8860b] hover:text-[#1a1206]"
         >
-          <LuArrowLeft size={14} /> Voltar ao portfólio
+          <LuArrowLeft size={14} /> Voltar à carteira
         </Link>
       </main>
     );
@@ -439,7 +439,7 @@ export function ImovelDetailClient({ id }: { id: string }) {
                   onClick={() => setContactOpen(true)}
                   className="flex w-full items-center justify-center border border-[#0a2540] px-6 py-3.5 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-[#0a2540] transition hover:bg-[#0a2540] hover:text-[#f2ece0]"
                 >
-                  Falar com um especialista
+                  Falar com a coordenação
                 </button>
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   <button

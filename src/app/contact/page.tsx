@@ -105,7 +105,7 @@ const ContactPage = () => {
         >
           Um lançamento para coordenar, um imóvel para vender ou interesse em
           private equity imobiliário. Conte-nos o seu objetivo e direcionaremos
-          sua mensagem para a frente adequada.
+          sua mensagem para a área adequada.
         </motion.p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -122,7 +122,7 @@ const ContactPage = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <fieldset>
                 <legend className="block text-gray-700 font-medium mb-2">
-                  Sobre o que quer falar?
+                  Sobre o que você deseja falar?
                 </legend>
                 <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                   {FRENTES.map((f) => (
@@ -164,7 +164,7 @@ const ContactPage = () => {
                   htmlFor="email"
                   className="block text-gray-700 font-medium mb-2"
                 >
-                  Email
+                  E-mail
                 </label>
                 <input
                   type="email"
@@ -181,7 +181,7 @@ const ContactPage = () => {
                   htmlFor="phone"
                   className="block text-gray-700 font-medium mb-2"
                 >
-                  Telefone (Opcional)
+                  Telefone (opcional)
                 </label>
                 <input
                   type="tel"
@@ -197,7 +197,7 @@ const ContactPage = () => {
                   htmlFor="message"
                   className="block text-gray-700 font-medium mb-2"
                 >
-                  Sua Mensagem
+                  Sua mensagem
                 </label>
                 <textarea
                   id="message"

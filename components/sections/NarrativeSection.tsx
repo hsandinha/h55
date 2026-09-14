@@ -7,7 +7,7 @@ import { LuArrowRight } from "react-icons/lu";
 
 const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
-const REGRAS = [
+const PRINCIPIOS = [
   {
     title: "Estratégia definida",
     desc: "Cada operação começa com objetivos, responsabilidades e próximos passos claramente estabelecidos.",
@@ -22,7 +22,7 @@ const REGRAS = [
   },
   {
     title: "Um ponto de contato",
-    desc: "Quem contrata a H55 tem um responsável pela condução do processo e pela comunicação do início ao fim.",
+    desc: "Quem contrata a H55 tem um responsável pela condução do processo e pela comunicação com todas as partes.",
   },
 ];
 
@@ -38,7 +38,7 @@ function ComoTrabalhamos() {
           className="border-l border-[#b8860b] pl-6"
         >
           <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-            Como trabalhamos
+            Como operamos
           </p>
           <h2
             className="mt-6 text-4xl font-semibold leading-[1.02] text-[#0a2540] md:text-6xl"
@@ -71,7 +71,7 @@ function ComoTrabalhamos() {
   );
 }
 
-function Regras() {
+function Principios() {
   return (
     <section className="relative bg-[#06121f] py-20 text-[#f4efe6] md:py-28">
       <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
@@ -84,23 +84,23 @@ function Regras() {
         >
           <div>
             <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-              As regras da casa
+              Princípios de atuação
             </p>
             <h2
               className="mt-4 text-3xl font-semibold leading-tight md:text-5xl"
               style={PLAYFAIR}
             >
-              Um método que orienta as três frentes.
+              Um método que orienta as três áreas.
             </h2>
           </div>
           <p className="max-w-md text-sm leading-7 text-[#9fb0c4]">
-            A complexidade muda de uma frente para outra. A disciplina de
+            A complexidade muda de uma área para outra. A disciplina de
             coordenação permanece a mesma.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-px bg-[#b8860b]/22 sm:grid-cols-2 lg:grid-cols-4">
-          {REGRAS.map((r, i) => (
+          {PRINCIPIOS.map((r, i) => (
             <motion.div
               key={r.title}
               initial={{ opacity: 0, y: 24 }}
@@ -192,7 +192,7 @@ function Carteira() {
 export const NarrativeSection = () => (
   <>
     <ComoTrabalhamos />
-    <Regras />
+    <Principios />
     <Carteira />
   </>
 );

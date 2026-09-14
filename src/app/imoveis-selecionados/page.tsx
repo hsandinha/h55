@@ -25,13 +25,13 @@ const antesDepois = {
     "Corretor liga no domingo pedindo visita para amanhã cedo.",
     "Proposta chega por recado, sem saber se o comprador tem crédito.",
     "Matrícula e certidões só aparecem na hora do contrato, e a venda trava.",
-    "Ninguém responde por nada. O dono administra gente em vez de vender.",
+    "Ninguém responde por nada. O proprietário vira gestor de corretores.",
   ],
   com: [
     "Um só anúncio, um só preço, um só material, em todas as imobiliárias.",
     "A H55 libera e acompanha as visitas. O proprietário só é chamado quando há proposta.",
     "Proposta chega qualificada, com capacidade de pagamento verificada.",
-    "Imóvel auditado antes de anunciar. O contrato não morre no cartório.",
+    "Imóvel auditado antes de anunciar. O contrato não trava no cartório.",
     "Um interlocutor, um relatório, um responsável: a H55.",
   ],
 };
@@ -47,7 +47,7 @@ const conducao = [
   },
   {
     title: "Material próprio",
-    desc: "Fotos profissionais, drone quando o imóvel pede, tour virtual e uma página só dele.",
+    desc: "Fotos profissionais, drone quando o imóvel justifica, tour virtual e uma página exclusiva.",
   },
   {
     title: "Seleção das imobiliárias",
@@ -84,8 +84,8 @@ const ImoveisSelecionadosPage = () => {
             className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
             style={PLAYFAIR}
           >
-            Fazemos{" "}
-            <span className="text-[#d9ad45]">o papel do dono.</span>
+            Assumimos{" "}
+            <span className="text-[#d9ad45]">a operação da venda.</span>
           </motion.h1>
         </div>
       </section>
@@ -96,12 +96,12 @@ const ImoveisSelecionadosPage = () => {
         titulo="Coordenação de imóveis selecionados"
         texto={
           <>
-            Fazemos o papel do dono. O proprietário trata apenas com a H55.
-            Somos os responsáveis por coordenar a venda, da seleção das
-            imobiliárias, liberação de visitas e elaboração de contratos até a
-            transferência do imóvel.{" "}
+            Assumimos a operação da venda. O proprietário trata apenas com a
+            H55, e a coordenação vai da seleção das imobiliárias à transferência
+            do imóvel, passando pela liberação das visitas e pela elaboração dos
+            contratos.{" "}
             <span className="text-[#9a7b1e]">
-              Profissionalizar a venda do seu imóvel é não perder tempo nem
+              Profissionalizar a venda do seu imóvel protege prazo e
               dinheiro.
             </span>
           </>
@@ -146,7 +146,7 @@ const ImoveisSelecionadosPage = () => {
               className="bg-[#ebe3d5] p-8 md:p-10"
             >
               <p className="text-[0.68rem] uppercase tracking-[0.3em] text-[#8a7a5e]">
-                Vendendo solto
+                Venda sem coordenação
               </p>
               <ul className="mt-8 divide-y divide-[#0a2540]/12 border-y border-[#0a2540]/12">
                 {antesDepois.sem.map((t) => (
@@ -165,7 +165,7 @@ const ImoveisSelecionadosPage = () => {
               className="bg-[#0a2540] p-8 text-[#f4efe6] md:p-10"
             >
               <p className="text-[0.68rem] uppercase tracking-[0.3em] text-[#caa64a]">
-                Com a H55 no papel do dono
+                Com a H55 na coordenação
               </p>
               <ul className="mt-8 divide-y divide-[#b8860b]/25 border-y border-[#b8860b]/25">
                 {antesDepois.com.map((t) => (
@@ -185,7 +185,7 @@ const ImoveisSelecionadosPage = () => {
         </div>
       </section>
 
-      {/* Como conduzimos */}
+      {/* Como operamos */}
       <section className="bg-[#f7f3ea] py-24 md:py-32">
         <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
           <motion.div
@@ -197,7 +197,7 @@ const ImoveisSelecionadosPage = () => {
           >
             <div>
               <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Como conduzimos
+                Como operamos
               </p>
               <h2
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"

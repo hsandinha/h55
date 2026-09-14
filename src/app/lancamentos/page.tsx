@@ -82,8 +82,8 @@ const LancamentosPage = () => {
             className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
             style={PLAYFAIR}
           >
-            Conduzimos o lançamento{" "}
-            <span className="text-[#d9ad45]">do início ao fim.</span>
+            Um só responsável{" "}
+            <span className="text-[#d9ad45]">pela operação de vendas.</span>
           </motion.h1>
         </div>
       </section>
@@ -124,7 +124,7 @@ const LancamentosPage = () => {
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
                 style={PLAYFAIR}
               >
-                Uma operação comercial alinhada do início ao fim.
+                Uma operação comercial alinhada em torno da mesma tabela.
               </h2>
             </div>
             <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
@@ -275,7 +275,7 @@ const LancamentosPage = () => {
                   href="/services"
                   className="inline-flex items-center justify-center gap-3 border border-[#0a2540]/40 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#0a2540] transition duration-300 hover:-translate-y-0.5 hover:bg-[#0a2540]/5"
                 >
-                  Ver as três frentes
+                  Ver áreas de atuação
                   <LuArrowRight size={16} />
                 </Link>
               </div>

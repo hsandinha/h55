@@ -12,7 +12,7 @@ const frentes = [
     num: "01",
     label: "Incorporadoras",
     title: "Coordenação de lançamentos imobiliários",
-    lead: "Conduzimos o lançamento do início ao fim.",
+    lead: "Conduzimos a operação de vendas do seu lançamento.",
     body: "Estratégia comercial, tabela de vendas, curadoria e treinamento das imobiliárias parceiras, gestão documental, plataforma própria para distribuição e follow-up de leads, alinhamento com o marketing e centralização de contratos e assinaturas, com distribuição a todas as partes interessadas.",
     itens: [
       [
@@ -37,8 +37,8 @@ const frentes = [
     num: "02",
     label: "Proprietários",
     title: "Coordenação de imóveis selecionados",
-    lead: "Fazemos o papel do dono.",
-    body: "O proprietário trata apenas com a H55, e nós coordenamos a venda inteira: seleção das imobiliárias, liberação de visitas, contratos e transferência do imóvel. Profissionalizar a venda é não perder tempo nem dinheiro.",
+    lead: "Assumimos a operação da venda.",
+    body: "O proprietário trata apenas com a H55, e nós coordenamos a venda inteira: seleção das imobiliárias, liberação de visitas, contratos e transferência do imóvel. Profissionalizar a venda protege prazo e preço.",
     itens: [
       [
         "Um único interlocutor",
@@ -50,7 +50,7 @@ const frentes = [
       ],
       [
         "Imóvel auditado antes de anunciar",
-        "matrícula, certidões e vistoria conferidas, para a proposta não morrer no cartório.",
+        "matrícula, certidões e vistoria conferidas, para a proposta não travar no cartório.",
       ],
     ],
     fecho:
@@ -62,7 +62,7 @@ const frentes = [
     num: "03",
     label: "Investidores",
     title: "Private equity imobiliário",
-    lead: "Investir em imóvel vai muito além da unidade na planta.",
+    lead: "Participar da operação, não só comprar a unidade.",
     body: "Investir em imóvel pode ir muito além da compra de uma unidade na planta. A H55 apresenta oportunidades selecionadas de private equity imobiliário de acordo com o perfil e os objetivos de cada investidor.",
     itens: [
       ["Acesso", "oportunidades selecionadas no mercado imobiliário."],
@@ -70,9 +70,9 @@ const frentes = [
         "Leitura",
         "avaliação do contexto, da estrutura e do horizonte de cada oportunidade.",
       ],
-      ["Relacionamento", "conversa conduzida por especialistas da H55."],
+      ["Relacionamento", "conversa conduzida pela coordenação da H55."],
     ],
-    fecho: "Agende uma reunião com nossos especialistas.",
+    fecho: "Agende uma reunião com a coordenação.",
     href: "/equity",
     cta: "Ver private equity",
   },
@@ -91,7 +91,7 @@ const ServicesPage = () => {
           >
             <div>
               <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Nossos serviços
+                Áreas de atuação
               </p>
               <h1
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-6xl"
@@ -101,7 +101,7 @@ const ServicesPage = () => {
               </h1>
             </div>
             <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              A H55 atua em três frentes complementares, com soluções específicas
+              A H55 atua em três áreas complementares, com soluções específicas
               para incorporadoras, proprietários e investidores. Conheça cada
               atuação e encontre o caminho mais adequado ao seu objetivo.
             </p>
@@ -187,7 +187,7 @@ const ServicesPage = () => {
           >
             <div>
               <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Nosso método
+                Como operamos
               </p>
               <h2
                 className="mt-5 text-balance text-3xl font-semibold leading-[1.06] text-[#0a2540] md:text-5xl"
@@ -198,23 +198,23 @@ const ServicesPage = () => {
             </div>
             <div className="self-end">
               <p className="max-w-xl text-base leading-8 text-[#52617a] md:text-lg">
-                Em cada frente, a H55 centraliza informações, organiza os
-                participantes e acompanha a evolução da operação. Assim, quem
+                Em cada área de atuação, a H55 centraliza informações, organiza
+                os participantes e acompanha a evolução da operação. Assim, quem
                 contrata sabe com quem falar e tem clareza sobre os próximos
-                passos do início ao fim.
+                passos, da primeira conversa à assinatura.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center border border-[#0a2540] bg-[#0a2540] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4efe6] transition duration-300 hover:-translate-y-0.5 hover:bg-[#123457]"
                 >
-                  Falar com um especialista
+                  Falar com a coordenação
                 </Link>
                 <Link
                   href="/imoveis"
                   className="inline-flex items-center justify-center gap-3 border border-[#0a2540]/40 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#0a2540] transition duration-300 hover:-translate-y-0.5 hover:bg-[#0a2540]/5"
                 >
-                  Ver portfólio
+                  Ver a carteira
                   <LuArrowRight size={16} />
                 </Link>
               </div>

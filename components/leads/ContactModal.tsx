@@ -54,7 +54,7 @@ export function ContactModal({
         <div className="flex items-center justify-between border-b border-[#b8860b]/15 bg-[#0a2540] px-6 py-4 text-[#f2ece0]">
           <div>
             <p className="text-[0.58rem] uppercase tracking-[0.28em] text-[#caa64a]">
-              Falar com um especialista
+              Falar com a coordenação
             </p>
             {imovel && (
               <p className="font-display mt-0.5 line-clamp-1 text-base font-bold">{imovel.titulo}</p>
@@ -72,7 +72,7 @@ export function ContactModal({
             </div>
             <p className="font-display text-xl font-bold text-[#0a2540]">Mensagem enviada!</p>
             <p className="max-w-xs text-sm text-[#52617a]">
-              Recebemos seu contato. Um especialista vai falar com você em breve.
+              Recebemos seu contato. A coordenação da H55 fala com você em breve.
             </p>
             <button
               onClick={onClose}

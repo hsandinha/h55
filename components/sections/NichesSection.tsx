@@ -29,7 +29,7 @@ const pilares = [
     icon: LuLock,
     num: "04",
     title: "Atuação especializada",
-    desc: "Cada frente possui uma abordagem própria, adequada ao objetivo de incorporadoras, proprietários e investidores.",
+    desc: "Cada área possui uma abordagem própria, adequada ao objetivo de incorporadoras, proprietários e investidores.",
   },
 ];
 
@@ -61,7 +61,7 @@ export const NichesSection = () => {
               className="mt-5 text-4xl font-semibold leading-[1.04] md:text-6xl"
               style={{ fontFamily: "var(--font-playfair-display)" }}
             >
-              Coordenação para transformar complexidade em direção.
+              Coordenação para dar direção a operações complexas.
             </h2>
           </div>
           <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
@@ -135,20 +135,20 @@ export const NichesSection = () => {
             <p className="text-sm leading-7 text-[#b9c6d4] md:text-base">
               Um lançamento para coordenar, um imóvel para vender ou interesse
               em novas oportunidades de investimento. Conte-nos o seu objetivo
-              e direcionaremos a conversa para a frente adequada.
+              e direcionaremos a conversa para a área adequada.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center border border-[#d8ad45] bg-[#d8ad45] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#191207] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0c85a]"
               >
-                Falar com especialista
+                Falar com a coordenação
               </Link>
               <Link
                 href="/services"
                 className="inline-flex items-center justify-center gap-3 border border-[#d8ad45]/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f7efe2] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10"
               >
-                Conhecer nossas frentes
+                Ver áreas de atuação
                 <LuArrowRight size={16} />
               </Link>
             </div>

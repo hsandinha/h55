@@ -69,7 +69,7 @@ export function ScheduleVisitModal({
             </div>
             <p className="font-display text-xl font-bold text-[#0a2540]">Visita solicitada!</p>
             <p className="max-w-xs text-sm text-[#52617a]">
-              Recebemos seu pedido. Um especialista vai confirmar a data com você em breve.
+              Recebemos seu pedido. A coordenação da H55 confirma a data com você em breve.
             </p>
             <button
               onClick={onClose}

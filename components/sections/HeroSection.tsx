@@ -141,9 +141,9 @@ export const HeroSection = () => {
             className="text-4xl font-semibold leading-[0.98] text-[#f7efe2] sm:text-5xl md:text-6xl lg:text-7xl"
             style={{ fontFamily: "var(--font-playfair-display)" }}
           >
-            Coordenação imobiliária
+            Um só responsável
             <br />
-            <span className="text-[#d9ad45]">do início ao fim</span>
+            <span className="text-[#d9ad45]">pela operação inteira.</span>
           </motion.h1>
 
           <motion.div
@@ -156,13 +156,13 @@ export const HeroSection = () => {
               href="/services"
               className="inline-flex items-center justify-center border border-[#d8ad45] bg-[#d8ad45] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#191207] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0c85a]"
             >
-              Conhecer nossos serviços
+              Ver áreas de atuação
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center border border-[#d8ad45]/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f7efe2] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10"
             >
-              Falar com especialista
+              Falar com a coordenação
             </Link>
           </motion.div>
         </div>
@@ -177,7 +177,7 @@ export const HeroSection = () => {
         className="absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
       >
         <span className="text-[11px] uppercase tracking-[0.25em] text-[#cfd8e3]">
-          Role para descobrir
+          Role para continuar
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}

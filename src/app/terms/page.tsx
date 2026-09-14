@@ -77,7 +77,7 @@ const TermsOfUsePage = () => {
               2. Objeto do Site
             </h2>
             <p>
-              Este site apresenta a H55 Negócios Imobiliários, suas frentes de
+              Este site apresenta a H55 Negócios Imobiliários, suas áreas de
               coordenação de lançamentos, coordenação de imóveis selecionados e
               private equity imobiliário, além de sua carteira de imóveis e
               informações institucionais. O conteúdo possui caráter informativo

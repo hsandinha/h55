@@ -12,7 +12,7 @@ const entregas = [
   "Acesso a oportunidades selecionadas no mercado imobiliário",
   "Apresentação do contexto e da estrutura de cada oportunidade",
   "Conversa alinhada ao perfil e ao horizonte do investidor",
-  "Relacionamento conduzido pelos especialistas da H55",
+  "Relacionamento conduzido pela coordenação da H55",
 ];
 
 const oQueFazemos = [
@@ -26,7 +26,7 @@ const oQueFazemos = [
   },
   {
     title: "Acompanhamento",
-    desc: "Os especialistas da H55 conduzem o relacionamento e mantêm o investidor informado sobre a evolução da oportunidade apresentada.",
+    desc: "A coordenação da H55 conduz o relacionamento e mantêm o investidor informado sobre a evolução da oportunidade apresentada.",
   },
 ];
 
@@ -51,8 +51,8 @@ const EquityPage = () => {
             className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
             style={PLAYFAIR}
           >
-            Investir em imóvel vai muito além{" "}
-            <span className="text-[#d9ad45]">da unidade na planta.</span>
+            Participar da operação,{" "}
+            <span className="text-[#d9ad45]">não só comprar a unidade.</span>
           </motion.h1>
         </div>
       </section>
@@ -64,9 +64,10 @@ const EquityPage = () => {
         texto={
           <>
             Investir em imóvel pode ir muito além da compra de uma unidade na
-            planta. Temos acesso a diversas oportunidades no mercado.{" "}
+            planta. Selecionamos oportunidades e apresentamos o contexto, a
+            estrutura e o horizonte de cada uma.{" "}
             <span className="text-[#9a7b1e]">
-              Agende uma reunião com nossos especialistas.
+              Agende uma reunião com a coordenação.
             </span>
           </>
         }
@@ -148,7 +149,7 @@ const EquityPage = () => {
                 className="mt-4 text-3xl font-semibold leading-tight text-[#f4efe6] md:text-4xl"
                 style={PLAYFAIR}
               >
-                Agende uma reunião com nossos especialistas.
+                Agende uma reunião com a coordenação.
               </h2>
             </div>
             <div>
@@ -168,7 +169,7 @@ const EquityPage = () => {
                   href="/services"
                   className="inline-flex items-center justify-center gap-3 border border-[#d8ad45]/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f7efe2] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10"
                 >
-                  Ver as três frentes
+                  Ver áreas de atuação
                   <LuArrowRight size={16} />
                 </Link>
               </div>

@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getImoveis } from "@/lib/properties";
-import { bairros } from "@/data/bairros";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://h55negociosimob.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticRoutes = ["", "/imoveis", "/bairros", "/comparar", "/contact", "/about", "/services", "/lancamentos", "/imoveis-selecionados", "/equity"].map(
+  const staticRoutes = ["", "/imoveis", "/comparar", "/contact", "/about", "/services", "/lancamentos", "/imoveis-selecionados", "/equity"].map(
     (p) => ({
       url: `${SITE}${p}`,
       lastModified: new Date(),
@@ -27,12 +26,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     /* ignora: sitemap sai só com as rotas estáticas */
   }
 
-  const bairroRoutes: MetadataRoute.Sitemap = bairros.map((b) => ({
-    url: `${SITE}/bairros/${b.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...bairroRoutes, ...imovelRoutes];
+  return [...staticRoutes, ...imovelRoutes];
 }
