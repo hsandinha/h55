@@ -69,7 +69,8 @@ const FrontStayPage = () => {
               "linear-gradient(180deg, rgba(10,37,64,0.55) 0%, rgba(6,18,31,1) 78%)",
           }}
         />
-        <div className="relative z-10 mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
+        <div className="relative z-10 mx-auto grid max-w-[1240px] gap-12 px-6 md:px-10 lg:grid-cols-[1.35fr_0.65fr] lg:gap-12 lg:px-14">
+          <div>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -82,11 +83,12 @@ const FrontStayPage = () => {
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.08 }}
-            className="mt-6 max-w-3xl text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
+            className="mt-6 text-balance text-3xl font-semibold leading-[1.06] sm:text-4xl md:text-[2.9rem] lg:text-[2.4rem] xl:text-5xl"
             style={PLAYFAIR}
           >
-            Um residencial também{" "}
-            <span className="text-[#d9ad45]">pode ser uma operação.</span>
+            Da concepção da arquitetura
+            <br />
+            <span className="text-[#d9ad45]">à administração da unidade.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 22 }}
@@ -94,11 +96,31 @@ const FrontStayPage = () => {
             transition={{ duration: 0.8, delay: 0.16 }}
             className="mt-8 max-w-2xl border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg"
           >
-            A Front Stay estrutura empreendimentos residenciais para gerar
-            renda, do projeto de arquitetura à administração do prédio pronto. A
-            H55 apresenta a Front Stay às incorporadoras e aos investidores que
-            coordena.
+            A Front Stay participa de ponta a ponta do empreendimento
+            residencial: arquitetura, vendas, decorado, entrega da obra e
+            administração da unidade em funcionamento. A H55 apresenta a Front
+            Stay às incorporadoras e aos investidores que coordena.
           </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex items-center justify-center md:justify-end"
+          >
+            <div className="flex aspect-square w-full max-w-[280px] items-center justify-center border border-[#b8860b]/35 bg-[#f4efe6] p-9 lg:max-w-[330px] lg:p-12">
+              <Image
+                src="/images/frontstay.svg"
+                alt="Front Stay"
+                width={1063}
+                height={496}
+                unoptimized
+                priority
+                className="h-auto w-full"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -113,15 +135,7 @@ const FrontStayPage = () => {
             className="grid gap-10 border-b border-[#0a2540]/15 pb-12 md:grid-cols-[0.9fr_1.1fr]"
           >
             <div>
-              <Image
-                src="/images/frontstay.svg"
-                alt="Front Stay"
-                width={1063}
-                height={496}
-                unoptimized
-                className="h-auto w-[168px] md:w-[196px]"
-              />
-              <p className="mt-9 text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
+              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
                 Quem opera
               </p>
               <h2
