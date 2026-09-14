@@ -241,7 +241,7 @@ const AboutPage = () => {
               {
                 titulo: "Por que H55?",
                 texto:
-                  "No modelo convencional, o proprietário lista o imóvel em imobiliárias e aguarda. O trabalho estratégico da venda fica sob a responsabilidade do proprietario ou não é feito, e o resultado é processo arrastado e baixa liquidez. Enquanto as imobiliárias focam em vender, a H55 assume a inteligência do processo: gerencia o valor do patrimônio para que a venda saia no menor tempo e pelo melhor valor.",
+                  "No modelo convencional, o proprietário lista o imóvel em imobiliárias e aguarda. O trabalho estratégico da venda fica sob sua responsabilidade ou não é feito, e o resultado é processo arrastado e baixa liquidez. Enquanto as imobiliárias focam em vender, a H55 assume a inteligência do processo: gerencia o valor do patrimônio para que a venda saia no menor tempo e pelo melhor valor.",
               },
             ].map((item, i) => (
               <motion.div
