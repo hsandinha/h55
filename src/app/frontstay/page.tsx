@@ -77,7 +77,7 @@ const FrontStayPage = () => {
             transition={{ duration: 0.7 }}
             className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]"
           >
-            Parceria H55 e Front Stay
+            Front Stay · empresa do grupo H55
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 22 }}
@@ -96,10 +96,10 @@ const FrontStayPage = () => {
             transition={{ duration: 0.8, delay: 0.16 }}
             className="mt-8 max-w-2xl border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg"
           >
-            A Front Stay participa de ponta a ponta do empreendimento
-            residencial: arquitetura, vendas, decorado, entrega da obra e
-            administração da unidade em funcionamento. A H55 apresenta a Front
-            Stay às incorporadoras e aos investidores que coordena.
+            A Front Stay é a empresa do grupo H55 que participa de ponta a
+            ponta do empreendimento residencial: arquitetura, vendas, decorado,
+            entrega da obra e administração da unidade em funcionamento. A
+            mesma estrutura que coordena a venda responde também pela operação.
           </motion.p>
           </div>
 
@@ -312,12 +312,11 @@ const FrontStayPage = () => {
             </div>
             <div className="self-end">
               <p className="max-w-xl text-base leading-8 text-[#52617a] md:text-lg">
-                Os papéis são separados e declarados. A H55 conduz a operação
-                comercial do lançamento e responde por ela perante a
+                Os papéis são separados, mas o grupo é o mesmo. A H55 conduz a
+                operação comercial do lançamento e responde por ela perante a
                 incorporadora. A Front Stay assume o projeto, o decorado e a
-                administração do prédio depois de pronto. Quando o modelo de
-                renda faz sentido para o empreendimento, a apresentação é feita
-                em conjunto.
+                administração do prédio depois de pronto. Uma única estrutura
+                responde do lançamento à unidade em funcionamento.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -359,7 +358,7 @@ const FrontStayPage = () => {
                 O estudo de mercado, a análise tarifária e as projeções de
                 ocupação são elaborados caso a caso, a partir da localização e
                 do mix de tipologias. A coordenação da H55 organiza a conversa
-                com a Front Stay.
+                com a Front Stay, empresa do mesmo grupo.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -379,9 +378,9 @@ const FrontStayPage = () => {
                 </a>
               </div>
               <p className="mt-8 text-xs leading-6 text-[#6b7a90]">
-                Esta página apresenta uma parceria institucional. As projeções
-                de tarifa, ocupação e resultado do modelo são elaboradas pela
-                Front Stay para cada empreendimento e não constituem promessa de
+                A Front Stay é uma empresa do grupo H55. As projeções de tarifa,
+                ocupação e resultado do modelo são elaboradas pela Front Stay
+                para cada empreendimento e não constituem promessa de
                 rentabilidade.
               </p>
             </div>

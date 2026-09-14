@@ -68,35 +68,54 @@ const AboutPage = () => {
               "linear-gradient(180deg, rgba(10,37,64,0.55) 0%, rgba(6,18,31,1) 78%)",
           }}
         />
-        <div className="relative z-10 mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
+        <div className="relative z-10 mx-auto grid max-w-[1240px] gap-12 px-6 md:px-10 lg:grid-cols-[1.35fr_0.65fr] lg:gap-12 lg:px-14">
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]"
+            >
+              Sobre a H55
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.08 }}
+              className="mt-6 text-balance text-3xl font-semibold leading-[1.06] sm:text-4xl md:text-[2.9rem] lg:text-[2.4rem] xl:text-5xl"
+              style={PLAYFAIR}
+            >
+              Estratégia e coordenação
+              <br />
+              <span className="text-[#d9ad45]">para negócios imobiliários.</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 22 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.16 }}
+              className="mt-8 max-w-2xl border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg"
+            >
+              A H55 coordena o negócio imobiliário de ponta a ponta: lançamentos,
+              imóveis selecionados e private equity. Representamos quem compra e
+              investe, com curadoria criteriosa, acesso a ativos off-market e
+              alinhamento total de interesses.
+            </motion.p>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="grid gap-10 md:grid-cols-[1.05fr_0.95fr]"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex items-center justify-start lg:justify-end"
           >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-                Sobre a H55
-              </p>
-              <h1
-                className="mt-6 text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
-                style={PLAYFAIR}
-              >
-                Estratégia e coordenação para{` `}
-                <span className="text-[#d9ad45]">negócios imobiliários.</span>
-              </h1>
-            </div>
-            <div className="flex items-center justify-start md:justify-end">
-              <Image
-                src="/images/h55-marca-clara.png"
-                alt="H55 Negócios Imobiliários"
-                width={1032}
-                height={917}
-                priority
-                className="h-auto w-full max-w-[210px] lg:max-w-[270px]"
-              />
-            </div>
+            <Image
+              src="/images/h55-marca-clara.png"
+              alt="H55 Negócios Imobiliários"
+              width={1032}
+              height={917}
+              priority
+              className="h-auto w-full max-w-[210px] lg:max-w-[270px]"
+            />
           </motion.div>
         </div>
       </section>
@@ -203,26 +222,22 @@ const AboutPage = () => {
               </h2>
             </div>
             <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              Três definições que orientam cada uma das áreas em que atuamos.
+              Duas definições e uma razão de existir que orientam cada uma das
+              áreas em que atuamos.
             </p>
           </motion.div>
 
-          <div className="mt-14 grid grid-cols-1 gap-px bg-[#b8860b]/22 md:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-px bg-[#b8860b]/22 md:grid-cols-2">
             {[
               {
                 titulo: "Nossa missão",
                 texto:
-                  "Conectar pessoas às melhores oportunidades imobiliárias do mercado, oferecendo uma assessoria especializada e isenta, garantindo que cada decisão de compra ou investimento seja feita com segurança e confiança.",
+                  "Gerar maior liquidez e rentabilidade para incorporadores, loteadores, proprietários e investidores.",
               },
               {
                 titulo: "Nossa visão",
                 texto:
-                  "Ser a referência no mercado imobiliário brasileiro como a principal assessoria independente para compradores e investidores, reconhecida pela expertise, confiabilidade e pela geração de valor em cada transação.",
-              },
-              {
-                titulo: "Por que H55?",
-                texto:
-                  "No modelo tradicional, o mesmo corretor atende vendedor e comprador, gerando dúvida e insegurança. A H55 nunca atua pelas duas pontas do mesmo negócio: em cada operação representamos um lado só, e é isso que dá peso à nossa recomendação.",
+                  "Ser a referência no mercado imobiliário como a principal assessoria independente para nossos clientes, reconhecida pela expertise, confiabilidade e geração de valor em cada transação.",
               },
             ].map((item, i) => (
               <motion.div
@@ -250,6 +265,72 @@ const AboutPage = () => {
                 </div>
               </motion.div>
             ))}
+
+            {/* Por que H55 — card largo, mesmo padrão visual */}
+            <motion.div
+              initial={{ opacity: 0, y: 26 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, delay: 0.16 }}
+              className="group flex flex-col bg-[#08203a]/70 p-7 transition duration-500 hover:bg-[#0a2540] md:col-span-2 md:p-10"
+            >
+              <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#60748d]">
+                03
+              </span>
+              <h3
+                className="mt-10 text-2xl font-semibold leading-tight text-[#f4efe6]"
+                style={PLAYFAIR}
+              >
+                Por que H55?
+              </h3>
+
+              <div className="mt-6">
+                <p className="text-base leading-8 text-[#9fb0c4]">
+                  No modelo convencional, o proprietário lista seu imóvel em uma
+                  ou mais imobiliárias e aguarda os resultados. O que poucos
+                  dizem é que todo o trabalho estratégico por trás de uma venda
+                  eficiente ainda fica sob a responsabilidade do próprio dono do
+                  patrimônio ou não é feito.
+                </p>
+
+                <p
+                  className="mt-9 border-l border-[#b8860b]/55 pl-6 text-2xl leading-[1.35] text-[#f4efe6] md:text-[1.9rem]"
+                  style={PLAYFAIR}
+                >
+                  O resultado dessa lacuna?{" "}
+                  <span className="text-[#d9ad45]">
+                    Processos arrastados, perda de rentabilidade e baixa
+                    liquidez.
+                  </span>
+                </p>
+
+                <p className="mt-8 text-base leading-8 text-[#9fb0c4]">
+                  A H55 nasceu exatamente para preencher esse espaço. Entramos
+                  no mercado para assumir o papel que hoje sobra para o
+                  proprietário, atuando como o seu braço direito na gestão de
+                  venda do ativo.
+                </p>
+
+                <p className="mt-6 text-base leading-8 text-[#9fb0c4]">
+                  Para nós, disponibilizar um imóvel ao mercado vai muito além
+                  de inseri-lo no portfólio de uma imobiliária. Nós assumimos a
+                  inteligência do processo.
+                </p>
+
+                <p className="mt-8 border-t border-[#b8860b]/25 pt-6 text-base leading-8 text-[#d6e0ec]">
+                  Enquanto as imobiliárias focam em vender, a H55 foca em
+                  gerenciar e otimizar todo o valor do seu patrimônio, para que a
+                  venda aconteça{" "}
+                  <span className="text-[#d9ad45]">
+                    no menor tempo e pelo melhor valor possível.
+                  </span>
+                </p>
+              </div>
+
+              <div className="mt-auto pt-10">
+                <span className="block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
