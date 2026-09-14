@@ -168,13 +168,13 @@ const LancamentosPage = () => {
 
           <div className="mt-12 grid gap-5 border-t border-[#0a2540]/20 pt-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
             <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-              Parceria
+              FrontStay uma empresa do grupo H55
             </p>
             <div>
               <p className="max-w-xl text-base leading-8 text-[#52617a]">
                 Para empreendimentos residenciais pensados como operação de
-                renda, a H55 apresenta a Front Stay, que assume o projeto, o
-                decorado e a administração do prédio depois de pronto.
+                short Stay, a H55 apresenta a Front Stay, que assessora o projeto, o
+                decorado e a gestão do prédio e das unidades depois de prontas.
               </p>
               <Link
                 href="/frontstay"
