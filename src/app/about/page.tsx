@@ -230,18 +230,23 @@ const AboutPage = () => {
             {[
               {
                 titulo: "Nossa missão",
-                texto:
+                paragrafos: [
                   "Gerar maior liquidez e rentabilidade para incorporadores, loteadores, proprietários e investidores.",
+                ],
               },
               {
                 titulo: "Nossa visão",
-                texto:
+                paragrafos: [
                   "Ser a referência no mercado imobiliário como a principal assessoria independente para nossos clientes, reconhecida pela expertise, confiabilidade e geração de valor em cada transação.",
+                ],
               },
               {
                 titulo: "Por que H55?",
-                texto:
-                  "No modelo convencional, o proprietário lista o imóvel em imobiliárias e aguarda. O trabalho estratégico da venda fica sob sua responsabilidade ou não é feito, e o resultado é processo arrastado e baixa liquidez. Enquanto as imobiliárias focam em vender, a H55 assume a inteligência do processo: gerencia o valor do patrimônio para que a venda saia no menor tempo e pelo melhor valor.",
+                paragrafos: [
+                  "No modelo convencional, o proprietário lista o imóvel em imobiliárias e aguarda. O trabalho estratégico da venda fica sob sua responsabilidade ou não é feito.",
+                  "Resultado? Processo arrastado e baixa liquidez.",
+                  "Enquanto as imobiliárias focam em vender, a H55 assume a inteligência do processo: gerencia o valor do patrimônio para que a venda saia no menor tempo e pelo melhor valor.",
+                ],
               },
             ].map((item, i) => (
               <motion.div
@@ -261,9 +266,16 @@ const AboutPage = () => {
                 >
                   {item.titulo}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[#9fb0c4]">
-                  {item.texto}
-                </p>
+                <div className="mt-4 space-y-4">
+                  {item.paragrafos.map((paragrafo) => (
+                    <p
+                      key={paragrafo}
+                      className="text-sm leading-7 text-[#9fb0c4]"
+                    >
+                      {paragrafo}
+                    </p>
+                  ))}
+                </div>
                 <div className="mt-auto pt-7">
                   <span className="block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
                 </div>
