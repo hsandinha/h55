@@ -165,6 +165,26 @@ const LancamentosPage = () => {
             Acelere a liquidez do seu lançamento com quem responde pelo processo
             inteiro.
           </p>
+
+          <div className="mt-12 grid gap-5 border-t border-[#0a2540]/20 pt-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
+            <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
+              Parceria
+            </p>
+            <div>
+              <p className="max-w-xl text-base leading-8 text-[#52617a]">
+                Para empreendimentos residenciais pensados como operação de
+                renda, a H55 apresenta a Front Stay, que assume o projeto, o
+                decorado e a administração do prédio depois de pronto.
+              </p>
+              <Link
+                href="/frontstay"
+                className="mt-5 inline-flex items-center gap-3 text-[0.68rem] uppercase tracking-[0.22em] text-[#9a7b1e] transition-colors hover:text-[#0a2540]"
+              >
+                Conhecer a Front Stay
+                <LuArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

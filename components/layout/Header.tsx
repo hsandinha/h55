@@ -52,6 +52,14 @@ const Header = () => {
           </li>
           <li>
             <Link
+              href="/frontstay"
+              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+            >
+              Front Stay
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/admin"
               className="whitespace-nowrap text-sm font-medium text-[#60748d] transition-colors hover:text-h55-gold"
             >
@@ -128,6 +136,15 @@ const Header = () => {
                   onClick={() => setMenuOpen(false)}
                 >
                   Áreas de atuação
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/frontstay"
+                  className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Front Stay
                 </Link>
               </li>
               <li>
