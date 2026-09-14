@@ -2,6 +2,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { LuArrowRight } from "react-icons/lu";
 
@@ -86,11 +87,18 @@ const AboutPage = () => {
                 <span className="text-[#d9ad45]">negócios imobiliários.</span>
               </h1>
             </div>
-            <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              A H55 coordena lançamentos para incorporadoras, assume a condução
-              da venda de imóveis selecionados para proprietários e apresenta
-              oportunidades de private equity para investidores.
-            </p>
+            <div className="flex items-center justify-center md:justify-end">
+              <div className="flex aspect-square w-full max-w-[280px] items-center justify-center border border-[#b8860b]/35 bg-[#f4efe6] lg:max-w-[320px]">
+                <Image
+                  src="/images/h55-marca.png"
+                  alt="H55 Negócios Imobiliários"
+                  width={1032}
+                  height={917}
+                  priority
+                  className="h-auto w-[66%]"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -329,7 +337,7 @@ const AboutPage = () => {
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
                 style={PLAYFAIR}
               >
-                Três áreas de atuação.
+                Áreas de atuação.
               </h2>
             </div>
             <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">

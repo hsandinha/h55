@@ -51,23 +51,17 @@ export const NichesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]"
+          className="max-w-[900px]"
         >
-          <div>
-            <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-              Por que a H55
-            </p>
-            <h2
-              className="mt-5 text-4xl font-semibold leading-[1.04] md:text-6xl"
-              style={{ fontFamily: "var(--font-playfair-display)" }}
-            >
-              Patrimônio imobiliário pede coordenação, estratégia e rigor.
-            </h2>
-          </div>
-          <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-            Anunciar é a parte fácil. O resto é preço, documentação, parceiros
-            e contrato, e é disso que a H55 cuida.
+          <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
+            Por que a H55
           </p>
+          <h2
+            className="mt-5 text-balance text-4xl font-semibold leading-[1.04] md:text-5xl lg:text-[3.4rem]"
+            style={{ fontFamily: "var(--font-playfair-display)" }}
+          >
+            Patrimônio imobiliário pede coordenação, estratégia e rigor.
+          </h2>
         </motion.div>
 
         <div className="mt-14 grid grid-cols-1 gap-px bg-[#b8860b]/22 sm:grid-cols-2 lg:grid-cols-4">

@@ -41,7 +41,7 @@ function ComoTrabalhamos() {
             Como operamos
           </p>
           <h2
-            className="mt-6 text-4xl font-semibold leading-[1.02] text-[#0a2540] md:text-6xl"
+            className="mt-6 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-[2.1rem] lg:text-[2.4rem] xl:text-5xl"
             style={PLAYFAIR}
           >
             Estratégia, gestão e acompanhamento em cada etapa.
@@ -90,7 +90,7 @@ function Principios() {
               className="mt-4 text-3xl font-semibold leading-tight md:text-5xl"
               style={PLAYFAIR}
             >
-              Um método que orienta as três áreas.
+              Um método que orienta.
             </h2>
           </div>
           <p className="max-w-md text-sm leading-7 text-[#9fb0c4]">

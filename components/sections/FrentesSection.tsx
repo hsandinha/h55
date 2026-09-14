@@ -36,7 +36,7 @@ export const FrentesSection = () => {
           className="mb-12 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
           style={PLAYFAIR}
         >
-          Três áreas de atuação
+          Áreas de atuação
         </h2>
         <div className="grid grid-cols-1 gap-px bg-[#0a2540]/15 md:grid-cols-3">
           {frentes.map((f, i) => (
