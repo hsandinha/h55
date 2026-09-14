@@ -233,19 +233,19 @@ const FrontStayPage = () => {
           >
             <div>
               <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-                Duas leituras
+                Incorporadora e investidor
               </p>
               <h2
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] md:text-5xl"
                 style={PLAYFAIR}
               >
-                O mesmo modelo, visto dos dois lados da mesa.
+                Critérios diferentes para o mesmo modelo.
               </h2>
             </div>
             <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              Quem incorpora quer um produto com diferencial comercial. Quem
-              investe quer uma unidade que funcione sem a sua presença. A
-              estrutura da Front Stay atende às duas exigências.
+              Quem incorpora avalia diferencial comercial e velocidade de
+              vendas. Quem investe avalia previsibilidade de renda e isenção da
+              gestão. A estrutura da Front Stay responde às duas exigências.
             </p>
           </motion.div>
 
