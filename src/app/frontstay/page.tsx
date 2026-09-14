@@ -2,6 +2,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { LuArrowRight, LuArrowUpRight } from "react-icons/lu";
 
@@ -112,7 +113,15 @@ const FrontStayPage = () => {
             className="grid gap-10 border-b border-[#0a2540]/15 pb-12 md:grid-cols-[0.9fr_1.1fr]"
           >
             <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
+              <Image
+                src="/images/frontstay.svg"
+                alt="Front Stay"
+                width={1063}
+                height={496}
+                unoptimized
+                className="h-auto w-[168px] md:w-[196px]"
+              />
+              <p className="mt-9 text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
                 Quem opera
               </p>
               <h2
@@ -167,20 +176,19 @@ const FrontStayPage = () => {
           >
             <div>
               <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                O que a Front Stay entrega
+                Como a Front Stay opera
               </p>
               <h2
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.04] md:text-5xl"
                 style={PLAYFAIR}
               >
-                Seis frentes de trabalho, uma só administração.
+                Seis processos sob uma única administradora.
               </h2>
             </div>
             <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              A solução acompanha o empreendimento desde o estudo de projeto até
-              a rotina do prédio ocupado. Cada etapa é conduzida pela mesma
-              administração, e não por fornecedores avulsos contratados a cada
-              fase.
+              A administradora acompanha o empreendimento desde o estudo de
+              projeto até a rotina do prédio ocupado. Nenhuma etapa é
+              terceirizada para fornecedores avulsos contratados fase a fase.
             </p>
           </motion.div>
 
@@ -343,7 +351,7 @@ const FrontStayPage = () => {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/contact?frente=frontstay"
+                  href="/contact?area=frontstay"
                   className="inline-flex items-center justify-center border border-[#d8ad45] bg-[#d8ad45] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#191207] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0c85a]"
                 >
                   Falar com a coordenação

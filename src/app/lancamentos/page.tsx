@@ -286,7 +286,7 @@ const LancamentosPage = () => {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/contact?frente=lancamentos"
+                  href="/contact?area=lancamentos"
                   className="inline-flex items-center justify-center border border-[#0a2540] bg-[#0a2540] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4efe6] transition duration-300 hover:-translate-y-0.5 hover:bg-[#123457]"
                 >
                   Apresentar o lançamento

@@ -27,9 +27,9 @@ const ContactPage = () => {
   });
   const [frente, setFrente] = useState<FrenteId>("outro");
 
-  // Pré-seleciona a frente quando o link chega com ?frente=...
+  // Pré-seleciona a área de atuação quando o link chega com ?area=...
   useEffect(() => {
-    const q = new URLSearchParams(window.location.search).get("frente");
+    const q = new URLSearchParams(window.location.search).get("area");
     if (q && FRENTES.some((f) => f.id === q)) setFrente(q as FrenteId);
   }, []);
 
