@@ -104,9 +104,9 @@ export default function ServicesPage() {
               <span className="text-[#9a7b1e]">pode atuar?</span>
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-[#46566e]">
-              Três áreas complementares, com soluções específicas para
-              incorporadoras, proprietários e investidores. Encontre o caminho
-              mais adequado ao seu objetivo.
+              A H55 atua em três áreas complementares, com soluções específicas
+              para incorporadoras, proprietários e investidores. Conheça cada
+              atuação e encontre o caminho mais adequado ao seu objetivo.
             </p>
             <div className="mt-10">
               <Link
@@ -131,7 +131,7 @@ export default function ServicesPage() {
                     <span className="block text-xl font-semibold leading-tight" style={PLAYFAIR}>
                       {f.title}
                     </span>
-                    <span className="mt-1.5 block text-sm text-[#5b6a80]">Para {f.label.toLowerCase()}</span>
+                    <span className="mt-1.5 block text-sm text-[#5b6a80]">{f.label}</span>
                   </span>
                   <LuArrowRight
                     size={18}
@@ -223,9 +223,9 @@ export default function ServicesPage() {
           <div className="self-end">
             <p className="text-base leading-8 text-[#c5d0dd] md:text-lg">
               Em cada área de atuação, a H55 centraliza informações, organiza os
-              participantes e acompanha a evolução da operação. Quem contrata
-              sabe com quem falar e tem clareza sobre os próximos passos, da
-              primeira conversa à assinatura.
+              participantes e acompanha a evolução da operação. Assim, quem
+              contrata sabe com quem falar e tem clareza sobre os próximos
+              passos, da primeira conversa à assinatura.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <Link

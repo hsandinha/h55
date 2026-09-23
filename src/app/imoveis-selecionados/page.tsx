@@ -71,7 +71,6 @@ export default function ImoveisSelecionadosPage() {
         rotulo="02 · Para proprietários"
         titulo="Assumimos"
         destaque="a operação da venda."
-        lead="O proprietário trata apenas com a H55. Coordenamos a venda inteira, da seleção das imobiliárias à transferência do imóvel."
         cta={{ href: "/contact?area=imoveis-selecionados", label: "Quero vender o meu imóvel" }}
         secundario={{ href: "#escopo", label: "O que está incluído" }}
       />

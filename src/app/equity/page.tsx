@@ -38,7 +38,6 @@ export default function EquityPage() {
         rotulo="03 · Para investidores"
         titulo="Participar da operação,"
         destaque="não só comprar a unidade."
-        lead="Oportunidades selecionadas no mercado imobiliário, apresentadas em conversas individuais, com o contexto, a estrutura e o horizonte de cada uma."
         cta={{ href: "/contact?area=equity", label: "Agendar reunião" }}
         secundario={{ href: "#escopo", label: "O que está incluído" }}
       />

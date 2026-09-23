@@ -203,8 +203,8 @@ export default function ImoveisPage() {
             </h1>
           </div>
           <p className="max-w-xl text-base leading-8 text-[#46566e] md:text-lg">
-            Imóveis apresentados pela H55. Use os filtros para encontrar as
-            opções mais adequadas ou explore a carteira pelo mapa.
+            Conheça os imóveis apresentados pela H55. Use os filtros para
+            encontrar as opções mais adequadas ou explore a carteira pelo mapa.
           </p>
         </div>
       </section>

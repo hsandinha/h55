@@ -71,7 +71,6 @@ export default function LancamentosPage() {
         rotulo="01 · Para incorporadoras e loteadoras"
         titulo="Um só responsável"
         destaque="pela operação de vendas."
-        lead="Da estratégia comercial à assinatura dos contratos, a H55 coordena as imobiliárias, os leads, o marketing e os documentos do seu lançamento."
         cta={{ href: "/contact?area=lancamentos", label: "Apresentar o lançamento" }}
         secundario={{ href: "#escopo", label: "O que está incluído" }}
       />
@@ -190,14 +189,8 @@ export default function LancamentosPage() {
       {/* Front Stay */}
       <section className="bg-white text-[#0a2540]">
         <div className="mx-auto grid max-w-[1240px] gap-8 px-6 py-16 md:px-10 md:py-20 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-14">
-          <div>
+          <div className="lg:self-start">
             <Label>Front Stay · empresa do grupo H55</Label>
-            <p
-              className="mt-5 text-balance text-2xl font-semibold leading-snug md:text-[1.9rem]"
-              style={PLAYFAIR}
-            >
-              Lançamento pensado para short stay?
-            </p>
           </div>
           <div>
             <p className="text-base leading-8 text-[#46566e]">

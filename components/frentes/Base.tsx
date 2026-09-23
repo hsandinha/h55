@@ -72,27 +72,27 @@ type AberturaProps = {
   rotulo: string;
   titulo: string;
   destaque: string;
-  lead: React.ReactNode;
+  lead?: React.ReactNode;
   cta: { href: string; label: string };
   secundario?: { href: string; label: string };
 };
 
-/** Abertura clara das páginas de frente: título à esquerda, resumo e ações à direita. */
+/** Abertura clara das páginas de frente: rótulo, título e ações. */
 export const Abertura = ({ rotulo, titulo, destaque, lead, cta, secundario }: AberturaProps) => (
   <section className="bg-[#f7f3ea] text-[#0a2540]">
-    <div className="mx-auto grid max-w-[1240px] gap-10 px-6 py-16 md:px-10 md:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16 lg:px-14">
-      <div>
+    <div className="mx-auto max-w-[1240px] px-6 py-16 md:px-10 md:py-24 lg:px-14">
+      <div className="max-w-3xl">
         <Label>{rotulo}</Label>
         <h1
-          className="mt-8 text-balance text-4xl font-semibold leading-[1.08] md:text-[3.2rem]"
+          className="mt-8 text-balance text-4xl font-semibold leading-[1.08] md:text-[3.4rem]"
           style={PLAYFAIR}
         >
           {titulo} <span className="text-[#9a7b1e]">{destaque}</span>
         </h1>
       </div>
-      <div>
-        <p className="text-lg leading-8 text-[#46566e]">{lead}</p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+      <div className="mt-10 max-w-xl">
+        {lead && <p className="mb-8 text-lg leading-8 text-[#46566e]">{lead}</p>}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
           <BotaoPrimario href={cta.href}>{cta.label}</BotaoPrimario>
           {secundario && <LinkSecundario href={secundario.href}>{secundario.label}</LinkSecundario>}
         </div>

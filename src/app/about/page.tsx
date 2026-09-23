@@ -6,9 +6,9 @@ import { LuArrowRight } from "react-icons/lu";
 const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
 const frentes = [
-  ["01", "Coordenação de lançamentos imobiliários", "Para incorporadoras e loteadoras", "/lancamentos"],
-  ["02", "Coordenação de imóveis selecionados", "Para proprietários e compradores", "/imoveis-selecionados"],
-  ["03", "Private equity imobiliário", "Para investidores com capital", "/equity"],
+  ["01", "Coordenação de lançamentos imobiliários", "/lancamentos"],
+  ["02", "Coordenação de imóveis selecionados", "/imoveis-selecionados"],
+  ["03", "Private equity imobiliário", "/equity"],
 ];
 
 const pilares = [
@@ -27,8 +27,9 @@ const pilares = [
   {
     titulo: "Por que H55?",
     paragrafos: [
-      "No modelo convencional, o proprietário lista o imóvel em imobiliárias e aguarda. O trabalho estratégico da venda fica sob sua responsabilidade ou não é feito. Resultado: processo arrastado e baixa liquidez.",
-      "Enquanto as imobiliárias focam em vender, a H55 assume a inteligência do processo e gerencia o valor do patrimônio para que a venda saia no menor tempo e pelo melhor valor.",
+      "No modelo convencional, o proprietário lista o imóvel em imobiliárias e aguarda. O trabalho estratégico da venda fica sob sua responsabilidade ou não é feito.",
+      "Resultado? Processo arrastado e baixa liquidez.",
+      "Enquanto as imobiliárias focam em vender, a H55 assume a inteligência do processo: gerencia o valor do patrimônio para que a venda saia no menor tempo e pelo melhor valor.",
     ],
   },
 ];
@@ -55,12 +56,12 @@ const valores = [
   {
     titulo: "Foco no cliente",
     texto:
-      "Nossas ações são direcionadas para entender e atender as necessidades de quem contrata a H55, colocando seus interesses em primeiro lugar.",
+      "Nossas ações são sempre direcionadas para entender e satisfazer as necessidades de quem contrata a H55, colocando seus interesses acima de tudo.",
   },
   {
     titulo: "Imparcialidade e transparência",
     texto:
-      "Atuamos sem conflitos de interesse, garantindo que o cliente receba informações claras e objetivas para tomar a melhor decisão.",
+      "Atuamos sem conflitos de interesse, garantindo que o cliente receba as informações mais claras e objetivas para tomar a melhor decisão.",
   },
   {
     titulo: "Expertise de mercado",
@@ -70,7 +71,7 @@ const valores = [
   {
     titulo: "Segurança e confiança",
     texto:
-      "Um processo de compra, venda ou investimento seguro, que constrói um relacionamento duradouro.",
+      "Nosso compromisso é proporcionar um processo de compra, venda ou investimento seguro, construindo um relacionamento duradouro.",
   },
   {
     titulo: "Inovação",
@@ -106,9 +107,9 @@ export default function AboutPage() {
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-[#46566e]">
               A H55 coordena o negócio imobiliário de ponta a ponta: lançamentos,
-              imóveis selecionados e private equity. Curadoria criteriosa, acesso
-              a ativos off-market e alinhamento total de interesses com quem nos
-              contrata.
+              imóveis selecionados e private equity. Representamos quem compra e
+              investe, com curadoria criteriosa, acesso a ativos off-market e
+              alinhamento total de interesses.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
@@ -128,8 +129,14 @@ export default function AboutPage() {
           </div>
 
           <div id="areas" className="scroll-mt-20 border border-[#0a2540]/12 bg-white">
-            <div className="flex items-center justify-between gap-6 border-b border-[#0a2540]/12 p-6 md:p-8">
-              <p className="text-sm font-semibold text-[#0a2540]">Áreas de atuação</p>
+            <div className="flex items-start justify-between gap-6 border-b border-[#0a2540]/12 p-6 md:p-8">
+              <div>
+                <p className="text-sm font-semibold text-[#0a2540]">Áreas de atuação</p>
+                <p className="mt-2 max-w-xs text-sm leading-6 text-[#5b6a80]">
+                  Cada área tem o seu cliente, o seu escopo e a sua equipe. Em
+                  todas, a condução da operação é da H55.
+                </p>
+              </div>
               <Image
                 src="/images/h55-marca.png"
                 alt="H55 Negócios Imobiliários"
@@ -140,18 +147,15 @@ export default function AboutPage() {
               />
             </div>
             <ul>
-              {frentes.map(([num, titulo, publico, href]) => (
+              {frentes.map(([num, titulo, href]) => (
                 <li key={num} className="border-b border-[#0a2540]/12 last:border-b-0">
                   <Link
                     href={href}
                     className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 p-6 transition-colors hover:bg-[#f7f3ea] md:p-8"
                   >
                     <span className="text-sm font-semibold text-[#9a7b1e]">{num}</span>
-                    <span>
-                      <span className="block text-xl font-semibold leading-tight" style={PLAYFAIR}>
-                        {titulo}
-                      </span>
-                      <span className="mt-1.5 block text-sm text-[#5b6a80]">{publico}</span>
+                    <span className="text-xl font-semibold leading-tight" style={PLAYFAIR}>
+                      {titulo}
                     </span>
                     <LuArrowRight
                       size={18}
@@ -178,22 +182,29 @@ export default function AboutPage() {
                 Nascemos para atender um único investidor.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-[#46566e] md:text-lg">
-                Um investidor com uma carteira robusta de imóveis e apetite para
-                novas oportunidades em equity e revenda de ativos prontos.
+                Nossa história começou de forma singular: atender com excelência
+                um único investidor, detentor de uma robusta carteira de imóveis
+                e apetite para novas oportunidades em equity e revenda de ativos
+                prontos.
               </p>
             </div>
             <div className="space-y-6 self-end text-base leading-8 text-[#46566e]">
               <p>
-                Essa relação exclusiva nos mostrou o que faltava no mercado: uma
-                representação estratégica e personalizada, voltada apenas aos
-                interesses de quem compra e investe, com foco em resultado
-                financeiro, economia de tempo e decisão bem fundamentada.
+                Essa relação exclusiva nos ensinou que o mercado imobiliário
+                carece de algo essencial: uma representação estratégica e
+                personalizada, voltada apenas aos interesses de quem compra e
+                investe. A partir dessa jornada inicial, percebemos que o mercado
+                carecia de uma atuação realmente personalizada, com foco em
+                resultado financeiro, economia de tempo e tomada de decisão
+                estratégica.
               </p>
               <p>
-                Hoje representamos quem deseja comprar bem, investir melhor e
-                encontrar oportunidades sólidas, com curadoria criteriosa, acesso
-                a ativos off-market e inteligência de mercado, sempre com
-                discrição, agilidade e alinhamento total de interesses.
+                Nosso compromisso é representar, com excelência, quem deseja
+                comprar bem, investir melhor e encontrar oportunidades sólidas no
+                mercado imobiliário. Atuamos lado a lado com nossos clientes,
+                oferecendo uma curadoria criteriosa, acesso a ativos off-market e
+                inteligência de mercado, sempre com discrição, agilidade e
+                alinhamento total de interesses.
               </p>
             </div>
           </div>
@@ -220,6 +231,9 @@ export default function AboutPage() {
           >
             Missão, visão e o motivo de existirmos.
           </h2>
+          <p className="mt-6 max-w-xl text-base leading-8 text-[#46566e]">
+            Três definições que orientam cada uma das áreas em que atuamos.
+          </p>
 
           <div className="mt-14 grid gap-px bg-[#0a2540]/12 md:grid-cols-3">
             {pilares.map((p, i) => (
@@ -255,8 +269,8 @@ export default function AboutPage() {
               Uma atuação estruturada em três movimentos.
             </h2>
             <p className="mt-6 max-w-md text-base leading-8 text-[#46566e]">
-              Diferentes objetivos exigem abordagens específicas. A coordenação
-              conecta todas as etapas.
+              Diferentes objetivos exigem abordagens específicas.{" "}
+              <span className="text-[#9a7b1e]">A coordenação conecta todas as etapas.</span>
             </p>
           </div>
 
@@ -293,8 +307,8 @@ export default function AboutPage() {
               O que você pode cobrar de nós.
             </h2>
             <p className="mt-6 max-w-md text-base leading-8 text-[#c5d0dd]">
-              Princípios que orientam a estratégia, a condução da operação e a
-              relação com cada cliente.
+              Estes princípios orientam a maneira como estruturamos a estratégia,
+              conduzimos a operação e nos relacionamos com cada cliente.
             </p>
           </div>
           <ol className="border-t border-white/15">
