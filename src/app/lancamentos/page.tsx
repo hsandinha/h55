@@ -173,7 +173,7 @@ const LancamentosPage = () => {
             <div>
               <p className="max-w-xl text-base leading-8 text-[#52617a]">
                 Para empreendimentos residenciais pensados como operação de
-                short stay, a Front Stay — empresa do grupo H55 — assessora o
+                short stay, a Front Stay, empresa do grupo H55, assessora o
                 projeto, o decorado e a gestão do prédio e das unidades depois
                 de prontas.
               </p>
