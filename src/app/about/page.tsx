@@ -1,26 +1,51 @@
 // src/app/about/page.tsx
-"use client";
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { LuArrowRight } from "react-icons/lu";
 
 const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
-const historia = [
+const frentes = [
+  ["01", "Coordenação de lançamentos imobiliários", "Para incorporadoras e loteadoras", "/lancamentos"],
+  ["02", "Coordenação de imóveis selecionados", "Para proprietários e compradores", "/imoveis-selecionados"],
+  ["03", "Private equity imobiliário", "Para investidores com capital", "/equity"],
+];
+
+const pilares = [
   {
-    marco: "Estratégia",
+    titulo: "Nossa missão",
+    paragrafos: [
+      "Gerar maior liquidez e rentabilidade para incorporadores, loteadores, proprietários e investidores.",
+    ],
+  },
+  {
+    titulo: "Nossa visão",
+    paragrafos: [
+      "Ser a referência no mercado imobiliário como a principal assessoria independente para nossos clientes, reconhecida pela expertise, confiabilidade e geração de valor em cada transação.",
+    ],
+  },
+  {
+    titulo: "Por que H55?",
+    paragrafos: [
+      "No modelo convencional, o proprietário lista o imóvel em imobiliárias e aguarda. O trabalho estratégico da venda fica sob sua responsabilidade ou não é feito. Resultado: processo arrastado e baixa liquidez.",
+      "Enquanto as imobiliárias focam em vender, a H55 assume a inteligência do processo e gerencia o valor do patrimônio para que a venda saia no menor tempo e pelo melhor valor.",
+    ],
+  },
+];
+
+const movimentos = [
+  {
+    titulo: "Estratégia",
     texto:
       "Cada trabalho começa pela compreensão do ativo, do objetivo e das partes envolvidas. A partir disso, definimos a direção comercial e o escopo da coordenação.",
   },
   {
-    marco: "Coordenação",
+    titulo: "Coordenação",
     texto:
       "Centralizamos informações, parceiros, visitas, documentos, contratos e acompanhamentos para que o processo avance de forma organizada.",
   },
   {
-    marco: "Especialização",
+    titulo: "Especialização",
     texto:
       "Atuamos em três áreas: lançamentos imobiliários, imóveis selecionados e private equity. Cada uma possui público e abordagem próprios.",
   },
@@ -28,487 +53,309 @@ const historia = [
 
 const valores = [
   {
-    title: "Foco no cliente",
-    desc: "Nossas ações são sempre direcionadas para entender e satisfazer as necessidades de quem contrata a H55, colocando seus interesses acima de tudo.",
+    titulo: "Foco no cliente",
+    texto:
+      "Nossas ações são direcionadas para entender e atender as necessidades de quem contrata a H55, colocando seus interesses em primeiro lugar.",
   },
   {
-    title: "Imparcialidade e transparência",
-    desc: "Atuamos sem conflitos de interesse, garantindo que o cliente receba as informações mais claras e objetivas para tomar a melhor decisão.",
+    titulo: "Imparcialidade e transparência",
+    texto:
+      "Atuamos sem conflitos de interesse, garantindo que o cliente receba informações claras e objetivas para tomar a melhor decisão.",
   },
   {
-    title: "Expertise de mercado",
-    desc: "Conhecimento aprofundado e atualizado sobre o mercado imobiliário, transformado em vantagem para quem nos contrata.",
+    titulo: "Expertise de mercado",
+    texto:
+      "Conhecimento aprofundado e atualizado sobre o mercado imobiliário, transformado em vantagem para quem nos contrata.",
   },
   {
-    title: "Segurança e confiança",
-    desc: "Nosso compromisso é proporcionar um processo de compra, venda ou investimento seguro, construindo um relacionamento duradouro.",
+    titulo: "Segurança e confiança",
+    texto:
+      "Um processo de compra, venda ou investimento seguro, que constrói um relacionamento duradouro.",
   },
   {
-    title: "Inovação",
-    desc: "Buscamos constantemente novas formas de aprimorar a assessoria, com as melhores ferramentas e abordagens do mercado.",
+    titulo: "Inovação",
+    texto:
+      "Buscamos constantemente novas formas de aprimorar a assessoria, com as melhores ferramentas e abordagens do mercado.",
   },
 ];
 
-const frentes = [
-  ["01", "Coordenação de lançamentos imobiliários", "/lancamentos"],
-  ["02", "Coordenação de imóveis selecionados", "/imoveis-selecionados"],
-  ["03", "Private equity imobiliário", "/equity"],
-];
+const Label = ({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) => (
+  <p
+    className={`text-[0.7rem] font-semibold uppercase tracking-[0.24em] ${
+      dark ? "text-[#d8ad45]" : "text-[#9a7b1e]"
+    }`}
+  >
+    {children}
+  </p>
+);
 
-const AboutPage = () => {
+export default function AboutPage() {
   return (
-    <>
-      {/* Abertura */}
-      <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-32">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(10,37,64,0.55) 0%, rgba(6,18,31,1) 78%)",
-          }}
-        />
-        <div className="relative z-10 mx-auto grid max-w-[1240px] gap-12 px-6 md:px-10 lg:grid-cols-[1.35fr_0.65fr] lg:gap-12 lg:px-14">
+    <div className="[font-variant-numeric:lining-nums]">
+      {/* 1. Abertura */}
+      <section className="bg-[#f7f3ea] text-[#0a2540]">
+        <div className="mx-auto grid max-w-[1240px] items-center gap-12 px-6 py-16 md:px-10 md:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-14">
           <div>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]"
-            >
-              Sobre a H55
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.08 }}
-              className="mt-6 text-balance text-3xl font-semibold leading-[1.06] sm:text-4xl md:text-[2.9rem] lg:text-[2.4rem] xl:text-5xl"
+            <Label>Sobre a H55</Label>
+            <h1
+              className="mt-8 text-4xl font-semibold leading-[1.08] md:text-[3.1rem]"
               style={PLAYFAIR}
             >
-              Estratégia e coordenação
-              <br />
-              <span className="text-[#d9ad45]">para negócios imobiliários.</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.16 }}
-              className="mt-8 max-w-2xl border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg"
-            >
+              Estratégia e coordenação{" "}
+              <span className="text-[#9a7b1e] lg:block">para negócios imobiliários.</span>
+            </h1>
+            <p className="mt-7 max-w-xl text-lg leading-8 text-[#46566e]">
               A H55 coordena o negócio imobiliário de ponta a ponta: lançamentos,
-              imóveis selecionados e private equity. Representamos quem compra e
-              investe, com curadoria criteriosa, acesso a ativos off-market e
-              alinhamento total de interesses.
-            </motion.p>
+              imóveis selecionados e private equity. Curadoria criteriosa, acesso
+              a ativos off-market e alinhamento total de interesses com quem nos
+              contrata.
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-[#0a2540] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#12375c]"
+              >
+                Falar com a coordenação
+                <LuArrowRight size={16} />
+              </Link>
+              <a
+                href="#origem"
+                className="inline-flex items-center justify-center gap-2 px-2 py-3.5 text-sm font-semibold text-[#0a2540] underline decoration-[#b8860b] decoration-2 underline-offset-8 transition hover:text-[#9a7b1e]"
+              >
+                Nossa história
+              </a>
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex items-center justify-start lg:justify-end"
-          >
-            <Image
-              src="/images/h55-marca-clara.png"
-              alt="H55 Negócios Imobiliários"
-              width={1032}
-              height={917}
-              priority
-              className="h-auto w-full max-w-[210px] lg:max-w-[270px]"
-            />
-          </motion.div>
+          <div id="areas" className="scroll-mt-20 border border-[#0a2540]/12 bg-white">
+            <div className="flex items-center justify-between gap-6 border-b border-[#0a2540]/12 p-6 md:p-8">
+              <p className="text-sm font-semibold text-[#0a2540]">Áreas de atuação</p>
+              <Image
+                src="/images/h55-marca.png"
+                alt="H55 Negócios Imobiliários"
+                width={1032}
+                height={917}
+                priority
+                className="h-12 w-auto"
+              />
+            </div>
+            <ul>
+              {frentes.map(([num, titulo, publico, href]) => (
+                <li key={num} className="border-b border-[#0a2540]/12 last:border-b-0">
+                  <Link
+                    href={href}
+                    className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 p-6 transition-colors hover:bg-[#f7f3ea] md:p-8"
+                  >
+                    <span className="text-sm font-semibold text-[#9a7b1e]">{num}</span>
+                    <span>
+                      <span className="block text-xl font-semibold leading-tight" style={PLAYFAIR}>
+                        {titulo}
+                      </span>
+                      <span className="mt-1.5 block text-sm text-[#5b6a80]">{publico}</span>
+                    </span>
+                    <LuArrowRight
+                      size={18}
+                      className="text-[#9a7b1e] transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
-      {/* Nossa Origem */}
-      <section className="bg-[#f7f3ea] py-24 md:py-32">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 border-b border-[#0a2540]/15 pb-12 md:grid-cols-[0.9fr_1.1fr]"
-          >
+      {/* 2. Origem */}
+      <section id="origem" className="scroll-mt-20 bg-white text-[#0a2540]">
+        <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-28 lg:px-14">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Nossa origem
-              </p>
+              <Label>Nossa origem</Label>
               <h2
-                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
+                className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
                 style={PLAYFAIR}
               >
                 Nascemos para atender um único investidor.
               </h2>
+              <p className="mt-6 max-w-xl text-base leading-8 text-[#46566e] md:text-lg">
+                Um investidor com uma carteira robusta de imóveis e apetite para
+                novas oportunidades em equity e revenda de ativos prontos.
+              </p>
             </div>
-            <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              Nossa história começou de forma singular: atender com excelência um
-              único investidor, detentor de uma robusta carteira de imóveis e
-              apetite para novas oportunidades em equity e revenda de ativos
-              prontos.
-            </p>
-          </motion.div>
+            <div className="space-y-6 self-end text-base leading-8 text-[#46566e]">
+              <p>
+                Essa relação exclusiva nos mostrou o que faltava no mercado: uma
+                representação estratégica e personalizada, voltada apenas aos
+                interesses de quem compra e investe, com foco em resultado
+                financeiro, economia de tempo e decisão bem fundamentada.
+              </p>
+              <p>
+                Hoje representamos quem deseja comprar bem, investir melhor e
+                encontrar oportunidades sólidas, com curadoria criteriosa, acesso
+                a ativos off-market e inteligência de mercado, sempre com
+                discrição, agilidade e alinhamento total de interesses.
+              </p>
+            </div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-12 grid gap-10 md:grid-cols-2"
-          >
-            <p className="text-base leading-8 text-[#52617a]">
-              Essa relação exclusiva nos ensinou que o mercado imobiliário carece
-              de algo essencial: uma representação estratégica e personalizada,
-              voltada apenas aos interesses de quem compra e investe. A partir
-              dessa jornada inicial, percebemos que o mercado carecia de uma
-              atuação realmente personalizada, com foco em resultado financeiro,
-              economia de tempo e tomada de decisão estratégica.
-            </p>
-            <p className="text-base leading-8 text-[#52617a]">
-              Nosso compromisso é representar, com excelência, quem deseja
-              comprar bem, investir melhor e encontrar oportunidades sólidas no
-              mercado imobiliário. Atuamos lado a lado com nossos clientes,
-              oferecendo uma curadoria criteriosa, acesso a ativos off-market e
-              inteligência de mercado, sempre com discrição, agilidade e
-              alinhamento total de interesses.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="mt-16 border-t border-[#0a2540]/20 pt-12"
-          >
+          <div className="mt-16 border-t border-[#0a2540]/15 pt-12">
             <p
-              className="max-w-3xl text-balance text-3xl leading-tight text-[#0a2540] md:text-[2.6rem]"
+              className="max-w-3xl text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
               style={PLAYFAIR}
             >
               Afinal, não vendemos imóveis.{" "}
               <span className="text-[#9a7b1e]">Representamos pessoas.</span>
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Missão, visão e o porquê */}
-      <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-32">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(10,37,64,0.35) 0%, rgba(6,18,31,1) 72%)",
-          }}
-        />
-        <div className="relative z-10 mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]"
+      {/* 3. Missão, visão, por quê */}
+      <section className="bg-[#f7f3ea] text-[#0a2540]">
+        <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-28 lg:px-14">
+          <Label>O que nos move</Label>
+          <h2
+            className="mt-5 max-w-2xl text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
+            style={PLAYFAIR}
           >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-                O que nos move
-              </p>
-              <h2
-                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] md:text-5xl"
-                style={PLAYFAIR}
-              >
-                Missão, visão e o motivo de existirmos.
-              </h2>
-            </div>
-            <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              Três definições que orientam cada uma das áreas em que atuamos.
-            </p>
-          </motion.div>
+            Missão, visão e o motivo de existirmos.
+          </h2>
 
-          <div className="mt-14 grid grid-cols-1 gap-px bg-[#b8860b]/22 md:grid-cols-3">
-            {[
-              {
-                titulo: "Nossa missão",
-                paragrafos: [
-                  "Gerar maior liquidez e rentabilidade para incorporadores, loteadores, proprietários e investidores.",
-                ],
-              },
-              {
-                titulo: "Nossa visão",
-                paragrafos: [
-                  "Ser a referência no mercado imobiliário como a principal assessoria independente para nossos clientes, reconhecida pela expertise, confiabilidade e geração de valor em cada transação.",
-                ],
-              },
-              {
-                titulo: "Por que H55?",
-                paragrafos: [
-                  "No modelo convencional, o proprietário lista o imóvel em imobiliárias e aguarda. O trabalho estratégico da venda fica sob sua responsabilidade ou não é feito.",
-                  "Resultado? Processo arrastado e baixa liquidez.",
-                  "Enquanto as imobiliárias focam em vender, a H55 assume a inteligência do processo: gerencia o valor do patrimônio para que a venda saia no menor tempo e pelo melhor valor.",
-                ],
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={item.titulo}
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="group flex min-h-[320px] flex-col bg-[#08203a]/70 p-7 transition duration-500 hover:bg-[#0a2540]"
-              >
-                <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#60748d]">
+          <div className="mt-14 grid gap-px bg-[#0a2540]/12 md:grid-cols-3">
+            {pilares.map((p, i) => (
+              <div key={p.titulo} className="flex flex-col bg-[#f7f3ea] p-7 md:p-8">
+                <span className="text-sm font-semibold text-[#9a7b1e]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3
-                  className="mt-10 text-2xl font-semibold leading-tight text-[#f4efe6]"
-                  style={PLAYFAIR}
-                >
-                  {item.titulo}
+                <h3 className="mt-8 text-2xl font-semibold leading-tight" style={PLAYFAIR}>
+                  {p.titulo}
                 </h3>
-                <div className="mt-4 space-y-4">
-                  {item.paragrafos.map((paragrafo) => (
-                    <p
-                      key={paragrafo}
-                      className="text-sm leading-7 text-[#9fb0c4]"
-                    >
-                      {paragrafo}
+                <div className="mt-3 space-y-4">
+                  {p.paragrafos.map((t) => (
+                    <p key={t} className="text-[0.95rem] leading-7 text-[#46566e]">
+                      {t}
                     </p>
                   ))}
                 </div>
-                <div className="mt-auto pt-7">
-                  <span className="block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
-                </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* História */}
-      <section className="bg-[#f7f3ea] py-24 md:py-32">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="max-w-2xl"
-          >
-            <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-              Como operamos
-            </p>
+      {/* 4. Como operamos */}
+      <section className="bg-white text-[#0a2540]">
+        <div className="mx-auto grid max-w-[1240px] gap-14 px-6 py-20 md:px-10 md:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-14">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <Label>Como operamos</Label>
             <h2
-              className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
+              className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
               style={PLAYFAIR}
             >
               Uma atuação estruturada em três movimentos.
             </h2>
-          </motion.div>
-
-          <div className="mt-12 grid grid-cols-1 gap-px bg-[#0a2540]/15 md:grid-cols-3">
-            {historia.map((h, i) => (
-              <motion.div
-                key={h.marco}
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="flex min-h-[300px] flex-col bg-[#f7f3ea] p-8"
-              >
-                <span
-                  className="text-5xl font-semibold leading-none text-[#d9ad45]"
-                  style={PLAYFAIR}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-8 text-base font-semibold uppercase tracking-[0.08em] text-[#0a2540]">
-                  {h.marco}
-                </h3>
-                <p className="mt-4 text-[0.95rem] leading-7 text-[#52617a]">{h.texto}</p>
-              </motion.div>
-            ))}
+            <p className="mt-6 max-w-md text-base leading-8 text-[#46566e]">
+              Diferentes objetivos exigem abordagens específicas. A coordenação
+              conecta todas as etapas.
+            </p>
           </div>
 
-          <motion.blockquote
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="mt-16 border-l border-[#b8860b] pl-6 md:pl-8"
-          >
-            <p
-              className="max-w-3xl text-balance text-2xl leading-[1.35] text-[#0a2540] md:text-[2.1rem] md:leading-[1.3]"
-              style={PLAYFAIR}
-            >
-              Diferentes objetivos exigem abordagens específicas.{" "}
-              <span className="text-[#9a7b1e]">A coordenação conecta todas as etapas.</span>
-            </p>
-          </motion.blockquote>
-        </div>
-      </section>
-
-      {/* Áreas de atuação */}
-      <section className="bg-[#ebe3d5] py-24 md:py-28">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 border-b border-[#0a2540]/15 pb-10 md:grid-cols-[0.9fr_1.1fr]"
-          >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                O que fazemos
-              </p>
-              <h2
-                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
-                style={PLAYFAIR}
+          <ol className="border-t border-[#0a2540]/15">
+            {movimentos.map((m, i) => (
+              <li
+                key={m.titulo}
+                className="grid gap-4 border-b border-[#0a2540]/15 py-8 sm:grid-cols-[3.5rem_1fr] md:py-10"
               >
-                Áreas de atuação.
-              </h2>
-            </div>
-            <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              Cada área tem o seu cliente, o seu escopo e a sua equipe. Em
-              todas, a condução da operação é da H55.
-            </p>
-          </motion.div>
-
-          <ul className="divide-y divide-[#0a2540]/12">
-            {frentes.map(([num, titulo, href]) => (
-              <li key={num}>
-                <Link
-                  href={href}
-                  className="group grid grid-cols-[3rem_1fr_auto] items-center gap-4 py-6 transition-colors hover:bg-[#e3d9c7]/60 md:py-8"
-                >
-                  <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#8a7a5e]">
-                    {num}
-                  </span>
-                  <span
-                    className="text-2xl font-semibold leading-tight text-[#0a2540] md:text-3xl"
-                    style={PLAYFAIR}
-                  >
-                    {titulo}
-                  </span>
-                  <LuArrowRight
-                    size={18}
-                    className="text-[#9a7b1e] transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </Link>
+                <span className="text-sm font-semibold text-[#9a7b1e]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="text-2xl font-semibold leading-tight" style={PLAYFAIR}>
+                    {m.titulo}
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-[#46566e]">{m.texto}</p>
+                </div>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </section>
 
-      {/* Valores */}
-      <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-32">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]"
-          >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-                Nossos valores
-              </p>
-              <h2
-                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] md:text-5xl"
-                style={PLAYFAIR}
-              >
-                O que você pode cobrar de nós.
-              </h2>
-            </div>
-            <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
-              Estes princípios orientam a maneira como estruturamos a estratégia,
-              conduzimos a operação e nos relacionamos com cada cliente.
+      {/* 5. Valores */}
+      <section className="bg-[#0a2540] text-white">
+        <div className="mx-auto grid max-w-[1240px] gap-12 px-6 py-20 md:px-10 md:py-24 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-14">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <Label dark>Nossos valores</Label>
+            <h2
+              className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
+              style={PLAYFAIR}
+            >
+              O que você pode cobrar de nós.
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-8 text-[#c5d0dd]">
+              Princípios que orientam a estratégia, a condução da operação e a
+              relação com cada cliente.
             </p>
-          </motion.div>
-
-          <div className="mt-14 grid grid-cols-1 gap-px bg-[#b8860b]/22 sm:grid-cols-2 lg:grid-cols-3">
+          </div>
+          <ol className="border-t border-white/15">
             {valores.map((v, i) => (
-              <motion.div
-                key={v.title}
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: i * 0.07 }}
-                className="group flex min-h-[280px] flex-col bg-[#08203a]/70 p-7 transition duration-500 hover:bg-[#0a2540]"
+              <li
+                key={v.titulo}
+                className="grid gap-4 border-b border-white/15 py-7 sm:grid-cols-[3.5rem_1fr] md:py-8"
               >
-                <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#60748d]">
+                <span className="text-sm font-semibold text-[#d8ad45]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3
-                  className="mt-8 text-xl font-semibold leading-tight text-[#f4efe6]"
-                  style={PLAYFAIR}
-                >
-                  {v.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-[#9fb0c4]">{v.desc}</p>
-                <div className="mt-auto pt-7">
-                  <span className="block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
+                <div>
+                  <h3 className="text-xl font-semibold leading-tight md:text-2xl" style={PLAYFAIR}>
+                    {v.titulo}
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-[#c5d0dd]">{v.texto}</p>
                 </div>
-              </motion.div>
+              </li>
             ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 6. Próximo passo */}
+      <section className="bg-[#f7f3ea] text-[#0a2540]">
+        <div className="mx-auto grid max-w-[1240px] gap-10 px-6 py-20 md:px-10 md:py-24 lg:grid-cols-2 lg:gap-20 lg:px-14">
+          <div>
+            <Label>Próximo passo</Label>
+            <h2
+              className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
+              style={PLAYFAIR}
+            >
+              Qual é o seu caso?
+            </h2>
+          </div>
+          <div className="self-end">
+            <p className="text-base leading-8 text-[#46566e] md:text-lg">
+              Um lançamento para coordenar, um imóvel para vender ou capital para
+              alocar. Diga qual é o seu caso e a conversa começa no ponto certo.
+            </p>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-[#0a2540] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#12375c]"
+              >
+                Falar com a coordenação
+                <LuArrowRight size={16} />
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 px-2 py-3.5 text-sm font-semibold text-[#0a2540] underline decoration-[#b8860b] decoration-2 underline-offset-8 transition hover:text-[#9a7b1e]"
+              >
+                Ver áreas de atuação
+              </Link>
+            </div>
+            <p className="mt-10 text-xs leading-6 text-[#8a97a8]">
+              H55 Negócios Imobiliários · CRECI-PJ 9045
+            </p>
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="bg-[#ebe3d5] py-24 md:py-28">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 border-t border-[#0a2540]/20 pt-12 md:grid-cols-[0.9fr_1.1fr]"
-          >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Próximo passo
-              </p>
-              <h2
-                className="mt-5 text-balance text-3xl font-semibold leading-[1.06] text-[#0a2540] md:text-5xl"
-                style={PLAYFAIR}
-              >
-                Qual é o seu caso?
-              </h2>
-            </div>
-            <div className="self-end">
-              <p className="max-w-xl text-base leading-8 text-[#52617a] md:text-lg">
-                Um lançamento para coordenar, um imóvel para vender ou capital
-                para alocar. Diga qual é o seu caso e a conversa começa no
-                ponto certo.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center border border-[#0a2540] bg-[#0a2540] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4efe6] transition duration-300 hover:-translate-y-0.5 hover:bg-[#123457]"
-                >
-                  Falar com a coordenação
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center gap-3 border border-[#0a2540]/40 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#0a2540] transition duration-300 hover:-translate-y-0.5 hover:bg-[#0a2540]/5"
-                >
-                  Ver áreas de atuação
-                  <LuArrowRight size={16} />
-                </Link>
-              </div>
-              <p className="mt-8 text-[0.64rem] uppercase tracking-[0.24em] text-[#8a7a5e]">
-                H55 Negócios Imobiliários · CRECI-PJ 9045
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </>
+    </div>
   );
-};
-
-export default AboutPage;
+}
