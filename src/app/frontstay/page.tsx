@@ -89,7 +89,7 @@ const diferenciais = [
   {
     titulo: "Gestão centralizada do prédio",
     texto:
-      "A Front Stay responde pela gestão do prédio e administra as unidades destinadas à hospedagem, com o mesmo padrão de preço, limpeza e atendimento. Quem compra para morar convive com uma operação organizada.",
+      "A Front Stay responde pela gestão do prédio e administra as unidades destinadas à hospedagem, com o mesmo padrão de preço, limpeza e atendimento.",
   },
   {
     titulo: "Diária ou contrato de 90 dias",
