@@ -87,9 +87,9 @@ const gestao = [
 
 const diferenciais = [
   {
-    titulo: "O prédio inteiro, um só operador",
+    titulo: "Gestão centralizada do prédio",
     texto:
-      "A Front Stay só opera quando administra todas as unidades do empreendimento. Ninguém derruba o preço da diária ao lado da sua unidade e a avaliação do prédio não depende de outro gestor.",
+      "A Front Stay responde pela gestão do prédio e administra as unidades destinadas à hospedagem, com o mesmo padrão de preço, limpeza e atendimento. Quem compra para morar convive com uma operação organizada.",
   },
   {
     titulo: "Diária ou contrato de 90 dias",
