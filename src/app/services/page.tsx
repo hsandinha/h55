@@ -1,8 +1,5 @@
 // src/app/services/page.tsx
-"use client";
-import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { LuArrowRight } from "react-icons/lu";
 
 const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
@@ -10,6 +7,7 @@ const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 const frentes = [
   {
     num: "01",
+    id: "lancamentos",
     label: "Incorporadoras",
     title: "Coordenação de lançamentos imobiliários",
     lead: "Conduzimos a operação de vendas do seu lançamento.",
@@ -35,6 +33,7 @@ const frentes = [
   },
   {
     num: "02",
+    id: "imoveis-selecionados",
     label: "Proprietários",
     title: "Coordenação de imóveis selecionados",
     lead: "Assumimos a operação da venda.",
@@ -60,6 +59,7 @@ const frentes = [
   },
   {
     num: "03",
+    id: "equity",
     label: "Investidores",
     title: "Private equity imobiliário",
     lead: "Participar da operação, não só comprar a unidade.",
@@ -78,152 +78,173 @@ const frentes = [
   },
 ];
 
-const ServicesPage = () => {
+const Label = ({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) => (
+  <p
+    className={`text-[0.7rem] font-semibold uppercase tracking-[0.24em] ${
+      dark ? "text-[#d8ad45]" : "text-[#9a7b1e]"
+    }`}
+  >
+    {children}
+  </p>
+);
+
+export default function ServicesPage() {
   return (
-    <>
-      <section className="bg-[#ebe3d5] py-24 md:py-32">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="grid gap-10 border-b border-[#0a2540]/15 pb-12 md:grid-cols-[0.9fr_1.1fr]"
-          >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Áreas de atuação
-              </p>
-              <h1
-                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-6xl"
+    <div className="[font-variant-numeric:lining-nums]">
+      {/* 1. Abertura */}
+      <section className="bg-[#f7f3ea] text-[#0a2540]">
+        <div className="mx-auto grid max-w-[1240px] items-center gap-12 px-6 py-16 md:px-10 md:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-14">
+          <div>
+            <Label>Áreas de atuação</Label>
+            <h1
+              className="mt-8 text-4xl font-semibold leading-[1.08] md:text-[3.1rem]"
+              style={PLAYFAIR}
+            >
+              Como a H55{" "}
+              <span className="text-[#9a7b1e]">pode atuar?</span>
+            </h1>
+            <p className="mt-7 max-w-xl text-lg leading-8 text-[#46566e]">
+              Três áreas complementares, com soluções específicas para
+              incorporadoras, proprietários e investidores. Encontre o caminho
+              mais adequado ao seu objetivo.
+            </p>
+            <div className="mt-10">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-[#0a2540] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#12375c]"
+              >
+                Falar com a coordenação
+                <LuArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+
+          <ul className="border border-[#0a2540]/12 bg-white">
+            {frentes.map((f) => (
+              <li key={f.num} className="border-b border-[#0a2540]/12 last:border-b-0">
+                <a
+                  href={`#${f.id}`}
+                  className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 p-6 transition-colors hover:bg-[#f7f3ea] md:p-8"
+                >
+                  <span className="text-sm font-semibold text-[#9a7b1e]">{f.num}</span>
+                  <span>
+                    <span className="block text-xl font-semibold leading-tight" style={PLAYFAIR}>
+                      {f.title}
+                    </span>
+                    <span className="mt-1.5 block text-sm text-[#5b6a80]">Para {f.label.toLowerCase()}</span>
+                  </span>
+                  <LuArrowRight
+                    size={18}
+                    className="rotate-90 text-[#9a7b1e] transition-transform duration-300 group-hover:translate-y-1"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 2. Uma seção por área */}
+      {frentes.map((f, i) => (
+        <section
+          key={f.num}
+          id={f.id}
+          className={`scroll-mt-20 text-[#0a2540] ${i % 2 === 0 ? "bg-white" : "bg-[#f7f3ea]"}`}
+        >
+          <div className="mx-auto grid max-w-[1240px] gap-12 px-6 py-20 md:px-10 md:py-28 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20 lg:px-14">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <div className="flex items-center gap-4">
+                <span className="text-sm font-semibold text-[#9a7b1e]">{f.num}</span>
+                <span className="border border-[#b8860b] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#9a7b1e]">
+                  {f.label}
+                </span>
+              </div>
+              <h2
+                className="mt-6 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
                 style={PLAYFAIR}
               >
-                Como a H55 pode atuar?
-              </h1>
-            </div>
-            <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              A H55 atua em três áreas complementares, com soluções específicas
-              para incorporadoras, proprietários e investidores. Conheça cada
-              atuação e encontre o caminho mais adequado ao seu objetivo.
-            </p>
-          </motion.div>
-
-          <div className="mt-12 grid grid-cols-1 gap-px bg-[#0a2540]/15 md:grid-cols-2 lg:grid-cols-3">
-            {frentes.map((f, i) => (
-              <motion.article
-                key={f.num}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group flex h-full flex-col bg-[#ebe3d5] p-8 transition-colors duration-500 hover:bg-[#e3d9c7] md:p-9"
+                {f.title}
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-[#9a7b1e]">{f.lead}</p>
+              <p className="mt-4 max-w-xl text-base leading-8 text-[#46566e]">{f.body}</p>
+              <Link
+                href={f.href}
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0a2540] underline decoration-[#b8860b] decoration-2 underline-offset-8 transition hover:text-[#9a7b1e]"
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#8a7a5e]">
-                    {f.num}
-                  </span>
-                  <span className="border border-[#9a7b1e]/45 px-3 py-1 text-[0.58rem] uppercase tracking-[0.22em] text-[#9a7b1e]">
-                    {f.label}
-                  </span>
-                </div>
+                {f.cta}
+                <LuArrowRight size={16} />
+              </Link>
+            </div>
 
-                <h2
-                  className="mt-8 text-[1.75rem] font-semibold leading-tight text-[#0a2540]"
-                  style={PLAYFAIR}
-                >
-                  {f.title}
-                </h2>
-                <p className="mt-4 text-[0.95rem] leading-7 text-[#9a7b1e]">
-                  {f.lead}
-                </p>
-                <p className="mt-5 text-[0.95rem] leading-7 text-[#52617a]">
-                  {f.body}
-                </p>
-
-                <ul className="mt-7 flex-1 border-t border-[#0a2540]/12">
-                  {f.itens.map(([titulo, texto]) => (
-                    <li
-                      key={titulo}
-                      className="border-b border-[#0a2540]/12 py-4"
-                    >
-                      <span className="block text-[0.8rem] font-semibold uppercase tracking-[0.1em] text-[#0a2540]">
+            <div>
+              <ol className="border-t border-[#0a2540]/15">
+                {f.itens.map(([titulo, texto], j) => (
+                  <li
+                    key={titulo}
+                    className="grid gap-4 border-b border-[#0a2540]/15 py-7 sm:grid-cols-[3.5rem_1fr] md:py-8"
+                  >
+                    <span className="text-sm font-semibold text-[#9a7b1e]">
+                      {String(j + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-2xl font-semibold leading-tight" style={PLAYFAIR}>
                         {titulo}
-                      </span>
-                      <span className="mt-1 block text-[0.9rem] leading-7 text-[#52617a]">
-                        {texto}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                      </h3>
+                      <p className="mt-3 text-base leading-7 text-[#46566e]">
+                        {texto.charAt(0).toUpperCase() + texto.slice(1)}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <p
+                className="mt-10 text-balance text-2xl font-semibold leading-snug md:text-[1.9rem]"
+                style={PLAYFAIR}
+              >
+                {f.fecho}
+              </p>
+            </div>
+          </div>
+        </section>
+      ))}
 
-                <p className="mt-7 text-lg leading-7 text-[#0a2540]" style={PLAYFAIR}>
-                  {f.fecho}
-                </p>
-
-                <Link
-                  href={f.href}
-                  className="mt-7 inline-flex items-center gap-3 text-[0.68rem] uppercase tracking-[0.22em] text-[#9a7b1e] transition-colors hover:text-[#0a2540]"
-                >
-                  {f.cta}
-                  <LuArrowRight
-                    size={14}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </Link>
-              </motion.article>
-            ))}
+      {/* 3. Como operamos */}
+      <section className="bg-[#0a2540] text-white">
+        <div className="mx-auto grid max-w-[1240px] gap-10 px-6 py-20 md:px-10 md:py-24 lg:grid-cols-2 lg:gap-20 lg:px-14">
+          <div>
+            <Label dark>Como operamos</Label>
+            <h2
+              className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
+              style={PLAYFAIR}
+            >
+              Um responsável pela coordenação do processo.
+            </h2>
+          </div>
+          <div className="self-end">
+            <p className="text-base leading-8 text-[#c5d0dd] md:text-lg">
+              Em cada área de atuação, a H55 centraliza informações, organiza os
+              participantes e acompanha a evolução da operação. Quem contrata
+              sabe com quem falar e tem clareza sobre os próximos passos, da
+              primeira conversa à assinatura.
+            </p>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 bg-[#d8ad45] px-7 py-3.5 text-sm font-semibold text-[#191207] transition hover:bg-[#f0c85a]"
+              >
+                Falar com a coordenação
+                <LuArrowRight size={16} />
+              </Link>
+              <Link
+                href="/imoveis"
+                className="inline-flex items-center justify-center gap-3 border border-white/35 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Ver a carteira
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Método de atuação */}
-      <section className="bg-[#f7f3ea] py-24 md:py-28">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 border-t border-[#0a2540]/20 pt-12 md:grid-cols-[0.9fr_1.1fr]"
-          >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Como operamos
-              </p>
-              <h2
-                className="mt-5 text-balance text-3xl font-semibold leading-[1.06] text-[#0a2540] md:text-5xl"
-                style={PLAYFAIR}
-              >
-                Um responsável pela coordenação do processo.
-              </h2>
-            </div>
-            <div className="self-end">
-              <p className="max-w-xl text-base leading-8 text-[#52617a] md:text-lg">
-                Em cada área de atuação, a H55 centraliza informações, organiza
-                os participantes e acompanha a evolução da operação. Assim, quem
-                contrata sabe com quem falar e tem clareza sobre os próximos
-                passos, da primeira conversa à assinatura.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center border border-[#0a2540] bg-[#0a2540] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4efe6] transition duration-300 hover:-translate-y-0.5 hover:bg-[#123457]"
-                >
-                  Falar com a coordenação
-                </Link>
-                <Link
-                  href="/imoveis"
-                  className="inline-flex items-center justify-center gap-3 border border-[#0a2540]/40 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#0a2540] transition duration-300 hover:-translate-y-0.5 hover:bg-[#0a2540]/5"
-                >
-                  Ver a carteira
-                  <LuArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </>
+    </div>
   );
-};
-
-export default ServicesPage;
+}

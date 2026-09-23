@@ -56,7 +56,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <div className="border-b border-[#b8860b]/15">
+    <div className="border-b border-[#0a2540]/12">
       <button
         type="button"
         onClick={onToggle}
@@ -64,7 +64,7 @@ function Section({
         className="group flex w-full items-center justify-between py-5"
       >
         <span
-          className={`text-[0.7rem] uppercase tracking-[0.32em] transition-colors group-hover:text-[#9a7b1e] ${
+          className={`text-sm font-semibold transition-colors group-hover:text-[#9a7b1e] ${
             open ? "text-[#9a7b1e]" : "text-[#0a2540]"
           }`}
         >
@@ -72,7 +72,7 @@ function Section({
         </span>
         <LuChevronDown
           size={16}
-          className={`text-[#b8860b] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`text-[#9a7b1e] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>
       <div
@@ -106,8 +106,8 @@ function ChipGroup({
             onClick={() => onChange(active ? "Todos" : opt)}
             className={`min-w-[44px] border px-3 py-1.5 text-xs transition-all ${
               active
-                ? "border-[#0a2540] bg-[#0a2540] text-[#f2ece0]"
-                : "border-[#b8860b]/25 bg-white text-[#0a2540] hover:border-[#b8860b] hover:text-[#9a7b1e]"
+                ? "border-[#0a2540] bg-[#0a2540] text-white"
+                : "border-[#0a2540]/15 bg-white text-[#0a2540] hover:border-[#0a2540]/40 hover:text-[#9a7b1e]"
             }`}
           >
             {opt}+
@@ -171,12 +171,15 @@ export function FilterSidebar({
 
   return (
     <aside className="w-full">
-      <div className="flex items-center justify-between border-b border-[#b8860b]/20 pb-4">
+      <div className="flex items-center justify-between border-b border-[#0a2540]/12 pb-4">
         <div>
-          <p className="eyebrow text-[#9a7b1e]">Refinar busca</p>
-          <p className="font-display mt-1 text-2xl font-bold text-[#0a2540]">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[#9a7b1e]">Refinar busca</p>
+          <p
+            className="mt-2 text-2xl font-semibold text-[#0a2540] [font-variant-numeric:lining-nums]"
+            style={{ fontFamily: "var(--font-playfair-display)" }}
+          >
             {isLoading ? "..." : totalResults}{" "}
-            <span className="text-xs uppercase tracking-[0.28em] text-[#8a97a8]">
+            <span className="font-sans text-sm font-normal text-[#5b6a80]">
               {totalResults === 1 ? "imóvel" : "imóveis"}
             </span>
           </p>
@@ -184,7 +187,7 @@ export function FilterSidebar({
         <button
           type="button"
           onClick={onReset}
-          className="group flex items-center gap-1.5 border border-[#b8860b]/30 px-3 py-1.5 text-[0.6rem] uppercase tracking-[0.28em] text-[#0a2540] transition-colors hover:border-[#b8860b] hover:text-[#9a7b1e]"
+          className="group flex items-center gap-1.5 border border-[#0a2540]/15 px-3 py-1.5 text-xs font-semibold text-[#0a2540] transition-colors hover:border-[#0a2540]/40"
         >
           <LuRotateCcw size={12} className="transition-transform group-hover:-rotate-180" />
           Limpar
@@ -208,14 +211,14 @@ export function FilterSidebar({
               }
             }}
             placeholder="Cidade ou bairro"
-            className="h-11 flex-1 border border-[#b8860b]/25 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#b8860b] focus:outline-none"
+            className="h-11 min-w-0 flex-1 border border-[#0a2540]/15 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#0a2540] focus:outline-none"
           />
           <button
             type="button"
             onClick={addLocation}
-            className="h-11 border border-[#0a2540] bg-[#0a2540] px-4 text-[0.6rem] uppercase tracking-[0.22em] text-[#f2ece0] transition hover:bg-[#b8860b] hover:text-[#1a1206]"
+            className="h-11 shrink-0 bg-[#0a2540] px-4 text-xs font-semibold text-white transition hover:bg-[#12375c]"
           >
-            Add
+            Adicionar
           </button>
         </div>
         {filters.localizacao.length > 0 && (
@@ -223,13 +226,13 @@ export function FilterSidebar({
             {filters.localizacao.map((loc) => (
               <span
                 key={loc}
-                className="flex items-center gap-1.5 border border-[#b8860b]/30 bg-[#f7f4ee] px-2.5 py-1 text-xs capitalize text-[#0a2540]"
+                className="flex items-center gap-1.5 border border-[#0a2540]/15 bg-[#f7f3ea] px-2.5 py-1 text-xs capitalize text-[#0a2540]"
               >
                 {loc}
                 <button
                   type="button"
                   onClick={() => removeLocation(loc)}
-                  className="text-[#b8860b] hover:text-[#0a2540]"
+                  className="text-[#9a7b1e] hover:text-[#0a2540]"
                   aria-label={`Remover ${loc}`}
                 >
                   <LuX size={11} />
@@ -255,8 +258,8 @@ export function FilterSidebar({
                 onClick={() => toggleArrayItem("tipo", t.value)}
                 className={`border px-3 py-1.5 text-xs transition-all ${
                   active
-                    ? "border-[#0a2540] bg-[#0a2540] text-[#f2ece0]"
-                    : "border-[#b8860b]/25 bg-white text-[#0a2540] hover:border-[#b8860b] hover:text-[#9a7b1e]"
+                    ? "border-[#0a2540] bg-[#0a2540] text-white"
+                    : "border-[#0a2540]/15 bg-white text-[#0a2540] hover:border-[#0a2540]/40 hover:text-[#9a7b1e]"
                 }`}
               >
                 {t.name}
@@ -279,7 +282,7 @@ export function FilterSidebar({
             { label: "Vagas", key: "vagas" as const },
           ].map((row) => (
             <div key={row.key}>
-              <p className="mb-2 text-[0.65rem] uppercase tracking-[0.28em] text-[#8a97a8]">
+              <p className="mb-2 text-xs text-[#5b6a80]">
                 {row.label}
               </p>
               <ChipGroup
@@ -302,14 +305,14 @@ export function FilterSidebar({
             placeholder="Mín"
             value={formatCurrency(filters.valorMin)}
             onChange={(e) => handleCurrencyChange("valorMin", e.target.value)}
-            className="h-11 border border-[#b8860b]/25 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#b8860b] focus:outline-none"
+            className="h-11 border border-[#0a2540]/15 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#0a2540] focus:outline-none"
           />
           <input
             type="text"
             placeholder="Máx"
             value={formatCurrency(filters.valorMax)}
             onChange={(e) => handleCurrencyChange("valorMax", e.target.value)}
-            className="h-11 border border-[#b8860b]/25 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#b8860b] focus:outline-none"
+            className="h-11 border border-[#0a2540]/15 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#0a2540] focus:outline-none"
           />
         </div>
       </Section>
@@ -325,14 +328,14 @@ export function FilterSidebar({
             placeholder="Mín"
             value={filters.areaMin}
             onChange={(e) => update({ areaMin: e.target.value })}
-            className="h-11 border border-[#b8860b]/25 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#b8860b] focus:outline-none"
+            className="h-11 border border-[#0a2540]/15 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#0a2540] focus:outline-none"
           />
           <input
             type="number"
             placeholder="Máx"
             value={filters.areaMax}
             onChange={(e) => update({ areaMax: e.target.value })}
-            className="h-11 border border-[#b8860b]/25 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#b8860b] focus:outline-none"
+            className="h-11 border border-[#0a2540]/15 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#0a2540] focus:outline-none"
           />
         </div>
       </Section>
@@ -347,7 +350,7 @@ export function FilterSidebar({
           placeholder="Código do imóvel"
           value={filters.codigo}
           onChange={(e) => update({ codigo: e.target.value })}
-          className="h-11 w-full border border-[#b8860b]/25 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#b8860b] focus:outline-none"
+          className="h-11 w-full border border-[#0a2540]/15 bg-white px-3 text-sm text-[#0a2540] placeholder-[#aab4c2] focus:border-[#0a2540] focus:outline-none"
         />
       </Section>
 
@@ -366,8 +369,8 @@ export function FilterSidebar({
                 onClick={() => toggleArrayItem("caracteristicasImovel", item)}
                 className={`border px-3 py-1.5 text-xs transition-all ${
                   active
-                    ? "border-[#0a2540] bg-[#0a2540] text-[#f2ece0]"
-                    : "border-[#b8860b]/25 bg-white text-[#0a2540] hover:border-[#b8860b] hover:text-[#9a7b1e]"
+                    ? "border-[#0a2540] bg-[#0a2540] text-white"
+                    : "border-[#0a2540]/15 bg-white text-[#0a2540] hover:border-[#0a2540]/40 hover:text-[#9a7b1e]"
                 }`}
               >
                 {item}
@@ -392,8 +395,8 @@ export function FilterSidebar({
                 onClick={() => toggleArrayItem("caracteristicasEdificio", item)}
                 className={`border px-3 py-1.5 text-xs transition-all ${
                   active
-                    ? "border-[#0a2540] bg-[#0a2540] text-[#f2ece0]"
-                    : "border-[#b8860b]/25 bg-white text-[#0a2540] hover:border-[#b8860b] hover:text-[#9a7b1e]"
+                    ? "border-[#0a2540] bg-[#0a2540] text-white"
+                    : "border-[#0a2540]/15 bg-white text-[#0a2540] hover:border-[#0a2540]/40 hover:text-[#9a7b1e]"
                 }`}
               >
                 {item}

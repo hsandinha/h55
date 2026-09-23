@@ -67,16 +67,16 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
     <article
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative flex h-full flex-col overflow-hidden border border-[#b8860b]/15 bg-white transition-all duration-500 hover:border-[#b8860b] hover:shadow-[0_28px_60px_-30px_rgba(10,37,64,0.45)]"
+      className="group relative flex h-full flex-col overflow-hidden border border-[#0a2540]/12 bg-white transition-all duration-500 hover:border-[#0a2540]/30 hover:shadow-[0_24px_50px_-32px_rgba(10,37,64,0.45)]"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-[#eef0f4]">
         {/* Badges esquerda */}
         <div className="absolute left-4 top-4 z-20 flex flex-col gap-1.5">
-          <span className="w-fit border border-white/30 bg-[#0a2540]/80 px-2.5 py-0.5 text-[0.58rem] uppercase tracking-[0.22em] text-[#f2ece0] backdrop-blur-sm">
+          <span className="w-fit bg-[#0a2540] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-white">
             {imovel.finalidade || "Comprar"}
           </span>
           {imovel.tipo && (
-            <span className="w-fit border border-[#b8860b]/40 bg-[#b8860b]/90 px-2.5 py-0.5 text-[0.58rem] uppercase tracking-[0.22em] text-[#1a1206] backdrop-blur-sm">
+            <span className="w-fit bg-white px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[#0a2540]">
               {imovel.tipo.replace(/-/g, " ")}
             </span>
           )}
@@ -90,7 +90,7 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
             className={`flex h-9 w-9 items-center justify-center border backdrop-blur-sm transition ${
               fav
                 ? "border-[#fbbf24] bg-[#fbbf24] text-[#1a1206]"
-                : "border-white/30 bg-[#0a2540]/60 text-[#f2ece0] hover:border-[#fbbf24]"
+                : "border-white/30 bg-[#0a2540]/60 text-white hover:border-[#fbbf24]"
             }`}
           >
             <LuHeart size={15} />
@@ -102,7 +102,7 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
             className={`flex h-9 w-9 items-center justify-center border backdrop-blur-sm transition disabled:cursor-not-allowed disabled:opacity-40 ${
               cmp
                 ? "border-[#fbbf24] bg-[#fbbf24] text-[#1a1206]"
-                : "border-white/30 bg-[#0a2540]/60 text-[#f2ece0] hover:border-[#fbbf24]"
+                : "border-white/30 bg-[#0a2540]/60 text-white hover:border-[#fbbf24]"
             }`}
           >
             <LuArrowLeftRight size={15} />
@@ -132,7 +132,7 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
             <button
               onClick={prev}
               aria-label="Foto anterior"
-              className={`absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-white/30 bg-[#0a2540]/60 text-[#f2ece0] backdrop-blur-sm transition-all duration-300 hover:border-[#fbbf24] hover:bg-[#0a2540]/80 ${
+              className={`absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-white/30 bg-[#0a2540]/60 text-white backdrop-blur-sm transition-all duration-300 hover:border-[#fbbf24] hover:bg-[#0a2540]/80 ${
                 isHovered ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -141,7 +141,7 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
             <button
               onClick={next}
               aria-label="Próxima foto"
-              className={`absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-white/30 bg-[#0a2540]/60 text-[#f2ece0] backdrop-blur-sm transition-all duration-300 hover:border-[#fbbf24] hover:bg-[#0a2540]/80 ${
+              className={`absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-white/30 bg-[#0a2540]/60 text-white backdrop-blur-sm transition-all duration-300 hover:border-[#fbbf24] hover:bg-[#0a2540]/80 ${
                 isHovered ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -150,14 +150,14 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
           </>
         )}
 
-        <span className="absolute bottom-4 right-4 z-20 text-[0.62rem] uppercase tracking-[0.28em] text-[#f2ece0]/70">
+        <span className="absolute bottom-4 right-4 z-20 text-xs font-medium text-white/80">
           Cód · {codigo}
         </span>
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <div className="mb-3 flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-          <LuMapPin size={12} />
+        <div className="mb-3 flex items-center gap-2 text-sm text-[#5b6a80]">
+          <LuMapPin size={14} className="shrink-0 text-[#9a7b1e]" />
           <span className="truncate">
             {imovel.endereco?.bairro}
             {imovel.endereco?.cidade ? ` · ${imovel.endereco.cidade}` : ""}
@@ -165,43 +165,44 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
         </div>
 
         <Link href={link}>
-          <h3 className="font-display line-clamp-2 min-h-[3.4rem] text-[1.5rem] font-bold leading-tight text-[#0a2540] transition-colors duration-300 group-hover:text-[#9a7b1e]">
+          <h3
+            className="line-clamp-2 min-h-[3.3rem] text-[1.4rem] font-semibold leading-tight text-[#0a2540] transition-colors duration-300 group-hover:text-[#9a7b1e]"
+            style={{ fontFamily: "var(--font-playfair-display)" }}
+          >
             {imovel.titulo}
           </h3>
         </Link>
 
-        <span className="my-5 block h-px w-10 bg-[#b8860b]/50 transition-all duration-500 group-hover:w-20 group-hover:bg-[#b8860b]" />
-
-        <div className="mb-6 flex items-center gap-5 text-[#52617a]">
+        <div className="mb-6 mt-5 flex items-center gap-5 text-[#46566e]">
           <div className="flex items-center gap-2">
-            <LuBed size={16} className="text-[#b8860b]" />
+            <LuBed size={16} className="text-[#9a7b1e]" />
             <span className="text-sm">{imovel.quartos || 0}</span>
           </div>
           <div className="flex items-center gap-2">
-            <LuBath size={16} className="text-[#b8860b]" />
+            <LuBath size={16} className="text-[#9a7b1e]" />
             <span className="text-sm">{imovel.banheiros || 0}</span>
           </div>
           <div className="flex items-center gap-2">
-            <LuMaximize size={16} className="text-[#b8860b]" />
+            <LuMaximize size={16} className="text-[#9a7b1e]" />
             <span className="text-sm">{imovel.area || 0} m²</span>
           </div>
         </div>
 
-        <div className="mt-auto border-t border-[#b8860b]/15 pt-5">
+        <div className="mt-auto border-t border-[#0a2540]/12 pt-5 [font-variant-numeric:lining-nums]">
           <div className="mb-4 flex items-end justify-between gap-3">
             <div>
-              <p className="text-[0.6rem] uppercase tracking-[0.28em] text-[#8a97a8]">Valor</p>
+              <p className="text-xs text-[#8a97a8]">Valor</p>
               {typeof imovel.descontoPercent === "number" && imovel.descontoPercent > 0 ? (
                 <>
                   <p className="mt-1 text-xs leading-none text-[#8a97a8] line-through">
                     {formatPrice(imovel.preco)}
                   </p>
-                  <p className="font-display text-2xl font-bold leading-none text-[#0a2540]">
+                  <p className="mt-1 text-2xl font-semibold leading-none text-[#0a2540]" style={{ fontFamily: "var(--font-playfair-display)" }}>
                     {formatPrice(Math.round(imovel.preco * (1 - imovel.descontoPercent / 100)))}
                   </p>
                 </>
               ) : (
-                <p className="font-display mt-1 text-2xl font-bold leading-none text-[#0a2540]">
+                <p className="mt-1 text-2xl font-semibold leading-none text-[#0a2540]" style={{ fontFamily: "var(--font-playfair-display)" }}>
                   {formatPrice(imovel.preco)}
                 </p>
               )}
@@ -216,7 +217,7 @@ export function PropertyCard({ imovel }: { imovel: Imovel }) {
           </div>
           <Link
             href={link}
-            className="group/btn flex h-11 w-full items-center justify-center gap-2 border border-[#b8860b] bg-[#0a2540] text-[0.7rem] uppercase tracking-[0.28em] text-[#f2ece0] transition-all duration-300 hover:bg-[#b8860b] hover:text-[#1a1206]"
+            className="group/btn flex h-11 w-full items-center justify-center gap-2 bg-[#0a2540] text-sm font-semibold text-white transition-all duration-300 hover:bg-[#12375c]"
           >
             Ver oportunidade
             <LuArrowUpRight

@@ -187,89 +187,88 @@ export default function ImoveisPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#f7f4ee]">
-      {/* HERO PEQUENO */}
-      <section className="relative overflow-hidden border-b border-[#b8860b]/20 bg-[#0a2540] py-16 md:py-20">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at top, rgba(0,74,173,0.22), transparent 60%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-7xl px-6">
-          <p className="eyebrow text-[#caa64a]">Imóveis selecionados</p>
-          <span className="mt-4 block h-px w-16 bg-[#b8860b]" />
-          <h1 className="font-display mt-5 text-4xl font-bold text-[#f4efe6] md:text-5xl lg:text-6xl">
-            Carteira de imóveis
-          </h1>
-          <p className="mt-4 max-w-xl text-sm text-[#9fb0c4] md:text-base">
-            Conheça os imóveis apresentados pela H55. Use os filtros para
-            encontrar as opções mais adequadas ou explore a carteira pelo mapa.
+    <div className="min-h-screen bg-white text-[#0a2540] [font-variant-numeric:lining-nums]">
+      {/* Abertura */}
+      <section className="border-b border-[#0a2540]/12 bg-[#f7f3ea]">
+        <div className="mx-auto grid max-w-[1500px] gap-8 px-6 py-14 md:grid-cols-[1.2fr_0.8fr] md:items-end md:py-20">
+          <div>
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[#9a7b1e]">
+              Imóveis selecionados
+            </p>
+            <h1
+              className="mt-6 text-4xl font-semibold leading-[1.08] md:text-[3.1rem]"
+              style={{ fontFamily: "var(--font-playfair-display)" }}
+            >
+              Carteira de imóveis
+            </h1>
+          </div>
+          <p className="max-w-xl text-base leading-8 text-[#46566e] md:text-lg">
+            Imóveis apresentados pela H55. Use os filtros para encontrar as
+            opções mais adequadas ou explore a carteira pelo mapa.
           </p>
         </div>
       </section>
 
       {/* TOOLBAR */}
-      <div className="sticky top-16 z-30 border-b border-[#b8860b]/20 bg-[#f7f4ee]/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-4 px-6 py-4">
+      <div className="sticky top-16 z-30 border-b border-[#0a2540]/12 bg-white/90 backdrop-blur-md">
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-3 px-6 py-4">
           <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={() => setMobileFiltersOpen(true)}
-              className="flex items-center gap-2 border border-[#b8860b]/30 px-4 py-2 text-[0.65rem] uppercase tracking-[0.28em] text-[#0a2540] hover:border-[#b8860b] hover:text-[#9a7b1e] lg:hidden"
+              className="flex items-center gap-2 border border-[#0a2540]/15 px-3 py-2 text-xs font-semibold text-[#0a2540] hover:border-[#0a2540]/40 lg:hidden"
             >
               <LuSlidersHorizontal size={14} />
               Filtros
             </button>
-            <p className="hidden text-xs uppercase tracking-[0.28em] text-[#52617a] md:block">
+            <p className="hidden text-sm font-semibold text-[#0a2540] md:block">
               {isLoading
                 ? "Carregando..."
                 : `${filtered.length} ${filtered.length === 1 ? "imóvel" : "imóveis"}`}
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               type="button"
               onClick={() => setOnlyFav((v) => !v)}
-              className={`flex items-center gap-1.5 border px-3 py-2 text-[0.6rem] uppercase tracking-[0.28em] transition ${
+              className={`flex items-center gap-1.5 border px-3 py-2 text-xs font-semibold transition ${
                 onlyFav
                   ? "border-[#fbbf24] bg-[#fbbf24]/15 text-[#9a7b1e]"
-                  : "border-[#b8860b]/25 text-[#0a2540] hover:border-[#b8860b]"
+                  : "border-[#0a2540]/15 text-[#0a2540] hover:border-[#0a2540]/40"
               }`}
               aria-pressed={onlyFav}
             >
-              <LuHeart size={12} /> {favCount > 0 ? favCount : "Favoritos"}
+              <LuHeart size={12} />
+              {favCount > 0 ? favCount : <span className="hidden sm:inline">Favoritos</span>}
             </button>
-            <div className="flex border border-[#b8860b]/25">
+            <div className="flex border border-[#0a2540]/15">
               <button
                 type="button"
                 onClick={() => setView("list")}
-                className={`flex items-center gap-1.5 px-3 py-2 text-[0.6rem] uppercase tracking-[0.28em] transition ${
-                  view === "list" ? "bg-[#0a2540] text-[#f2ece0]" : "text-[#0a2540] hover:text-[#9a7b1e]"
+                className={`flex items-center gap-1.5 px-3 py-2 text-xs font-semibold transition ${
+                  view === "list" ? "bg-[#0a2540] text-white" : "text-[#0a2540] hover:text-[#9a7b1e]"
                 }`}
               >
                 <LuLayoutGrid size={12} />
-                Lista
+                <span className="hidden sm:inline">Lista</span>
               </button>
               <button
                 type="button"
                 onClick={() => setView("map")}
-                className={`flex items-center gap-1.5 border-l border-[#b8860b]/25 px-3 py-2 text-[0.6rem] uppercase tracking-[0.28em] transition ${
-                  view === "map" ? "bg-[#0a2540] text-[#f2ece0]" : "text-[#0a2540] hover:text-[#9a7b1e]"
+                className={`flex items-center gap-1.5 border-l border-[#0a2540]/15 px-3 py-2 text-xs font-semibold transition ${
+                  view === "map" ? "bg-[#0a2540] text-white" : "text-[#0a2540] hover:text-[#9a7b1e]"
                 }`}
               >
                 <LuMap size={12} />
-                Mapa
+                <span className="hidden sm:inline">Mapa</span>
               </button>
             </div>
 
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="h-9 border border-[#b8860b]/25 bg-white px-3 text-xs text-[#0a2540] focus:border-[#b8860b] focus:outline-none"
+              className="h-9 w-[7.25rem] border border-[#0a2540]/15 bg-white px-2 text-xs text-[#0a2540] focus:border-[#0a2540] focus:outline-none sm:w-auto sm:px-3"
             >
               <option value="relevancia">Mais relevantes</option>
               <option value="rentabilidade_desc">Maior rentabilidade estimada</option>
@@ -282,17 +281,15 @@ export default function ImoveisPage() {
         </div>
 
         {activeChips.length > 0 && (
-          <div className="border-t border-[#b8860b]/15 bg-white/40">
+          <div className="border-t border-[#0a2540]/12 bg-[#f7f3ea]/60">
             <div className="mx-auto flex max-w-[1500px] flex-wrap items-center gap-2 px-6 py-3">
-              <span className="text-[0.6rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Filtros ativos
-              </span>
+              <span className="text-xs font-semibold text-[#9a7b1e]">Filtros ativos</span>
               {activeChips.map((chip, i) => (
                 <button
                   key={`${chip.key}-${chip.value || ""}-${i}`}
                   type="button"
                   onClick={() => removeChip(chip.key, chip.value)}
-                  className="group flex items-center gap-1.5 border border-[#b8860b]/30 bg-white px-2.5 py-1 text-xs capitalize text-[#0a2540] hover:border-[#b8860b] hover:text-[#9a7b1e]"
+                  className="group flex items-center gap-1.5 border border-[#0a2540]/15 bg-white px-2.5 py-1 text-xs capitalize text-[#0a2540] hover:border-[#0a2540]/40 hover:text-[#9a7b1e]"
                 >
                   {chip.label}
                   <LuX size={11} className="text-[#b8860b] group-hover:text-[#0a2540]" />
@@ -301,9 +298,9 @@ export default function ImoveisPage() {
               <button
                 type="button"
                 onClick={resetFilters}
-                className="text-[0.6rem] uppercase tracking-[0.28em] text-[#52617a] hover:text-[#9a7b1e]"
+                className="text-xs font-semibold text-[#0a2540] underline decoration-[#b8860b] underline-offset-4 hover:text-[#9a7b1e]"
               >
-                limpar tudo
+                Limpar tudo
               </button>
             </div>
           </div>
@@ -334,20 +331,23 @@ export default function ImoveisPage() {
                 {Array.from({ length: 6 }).map((_, i) => (
                   <div
                     key={i}
-                    className="h-[420px] animate-pulse border border-[#b8860b]/15 bg-white/60"
+                    className="h-[420px] animate-pulse border border-[#0a2540]/10 bg-[#f7f3ea]"
                   />
                 ))}
               </div>
             ) : paginated.length === 0 ? (
-              <div className="border border-[#b8860b]/20 bg-white py-20 text-center">
-                <p className="eyebrow text-[#9a7b1e]">Sem resultados</p>
-                <p className="font-display mt-3 text-2xl font-bold text-[#0a2540] md:text-3xl">
+              <div className="border border-[#0a2540]/12 bg-[#f7f3ea] py-20 text-center">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[#9a7b1e]">Sem resultados</p>
+                <p
+                  className="mt-3 text-2xl font-semibold text-[#0a2540] md:text-3xl"
+                  style={{ fontFamily: "var(--font-playfair-display)" }}
+                >
                   Nenhum imóvel encontrado.
                 </p>
                 <button
                   type="button"
                   onClick={resetFilters}
-                  className="mt-4 text-sm text-[#9a7b1e] underline-offset-4 hover:underline"
+                  className="mt-5 text-sm font-semibold text-[#0a2540] underline decoration-[#b8860b] decoration-2 underline-offset-8 hover:text-[#9a7b1e]"
                 >
                   Limpar a busca
                 </button>
@@ -365,7 +365,7 @@ export default function ImoveisPage() {
                     <button
                       onClick={() => setPage((p) => Math.max(1, p - 1))}
                       disabled={page === 1}
-                      className="flex h-10 w-10 items-center justify-center border border-[#b8860b]/25 text-[#0a2540] transition hover:border-[#b8860b] hover:text-[#9a7b1e] disabled:cursor-not-allowed disabled:opacity-30"
+                      className="flex h-10 w-10 items-center justify-center border border-[#0a2540]/15 text-[#0a2540] transition hover:border-[#0a2540]/40 hover:text-[#9a7b1e] disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       <LuChevronLeft size={16} />
                     </button>
@@ -375,8 +375,8 @@ export default function ImoveisPage() {
                         onClick={() => setPage(p)}
                         className={`h-10 min-w-[2.5rem] border px-3 text-sm transition ${
                           page === p
-                            ? "border-[#0a2540] bg-[#0a2540] text-[#f2ece0]"
-                            : "border-[#b8860b]/25 text-[#0a2540] hover:border-[#b8860b] hover:text-[#9a7b1e]"
+                            ? "border-[#0a2540] bg-[#0a2540] text-white"
+                            : "border-[#0a2540]/15 text-[#0a2540] hover:border-[#0a2540]/40 hover:text-[#9a7b1e]"
                         }`}
                       >
                         {p}
@@ -385,7 +385,7 @@ export default function ImoveisPage() {
                     <button
                       onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                       disabled={page === totalPages}
-                      className="flex h-10 w-10 items-center justify-center border border-[#b8860b]/25 text-[#0a2540] transition hover:border-[#b8860b] hover:text-[#9a7b1e] disabled:cursor-not-allowed disabled:opacity-30"
+                      className="flex h-10 w-10 items-center justify-center border border-[#0a2540]/15 text-[#0a2540] transition hover:border-[#0a2540]/40 hover:text-[#9a7b1e] disabled:cursor-not-allowed disabled:opacity-30"
                     >
                       <LuChevronRight size={16} />
                     </button>
@@ -404,9 +404,9 @@ export default function ImoveisPage() {
             className="absolute inset-0 bg-[#0a2540]/60 backdrop-blur-sm"
             onClick={() => setMobileFiltersOpen(false)}
           />
-          <div className="relative ml-auto flex h-full w-full max-w-md flex-col bg-[#f7f4ee]">
-            <div className="flex items-center justify-between border-b border-[#b8860b]/20 px-6 py-4">
-              <p className="eyebrow text-[#9a7b1e]">Refinar busca</p>
+          <div className="relative ml-auto flex h-full w-full max-w-md flex-col bg-[#f7f3ea]">
+            <div className="flex items-center justify-between border-b border-[#0a2540]/12 px-6 py-4">
+              <p className="text-sm font-semibold text-[#0a2540]">Refinar busca</p>
               <button
                 onClick={() => setMobileFiltersOpen(false)}
                 className="text-[#0a2540] hover:text-[#9a7b1e]"
@@ -425,11 +425,11 @@ export default function ImoveisPage() {
                 imoveis={todos}
               />
             </div>
-            <div className="border-t border-[#b8860b]/20 bg-white px-6 py-4">
+            <div className="border-t border-[#0a2540]/12 bg-white px-6 py-4">
               <button
                 type="button"
                 onClick={() => setMobileFiltersOpen(false)}
-                className="w-full bg-[#0a2540] py-3 text-center text-[0.7rem] uppercase tracking-[0.28em] text-[#f2ece0] transition hover:bg-[#b8860b] hover:text-[#1a1206]"
+                className="w-full bg-[#0a2540] py-3.5 text-center text-sm font-semibold text-white transition hover:bg-[#12375c]"
               >
                 Ver {filtered.length} imóveis
               </button>
@@ -437,6 +437,6 @@ export default function ImoveisPage() {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 }
