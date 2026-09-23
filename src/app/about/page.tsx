@@ -5,12 +5,6 @@ import { LuArrowRight } from "react-icons/lu";
 
 const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
-const frentes = [
-  ["01", "Coordenação de lançamentos imobiliários", "/lancamentos"],
-  ["02", "Coordenação de imóveis selecionados", "/imoveis-selecionados"],
-  ["03", "Private equity imobiliário", "/equity"],
-];
-
 const pilares = [
   {
     titulo: "Nossa missão",
@@ -128,43 +122,15 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div id="areas" className="scroll-mt-20 border border-[#0a2540]/12 bg-white">
-            <div className="flex items-start justify-between gap-6 border-b border-[#0a2540]/12 p-6 md:p-8">
-              <div>
-                <p className="text-sm font-semibold text-[#0a2540]">Áreas de atuação</p>
-                <p className="mt-2 max-w-xs text-sm leading-6 text-[#5b6a80]">
-                  Cada área tem o seu cliente, o seu escopo e a sua equipe. Em
-                  todas, a condução da operação é da H55.
-                </p>
-              </div>
-              <Image
-                src="/images/h55-marca.png"
-                alt="H55 Negócios Imobiliários"
-                width={1032}
-                height={917}
-                priority
-                className="h-12 w-auto"
-              />
-            </div>
-            <ul>
-              {frentes.map(([num, titulo, href]) => (
-                <li key={num} className="border-b border-[#0a2540]/12 last:border-b-0">
-                  <Link
-                    href={href}
-                    className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 p-6 transition-colors hover:bg-[#f7f3ea] md:p-8"
-                  >
-                    <span className="text-sm font-semibold text-[#9a7b1e]">{num}</span>
-                    <span className="text-xl font-semibold leading-tight" style={PLAYFAIR}>
-                      {titulo}
-                    </span>
-                    <LuArrowRight
-                      size={18}
-                      className="text-[#9a7b1e] transition-transform duration-300 group-hover:translate-x-1"
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="hidden items-center justify-end lg:flex">
+            <Image
+              src="/images/h55-marca.png"
+              alt="H55 Negócios Imobiliários"
+              width={1032}
+              height={917}
+              priority
+              className="h-auto w-full max-w-[300px]"
+            />
           </div>
         </div>
       </section>
