@@ -103,14 +103,17 @@ const diferenciais = [
   },
 ];
 
+// Fotos publicadas no site da Front Stay. O Icon Centro ainda não tem foto
+// própria lá (o site usa uma imagem de banco), então fica sem foto por aqui.
+const FS_IMG = "https://www.frontstay.com.br";
 const empreendimentos = [
-  ["Esopo Vale do Sereno", "Alameda Flamboiant, 285", "Nova Lima"],
-  ["City Santo Agostinho", "Rua Tenente Brito Melo, 1383", "Belo Horizonte"],
-  ["Ágora Expominas", "Rua Herculano Pena, 806", "Belo Horizonte"],
-  ["Lourdes", "Rua Professor Antônio Aleixo, 465", "Belo Horizonte"],
-  ["Savassi", "Rua Pernambuco, 284", "Belo Horizonte"],
-  ["Shopping Cidade", "Rua São Paulo, 957", "Belo Horizonte"],
-  ["Icon Centro", "Rua Goitacazes", "Belo Horizonte"],
+  { nome: "Esopo Vale do Sereno", endereco: "Alameda Flamboiant, 285", bairro: "Vale do Sereno, Nova Lima", foto: `${FS_IMG}/esopo.png` },
+  { nome: "City Santo Agostinho", endereco: "Rua Tenente Brito Melo, 1383", bairro: "Santo Agostinho, Belo Horizonte", foto: `${FS_IMG}/citydesign.png` },
+  { nome: "Ágora Expominas", endereco: "Rua Herculano Pena, 806", bairro: "Nova Suíça, Belo Horizonte", foto: `${FS_IMG}/agora.jpg` },
+  { nome: "Lourdes", endereco: "Rua Professor Antônio Aleixo, 465", bairro: "Lourdes, Belo Horizonte", foto: `${FS_IMG}/lourdes.jpeg` },
+  { nome: "Savassi", endereco: "Rua Pernambuco, 284", bairro: "Savassi, Belo Horizonte", foto: `${FS_IMG}/funcionarios.jpeg` },
+  { nome: "Shopping Cidade", endereco: "Rua São Paulo, 957", bairro: "Centro, Belo Horizonte", foto: `${FS_IMG}/centro.jpeg` },
+  { nome: "Icon Centro", endereco: "Rua Goitacazes", bairro: "Centro, Belo Horizonte", foto: "" },
 ];
 
 const Label = ({ children }: { children: React.ReactNode }) => (
@@ -357,19 +360,42 @@ export default function FrontStayPage() {
             </a>
           </div>
 
-          <ul className="mt-12 grid border-t border-[#0a2540]/15 md:grid-cols-2 md:gap-x-16">
-            {empreendimentos.map(([nome, endereco, cidade]) => (
-              <li
-                key={nome}
-                className="flex items-baseline justify-between gap-6 border-b border-[#0a2540]/15 py-5"
-              >
-                <span className="text-lg font-semibold" style={PLAYFAIR}>
-                  {nome}
-                </span>
-                <span className="text-right text-sm leading-6 text-[#5b6a80]">
-                  {endereco}
-                  <span className="block text-[#8a97a8]">{cidade}</span>
-                </span>
+          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {empreendimentos.map((e) => (
+              <li key={e.nome} className="flex flex-col border border-[#0a2540]/12 bg-white">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#e9e1d2]">
+                  {e.foto ? (
+                    <Image
+                      src={e.foto}
+                      alt={`Front Stay ${e.nome}`}
+                      fill
+                      sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center">
+                      <Image
+                        src="/images/frontstay/logo-frontstay.png"
+                        alt=""
+                        width={672}
+                        height={165}
+                        className="h-7 w-auto opacity-40"
+                      />
+                    </div>
+                  )}
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9a7b1e]">
+                    Front Stay
+                  </p>
+                  <h3 className="mt-1.5 text-xl font-semibold leading-tight" style={PLAYFAIR}>
+                    {e.nome}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5b6a80]">
+                    {e.endereco}
+                    <span className="block text-[#8a97a8]">{e.bairro}</span>
+                  </p>
+                </div>
               </li>
             ))}
           </ul>
