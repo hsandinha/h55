@@ -1,12 +1,15 @@
 // src/app/lancamentos/page.tsx
-"use client";
-import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { LuArrowRight } from "react-icons/lu";
 import { Descritivo } from "../../../components/frentes/Descritivo";
+import {
+  Abertura,
+  BotaoPrimario,
+  Label,
+  LinkSecundario,
+  PLAYFAIR,
+} from "../../../components/frentes/Base";
 
-const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
 const entregas = [
   "Estratégia comercial do lançamento",
@@ -61,34 +64,18 @@ const metodo = [
   },
 ];
 
-const LancamentosPage = () => {
+export default function LancamentosPage() {
   return (
-    <>
-      {/* Abertura */}
-      <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-32">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(10,37,64,0.55) 0%, rgba(6,18,31,1) 78%)",
-          }}
-        />
-        <div className="relative z-10 mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.h1
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
-            style={PLAYFAIR}
-          >
-            Um só responsável{" "}
-            <span className="text-[#d9ad45]">pela operação de vendas.</span>
-          </motion.h1>
-        </div>
-      </section>
+    <div className="[font-variant-numeric:lining-nums]">
+      <Abertura
+        rotulo="01 · Para incorporadoras e loteadoras"
+        titulo="Um só responsável"
+        destaque="pela operação de vendas."
+        lead="Da estratégia comercial à assinatura dos contratos, a H55 coordena as imobiliárias, os leads, o marketing e os documentos do seu lançamento."
+        cta={{ href: "/contact?area=lancamentos", label: "Apresentar o lançamento" }}
+        secundario={{ href: "#escopo", label: "O que está incluído" }}
+      />
 
-      {/* Descritivo */}
       <Descritivo
         numero="01"
         titulo="Coordenação de lançamentos imobiliários"
@@ -107,205 +94,154 @@ const LancamentosPage = () => {
       />
 
       {/* O que a incorporadora ganha */}
-      <section className="bg-[#ebe3d5] py-24 md:py-32">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 border-b border-[#0a2540]/15 pb-12 md:grid-cols-[0.9fr_1.1fr]"
-          >
+      <section className="bg-[#f7f3ea] text-[#0a2540]">
+        <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-28 lg:px-14">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-20">
             <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Para incorporadoras e loteadoras
-              </p>
+              <Label>Para incorporadoras e loteadoras</Label>
               <h2
-                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
+                className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
                 style={PLAYFAIR}
               >
                 Uma operação comercial alinhada em torno da mesma tabela.
               </h2>
             </div>
-            <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              A coordenação conecta estratégia, imobiliárias, leads, marketing
-              e documentos. Com todos trabalhando a partir das mesmas
-              informações, o lançamento ganha continuidade e clareza.
+            <p className="self-end text-base leading-8 text-[#46566e] md:text-lg">
+              A coordenação conecta estratégia, imobiliárias, leads, marketing e
+              documentos. Com todos trabalhando a partir das mesmas informações,
+              o lançamento ganha continuidade e clareza.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-px bg-[#0a2540]/15 md:grid-cols-3">
+          <div className="mt-14 grid gap-px bg-[#0a2540]/12 md:grid-cols-3">
             {ganhos.map((g, i) => (
-              <motion.div
-                key={g.title}
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="group flex min-h-[260px] flex-col bg-[#ebe3d5] p-8 transition-colors duration-500 hover:bg-[#e3d9c7]"
-              >
-                <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#8a7a5e]">
+              <div key={g.title} className="bg-[#f7f3ea] p-7 md:p-8">
+                <span className="text-sm font-semibold text-[#9a7b1e]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3
-                  className="mt-8 text-2xl font-semibold leading-tight text-[#0a2540]"
-                  style={PLAYFAIR}
-                >
+                <h3 className="mt-8 text-2xl font-semibold leading-tight" style={PLAYFAIR}>
                   {g.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[#52617a]">{g.desc}</p>
-                <div className="mt-auto pt-7">
-                  <span className="block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
-                </div>
-              </motion.div>
+                <p className="mt-3 text-[0.95rem] leading-7 text-[#46566e]">{g.desc}</p>
+              </div>
             ))}
           </div>
 
-          <p className="mt-10 max-w-2xl text-xl leading-9 text-[#0a2540]" style={PLAYFAIR}>
+          <p
+            className="mt-12 max-w-2xl text-balance text-2xl font-semibold leading-snug md:text-[1.9rem]"
+            style={PLAYFAIR}
+          >
             Acelere a liquidez do seu lançamento com quem responde pelo processo
             inteiro.
           </p>
-
-          <div className="mt-12 grid gap-5 border-t border-[#0a2540]/20 pt-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
-            <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-              Front Stay · empresa do grupo H55
-            </p>
-            <div>
-              <p className="max-w-xl text-base leading-8 text-[#52617a]">
-                Para empreendimentos residenciais pensados como operação de
-                short stay, a Front Stay, empresa do grupo H55, assessora o
-                projeto, o decorado e a gestão do prédio e das unidades depois
-                de prontas.
-              </p>
-              <Link
-                href="/frontstay"
-                className="mt-5 inline-flex items-center gap-3 text-[0.68rem] uppercase tracking-[0.22em] text-[#9a7b1e] transition-colors hover:text-[#0a2540]"
-              >
-                Conhecer a Front Stay
-                <LuArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Método */}
-      <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-32">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]"
-          >
+      <section className="bg-[#0a2540] text-white">
+        <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-28 lg:px-14">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-20">
             <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#caa64a]">
-                Como operamos
-              </p>
+              <Label dark>Como operamos</Label>
               <h2
-                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] md:text-5xl"
+                className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
                 style={PLAYFAIR}
               >
                 Nove etapas, três fases, um responsável.
               </h2>
             </div>
-            <p className="max-w-xl self-end border-l border-[#b8860b]/55 pl-6 text-base leading-8 text-[#b9c6d4] md:text-lg">
+            <p className="self-end text-base leading-8 text-[#c5d0dd] md:text-lg">
               O mesmo método em todo lançamento que coordenamos. A incorporadora
-              sabe em que fase está, o que já foi entregue e o que vem a
-              seguir.
+              sabe em que fase está, o que já foi entregue e o que vem a seguir.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="mt-14 space-y-px">
+          <div className="mt-14 border-t border-white/15">
             {metodo.map((bloco, bi) => (
-              <motion.div
+              <div
                 key={bloco.fase}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7, delay: bi * 0.08 }}
-                className="grid gap-6 border-t border-[#b8860b]/25 py-10 lg:grid-cols-[0.28fr_1fr]"
+                className="grid gap-6 border-b border-white/15 py-10 lg:grid-cols-[0.3fr_1fr] lg:gap-10"
               >
-                <div className="flex items-start gap-4">
-                  <span
-                    className="text-5xl font-semibold leading-none text-[#d9ad45] md:text-6xl"
-                    style={PLAYFAIR}
-                  >
-                    {String(bi + 1).padStart(2, "0")}
+                <div>
+                  <span className="text-sm font-semibold text-[#d8ad45]">
+                    Fase {String(bi + 1).padStart(2, "0")}
                   </span>
-                  <span className="mt-2 text-[0.68rem] uppercase tracking-[0.28em] text-[#9fb0c4]">
+                  <h3 className="mt-3 text-2xl font-semibold leading-tight" style={PLAYFAIR}>
                     {bloco.fase}
-                  </span>
+                  </h3>
                 </div>
-                <div className="grid gap-px bg-[#b8860b]/22 sm:grid-cols-3">
+                <div className="grid gap-8 sm:grid-cols-3">
                   {bloco.etapas.map(([titulo, texto], ei) => (
-                    <div key={titulo} className="bg-[#06121f] p-6">
-                      <span className="text-[0.62rem] uppercase tracking-[0.3em] text-[#60748d]">
-                        Etapa {bi * 3 + ei + 1}
-                      </span>
-                      <h3 className="mt-3 text-base font-semibold uppercase tracking-[0.08em] text-[#f4efe6]">
+                    <div key={titulo}>
+                      <span className="text-xs text-[#8196ad]">Etapa {bi * 3 + ei + 1}</span>
+                      <p className="mt-2 text-lg font-semibold leading-snug" style={PLAYFAIR}>
                         {titulo}
-                      </h3>
-                      <p className="mt-3 text-sm leading-7 text-[#9fb0c4]">{texto}</p>
+                      </p>
+                      <p className="mt-2 text-[0.95rem] leading-7 text-[#c5d0dd]">{texto}</p>
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Transparência e CTA */}
-      <section className="bg-[#ebe3d5] py-24 md:py-28">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 border-t border-[#0a2540]/20 pt-12 md:grid-cols-[0.9fr_1.1fr]"
-          >
-            <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Transparência
-              </p>
-              <h2
-                className="mt-5 text-balance text-3xl font-semibold leading-[1.06] text-[#0a2540] md:text-5xl"
-                style={PLAYFAIR}
-              >
-                Uma proposta adequada ao seu empreendimento.
-              </h2>
-            </div>
-            <div className="self-end">
-              <p className="max-w-xl text-base leading-8 text-[#52617a] md:text-lg">
-                Cada lançamento possui características, estágio comercial e
-                necessidades próprias. Em uma reunião inicial, entendemos o
-                empreendimento e definimos o escopo de coordenação mais adequado
-                para a operação.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/contact?area=lancamentos"
-                  className="inline-flex items-center justify-center border border-[#0a2540] bg-[#0a2540] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4efe6] transition duration-300 hover:-translate-y-0.5 hover:bg-[#123457]"
-                >
-                  Apresentar o lançamento
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center gap-3 border border-[#0a2540]/40 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#0a2540] transition duration-300 hover:-translate-y-0.5 hover:bg-[#0a2540]/5"
-                >
-                  Ver áreas de atuação
-                  <LuArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          </motion.div>
+      {/* Front Stay */}
+      <section className="bg-white text-[#0a2540]">
+        <div className="mx-auto grid max-w-[1240px] gap-8 px-6 py-16 md:px-10 md:py-20 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-14">
+          <div>
+            <Label>Front Stay · empresa do grupo H55</Label>
+            <p
+              className="mt-5 text-balance text-2xl font-semibold leading-snug md:text-[1.9rem]"
+              style={PLAYFAIR}
+            >
+              Lançamento pensado para short stay?
+            </p>
+          </div>
+          <div>
+            <p className="text-base leading-8 text-[#46566e]">
+              Para empreendimentos residenciais pensados como operação de short
+              stay, a Front Stay, empresa do grupo H55, assessora o projeto, o
+              decorado e a gestão do prédio e das unidades depois de prontas.
+            </p>
+            <Link
+              href="/frontstay"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#0a2540] underline decoration-[#b8860b] decoration-2 underline-offset-8 transition hover:text-[#9a7b1e]"
+            >
+              Conhecer a Front Stay
+              <LuArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
-    </>
-  );
-};
 
-export default LancamentosPage;
+      {/* Transparência e CTA */}
+      <section className="bg-[#f7f3ea] text-[#0a2540]">
+        <div className="mx-auto grid max-w-[1240px] gap-10 px-6 py-20 md:px-10 md:py-24 lg:grid-cols-2 lg:gap-20 lg:px-14">
+          <div>
+            <Label>Transparência</Label>
+            <h2
+              className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
+              style={PLAYFAIR}
+            >
+              Uma proposta adequada ao seu empreendimento.
+            </h2>
+          </div>
+          <div className="self-end">
+            <p className="text-base leading-8 text-[#46566e] md:text-lg">
+              Cada lançamento possui características, estágio comercial e
+              necessidades próprias. Em uma reunião inicial, entendemos o
+              empreendimento e definimos o escopo de coordenação mais adequado
+              para a operação.
+            </p>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <BotaoPrimario href="/contact?area=lancamentos">Apresentar o lançamento</BotaoPrimario>
+              <LinkSecundario href="/services">Ver áreas de atuação</LinkSecundario>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

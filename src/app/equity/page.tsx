@@ -1,12 +1,13 @@
 // src/app/equity/page.tsx
-"use client";
-import React from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { LuArrowRight } from "react-icons/lu";
 import { Descritivo } from "../../../components/frentes/Descritivo";
+import {
+  Abertura,
+  BotaoPrimario,
+  Label,
+  LinkSecundario,
+  PLAYFAIR,
+} from "../../../components/frentes/Base";
 
-const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
 
 const entregas = [
   "Acesso a oportunidades selecionadas no mercado imobiliário",
@@ -26,38 +27,22 @@ const oQueFazemos = [
   },
   {
     title: "Acompanhamento",
-    desc: "A coordenação da H55 conduz o relacionamento e mantêm o investidor informado sobre a evolução da oportunidade apresentada.",
+    desc: "A coordenação da H55 conduz o relacionamento e mantém o investidor informado sobre a evolução da oportunidade apresentada.",
   },
 ];
 
-const EquityPage = () => {
+export default function EquityPage() {
   return (
-    <>
-      {/* Abertura */}
-      <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-32">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(10,37,64,0.55) 0%, rgba(6,18,31,1) 78%)",
-          }}
-        />
-        <div className="relative z-10 mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.h1
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl text-balance text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-[3.8rem]"
-            style={PLAYFAIR}
-          >
-            Participar da operação,{" "}
-            <span className="text-[#d9ad45]">não só comprar a unidade.</span>
-          </motion.h1>
-        </div>
-      </section>
+    <div className="[font-variant-numeric:lining-nums]">
+      <Abertura
+        rotulo="03 · Para investidores"
+        titulo="Participar da operação,"
+        destaque="não só comprar a unidade."
+        lead="Oportunidades selecionadas no mercado imobiliário, apresentadas em conversas individuais, com o contexto, a estrutura e o horizonte de cada uma."
+        cta={{ href: "/contact?area=equity", label: "Agendar reunião" }}
+        secundario={{ href: "#escopo", label: "O que está incluído" }}
+      />
 
-      {/* Descritivo */}
       <Descritivo
         numero="03"
         titulo="Private equity imobiliário"
@@ -75,114 +60,74 @@ const EquityPage = () => {
       />
 
       {/* O que fazemos */}
-      <section className="bg-[#ebe3d5] py-24 md:py-32">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-10 border-b border-[#0a2540]/15 pb-12 md:grid-cols-[0.9fr_1.1fr]"
-          >
+      <section className="bg-[#f7f3ea] text-[#0a2540]">
+        <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-28 lg:px-14">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-20">
             <div>
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-[#9a7b1e]">
-                Para investidores
-              </p>
+              <Label>Para investidores</Label>
               <h2
-                className="mt-5 text-balance text-4xl font-semibold leading-[1.04] text-[#0a2540] md:text-5xl"
+                className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
                 style={PLAYFAIR}
               >
                 Uma forma diferente de acessar o mercado imobiliário.
               </h2>
             </div>
-            <p className="max-w-xl self-end text-base leading-8 text-[#52617a] md:text-lg">
-              Cada conversa começa pela compreensão do perfil, dos objetivos e
-              do horizonte do investidor. A partir disso, apresentamos as
+            <p className="self-end text-base leading-8 text-[#46566e] md:text-lg">
+              Cada conversa começa pela compreensão do perfil, dos objetivos e do
+              horizonte do investidor. A partir disso, apresentamos as
               oportunidades disponíveis e suas características.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-px bg-[#0a2540]/15 md:grid-cols-3">
+          <div className="mt-14 grid gap-px bg-[#0a2540]/12 md:grid-cols-3">
             {oQueFazemos.map((c, i) => (
-              <motion.div
-                key={c.title}
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="group flex min-h-[260px] flex-col bg-[#ebe3d5] p-8 transition-colors duration-500 hover:bg-[#e3d9c7]"
-              >
-                <span className="text-[0.68rem] uppercase tracking-[0.3em] text-[#8a7a5e]">
+              <div key={c.title} className="bg-[#f7f3ea] p-7 md:p-8">
+                <span className="text-sm font-semibold text-[#9a7b1e]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3
-                  className="mt-8 text-2xl font-semibold leading-tight text-[#0a2540]"
-                  style={PLAYFAIR}
-                >
+                <h3 className="mt-8 text-2xl font-semibold leading-tight" style={PLAYFAIR}>
                   {c.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[#52617a]">{c.desc}</p>
-                <div className="mt-auto pt-7">
-                  <span className="block h-px w-8 bg-[#b8860b] transition-all duration-500 group-hover:w-20" />
-                </div>
-              </motion.div>
+                <p className="mt-3 text-[0.95rem] leading-7 text-[#46566e]">{c.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA sóbrio */}
-      <section className="relative overflow-hidden bg-[#06121f] py-24 text-[#f4efe6] md:py-28">
-        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="grid gap-8 border border-[#b8860b]/30 bg-[#030c17]/55 p-8 md:grid-cols-[1.05fr_0.95fr] md:p-10"
-          >
-            <div>
-              <p className="text-[0.64rem] uppercase tracking-[0.26em] text-[#caa64a]">
-                Próximo passo
-              </p>
-              <h2
-                className="mt-4 text-3xl font-semibold leading-tight text-[#f4efe6] md:text-4xl"
-                style={PLAYFAIR}
-              >
-                Agende uma reunião com a coordenação.
-              </h2>
+      <section className="bg-[#0a2540] text-white">
+        <div className="mx-auto grid max-w-[1240px] gap-10 px-6 py-20 md:px-10 md:py-24 lg:grid-cols-2 lg:gap-20 lg:px-14">
+          <div>
+            <Label dark>Próximo passo</Label>
+            <h2
+              className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
+              style={PLAYFAIR}
+            >
+              Agende uma reunião com a coordenação.
+            </h2>
+          </div>
+          <div className="self-end">
+            <p className="text-base leading-8 text-[#c5d0dd] md:text-lg">
+              Em uma conversa reservada, entendemos seus objetivos e seu
+              horizonte de investimento para apresentar a atuação da H55 e as
+              oportunidades que possam fazer sentido para o seu perfil.
+            </p>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <BotaoPrimario href="/contact?area=equity" dark>
+                Agendar reunião
+              </BotaoPrimario>
+              <LinkSecundario href="/services" dark>
+                Ver áreas de atuação
+              </LinkSecundario>
             </div>
-            <div>
-              <p className="text-sm leading-7 text-[#b9c6d4] md:text-base">
-                Em uma conversa reservada, entendemos seus objetivos e seu
-                horizonte de investimento para apresentar a atuação da H55 e as
-                oportunidades que possam fazer sentido para o seu perfil.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/contact?area=equity"
-                  className="inline-flex items-center justify-center border border-[#d8ad45] bg-[#d8ad45] px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#191207] transition duration-300 hover:-translate-y-0.5 hover:bg-[#f0c85a]"
-                >
-                  Agendar reunião
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center gap-3 border border-[#d8ad45]/80 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f7efe2] transition duration-300 hover:-translate-y-0.5 hover:bg-white/10"
-                >
-                  Ver áreas de atuação
-                  <LuArrowRight size={16} />
-                </Link>
-              </div>
-              <p className="mt-8 text-xs leading-6 text-[#6b7a90]">
-                Esta página tem caráter institucional. Não constitui oferta
-                pública de investimento nem promessa de rentabilidade.
-              </p>
-            </div>
-          </motion.div>
+            <p className="mt-10 text-xs leading-6 text-[#8196ad]">
+              Esta página tem caráter institucional. Não constitui oferta pública
+              de investimento nem promessa de rentabilidade.
+            </p>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
-};
-
-export default EquityPage;
+}

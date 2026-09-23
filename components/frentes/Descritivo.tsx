@@ -1,9 +1,5 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-
-const PLAYFAIR = { fontFamily: "var(--font-playfair-display)" };
+// components/frentes/Descritivo.tsx
+import { Label, PLAYFAIR } from "./Base";
 
 type Props = {
   numero: string;
@@ -12,67 +8,40 @@ type Props = {
   texto: React.ReactNode;
   /** Cada entrega listada no descritivo, uma por linha. */
   entregas: string[];
-  tema?: "claro" | "escuro";
 };
 
 /**
- * Bloco editorial que apresenta o descritivo de uma frente: a frase da casa em
- * serifa grande e, ao lado, cada entrega numerada como cláusula de escopo.
+ * Descritivo da frente no padrão da /frontstay: texto da casa à esquerda
+ * (fixo no desktop) e cada entrega numerada à direita, com divisórias.
  */
-export const Descritivo = ({ numero, titulo, texto, entregas, tema = "claro" }: Props) => {
-  const escuro = tema === "escuro";
-  return (
-    <section className={escuro ? "bg-[#06121f] py-24 text-[#f4efe6] md:py-32" : "bg-[#f7f3ea] py-24 text-[#0a2540] md:py-32"}>
-      <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-14">
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className={`flex items-baseline gap-5 border-b pb-6 ${escuro ? "border-[#b8860b]/30" : "border-[#0a2540]/15"}`}
+export const Descritivo = ({ numero, titulo, texto, entregas }: Props) => (
+  <section id="escopo" className="scroll-mt-20 bg-white text-[#0a2540]">
+    <div className="mx-auto grid max-w-[1240px] gap-14 px-6 py-20 md:px-10 md:py-28 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20 lg:px-14">
+      <div className="lg:sticky lg:top-28 lg:self-start">
+        <Label>
+          Descritivo {numero} · {titulo}
+        </Label>
+        <p
+          className="mt-6 text-balance text-2xl font-semibold leading-[1.35] md:text-[1.9rem]"
+          style={PLAYFAIR}
         >
-          <span className={`text-[0.68rem] uppercase tracking-[0.3em] ${escuro ? "text-[#caa64a]" : "text-[#9a7b1e]"}`}>
-            Descritivo {numero}
-          </span>
-          <span className={`text-[0.68rem] uppercase tracking-[0.22em] ${escuro ? "text-[#60748d]" : "text-[#8a7a5e]"}`}>
-            {titulo}
-          </span>
-        </motion.div>
-
-        <div className="mt-14 grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
-          <motion.blockquote
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className={`border-l pl-6 md:pl-8 ${escuro ? "border-[#b8860b]" : "border-[#b8860b]"}`}
-          >
-            <p
-              className={`text-balance text-2xl leading-[1.35] md:text-[2.1rem] md:leading-[1.3] ${escuro ? "text-[#f4efe6]" : "text-[#0a2540]"}`}
-              style={PLAYFAIR}
-            >
-              {texto}
-            </p>
-          </motion.blockquote>
-
-          <motion.ol
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className={`divide-y border-y ${escuro ? "divide-[#b8860b]/20 border-[#b8860b]/20" : "divide-[#0a2540]/12 border-[#0a2540]/12"}`}
-          >
-            {entregas.map((e, i) => (
-              <li key={e} className="grid grid-cols-[3rem_1fr] items-baseline gap-4 py-4">
-                <span className={`text-[0.68rem] uppercase tracking-[0.3em] ${escuro ? "text-[#caa64a]" : "text-[#9a7b1e]"}`}>
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className={`text-[0.95rem] leading-7 ${escuro ? "text-[#c9d3de]" : "text-[#26364a]"}`}>{e}</span>
-              </li>
-            ))}
-          </motion.ol>
-        </div>
+          {texto}
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <ol className="border-t border-[#0a2540]/15">
+        {entregas.map((e, i) => (
+          <li
+            key={e}
+            className="grid grid-cols-[3.5rem_1fr] items-baseline gap-4 border-b border-[#0a2540]/15 py-5"
+          >
+            <span className="text-sm font-semibold text-[#9a7b1e]">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <span className="text-base leading-7 text-[#26364a]">{e}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+);
