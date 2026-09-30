@@ -103,8 +103,8 @@ const diferenciais = [
   },
 ];
 
-// Fotos publicadas no site da Front Stay. O Urb Cidade Central ainda não tem
-// foto própria lá (o site usa uma imagem de banco), então fica sem foto aqui.
+// Fotos publicadas no site da Front Stay, menos a do Urb Cidade Central, que
+// lá é imagem de banco e aqui usa a foto própria do prédio.
 const FS_IMG = "https://www.frontstay.com.br";
 const empreendimentos = [
   { nome: "Esopo Vale do Sereno", endereco: "Alameda Flamboiant, 285", bairro: "Vale do Sereno, Nova Lima", foto: `${FS_IMG}/esopo.png` },
@@ -113,7 +113,7 @@ const empreendimentos = [
   { nome: "Reserva Lofts", endereco: "Rua Professor Antônio Aleixo, 465", bairro: "Lourdes, Belo Horizonte", foto: `${FS_IMG}/lourdes.jpeg` },
   { nome: "Boutique", endereco: "Rua Pernambuco, 284", bairro: "Savassi, Belo Horizonte", foto: `${FS_IMG}/funcionarios.jpeg` },
   { nome: "City Center", endereco: "Rua São Paulo, 957", bairro: "Centro, Belo Horizonte", foto: `${FS_IMG}/centro.jpeg` },
-  { nome: "Urb Cidade Central", endereco: "Rua Goitacazes, 450", bairro: "Centro, Belo Horizonte", foto: "" },
+  { nome: "Urb Cidade Central", endereco: "Rua Goitacazes, 450", bairro: "Centro, Belo Horizonte", foto: "/images/urb.png" },
 ];
 
 const Label = ({ children }: { children: React.ReactNode }) => (
