@@ -1,5 +1,4 @@
 // src/app/lancamentos/page.tsx
-import { Descritivo } from "../../../components/frentes/Descritivo";
 import {
   Abertura,
   BotaoPrimario,
@@ -7,18 +6,6 @@ import {
   LinkSecundario,
   PLAYFAIR,
 } from "../../../components/frentes/Base";
-
-
-const entregas = [
-  "Estratégia comercial do lançamento",
-  "Assessoria para elaboração da tabela de vendas",
-  "Seleção e curadoria das imobiliárias parceiras",
-  "Treinamento das equipes de venda",
-  "Gestão dos documentos do empreendimento",
-  "Plataforma própria para distribuição e follow-up de leads",
-  "Alinhamento contínuo com as ações de marketing",
-  "Centralização dos contratos e assinaturas, com distribuição às partes interessadas",
-];
 
 const metodo = [
   {
@@ -56,27 +43,12 @@ export default function LancamentosPage() {
         destaque="pela operação de vendas."
         lead="Acelere a liquidez do seu lançamento com quem responde pelo processo inteiro."
         cta={{ href: "/contact?area=lancamentos", label: "Apresentar o lançamento" }}
-        secundario={{ href: "#escopo", label: "O que está incluído" }}
+        secundario={{ href: "#metodo", label: "Como operamos" }}
       />
 
-      <Descritivo
-        numero="01"
-        titulo="Coordenação de lançamentos imobiliários"
-        texto={
-          <>
-            A H55 assume a operação comercial do lançamento, da definição da
-            tabela à assinatura do contrato.{" "}
-            <span className="text-[#9a7b1e]">
-              Uma gestão integrada de todas as etapas comerciais.
-            </span>
-          </>
-        }
-        entregas={entregas}
-      />
-
-      {/* Método: o miolo da página. Cada etapa do escopo acima aparece aqui
-          na ordem em que acontece, e é aqui que a página fecha. */}
-      <section className="bg-[#0a2540] text-white">
+      {/* Método: a página inteira depois da abertura. Cada etapa da coordenação
+          aparece aqui na ordem em que acontece, e é aqui que a página fecha. */}
+      <section id="metodo" className="scroll-mt-20 bg-[#0a2540] text-white">
         <div className="mx-auto max-w-[1240px] px-6 py-24 md:px-10 md:py-32 lg:px-14">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
             <div>
