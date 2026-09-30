@@ -103,17 +103,17 @@ const diferenciais = [
   },
 ];
 
-// Fotos publicadas no site da Front Stay. O Icon Centro ainda não tem foto
-// própria lá (o site usa uma imagem de banco), então fica sem foto por aqui.
+// Fotos publicadas no site da Front Stay. O Urb Cidade Central ainda não tem
+// foto própria lá (o site usa uma imagem de banco), então fica sem foto aqui.
 const FS_IMG = "https://www.frontstay.com.br";
 const empreendimentos = [
   { nome: "Esopo Vale do Sereno", endereco: "Alameda Flamboiant, 285", bairro: "Vale do Sereno, Nova Lima", foto: `${FS_IMG}/esopo.png` },
   { nome: "City Santo Agostinho", endereco: "Rua Tenente Brito Melo, 1383", bairro: "Santo Agostinho, Belo Horizonte", foto: `${FS_IMG}/citydesign.png` },
   { nome: "Ágora Expominas", endereco: "Rua Herculano Pena, 806", bairro: "Nova Suíça, Belo Horizonte", foto: `${FS_IMG}/agora.jpg` },
   { nome: "Lourdes", endereco: "Rua Professor Antônio Aleixo, 465", bairro: "Lourdes, Belo Horizonte", foto: `${FS_IMG}/lourdes.jpeg` },
-  { nome: "Savassi", endereco: "Rua Pernambuco, 284", bairro: "Savassi, Belo Horizonte", foto: `${FS_IMG}/funcionarios.jpeg` },
-  { nome: "Shopping Cidade", endereco: "Rua São Paulo, 957", bairro: "Centro, Belo Horizonte", foto: `${FS_IMG}/centro.jpeg` },
-  { nome: "Icon Centro", endereco: "Rua Goitacazes", bairro: "Centro, Belo Horizonte", foto: "" },
+  { nome: "Boutique", endereco: "Rua Pernambuco, 284", bairro: "Savassi, Belo Horizonte", foto: `${FS_IMG}/funcionarios.jpeg` },
+  { nome: "Reserva Lofts", endereco: "Rua São Paulo, 957", bairro: "Centro, Belo Horizonte", foto: `${FS_IMG}/centro.jpeg` },
+  { nome: "Urb Cidade Central", endereco: "Rua Goitacazes", bairro: "Centro, Belo Horizonte", foto: "" },
 ];
 
 const Label = ({ children }: { children: React.ReactNode }) => (

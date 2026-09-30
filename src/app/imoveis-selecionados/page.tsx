@@ -29,7 +29,7 @@ const antesDepois = {
     "Ninguém responde por nada. O proprietário vira gestor de corretores.",
   ],
   com: [
-    "Um só anúncio, um só preço, um só material, em todas as imobiliárias.",
+    "Uma chave apenas, uma gestão de agendamento e um só preço.",
     "A H55 libera e acompanha as visitas. O proprietário só é chamado quando há proposta.",
     "Proposta chega qualificada, com capacidade de pagamento verificada.",
     "Imóvel auditado antes de anunciar. O contrato não trava no cartório.",

@@ -19,11 +19,9 @@ const pilares = [
     ],
   },
   {
-    titulo: "Por que H55?",
+    titulo: "Nossos valores",
     paragrafos: [
-      "No modelo convencional, o proprietário lista o imóvel em imobiliárias e aguarda. O trabalho estratégico da venda fica sob sua responsabilidade ou não é feito.",
-      "Resultado? Processo arrastado e baixa liquidez.",
-      "Enquanto as imobiliárias focam em vender, a H55 assume a inteligência do processo: gerencia o valor do patrimônio para que a venda saia no menor tempo e pelo melhor valor.",
+      "A H55 se baseia em independência (atuação livre de conflitos de interesse), transparência (informação clara para decisões seguras), inteligência de mercado (conhecimento aplicado à estratégia) e foco em resultado (liquidez, agilidade e geração de valor).",
     ],
   },
 ];
@@ -141,7 +139,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Missão, visão, por quê */}
+      {/* 3. Missão, visão, valores */}
       <section className="bg-[#f7f3ea] text-[#0a2540]">
         <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-28 lg:px-14">
           <Label>O que nos move</Label>
@@ -149,7 +147,7 @@ export default function AboutPage() {
             className="mt-5 max-w-2xl text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
             style={PLAYFAIR}
           >
-            Missão, visão e o motivo de existirmos.
+            Missão, visão e valores.
           </h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-[#46566e]">
             Três definições que orientam cada uma das áreas em que atuamos.
