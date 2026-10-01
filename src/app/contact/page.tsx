@@ -12,6 +12,7 @@ const FRENTES = [
   { id: "imoveis-selecionados", label: "Quero vender o meu imóvel", origem: "Imóveis selecionados" },
   { id: "equity", label: "Quero investir em private equity", origem: "Private equity" },
   { id: "frontstay", label: "Quero investir em uma unidade Front Stay", origem: "Front Stay" },
+  { id: "internacional", label: "Quero investir no exterior", origem: "Internacional" },
   { id: "outro", label: "Outro assunto", origem: "Outro" },
 ] as const;
 
