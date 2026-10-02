@@ -1,7 +1,7 @@
 // src/app/internacional/page.tsx
-// Investimento no exterior: tese de spec homes de alto padrão em Orlando (FL).
-// Mesmo padrão visual da /frontstay. Sem números de retorno ou margem: só
-// prazos, estrutura e referências de mercado.
+// Investimento no exterior: spec homes e custom homes na região de Orlando (FL).
+// Mesmo padrão visual da /frontstay. Sem números de retorno, margem ou
+// financiamento: só prazos, modelos e referências de mercado.
 import {
   BotaoPrimario,
   Label,
@@ -13,10 +13,35 @@ const CONTATO = "/contact?area=internacional";
 const OURO = "#d8ad45";
 
 const numeros = [
-  ["12\u00a0a\u00a018", "meses de ciclo, da compra do terreno à venda da casa"],
-  ["70\u00a0a\u00a080%", "do custo da obra financiado por construction loan"],
-  ["5", "bairros de Orlando na seleção de terrenos"],
+  ["12 a 18", "meses de ciclo, da compra do terreno à venda da casa"],
+  ["2", "modelos de operação: spec homes e custom homes"],
+  ["5", "regiões de Orlando na seleção de terrenos"],
   ["10 anos", "de garantia estrutural por seguradora, no sistema 2-10"],
+];
+
+const modelos = [
+  {
+    nome: "Spec home",
+    rotulo: "Construída para venda",
+    texto:
+      "O terreno é comprado e a casa é projetada e construída sem comprador definido, para ser vendida pronta no mercado americano. O resultado vem da venda.",
+    itens: [
+      "Terreno escolhido dentro das regiões da tese",
+      "Projeto pensado para o comprador local",
+      "Entrega planejada para a janela de maior procura",
+    ],
+  },
+  {
+    nome: "Custom home",
+    rotulo: "Construída sob encomenda",
+    texto:
+      "A casa é desenvolvida para um cliente específico, com programa, projeto e acabamento definidos com ele, em terreno próprio ou escolhido em conjunto.",
+    itens: [
+      "Projeto sob medida, desenvolvido do zero",
+      "Prazo e orçamento definidos antes do início da obra",
+      "Para uso próprio ou como investimento",
+    ],
+  },
 ];
 
 const ciclo = [
@@ -30,13 +55,13 @@ const ciclo = [
     prazo: "Cerca de 4 meses",
     titulo: "Aprovação",
     texto:
-      "Projeto de arquitetura e licenças (permits) junto à prefeitura, com o cronograma de obra já desenhado em função da data de venda.",
+      "Projeto de arquitetura e licenças (permits), com o cronograma de obra já desenhado em função da data de venda.",
   },
   {
     prazo: "8 a 10 meses",
     titulo: "Obra",
     texto:
-      "Demolição da casa antiga e construção da nova, com 70\u00a0a\u00a080% do custo de obra financiado por banco.",
+      "Demolição da casa antiga e construção da nova, executada por construtora licenciada na Flórida.",
   },
   {
     prazo: "Maio a agosto",
@@ -56,11 +81,11 @@ const controles = [
     ],
   },
   {
-    titulo: "Estrutura e acabamento",
+    titulo: "Na obra",
     itens: [
       "Subpiso estrutural no pavimento superior, sem os rangidos típicos das casas de madeira",
       "Paredes e tetos lisos em drywall nível 5, com iluminação embutida e difusores lineares de ar",
-      "Pedras naturais (quartzito) na cozinha e nas áreas sociais, sem materiais sintéticos",
+      "Seguro de obra (Builder's Risk) e de responsabilidade civil durante a construção",
     ],
   },
   {
@@ -72,17 +97,17 @@ const controles = [
     ],
   },
   {
-    titulo: "Capital",
+    titulo: "Acompanhamento",
     itens: [
-      "Construction loan de 70\u00a0a\u00a080% da obra, com prazo de 18 a 24 meses",
-      "Reserva para seis meses de custo financeiro após a obra, para não vender sob pressão",
-      "Bancos com atendimento dedicado ao investidor brasileiro",
+      "Relatórios e fotos do andamento da obra",
+      "Prazo e orçamento definidos desde o início",
+      "Venda conduzida por corretores licenciados",
     ],
   },
   {
     titulo: "Depois da venda",
     itens: [
-      "Garantia 2-10: cobertura de sistemas nos primeiros anos e estrutural por dez anos, via seguradora",
+      "Garantia 2-10: 1 ano de acabamento e mão de obra, 2 anos de sistemas e 10 anos estrutural, via seguradora",
       "Equipe de atendimento ao comprador para entrega e manutenção",
       "O investidor não recebe chamado do comprador final",
     ],
@@ -96,27 +121,27 @@ const diferenciais = [
       "O ganho de uma spec home é definido na aquisição do terreno. Por isso a originação é off-market, longe do preço inflado e do leilão de ofertas do mercado aberto.",
   },
   {
-    titulo: "Entre o volume e o sob medida",
+    titulo: "Construtora licenciada",
     texto:
-      "Acabamento acima das construtoras de volume e preço abaixo das casas ultraexclusivas. É a faixa em que a procura por qualidade supera a oferta.",
+      "A obra fica com general contractor licenciado na Flórida, com seguro durante a construção, prazo e orçamento definidos desde o início.",
   },
   {
     titulo: "O calendário como ferramenta",
     texto:
-      "Conclusão programada para o início do ano, o que mantém o imposto predial do ciclo sobre o valor do terreno, e venda na janela de maior liquidez.",
+      "Conclusão programada para o início do ano, o que mantém o imposto predial do ciclo sobre o valor do terreno, e venda na janela de maior procura.",
   },
 ];
 
-const bairros = [
+const regioes = [
   {
     nome: "Winter Park",
-    perfil: "A referência de Orlando",
+    perfil: "A referência da região",
     texto:
       "Maior preservação de capital e liquidez da região. O comprador paga prêmio por qualidade.",
   },
   {
     nome: "College Park",
-    perfil: "Boutique em valorização",
+    perfil: "Em valorização",
     texto:
       "Pede design contemporâneo e acabamento refinado, para um público jovem de médicos e executivos.",
   },
@@ -124,11 +149,11 @@ const bairros = [
     nome: "Colonial Town e Audubon Park",
     perfil: "Escolas de excelência",
     texto:
-      "Vizinhos ao centro, com demanda sustentada por distritos escolares entre os mais bem avaliados.",
+      "Áreas adjacentes, com demanda sustentada por distritos escolares entre os mais bem avaliados.",
   },
   {
     nome: "Baldwin Park",
-    perfil: "Bairro planejado",
+    perfil: "Para famílias",
     texto:
       "Conveniência urbana, parques e segurança, para famílias que querem a rotina perto de casa.",
   },
@@ -366,17 +391,17 @@ export default function InternacionalPage() {
               style={PLAYFAIR}
             >
               Patrimônio em dólar,{" "}
-              <span className="text-[#9a7b1e]">nos bairros mais disputados de Orlando.</span>
+              <span className="text-[#9a7b1e]">nas regiões mais disputadas de Orlando.</span>
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-[#46566e]">
               A H55 conecta investidores brasileiros ao desenvolvimento de
-              residências de alto padrão na Flórida Central. O modelo compra
-              casas antigas em bairros consolidados, demole e constrói uma casa
-              nova, pronta para morar, para venda no mercado americano.
+              casas na Flórida Central, em dois modelos: spec homes,
+              construídas para venda, e custom homes, construídas sob
+              encomenda.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <BotaoPrimario href={CONTATO}>Agendar reunião</BotaoPrimario>
-              <LinkSecundario href="#ciclo">Como funciona o ciclo</LinkSecundario>
+              <LinkSecundario href="#modelos">Conhecer os modelos</LinkSecundario>
             </div>
           </div>
 
@@ -398,12 +423,10 @@ export default function InternacionalPage() {
               Construir novo onde não existe mais terreno vazio.
             </h2>
             <p className="mt-6 max-w-xl text-base leading-8 text-[#46566e] md:text-lg">
-              Nos bairros nobres de Orlando quase não há lotes livres. Quem quer
-              morar ali compra uma casa de 30 a 50 anos ou espera. A tese ocupa
-              esse espaço com spec homes, casas construídas para venda: adquire
-              o imóvel antigo, constrói uma residência com acabamento de casa
-              sob medida e vende pronta para famílias de alta renda, muitas
-              delas vindas de Nova York e da Califórnia.
+              Nas regiões mais procuradas de Orlando quase não há lotes livres.
+              Quem quer morar ali compra uma casa de 30 a 50 anos ou espera. A
+              tese ocupa esse espaço: adquire o imóvel antigo, demole e
+              constrói uma casa nova, pronta para morar.
             </p>
           </div>
 
@@ -423,10 +446,65 @@ export default function InternacionalPage() {
         </div>
       </section>
 
-      {/* 3. O ciclo */}
-      <section id="ciclo" className="scroll-mt-20 bg-[#f7f3ea] text-[#0a2540]">
+      {/* 3. Os dois modelos */}
+      <section id="modelos" className="scroll-mt-20 bg-[#f7f3ea] text-[#0a2540]">
         <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-28 lg:px-14">
-          <Label>O ciclo</Label>
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-20">
+            <div>
+              <Label>Dois modelos</Label>
+              <h2
+                className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
+                style={PLAYFAIR}
+              >
+                Spec homes e custom homes.
+              </h2>
+            </div>
+            <p className="self-end text-base leading-8 text-[#46566e] md:text-lg">
+              A mesma engenharia e o mesmo controle de obra atendem dois
+              caminhos: a casa construída para ser vendida no mercado e a casa
+              construída para um cliente definido.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-px bg-[#0a2540]/12 md:grid-cols-2">
+            {modelos.map((m, i) => (
+              <div key={m.nome} className="flex flex-col bg-white p-7 md:p-10">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-sm font-semibold text-[#9a7b1e]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className={
+                      i === 0
+                        ? "bg-[#0a2540] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-white"
+                        : "border border-[#b8860b] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#9a7b1e]"
+                    }
+                  >
+                    {m.rotulo}
+                  </span>
+                </div>
+                <h3 className="mt-8 text-3xl font-semibold leading-tight" style={PLAYFAIR}>
+                  {m.nome}
+                </h3>
+                <p className="mt-4 text-base leading-8 text-[#46566e]">{m.texto}</p>
+                <ul className="mt-6 space-y-2.5 border-t border-[#0a2540]/12 pt-6">
+                  {m.itens.map((item) => (
+                    <li key={item} className="flex gap-3 text-[0.95rem] leading-7 text-[#46566e]">
+                      <span aria-hidden className="mt-[0.85rem] h-px w-4 shrink-0 bg-[#b8860b]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. O ciclo */}
+      <section id="ciclo" className="scroll-mt-20 bg-white text-[#0a2540]">
+        <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-28 lg:px-14">
+          <Label>O ciclo de uma spec home</Label>
           <h2
             className="mt-5 max-w-2xl text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
             style={PLAYFAIR}
@@ -438,7 +516,7 @@ export default function InternacionalPage() {
             {ciclo.map((e, i) => {
               const venda = i === ciclo.length - 1;
               return (
-                <li key={e.titulo} className="flex flex-col bg-[#f7f3ea] p-7 md:p-8">
+                <li key={e.titulo} className="flex flex-col bg-white p-7 md:p-8">
                   <div className="flex items-center justify-between gap-3">
                     <span className="text-sm font-semibold text-[#9a7b1e]">
                       {String(i + 1).padStart(2, "0")}
@@ -463,14 +541,15 @@ export default function InternacionalPage() {
           </ol>
 
           <p className="mt-10 max-w-2xl text-base leading-8 text-[#46566e]">
-            O investidor acompanha por relatórios de obra e de venda, sem lidar
-            com fornecedor, banco ou comprador.
+            O investidor acompanha a obra por relatórios e fotos, sem lidar com
+            fornecedor ou comprador. No custom home, o ciclo termina na entrega
+            da casa ao cliente.
           </p>
         </div>
       </section>
 
-      {/* 4. Controles */}
-      <section id="controles" className="scroll-mt-20 bg-white text-[#0a2540]">
+      {/* 5. Controles */}
+      <section id="controles" className="scroll-mt-20 bg-[#f7f3ea] text-[#0a2540]">
         <div className="mx-auto grid max-w-[1240px] gap-14 px-6 py-20 md:px-10 md:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-14">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <Label>Engenharia e risco</Label>
@@ -478,12 +557,11 @@ export default function InternacionalPage() {
               className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
               style={PLAYFAIR}
             >
-              O que separa uma casa de luxo de uma casa cara.
+              Controle em cada etapa, do terreno ao pós-venda.
             </h2>
             <p className="mt-6 max-w-md text-base leading-8 text-[#46566e]">
-              O comprador de alto padrão quer mudar sem esperar uma obra, mas
-              não aceita o padrão médio da construção americana. Cada etapa tem
-              um controle definido, da compra do terreno ao pós-venda.
+              O comprador quer mudar sem esperar uma obra e com construção acima
+              da média americana. Cada etapa tem um controle definido.
             </p>
             <div className="relative mt-10 hidden aspect-[600/490] w-full overflow-hidden bg-[#0a2540] lg:block">
               <Planta />
@@ -518,7 +596,7 @@ export default function InternacionalPage() {
         </div>
       </section>
 
-      {/* 5. Diferenciais */}
+      {/* 6. Diferenciais */}
       <section className="bg-[#0a2540] text-white">
         <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-24 lg:px-14">
           <Label dark>Por que esta tese</Label>
@@ -535,29 +613,29 @@ export default function InternacionalPage() {
         </div>
       </section>
 
-      {/* 6. Bairros */}
+      {/* 7. Regiões */}
       <section className="bg-[#f7f3ea] text-[#0a2540]">
         <div className="mx-auto max-w-[1240px] px-6 py-20 md:px-10 md:py-28 lg:px-14">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <Label>Microlocalizações</Label>
+              <Label>Regiões</Label>
               <h2
                 className="mt-5 text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
                 style={PLAYFAIR}
               >
-                Os bairros da tese
+                As regiões da tese
               </h2>
             </div>
             <p className="max-w-md text-base leading-7 text-[#46566e]">
               A escolha do terreno decide o resultado. A seleção se concentra em
-              bairros consolidados, com demanda que não depende de ciclo de
-              lançamento.
+              regiões consolidadas, com demanda de famílias e escolas bem
+              avaliadas.
             </p>
           </div>
 
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {bairros.map((b, i) => (
-              <li key={b.nome} className="flex flex-col border border-[#0a2540]/12 bg-white p-6">
+            {regioes.map((r, i) => (
+              <li key={r.nome} className="flex flex-col border border-[#0a2540]/12 bg-white p-6">
                 <div className="flex items-center justify-between">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9a7b1e]">
                     Orlando, FL
@@ -567,17 +645,17 @@ export default function InternacionalPage() {
                   </span>
                 </div>
                 <h3 className="mt-10 text-xl font-semibold leading-tight" style={PLAYFAIR}>
-                  {b.nome}
+                  {r.nome}
                 </h3>
-                <p className="mt-1.5 text-sm font-medium text-[#0a2540]">{b.perfil}</p>
-                <p className="mt-3 text-sm leading-6 text-[#5b6a80]">{b.texto}</p>
+                <p className="mt-1.5 text-sm font-medium text-[#0a2540]">{r.perfil}</p>
+                <p className="mt-3 text-sm leading-6 text-[#5b6a80]">{r.texto}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* 7. H55 + contato */}
+      {/* 8. H55 + contato */}
       <section className="bg-[#0a2540] text-white">
         <div className="mx-auto grid max-w-[1240px] gap-10 px-6 py-20 md:px-10 md:py-24 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:px-14">
           <h2
@@ -588,9 +666,9 @@ export default function InternacionalPage() {
           </h2>
           <div>
             <p className="text-base leading-8 text-[#c5d0dd] md:text-lg">
-              A H55 apresenta a tese, o projeto e a estrutura de cada
+              A H55 apresenta a tese, o modelo e a estrutura de cada
               oportunidade em reunião reservada, e acompanha o investidor
-              durante todo o ciclo, da aquisição do terreno à venda da casa.
+              durante todo o ciclo, do terreno à entrega ou à venda da casa.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <BotaoPrimario href={CONTATO} dark>
@@ -602,10 +680,10 @@ export default function InternacionalPage() {
             </div>
             <p className="mt-10 text-xs leading-6 text-[#8196ad]">
               Esta página tem caráter institucional e não constitui oferta
-              pública de investimento nem promessa de rentabilidade. Prazos e
-              percentuais são referências de mercado e variam conforme o
-              projeto. Investimentos imobiliários no exterior envolvem riscos de
-              obra, de mercado e de câmbio.
+              pública de investimento nem promessa de rentabilidade. Prazos são
+              referências de mercado e variam conforme o projeto. Investimentos
+              imobiliários no exterior envolvem riscos de obra, de mercado e de
+              câmbio.
             </p>
           </div>
         </div>
