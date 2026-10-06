@@ -10,7 +10,7 @@ const Header = () => {
     <header className="fixed left-0 top-0 z-50 w-full border-b border-[#0a2540]/10 bg-[#f7f3ea]/88 py-3 backdrop-blur-md transition-all">
       <nav className="container mx-auto flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex shrink-0 items-center gap-3">
           <Image
             src="/images/h55.png"
             alt="H55 Negócios Imobiliários"
@@ -19,13 +19,13 @@ const Header = () => {
             priority
             className="md:h-[50px] md:w-[50px]"
           />
-          <span className="text-[0.58rem] font-medium uppercase tracking-[0.18em] text-[#60748d]">
+          <span className="whitespace-nowrap text-[0.58rem] font-medium uppercase tracking-[0.18em] text-[#60748d]">
             CRECI-PJ 9045
           </span>
         </Link>
 
         {/* Menu Desktop */}
-        <ul className="hidden items-center space-x-4 md:flex lg:space-x-6 xl:space-x-8">
+        <ul className="hidden items-center space-x-6 lg:flex xl:space-x-8">
           <li>
             <Link
               href="/about"
@@ -60,6 +60,14 @@ const Header = () => {
           </li>
           <li>
             <Link
+              href="/internacional"
+              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+            >
+              Investir nos EUA
+            </Link>
+          </li>
+          <li className="hidden xl:block">
+            <Link
               href="/admin"
               className="whitespace-nowrap text-sm font-medium text-[#60748d] transition-colors hover:text-h55-gold"
             >
@@ -78,7 +86,7 @@ const Header = () => {
 
         {/* Menu Mobile */}
         <button
-          className="flex h-10 w-10 items-center justify-center border border-[#0a2540]/15 transition hover:bg-[#0a2540]/5 md:hidden"
+          className="flex h-10 w-10 items-center justify-center border border-[#0a2540]/15 transition hover:bg-[#0a2540]/5 lg:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Abrir menu"
         >
@@ -109,7 +117,7 @@ const Header = () => {
 
         {/* Dropdown Mobile */}
         {menuOpen && (
-          <div className="absolute left-0 top-full z-50 w-full border-b border-[#0a2540]/10 bg-[#f7f3ea]/97 shadow-md md:hidden">
+          <div className="absolute left-0 top-full z-50 w-full border-b border-[#0a2540]/10 bg-[#f7f3ea]/97 shadow-md lg:hidden">
             <ul className="flex flex-col items-center space-y-2 py-4">
               <li>
                 <Link
@@ -145,6 +153,15 @@ const Header = () => {
                   onClick={() => setMenuOpen(false)}
                 >
                   Front Stay
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/internacional"
+                  className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Investir nos EUA
                 </Link>
               </li>
               <li>
