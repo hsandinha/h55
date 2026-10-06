@@ -1,6 +1,6 @@
 // src/app/internacional/page.tsx
 // Investimento no exterior: página curta, no padrão visual da /frontstay.
-// Só o essencial: construímos na Flórida Central e atendemos quem quer investir em dólar.
+// Texto aprovado pelo Rodrigo em 06/10/2026.
 import { BotaoPrimario, Label, PLAYFAIR } from "../../../components/frentes/Base";
 
 const CONTATO = "/contact?area=internacional";
@@ -144,14 +144,16 @@ export default function InternacionalPage() {
               className="mt-8 text-balance text-4xl font-semibold leading-[1.08] md:text-[3.4rem]"
               style={PLAYFAIR}
             >
-              Patrimônio em dólar,{" "}
-              <span className="text-[#9a7b1e]">construído na Flórida Central.</span>
+              Invista no mercado imobiliário da Flórida Central{" "}
+              <span className="text-[#9a7b1e]">com segurança e rentabilidade em dólar.</span>
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-[#46566e]">
-              Construímos casas na Flórida Central em dois modelos: spec
-              homes, construídas para venda, e custom homes, construídas sob
-              encomenda. Se você tem interesse em investir em dólar, estamos à
-              disposição para conversar.
+              Se o seu objetivo é construir patrimônio em moeda forte ou
+              garantir uma excelente rentabilidade em dólar, a Flórida Central
+              é hoje um dos destinos mais estratégicos e promissores do mundo.
+              Assessoramos você na construção de casas na região e oferecemos
+              uma estrutura completa para tornar o seu projeto de investimento
+              simples, seguro e rentável.
             </p>
             <div className="mt-10">
               <BotaoPrimario href={CONTATO}>Falar com a H55</BotaoPrimario>
@@ -171,12 +173,12 @@ export default function InternacionalPage() {
             className="text-balance text-3xl font-semibold leading-tight md:text-[2.6rem]"
             style={PLAYFAIR}
           >
-            Obra na Flórida, interlocução em Belo Horizonte.
+            Entendemos que investir no exterior exige confiança e clareza.
           </h2>
           <div>
             <p className="text-base leading-8 text-[#c5d0dd] md:text-lg">
-              A H55 apresenta as oportunidades em uma conversa reservada,
-              alinhada ao seu perfil e ao seu horizonte de investimento.
+              Por isso, caminhamos ao seu lado desde o primeiro instante até o
+              momento do retorno do investimento.
             </p>
             <div className="mt-9">
               <BotaoPrimario href={CONTATO} dark>
