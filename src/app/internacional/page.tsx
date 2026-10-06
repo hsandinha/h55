@@ -13,17 +13,18 @@ export default function InternacionalPage() {
     <div className="[font-variant-numeric:lining-nums]">
       {/* 1. Abertura */}
       <section className="bg-[#f7f3ea] text-[#0a2540]">
-        <div className="mx-auto grid max-w-[1240px] items-center gap-12 px-6 py-16 md:px-10 md:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-14">
-          <div>
+        {/* título longo: fonte menor que a da /frontstay e foto esticada até a altura do texto */}
+        <div className="mx-auto grid max-w-[1240px] gap-12 px-6 py-16 md:px-10 md:py-24 lg:grid-cols-2 lg:items-stretch lg:gap-16 lg:px-14">
+          <div className="flex flex-col justify-center">
             <Label>Investimento no exterior · Flórida Central</Label>
             <h1
-              className="mt-8 text-balance text-4xl font-semibold leading-[1.08] md:text-[3.4rem]"
+              className="mt-7 text-balance text-[2.1rem] font-semibold leading-[1.12] md:text-[2.6rem] lg:text-[2.75rem]"
               style={PLAYFAIR}
             >
               Invista no mercado imobiliário da Flórida Central{" "}
-              <span className="text-[#9a7b1e]">com segurança e rentabilidade em dólar.</span>
+              <span className="text-[#9a7b1e] lg:block">com segurança e rentabilidade em dólar.</span>
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-[#46566e]">
+            <p className="mt-6 max-w-xl text-base leading-8 text-[#46566e] md:text-[17px]">
               Se o seu objetivo é construir patrimônio em moeda forte ou
               garantir uma excelente rentabilidade em dólar, a Flórida Central
               é hoje um dos destinos mais estratégicos e promissores do mundo.
@@ -31,19 +32,19 @@ export default function InternacionalPage() {
               uma estrutura completa para tornar o seu projeto de investimento
               simples, seguro e rentável.
             </p>
-            <div className="mt-10">
+            <div className="mt-9">
               <BotaoPrimario href={CONTATO}>Falar com a H55</BotaoPrimario>
             </div>
           </div>
 
-          <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#e9e1d2]">
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#e9e1d2] lg:aspect-auto lg:min-h-[520px]">
             <Image
               src={FOTO}
               alt="Notas de dólar sobre a bandeira dos Estados Unidos"
               fill
               priority
               sizes="(min-width: 1024px) 560px, 100vw"
-              className="object-cover"
+              className="object-cover object-[62%_50%]"
             />
           </div>
         </div>
