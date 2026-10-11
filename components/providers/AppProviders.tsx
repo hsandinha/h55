@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { FavoritesProvider } from "@/context/FavoritesContext";
 import { CompareProvider } from "@/context/CompareContext";
 import { CompareBar } from "@/components/portfolio/CompareBar";
+import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -16,11 +17,12 @@ export function AppProviders({ children }: { children: ReactNode }) {
     <FavoritesProvider>
       <CompareProvider>
         {!isAdmin && <Header />}
-        <main className={isAdmin ? "min-h-screen" : "min-h-screen pt-16"}>
+        <main className={isAdmin ? "min-h-screen" : "min-h-screen pt-20"}>
           {children}
         </main>
         {!isAdmin && <Footer />}
         {!isAdmin && <CompareBar />}
+        {!isAdmin && <WhatsAppFloat />}
       </CompareProvider>
     </FavoritesProvider>
   );

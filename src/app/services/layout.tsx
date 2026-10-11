@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Áreas de atuação · H55 Negócios Imobiliários",
   description:
-    "Conheça as três áreas de atuação da H55: coordenação de lançamentos, coordenação de imóveis selecionados e private equity imobiliário.",
+    "Conheça as áreas de atuação da H55: lançamentos, imóveis selecionados, private equity, originação de negócios, Front Stay e investimento nos EUA.",
 };
 
 export default function ServicesLayout({ children }: { children: React.ReactNode }) {

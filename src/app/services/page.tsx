@@ -26,6 +26,27 @@ const frentes = [
     lead: "Participar da operação, não só comprar a unidade.",
     href: "/equity",
   },
+  {
+    num: "04",
+    label: "Conexões",
+    title: "Originação de negócios",
+    lead: "Conexões geram negócios.",
+    href: "/negocios",
+  },
+  {
+    num: "05",
+    label: "Hospedagem",
+    title: "Front Stay",
+    lead: "Você investe no apartamento. A Front Stay cuida do resto.",
+    href: "/frontstay",
+  },
+  {
+    num: "06",
+    label: "Exterior",
+    title: "Investir nos EUA",
+    lead: "Patrimônio em moeda forte na Flórida Central.",
+    href: "/internacional",
+  },
 ];
 
 export default function ServicesPage() {
@@ -36,7 +57,7 @@ export default function ServicesPage() {
         rotulo="Áreas de atuação"
         titulo="Como a H55"
         destaque="pode atuar?"
-        lead="Três áreas complementares, com soluções específicas para incorporadoras, proprietários e investidores. Escolha a que corresponde ao seu objetivo."
+        lead="Áreas complementares, com soluções específicas para incorporadoras, proprietários, investidores e empresas. Escolha a que corresponde ao seu objetivo."
         cta={{ href: "/contact", label: "Falar com a coordenação" }}
       />
 

@@ -1,188 +1,246 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { LuChevronDown, LuUser, LuMenu, LuX } from "react-icons/lu";
+
+/**
+ * As frentes vivem dentro do menu "Áreas de atuação" em vez de ocuparem uma
+ * posição no topo cada uma. Assim uma frente nova não alarga a barra.
+ */
+const AREAS = [
+  { href: "/lancamentos", label: "Lançamentos imobiliários", para: "Para incorporadoras" },
+  { href: "/imoveis-selecionados", label: "Imóveis selecionados", para: "Para proprietários" },
+  { href: "/equity", label: "Private equity imobiliário", para: "Para investidores" },
+  { href: "/frontstay", label: "Front Stay", para: "Unidade em operação hoteleira" },
+  { href: "/internacional", label: "Investir nos EUA", para: "Imóvel no exterior" },
+  { href: "/negocios", label: "Originação de negócios", para: "Para quem tem um negócio" },
+];
+
+const LINKS = [
+  { href: "/about", label: "Sobre nós" },
+  { href: "/imoveis", label: "Imóveis" },
+];
+
+const linkBase =
+  "relative text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-[#26364a] transition-colors hover:text-[#9a7b1e]";
+
+/** Sublinhado dourado que cresce a partir da esquerda e marca a página atual. */
+const sublinhado =
+  "after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-[#b8860b] after:transition-all after:duration-300 after:w-0 hover:after:w-full";
 
 const Header = () => {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [areasOpen, setAreasOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const areasRef = useRef<HTMLLIElement>(null);
+
+  // A barra ganha sombra assim que a página sai do topo.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Trocar de página fecha o que estiver aberto.
+  useEffect(() => {
+    setMenuOpen(false);
+    setAreasOpen(false);
+  }, [pathname]);
+
+  // Esc fecha; clique fora fecha o menu de áreas.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setAreasOpen(false);
+      setMenuOpen(false);
+    };
+    const onClick = (e: MouseEvent) => {
+      if (!areasRef.current?.contains(e.target as Node)) setAreasOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, []);
+
+  const emArea = AREAS.some((a) => pathname.startsWith(a.href)) || pathname === "/services";
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full border-b border-[#0a2540]/10 bg-[#f7f3ea]/88 py-3 backdrop-blur-md transition-all">
-      <nav className="container mx-auto flex items-center justify-between px-4 md:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center gap-3">
+    <header
+      className={`fixed left-0 top-0 z-50 w-full border-b bg-[#f7f3ea]/92 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled ? "border-[#0a2540]/12 shadow-[0_1px_24px_rgba(10,37,64,0.07)]" : "border-transparent"
+      }`}
+    >
+      <nav className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-5 md:px-8 lg:px-10">
+        {/* Marca */}
+        <Link href="/" className="flex shrink-0 items-center gap-3.5" aria-label="H55, página inicial">
           <Image
             src="/images/h55.png"
             alt="H55 Negócios Imobiliários"
-            width={60}
-            height={40}
+            width={48}
+            height={48}
             priority
-            className="md:h-[50px] md:w-[50px]"
+            className="h-10 w-10 md:h-11 md:w-11"
           />
-          <span className="whitespace-nowrap text-[0.58rem] font-medium uppercase tracking-[0.18em] text-[#60748d]">
+          <span className="hidden h-7 w-px bg-[#0a2540]/15 sm:block" />
+          <span className="hidden whitespace-nowrap text-[0.55rem] font-medium uppercase tracking-[0.22em] text-[#7b8ca1] sm:block">
             CRECI-PJ 9045
           </span>
         </Link>
 
-        {/* Menu Desktop */}
-        <ul className="hidden items-center space-x-6 lg:flex xl:space-x-8">
-          <li>
-            <Link
-              href="/about"
-              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-            >
-              Sobre Nós
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/imoveis"
-              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-            >
-              Imóveis
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/services"
-              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+        {/* Navegação */}
+        <ul className="hidden items-center gap-9 lg:flex">
+          {LINKS.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                className={`${linkBase} ${sublinhado} ${
+                  pathname === l.href ? "text-[#9a7b1e] after:w-full" : ""
+                }`}
+              >
+                {l.label}
+              </Link>
+            </li>
+          ))}
+
+          {/* Áreas de atuação */}
+          <li
+            ref={areasRef}
+            className="relative"
+            onMouseEnter={() => setAreasOpen(true)}
+            onMouseLeave={() => setAreasOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setAreasOpen((v) => !v)}
+              aria-expanded={areasOpen}
+              aria-haspopup="true"
+              className={`${linkBase} ${sublinhado} flex items-center gap-1.5 ${
+                emArea ? "text-[#9a7b1e] after:w-full" : ""
+              }`}
             >
               Áreas de atuação
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/frontstay"
-              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
+              <LuChevronDown
+                size={13}
+                className={`transition-transform duration-300 ${areasOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            <div
+              className={`absolute right-0 top-full w-[21rem] pt-5 transition-all duration-200 ${
+                areasOpen
+                  ? "visible translate-y-0 opacity-100"
+                  : "invisible -translate-y-1 opacity-0"
+              }`}
             >
-              Front Stay
-            </Link>
+              <div className="border border-[#0a2540]/10 bg-[#fdfbf7] shadow-[0_18px_50px_rgba(10,37,64,0.13)]">
+                <ul>
+                  {AREAS.map((a) => (
+                    <li key={a.href}>
+                      <Link
+                        href={a.href}
+                        className="group block border-b border-[#0a2540]/8 px-6 py-4 transition-colors hover:bg-[#f2ece0]"
+                      >
+                        <span className="text-[0.56rem] font-semibold uppercase tracking-[0.2em] text-[#9a7b1e]">
+                          {a.para}
+                        </span>
+                        <span className="mt-1.5 block text-[0.92rem] font-medium leading-snug text-[#0a2540]">
+                          {a.label}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/services"
+                  className="block px-6 py-3.5 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-[#60748d] transition-colors hover:text-[#9a7b1e]"
+                >
+                  Ver todas as áreas
+                </Link>
+              </div>
+            </div>
           </li>
+
+          {/* Acesso restrito */}
           <li>
-            <Link
-              href="/internacional"
-              className="whitespace-nowrap text-sm font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-            >
-              Investir nos EUA
-            </Link>
-          </li>
-          <li className="hidden xl:block">
             <Link
               href="/admin"
-              className="whitespace-nowrap text-sm font-medium text-[#60748d] transition-colors hover:text-h55-gold"
+              aria-label="Acesso restrito"
+              title="Acesso restrito"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0a2540]/15 text-[#46566e] transition-colors hover:border-[#b8860b] hover:text-[#9a7b1e]"
             >
-              Acesso restrito
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="ml-2 whitespace-nowrap border border-[#b8860b] bg-[#b8860b] px-4 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-[#191207] transition-colors hover:bg-[#0a2540] hover:text-[#f4efe6] xl:ml-4 xl:px-5 xl:text-sm xl:tracking-[0.12em]"
-            >
-              Falar com a coordenação
+              <LuUser size={17} strokeWidth={1.7} />
             </Link>
           </li>
         </ul>
 
-        {/* Menu Mobile */}
-        <button
-          className="flex h-10 w-10 items-center justify-center border border-[#0a2540]/15 transition hover:bg-[#0a2540]/5 lg:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir menu"
-        >
-          <svg
-            className="w-6 h-6 text-h55-blue"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+        {/* Mobile */}
+        <div className="flex items-center gap-2.5 lg:hidden">
+          <Link
+            href="/admin"
+            aria-label="Acesso restrito"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0a2540]/15 text-[#46566e] transition-colors hover:border-[#b8860b] hover:text-[#9a7b1e]"
           >
-            {menuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 8h16M4 16h16"
-              />
-            )}
-          </svg>
-        </button>
+            <LuUser size={17} strokeWidth={1.7} />
+          </Link>
+          <button
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#0a2540]/15 text-[#0a2540] transition hover:bg-[#0a2540]/5"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <LuX size={19} /> : <LuMenu size={19} />}
+          </button>
+        </div>
 
-        {/* Dropdown Mobile */}
+        {/* Painel mobile */}
         {menuOpen && (
-          <div className="absolute left-0 top-full z-50 w-full border-b border-[#0a2540]/10 bg-[#f7f3ea]/97 shadow-md lg:hidden">
-            <ul className="flex flex-col items-center space-y-2 py-4">
-              <li>
-                <Link
-                  href="/about"
-                  className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Sobre Nós
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/imoveis"
-                  className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Imóveis
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Áreas de atuação
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/frontstay"
-                  className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Front Stay
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/internacional"
-                  className="font-medium text-[#26364a] transition-colors hover:text-h55-gold"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Investir nos EUA
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin"
-                  className="font-medium text-[#60748d] transition-colors hover:text-h55-gold"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Acesso restrito
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="mt-2 border border-[#b8860b] bg-[#b8860b] px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#191207] transition-colors hover:bg-[#0a2540] hover:text-[#f4efe6]"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Falar com a coordenação
-                </Link>
-              </li>
+          <div className="absolute left-0 top-full max-h-[calc(100vh-5rem)] w-full overflow-y-auto border-b border-[#0a2540]/10 bg-[#f7f3ea] shadow-[0_18px_40px_rgba(10,37,64,0.12)] lg:hidden">
+            <ul className="px-5 py-2">
+              {LINKS.map((l) => (
+                <li key={l.href} className="border-b border-[#0a2540]/10">
+                  <Link
+                    href={l.href}
+                    className="block py-4 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#26364a]"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
+
+            <div className="px-5 pb-6">
+              <p className="pt-3 text-[0.56rem] font-semibold uppercase tracking-[0.22em] text-[#9a7b1e]">
+                Áreas de atuação
+              </p>
+              <ul className="mt-1">
+                {AREAS.map((a) => (
+                  <li key={a.href} className="border-b border-[#0a2540]/10">
+                    <Link href={a.href} className="block py-3.5">
+                      <span className="text-[0.55rem] uppercase tracking-[0.2em] text-[#8a7a5e]">
+                        {a.para}
+                      </span>
+                      <span className="mt-1 block text-[0.95rem] font-medium text-[#0a2540]">
+                        {a.label}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/services"
+                className="mt-4 inline-block text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-[#60748d]"
+              >
+                Ver todas as áreas
+              </Link>
+            </div>
           </div>
         )}
       </nav>

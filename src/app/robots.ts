@@ -8,9 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        // /negocios está em validação com os sócios: a rota responde, mas não
-        // deve aparecer em buscador nem ser anunciada no site.
-        disallow: ["/admin", "/admin/", "/bairros", "/bairros/", "/negocios", "/negocios/"],
+        disallow: ["/admin", "/admin/", "/bairros", "/bairros/"],
       },
     ],
     sitemap: `${SITE}/sitemap.xml`,

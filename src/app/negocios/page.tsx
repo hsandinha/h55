@@ -1,7 +1,5 @@
 // src/app/negocios/page.tsx
 // Frente 04 · Originação de negócios.
-// Em validação com os sócios: a rota responde, mas não é anunciada em nenhum
-// lugar do site (ver layout.tsx para o noindex e robots.ts para o disallow).
 import { Descritivo } from "../../../components/frentes/Descritivo";
 import {
   Abertura,
