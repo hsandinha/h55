@@ -49,8 +49,8 @@ export default function NegociosPage() {
     <div className="[font-variant-numeric:lining-nums]">
       <Abertura
         rotulo="04 · Conexões"
-        titulo="O negócio existe."
-        destaque="Falta quem faça a ponte."
+        titulo="Conexões geram"
+        destaque="negócios."
         lead="A H55 aproxima pessoas e empresas que têm negócio a fazer e ainda não se encontraram."
         cta={{ href: CONTATO, label: "Apresentar um negócio" }}
         secundario={{ href: "#escopo", label: "O que está incluído" }}
