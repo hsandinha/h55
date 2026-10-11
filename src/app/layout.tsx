@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Coordenação de lançamentos imobiliários, coordenação de imóveis selecionados e private equity imobiliário.",
+    "Coordenação imobiliária: lançamentos, imóveis selecionados, private equity, Front Stay e investimento no exterior.",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     siteName: "H55 Negócios Imobiliários",
     title: "H55 Negócios Imobiliários · Coordenação imobiliária",
     description:
-      "Três áreas de atuação: lançamentos imobiliários, imóveis selecionados e private equity imobiliário.",
+      "Coordenação imobiliária: lançamentos, imóveis selecionados, private equity, Front Stay e investimento no exterior.",
   },
   twitter: { card: "summary_large_image" },
 };
