@@ -47,6 +47,7 @@ export default function NegociosPage() {
     <div className="[font-variant-numeric:lining-nums]">
       <Abertura
         rotulo="04 · Conexões"
+        chamada="Quanto vale estar na sala certa?"
         titulo="Conexões geram"
         destaque="negócios."
         lead="A H55 aproxima pessoas e empresas que têm negócio a fazer e ainda não se encontraram."

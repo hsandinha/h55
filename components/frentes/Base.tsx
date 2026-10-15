@@ -70,6 +70,8 @@ export const LinkSecundario = ({
 
 type AberturaProps = {
   rotulo: string;
+  /** Pergunta de efeito acima do título, quando a frente abre por ela. */
+  chamada?: string;
   titulo: string;
   destaque: string;
   lead?: React.ReactNode;
@@ -78,13 +80,31 @@ type AberturaProps = {
 };
 
 /** Abertura clara das páginas de frente: rótulo, título e ações. */
-export const Abertura = ({ rotulo, titulo, destaque, lead, cta, secundario }: AberturaProps) => (
+export const Abertura = ({
+  rotulo,
+  chamada,
+  titulo,
+  destaque,
+  lead,
+  cta,
+  secundario,
+}: AberturaProps) => (
   <section className="bg-[#f7f3ea] text-[#0a2540]">
     <div className="mx-auto max-w-[1240px] px-6 py-16 md:px-10 md:py-24 lg:px-14">
       <div className="max-w-3xl">
         <Label>{rotulo}</Label>
+        {chamada && (
+          <p
+            className="mt-7 border-l-2 border-[#b8860b] pl-5 text-balance text-2xl italic leading-[1.3] text-[#9a7b1e] md:text-[2rem]"
+            style={PLAYFAIR}
+          >
+            {chamada}
+          </p>
+        )}
         <h1
-          className="mt-8 text-balance text-4xl font-semibold leading-[1.08] md:text-[3.4rem]"
+          className={`${
+            chamada ? "mt-7" : "mt-8"
+          } text-balance text-4xl font-semibold leading-[1.08] md:text-[3.4rem]`}
           style={PLAYFAIR}
         >
           {titulo} <span className="text-[#9a7b1e]">{destaque}</span>
