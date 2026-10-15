@@ -91,11 +91,11 @@ export const Abertura = ({
 }: AberturaProps) => (
   <section className="bg-[#f7f3ea] text-[#0a2540]">
     <div className="mx-auto max-w-[1240px] px-6 py-16 md:px-10 md:py-24 lg:px-14">
-      <div className="max-w-3xl">
+      <div className={chamada ? "max-w-6xl" : "max-w-3xl"}>
         <Label>{rotulo}</Label>
         {chamada && (
           <p
-            className="mt-8 text-balance text-4xl font-semibold italic leading-[1.1] md:text-[3.4rem]"
+            className="mt-8 text-[2rem] font-semibold italic leading-[1.08] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.4rem]"
             style={PLAYFAIR}
           >
             {chamada}
