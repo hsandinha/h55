@@ -70,7 +70,7 @@ export const LinkSecundario = ({
 
 type AberturaProps = {
   rotulo: string;
-  /** Pergunta de efeito acima do título, quando a frente abre por ela. */
+  /** Pergunta que abre a frente: assume o tamanho de hero e o título vira a resposta. */
   chamada?: string;
   titulo: string;
   destaque: string;
@@ -95,16 +95,19 @@ export const Abertura = ({
         <Label>{rotulo}</Label>
         {chamada && (
           <p
-            className="mt-7 border-l-2 border-[#b8860b] pl-5 text-balance text-2xl italic leading-[1.3] text-[#9a7b1e] md:text-[2rem]"
+            className="mt-8 text-balance text-4xl font-semibold italic leading-[1.1] md:text-[3.4rem]"
             style={PLAYFAIR}
           >
             {chamada}
           </p>
         )}
+        {/* Com chamada, o título cede o tamanho para ela e vira a resposta. */}
         <h1
-          className={`${
-            chamada ? "mt-7" : "mt-8"
-          } text-balance text-4xl font-semibold leading-[1.08] md:text-[3.4rem]`}
+          className={
+            chamada
+              ? "mt-6 text-balance text-2xl font-semibold leading-[1.3] md:text-[2rem]"
+              : "mt-8 text-balance text-4xl font-semibold leading-[1.08] md:text-[3.4rem]"
+          }
           style={PLAYFAIR}
         >
           {titulo} <span className="text-[#9a7b1e]">{destaque}</span>
