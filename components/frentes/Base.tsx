@@ -95,7 +95,7 @@ export const Abertura = ({
         <Label>{rotulo}</Label>
         {chamada && (
           <p
-            className="mt-8 text-[2rem] font-semibold italic leading-[1.08] md:text-[2.5rem] lg:text-[3rem] xl:text-[3.4rem]"
+            className="mt-8 border-l-[3px] border-[#b8860b] pl-5 text-[2rem] font-semibold italic leading-[1.08] md:pl-6 md:text-[2.5rem] lg:text-[3rem] xl:text-[3.4rem]"
             style={PLAYFAIR}
           >
             {chamada}
