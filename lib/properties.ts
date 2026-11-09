@@ -8,8 +8,8 @@ import { getSupabase } from "@/lib/supabaseClient";
 const TABLE = "imoveis";
 const PUBLIC_VIEW = "imoveis_publicos";
 const NOT_CONFIGURED = "Supabase não configurado.";
-let warnedMissingPublicView = false;
-const PUBLIC_SELECT = [
+const warned = new Set<string>();
+const PUBLIC_COLUMNS = [
   "id",
   "dataCadastro",
   "codigo",
@@ -46,48 +46,82 @@ const PUBLIC_SELECT = [
   "exclusividade",
   "aceitaFinanciamento",
   "aceitaProposta",
-].join(",");
+];
+
+/**
+ * Extras da vitrine. Se o GRANT de alguma destas faltar para o "anon", a
+ * listagem inteira cai com 42501 — então a leitura pública sabe repetir a
+ * consulta sem elas em vez de devolver uma carteira vazia.
+ */
+const OPTIONAL_COLUMNS = ["descontoPercent"];
+const PUBLIC_SELECT = PUBLIC_COLUMNS.join(",");
+const CORE_SELECT = PUBLIC_COLUMNS.filter((c) => !OPTIONAL_COLUMNS.includes(c)).join(",");
 
 function logSupabaseError(context: string, error: unknown) {
-  if (process.env.NODE_ENV !== "production") {
-    if (isMissingPublicView(error) && warnedMissingPublicView) return;
-    if (isMissingPublicView(error)) warnedMissingPublicView = true;
-    console.warn(`[Supabase] ${context}`, error);
-  }
+  // Em produção também: sem isto, uma falha de permissão vira "0 imóveis"
+  // na tela e nenhum rastro em lugar nenhum.
+  const chave = `${context}|${codigoDoErro(error)}`;
+  if (warned.has(chave)) return;
+  warned.add(chave);
+  console.error(`[Supabase] ${context}`, error);
 }
 
-function isMissingPublicView(error: unknown) {
-  return (
-    typeof error === "object" &&
-    error !== null &&
-    "code" in error &&
-    (error as { code?: string }).code === "PGRST205"
-  );
+function codigoDoErro(error: unknown): string | undefined {
+  if (typeof error !== "object" || error === null || !("code" in error)) return undefined;
+  return (error as { code?: string }).code;
 }
+
+/** A view pública não existe neste banco. */
+function isMissingPublicView(error: unknown) {
+  return codigoDoErro(error) === "PGRST205";
+}
+
+/**
+ * 42501: falta GRANT para o "anon" em alguma coluna. Como a view roda com
+ * security_invoker, uma única coluna sem grant derruba a view inteira.
+ */
+function isPermissionDenied(error: unknown) {
+  return codigoDoErro(error) === "42501";
+}
+
+const devePularParaTabelaBase = (error: unknown) =>
+  isMissingPublicView(error) || isPermissionDenied(error);
 
 async function getImoveisFallback(): Promise<Imovel[]> {
   const supabase = getSupabase();
   if (!supabase) return [];
-  const { data, error } = await supabase
-    .from(TABLE)
-    .select(PUBLIC_SELECT)
-    .eq("status", "Ativo")
-    .order("dataCadastro", { ascending: false });
-  if (error || !data) return [];
-  return data as unknown as Imovel[];
+  for (const select of [PUBLIC_SELECT, CORE_SELECT]) {
+    const { data, error } = await supabase
+      .from(TABLE)
+      .select(select)
+      .eq("status", "Ativo")
+      .order("dataCadastro", { ascending: false });
+    if (!error && data) return data as unknown as Imovel[];
+    if (error) {
+      logSupabaseError("Falha ao ler a tabela base.", error);
+      if (!isPermissionDenied(error)) break;
+    }
+  }
+  return [];
 }
 
 async function getImovelByIdFallback(id: string): Promise<Imovel | null> {
   const supabase = getSupabase();
   if (!supabase) return null;
-  const { data, error } = await supabase
-    .from(TABLE)
-    .select(PUBLIC_SELECT)
-    .eq("status", "Ativo")
-    .eq("id", id)
-    .single();
-  if (error || !data) return null;
-  return data as unknown as Imovel;
+  for (const select of [PUBLIC_SELECT, CORE_SELECT]) {
+    const { data, error } = await supabase
+      .from(TABLE)
+      .select(select)
+      .eq("status", "Ativo")
+      .eq("id", id)
+      .single();
+    if (!error && data) return data as unknown as Imovel;
+    if (error) {
+      logSupabaseError("Falha ao ler o imóvel na tabela base.", error);
+      if (!isPermissionDenied(error)) break;
+    }
+  }
+  return null;
 }
 
 export type ImovelInput = Partial<Imovel>;
@@ -102,7 +136,7 @@ export async function getImoveis(): Promise<Imovel[]> {
     if (error || !data) {
       if (error) {
         logSupabaseError("Falha ao carregar imoveis_publicos.", error);
-        if (isMissingPublicView(error)) return getImoveisFallback();
+        if (devePularParaTabelaBase(error)) return getImoveisFallback();
       }
       return [];
     }
@@ -125,7 +159,7 @@ export async function getImovelById(id: string): Promise<Imovel | null> {
     if (error || !data) {
       if (error) {
         logSupabaseError("Falha ao carregar imóvel público.", error);
-        if (isMissingPublicView(error)) return getImovelByIdFallback(id);
+        if (devePularParaTabelaBase(error)) return getImovelByIdFallback(id);
       }
       return null;
     }
